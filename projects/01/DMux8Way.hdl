@@ -32,4 +32,6 @@ CHIP DMux8Way {
     And(a=xg ,b=sel[2] ,out=g );
     And(a=xh ,b=sel[2] ,out=h );
 
+// i later saw online the 3-chip solution for this and dmux4way - but academic honesty and all that. :)
+
 }

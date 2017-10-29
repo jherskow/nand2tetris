@@ -1,5 +1,5 @@
-// This file is part of www.nand2tetris.org
 // and the book "The Elements of Computing Systems"
+// This file is part of www.nand2tetris.org
 // by Nisan and Schocken, MIT Press.
 // File name: projects/01/Or8Way.hdl
 
@@ -14,4 +14,13 @@ CHIP Or8Way {
 
     PARTS:
     // Put your code here:
+    Or(a=in[0], b=in[1] ,out=ab);
+    Or(a=in[2], b=in[3] ,out=cd);
+    Or(a=in[4], b=in[5] ,out=ef);
+    Or(a=in[6], b=in[7] ,out=gh);
+
+    Or(a=ab, b=cd ,out=abcd);
+    Or(a=ef, b=gh ,out=efgh);
+
+    Or(a=abcd, b=efgh ,out=out);
 }

@@ -1,0 +1,36 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/03/b/RAM4K.hdl
+
+/**
+ * Memory of 4K registers, each 16 bit-wide. Out holds the value
+ * stored at the memory location specified by address. If load==1, then 
+ * the in value is loaded into the memory location specified by address 
+ * (the loaded value will be emitted to out from the next time step onward).
+ */
+
+CHIP RAM4K {
+    IN in[16], load, address[12];
+    OUT out[16];
+
+    PARTS:
+
+    DMux8Way(in=load ,sel=address[9..11], a=loadA ,b=loadB ,c=loadC ,d=loadD ,e=loadE ,f=loadF ,g=loadG ,h=loadH );
+
+    RAM512(in=in ,load=loadA, address=address[0..8] ,out=outA);
+    RAM512(in=in ,load=loadB, address=address[0..8] ,out=outB);
+    RAM512(in=in ,load=loadC, address=address[0..8] ,out=outC);
+    RAM512(in=in ,load=loadD, address=address[0..8] ,out=outD);
+    RAM512(in=in ,load=loadE, address=address[0..8] ,out=outE);
+    RAM512(in=in ,load=loadF, address=address[0..8] ,out=outF);
+    RAM512(in=in ,load=loadG, address=address[0..8] ,out=outG);
+    RAM512(in=in ,load=loadH, address=address[0..8] ,out=outH);
+
+    Mux8Way16(a=outA ,b=outB ,c=outC ,d=outD ,e=outE ,f=outF ,g=outG ,h=outH ,sel=address[9..11] ,out=out);
+
+/*
+for x in [chr(i) for i in range(ord('A'),ord('A')+8)]:
+  print("RAM512(in=in ,load=load"+x+", address=address[0..8] ,out=out"+x+");")
+*/
+}

@@ -1,0 +1,30 @@
+jherskow
+===============================================================================
+Joshua Herskowitz, ID 321658379, jherskow@cs.huji.ac.il
+===============================================================================
+                         ----------------------- 
+                           Project 3 - SCRAM
+                         ----------------------- 
+  
+
+Submitted Files
+---------------
+README - This file.
+
+Bit.hdl
+RAM16K.hdl
+RAM512.hdl
+RAM8.hdl
+PC.hdl
+RAM4K.hdl
+RAM64.hdl
+Register.hdl
+
+
+Remarks
+-------
+* n/a
+
+===============================================================================
+tar -czvf nand-03.tar *.hdl README
+

@@ -3,5 +3,7 @@ CHIP ShiftLeft{
      OUT out[16];
      
      PARTS:
-    And16(a=true ,b[0]=false, b[1..15]=in[0..14] ,out=out); // this is significantly faster than the add16 method
+    
+    And16(a=true ,b[0]=false, b[1..15]=in[0..14] ,out=out);
+
 }

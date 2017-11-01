@@ -4,27 +4,12 @@ Joshua Herskowitz, ID 321658379, jherskow@cs.huji.ac.il
 ===============================================================================
   
                            ------------------------                    
-                           Project 1 - Logic gates
+                           Project 0 - Logic gates
                            ------------------------ 
   
 Submitted Files
 ---------------
-README - This file.
-And16.hdl 
-DMux8Way.hdl 
-Mux4Way16.hdl 
-Not16.hdl 
-Or8Way.hdl 
-And.hdl 
-DMux.hdl 
-Mux8Way16.hdl 
-Not.hdl 
-Or.hdl 
-DMux4Way.hdl 
-Mux16.hdl 
-Mux.hdl 
-Or16.hdl 
-Xor.hdl 
+ls *.hdl
 
 
 Remarks
@@ -33,7 +18,7 @@ Remarks
 
 
 ===============================================================================
-tar -czvf nand-01.tar *.hdl README
+tar -czvf nand-00.tar *.hdl README
 
 
 

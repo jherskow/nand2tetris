@@ -43,4 +43,40 @@ CHIP ALU {
 
     PARTS:
    // Put you code here:
+
+    //make negations
+    Not16(in=Xa ,out=notX );
+    Not16(in=Ya ,out=notY );
+    Not16(in=resultA ,out=notResultA);
+
+    //zeros
+    Mux16(a=x ,b=false ,sel=zx ,out=Xa ); 
+    Mux16(a=y ,b=false ,sel=zy ,out=Ya ); 
+
+    //negations
+    Mux16(a=Xa ,b=notX ,sel=nx ,out=Xb ); 
+    Mux16(a=Ya ,b=notY ,sel=ny ,out=Yb );
+
+    ///opertions
+    And16(a=Xb ,b=Yb ,out=and );
+    Add16(a=Xb ,b=Yb  ,out=sum );
+
+    //choose operation
+    Mux16(a=and ,b=sum ,sel=f ,out=resultA);
+
+    //choose result or negation
+    Mux16(a=resultA ,b=notResultA ,sel=no ,out[0..7]=resultI, out[8..15]=resultII, out=out, out[15]=sigBit);
+
+    // set zr if zero
+    Or8Way(in=resultI ,out=orA );
+    Or8Way(in=resultII ,out=orB );
+    Or(a=orA ,b=orB ,out=notZeroResult );
+    Not(in=notZeroResult ,out=zr);
+
+    // set ng if most sig bit is 1
+    And(a=true ,b=sigBit ,out=ng );
+
+    // Th-Th-That's all, Folks! 
+
+
 }

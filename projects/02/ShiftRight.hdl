@@ -3,5 +3,5 @@ CHIP ShiftRight{
      OUT out[16];
      
      PARTS:
-
+    And16(a=true ,b[15]=in[15], b[0..14]=in[1..15] ,out=out); //Should work
 }

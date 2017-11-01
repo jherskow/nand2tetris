@@ -1,0 +1,16 @@
+
+
+==========README=====================================
+
+
+
+
+  Add16.hdl 
+  FullAdder.hdl
+  Inc16.hdl
+  ShiftLeft.hdl
+  ALU.hdl
+  HalfAdder.hdl
+  Mul.hdl    
+  ShiftRight.hdl
+

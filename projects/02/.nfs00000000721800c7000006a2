@@ -57,7 +57,7 @@ Add16(a=SS3 ,b=SS4 ,out=SSS2);
 Add16(a=SSS1 ,b=SSS2 ,out=out);
 
 
-/*
+
  ## helper 1 ##
 for x in range(16):
   if (x==0):

@@ -28,3 +28,7 @@ Remarks
 ===============================================================================
 tar -czvf nand-03.tar *.hdl README
 
+or to maintain subfolders:
+tar -cf nand-03.tar **/*.hdl **/README README
+
+

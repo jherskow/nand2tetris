@@ -3,7 +3,7 @@
 // by Nisan and Schocken, MIT Press.
 // File name: projects/04/mult/Mult.tst
 
-load Mult.hack,
+load Mult.asm,
 output-file Mult.out,
 compare-to Mult.cmp,
 output-list RAM[0]%D2.6.2 RAM[1]%D2.6.2 RAM[2]%D2.6.2;

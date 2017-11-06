@@ -12,7 +12,7 @@
 // This is done in order to test that these registers are set to 000...0 or 111....1, 
 // as mandated by how the Fill program should react to the keyboard events.
 
-load Fill.hack,
+load Fill.asm,
 output-file FillAutomatic.out,
 compare-to FillAutomatic.cmp,
 output-list RAM[16384]%D2.6.2 RAM[17648]%D2.6.2 RAM[18349]%D2.6.2 RAM[19444]%D2.6.2 RAM[20771]%D2.6.2 RAM[21031]%D2.6.2 RAM[22596]%D2.6.2 RAM[23754]%D2.6.2 RAM[24575]%D2.6.2;

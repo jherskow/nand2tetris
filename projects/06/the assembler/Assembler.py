@@ -212,4 +212,4 @@ def allocate_ram():
 
 # todo test code ###################################
 
-assemble("/cs/usr/jherskow/HUJI/nand2tetris/projects/06/pong/Pong.asm")
+assemble("/cs/usr/jherskow/HUJI/nand2tetris/projects/06/rect/Rect.asm")

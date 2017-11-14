@@ -16,12 +16,11 @@ CLOSED_BRACKET = ')'
 EQUAL = '='
 SEMICOLON = ';'
 EMPTY_3_BIT = '000'
-C_CODE = '111'
 A_CODE = '0'
 MAX_ROM = 32767
 MAX_ADDRESS = 24576
 
-# ========= GLOBALS =============
+# ========= globals =============
 variable_counter = 16
 var_table = {}
 out_array = []
@@ -48,11 +47,13 @@ def assemble(filename):
     global variable_counter
     global var_table
     global out_array
+
+    # re-initialise global variables
     variable_counter = 16
     var_table = {}
     out_array = []
-
     var_table.update(sym.predefs)
+
 
     in_array = read_input(filename)
 
@@ -63,7 +64,7 @@ def assemble(filename):
 
     write_output(filename)
 
-    # todo debug
+    # todo debug remove
     print("done!")
 
     return 0
@@ -189,7 +190,7 @@ def parse_c_instruction(line):
         print("unresolvable C instruction - bad syntax")
         raise SystemExit
 
-    out_line = C_CODE + comp + dest + jump + NEWLINE
+    out_line = comp + dest + jump + NEWLINE
     return out_line
 
 
@@ -212,4 +213,4 @@ def allocate_ram():
 
 # todo test code ###################################
 
-assemble("/cs/usr/jherskow/HUJI/nand2tetris/projects/06/rect/Rect.asm")
+assemble("/cs/usr/jherskow/HUJI/nand2tetris/projects/06/add/Add.asm")

@@ -201,11 +201,14 @@ def to_bin_15(num):
 
 def allocate_ram():
     global variable_counter
-    #if variable_counter > MAX_ADDRESS:
-    #    print("memory full")
-    #    raise SystemExit
+    if variable_counter > MAX_ADDRESS:
+        print("memory full")
+        raise SystemExit
+    # get address
+    address = to_bin_15(variable_counter)
+    # and increment the counter after!
     variable_counter += 1
-    return format(variable_counter, BIN_15)
+    return address
 
 
 # todo test code ###################################

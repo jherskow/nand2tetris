@@ -178,6 +178,8 @@ def parse_c_instruction(line):
             comp = sym.comps[comp]
             jump = sym.jumps[jump]
 
+        # todo only semicolon (so if and not, if and not)
+
         else:
             print("unresolvable C instruction - unknown command type")
             raise SystemExit

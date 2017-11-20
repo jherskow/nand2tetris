@@ -16,6 +16,7 @@ CLOSED_BRACKET = ')'
 EQUAL = '='
 SEMICOLON = ';'
 EMPTY_3_BIT = '000'
+BIN_15 = '015b'
 A_CODE = '0'
 MAX_ROM = 32767
 MAX_ADDRESS = 24576
@@ -58,9 +59,11 @@ def assemble(filename):
     in_array = read_input(filename)
 
     make_labels(in_array)
-
+    i=1 # todo remove
     for line in in_array:
         parse_line(line)
+        print(str(i)+"done") # todo remove
+        i+=1 # todo remove
 
     write_output(filename)
 
@@ -158,31 +161,36 @@ def parse_a_instruction(line):
 
 
 def parse_c_instruction(line):
+
+    equal = EQUAL in line
+    semicolon = SEMICOLON in line
     try:
-        if EQUAL in line and SEMICOLON in line:
+        if equal and semicolon:
             dest, rest = line.split(EQUAL)
             comp, jump = rest.split(SEMICOLON)
-            dest = sym.dests[dest]
-            comp = sym.comps[comp]
-            jump = sym.jumps[jump]
+            dest = sym.dests[dest.strip()]
+            comp = sym.comps[comp.strip()]
+            jump = sym.jumps[jump.strip()]
 
-        elif EQUAL in line:
+        elif equal and not semicolon:
             dest, comp = line.split(EQUAL)
-            dest = sym.dests[dest]
-            comp = sym.comps[comp]
+            dest = sym.dests[dest.strip()]
+            comp = sym.comps[comp.strip()]
             jump = EMPTY_3_BIT
 
-        elif SEMICOLON in line:
+        elif semicolon and not equal:
             comp, jump = line.split(SEMICOLON)
+
             dest = EMPTY_3_BIT
-            comp = sym.comps[comp]
-            jump = sym.jumps[jump]
+            comp = sym.comps[comp.strip()]
+            jump = sym.jumps[jump.strip()]
 
-        # todo only semicolon (so if and not, if and not)
+        else: # there is only a compute instruct
+            comp = sym.comps[line.strip()]
+            jump = EMPTY_3_BIT
+            dest = EMPTY_3_BIT
 
-        else:
-            print("unresolvable C instruction - unknown command type")
-            raise SystemExit
+        # todo check whitespace compatability
 
     except KeyError:
         print("unresolvable C instruction - variable not found")
@@ -200,7 +208,7 @@ def to_bin_15(num):
     # if num >= MAX_ROM:
     #    print("15 bit binary overflow")
     #    raise SystemExit  #todo check
-    return format(num, '015b')
+    return format(num, BIN_15)
 
 
 def allocate_ram():
@@ -208,11 +216,16 @@ def allocate_ram():
     if variable_counter > MAX_ADDRESS:
         print("memory full")
         raise SystemExit
-    address = format(variable_counter, '015b')
+    address = format(variable_counter, BIN_15)
     variable_counter += 1
     return address
 
 
 # todo test code ###################################
 
-assemble("/cs/usr/jherskow/HUJI/nand2tetris/projects/06/pong/Pong.asm")
+assemble("/home/jjherskow/HUJI/nand2tetris/projects/06/test.asm")
+
+# todo  - If semicilon is indicative- only test trim and standalone computation
+# if not indicative - must inclde all -and test trim
+#
+#

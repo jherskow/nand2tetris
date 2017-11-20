@@ -18,6 +18,7 @@ SEMICOLON = ';'
 EMPTY_3_BIT = '000'
 BIN_15 = '015b'
 A_CODE = '0'
+NULL = 'null'
 MAX_ROM = 32767
 MAX_ADDRESS = 24576
 
@@ -34,7 +35,7 @@ def main():
     Does the real work around here
     """
 
-    filename = sys.argv[1]  # todo directory option
+    filename = sys.argv[1]  # todo directory option??
     assemble(filename)
 
 
@@ -61,19 +62,18 @@ def assemble(filename):
     make_labels(in_array)
     i=1 # todo remove
     for line in in_array:
+        print("line "+str(i), end='....')
         parse_line(line)
-        print(str(i)+"done") # todo remove
-        i+=1 # todo remove
+        print(str(i)+" done")
+        i+=1
 
     write_output(filename)
 
-    # todo debug remove
     print("done!")
 
     return 0
 
-
-# input prep#####################
+# ========= input prep =============
 
 def read_input(filename):
     """
@@ -102,23 +102,20 @@ def read_input(filename):
 
     return lines
 
+# ========= output prep =============
 
-# output prep#####################
 def write_output(filename):
     global out_array
 
-    # make output name #todo make func
-    filename = filename.split(".")
-    filename = filename[0]
-    filename = filename + ".hack"
+    # make output name
+    out_name = filename.split(".")[0] + ".hack"
 
-    with open(filename, 'w') as file:
+    with open(out_name, 'w') as file:
         for i, line in enumerate(out_array):
             file.write(out_array[i])
     file.close()
 
-
-# #assembly######################################################
+# ========= assembly=============
 
 
 def make_labels(lines):
@@ -129,10 +126,8 @@ def make_labels(lines):
             line = line.split(CLOSED_BRACKET)[0]
             line = line.split(OPEN_BRACKET)[1]
             var_table[line] = to_bin_15(i)
-        elif line.startswith(STRUDEL):
-            i += 1
-        elif EQUAL in line or SEMICOLON in line:
-            i += 1
+        else:
+            i=i+1
 
 
 def parse_line(line):
@@ -148,7 +143,6 @@ def parse_line(line):
 
 
 def parse_a_instruction(line):
-    # todo
     value = line.split(STRUDEL)[1]
     if value.isdigit():
         replace = to_bin_15(int(value))
@@ -165,33 +159,31 @@ def parse_c_instruction(line):
     equal = EQUAL in line
     semicolon = SEMICOLON in line
     try:
-        if equal and semicolon:
+        if equal and semicolon: # dest=comp;jump
             dest, rest = line.split(EQUAL)
             comp, jump = rest.split(SEMICOLON)
-            dest = sym.dests[dest.strip()]
-            comp = sym.comps[comp.strip()]
-            jump = sym.jumps[jump.strip()]
 
-        elif equal and not semicolon:
+        elif equal and not semicolon: # dest=comp
             dest, comp = line.split(EQUAL)
-            dest = sym.dests[dest.strip()]
-            comp = sym.comps[comp.strip()]
-            jump = EMPTY_3_BIT
+            jump = NULL
 
-        elif semicolon and not equal:
+        elif semicolon and not equal: # comp;jmp
             comp, jump = line.split(SEMICOLON)
+            dest = NULL
 
-            dest = EMPTY_3_BIT
-            comp = sym.comps[comp.strip()]
-            jump = sym.jumps[jump.strip()]
+        else: # comp
+            comp = line
+            jump = NULL
+            dest = NULL
 
-        else: # there is only a compute instruct
-            comp = sym.comps[line.strip()]
-            jump = EMPTY_3_BIT
-            dest = EMPTY_3_BIT
+        # parse commands using table
+        dest = sym.dests[dest.strip()]
+        comp = sym.comps[comp.strip()]
+        jump = sym.jumps[jump.strip()]
 
         # todo check whitespace compatability
 
+    # todo remove all exceptions before submission
     except KeyError:
         print("unresolvable C instruction - variable not found")
         raise SystemExit
@@ -205,27 +197,21 @@ def parse_c_instruction(line):
 
 
 def to_bin_15(num):
-    # if num >= MAX_ROM:
-    #    print("15 bit binary overflow")
-    #    raise SystemExit  #todo check
     return format(num, BIN_15)
-
 
 def allocate_ram():
     global variable_counter
-    if variable_counter > MAX_ADDRESS:
-        print("memory full")
-        raise SystemExit
-    address = format(variable_counter, BIN_15)
+    #if variable_counter > MAX_ADDRESS:
+    #    print("memory full")
+    #    raise SystemExit
     variable_counter += 1
-    return address
+    return format(variable_counter, BIN_15)
 
 
 # todo test code ###################################
 
-assemble("/home/jjherskow/HUJI/nand2tetris/projects/06/test.asm")
+assemble("/home/jjherskow/HUJI/nand2tetris/projects/06/myPong/Pong.asm")
 
 # todo  - If semicilon is indicative- only test trim and standalone computation
 # if not indicative - must inclde all -and test trim
-#
-#
+

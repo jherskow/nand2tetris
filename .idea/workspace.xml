@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eacdd40-89ba-40e8-a58d-4fd62e45556a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/06/testdir/Add.asm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/06/testdir/Max.asm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/06/testdir/Pong.asm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/06/testdir/Pong.hack" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/06/testdir/Rect.asm" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/06/test.asm" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/nand2tetris.iml" afterPath="$PROJECT_DIR$/.idea/nand2tetris.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/06/the assembler/Assembler.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/06/the assembler/Assembler.py" afterPath="$PROJECT_DIR$/projects/06/the assembler/Assembler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/bin/Assembler.dat" afterPath="$PROJECT_DIR$/tools/bin/Assembler.dat" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,13 +19,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Assembler.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/projects/06/the assembler/Assembler.py">
+      <file leaf-file-name="Main.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projects/06/the assembler/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="26" column="19" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+            <state relative-caret-position="252">
+              <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
               <folding>
-                <element signature="e#334#360#0" expanded="true" />
+                <element signature="e#329#355#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,6 +50,7 @@
         <option value="$PROJECT_DIR$/projects/06/the assembler/symbol_table.py" />
         <option value="$PROJECT_DIR$/projects/06/myPong/Pong.asm" />
         <option value="$PROJECT_DIR$/projects/06/the assembler/Assembler.py" />
+        <option value="$PROJECT_DIR$/projects/06/the assembler/Main.py" />
       </list>
     </option>
   </component>
@@ -86,72 +80,19 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="nand" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nand" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nand" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nand" type="462c0819:PsiDirectoryNode" />
-              <item name="projects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nand" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nand" type="462c0819:PsiDirectoryNode" />
-              <item name="projects" type="462c0819:PsiDirectoryNode" />
-              <item name="06" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nand" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nand" type="462c0819:PsiDirectoryNode" />
-              <item name="projects" type="462c0819:PsiDirectoryNode" />
-              <item name="06" type="462c0819:PsiDirectoryNode" />
-              <item name="add" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nand" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nand" type="462c0819:PsiDirectoryNode" />
-              <item name="projects" type="462c0819:PsiDirectoryNode" />
-              <item name="06" type="462c0819:PsiDirectoryNode" />
-              <item name="max" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nand" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nand" type="462c0819:PsiDirectoryNode" />
-              <item name="projects" type="462c0819:PsiDirectoryNode" />
-              <item name="06" type="462c0819:PsiDirectoryNode" />
-              <item name="myPong" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nand" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nand" type="462c0819:PsiDirectoryNode" />
-              <item name="projects" type="462c0819:PsiDirectoryNode" />
-              <item name="06" type="462c0819:PsiDirectoryNode" />
-              <item name="pong" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nand" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nand" type="462c0819:PsiDirectoryNode" />
-              <item name="projects" type="462c0819:PsiDirectoryNode" />
-              <item name="06" type="462c0819:PsiDirectoryNode" />
-              <item name="rect" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nand" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nand" type="462c0819:PsiDirectoryNode" />
-              <item name="projects" type="462c0819:PsiDirectoryNode" />
-              <item name="06" type="462c0819:PsiDirectoryNode" />
-              <item name="testdir" type="462c0819:PsiDirectoryNode" />
+              <item name="nand2tetris" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -237,13 +178,20 @@
       <option name="project" value="LOCAL" />
       <updated>1511211662329</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="more work">
+      <created>1511279816501</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1511279816501</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="960" height="1048" extended-state="4" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22052401" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22052401" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -286,7 +234,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="19" />
+      <option name="time" value="20" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -295,9 +243,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#334#360#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -305,19 +251,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#334#360#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/06/test.asm">
+    <entry file="file://$PROJECT_DIR$/projects/06/the assembler/Assembler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5376">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/projects/06/test.asm" />
     <entry file="file://$PROJECT_DIR$/projects/06/pong/Pong.asm">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-20670">
@@ -345,16 +291,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/06/the assembler/Assembler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="26" column="19" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+        <state relative-caret-position="462">
+          <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/06/the assembler/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
           <folding>
-            <element signature="e#334#360#0" expanded="true" />
+            <element signature="e#329#355#0" expanded="true" />
           </folding>
         </state>
       </provider>

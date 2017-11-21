@@ -11,17 +11,17 @@
 @256
 -1
 0
-D=A
+D =A
 @SP
 M=D
 @133
-0;JMP
+0 ; JMP
 @R15
 M=D
 @SP
-AM=M-1
+AM    =     M-1
 D=M
-A=A-1
+A     =       A-1
 D=M-D
 M=0
 @END_EQ

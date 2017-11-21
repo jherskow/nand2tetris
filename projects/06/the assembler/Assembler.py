@@ -4,8 +4,12 @@
 # EXERCISE : nand2tetris ex3 2017-2018
 # DESCRIPTION: Assembler for hack
 ##########################################################################
+
+
+# ========= imports =============
+
 import symbol_table as sym
-import sys
+import sys, os
 
 # ========= constants =============
 COMMENT_DELIM = '//'
@@ -34,16 +38,23 @@ def main():
     """
     Does the real work around here
     """
+    path = sys.argv[1]  # todo directory option??
+    type_check(path)
 
-    filename = sys.argv[1]  # todo directory option??
-    assemble(filename)
+def type_check(path):
+    if os.path.isdir(path):
 
+        dir = os.fsdecode(path)
+        for filename in os.listdir(path):
+            if filename.endswith(".asm"):
+                assemble(os.path.join(dir,filename))
+
+    elif path.endswith(".asm"):
+        assemble(path)
 
 def assemble(filename):
     """
-
-    :param filename:
-    :return:
+    :param filename: an .asm file
     """
 
     global variable_counter
@@ -69,9 +80,7 @@ def assemble(filename):
 
     write_output(filename)
 
-    print("done!")
-
-    return 0
+    print("done!") #todo remove
 
 # ========= input prep =============
 
@@ -158,39 +167,28 @@ def parse_c_instruction(line):
 
     equal = EQUAL in line
     semicolon = SEMICOLON in line
-    try:
-        if equal and semicolon: # dest=comp;jump
-            dest, rest = line.split(EQUAL)
-            comp, jump = rest.split(SEMICOLON)
 
-        elif equal and not semicolon: # dest=comp
-            dest, comp = line.split(EQUAL)
-            jump = NULL
+    if equal and semicolon: # dest=comp;jump
+        dest, rest = line.split(EQUAL)
+        comp, jump = rest.split(SEMICOLON)
 
-        elif semicolon and not equal: # comp;jmp
-            comp, jump = line.split(SEMICOLON)
-            dest = NULL
+    elif equal and not semicolon: # dest=comp
+        dest, comp = line.split(EQUAL)
+        jump = NULL
 
-        else: # comp
-            comp = line
-            jump = NULL
-            dest = NULL
+    elif semicolon and not equal: # comp;jmp
+        comp, jump = line.split(SEMICOLON)
+        dest = NULL
 
-        # parse commands using table
-        dest = sym.dests[dest.strip()]
-        comp = sym.comps[comp.strip()]
-        jump = sym.jumps[jump.strip()]
+    else: # comp
+        comp = line
+        jump = NULL
+        dest = NULL
 
-        # todo check whitespace compatability
-
-    # todo remove all exceptions before submission
-    except KeyError:
-        print("unresolvable C instruction - variable not found")
-        raise SystemExit
-
-    except ValueError:
-        print("unresolvable C instruction - bad syntax")
-        raise SystemExit
+    # parse commands using table
+    dest = sym.dests[dest.strip()]
+    comp = sym.comps[comp.strip()]
+    jump = sym.jumps[jump.strip()]
 
     out_line = comp + dest + jump + NEWLINE
     return out_line
@@ -210,7 +208,7 @@ def allocate_ram():
 
 # todo test code ###################################
 
-assemble("/home/jjherskow/HUJI/nand2tetris/projects/06/myPong/Pong.asm")
+type_check("/cs/usr/jherskow/Desktop/nand/projects/06/testdir")
 
 # todo  - If semicilon is indicative- only test trim and standalone computation
 # if not indicative - must inclde all -and test trim

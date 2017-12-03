@@ -101,7 +101,7 @@ def get_file_name(file_path):
 
 
 def parse_file_to_write(parser, codeWriter):
-    parser.clean_file_comments()
+    parser.remove_file_comments()
     while parser.has_more_commands():
         type = parser.command_type()
         if type == "C_ARITHMETIC":

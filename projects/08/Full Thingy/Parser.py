@@ -75,7 +75,6 @@ class Parser:
             return "C_CALL"
 
     def arg1(self):
-        # todo figure out
         if self.command_type() == "C_ARITHMETIC":
             return self.__current_line.split()[0]
         elif self.command_type() == "RETURN":
@@ -84,7 +83,6 @@ class Parser:
             return self.__current_line.split()[1]
 
     def arg2(self):
-        # todo figure out
         if self.command_type() == "C_PUSH" or self.command_type() == "C_POP" or \
                         self.command_type() == "C_FUNCTION" or self.command_type() == "C_CALL":
             return self.__current_line.split()[2]
@@ -107,7 +105,6 @@ def get_file_name(file_path):
 
 
 def parse_file_to_write(parser, codeWriter):
-    # todo figure out
     parser.remove_file_comments()
     while parser.has_more_commands():
         type = parser.command_type()

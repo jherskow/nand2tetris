@@ -13,6 +13,10 @@ class CodeWriter:
         self.__label_num = 0  # counter of labels number
         self.__return_num = 0  # counter of labels number
         self.__filename = out_filepath.split("/")[-1].strip(".asm")
+        self.__in_function = False
+        self.__function_name = ""
+        self.write_init() #todo correct spot?
+
 
     def write_arithmetic(self, command):
         """
@@ -40,11 +44,13 @@ class CodeWriter:
         elif command == "not":
             self.not_command()
 
+
     def add_command(self):
         """
         write assembly code that is equivalent an add command
         """
         self.write("@SP\nAM=M-1\nD=M\nA=A-1\nM=M+D\n")
+
 
     def sub_command(self):
         """
@@ -176,7 +182,8 @@ class CodeWriter:
     def push_static_segment(self, index):
         """ write the assembly code that is the translation of "push static index " command"""
         address = str(16 + int(index))
-        self.write("@" + address + "\nD=M\n@" + str(
+        # todo check correct segment & remove address line above me
+        self.write("@" + self.__filename +"."+str(index)+ "\nD=M\n@" + str(
             index) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
 
     def push_lcl_arg_this_that_segments(self, segment, index):
@@ -192,10 +199,10 @@ class CodeWriter:
         """
         if segment == "temp":
             index += 5
-            address = "R5"
+            address = "R5" # todo - maybe redo as pop @(ram[5+i])
             self.write("@" + address + "\nD=M\n@" + str(
                 index) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
-        elif segment == "pointer":
+        elif segment == "pointer": # todo - maybe redo as pop @(ram[3+i])
             if index == 0:
                 address = "THIS"
                 self.write(
@@ -223,45 +230,53 @@ class CodeWriter:
         write the assembly code that translation of "pop (local\argument\this\that) index" command
         """
         self.write(
-            "@" + segment + "\nD=M\n@" + str(
-                index) + "\nD=D+A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
+            "@" + segment + "\nD=M\n@" + str(index) +
+            "\nD=D+A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
 
     def pop_temp_pointer_segments(self, segment, index):
         """
         write the assembly code that translation of "pop (temp\pointer) index" command
         """
-        if segment == "temp":
+        if segment == "temp": # todo - maybe redo as pop @(ram[5+i])
             index += 5
             address = "R5"
             self.write(
-                "@" + address + "\nD=M\n@" + str(
-                    index) + "\nD=D+A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
-        elif segment == "pointer":
+                "@" + address + "\nD=M\n@" + str(index) +
+                "\nD=D+A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
+        elif segment == "pointer": # todo - maybe redo as pop @(ram[3+i])
             if index == 0:
                 address = "THIS"
                 self.write(
-                    "@" + address + "\nD=A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
+                    "@" + address +
+                    "\nD=A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
             if index == 1:
                 address = "THAT"
-                self.write(
-                    "@" + address + "\nD=A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
+                self.write\
+                    ("@" + address +
+                     "\nD=A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
 
     def pop_static_segment(self, index):
         """
-        write the assembly code that is the translation of "pop static index" command
+        write the assembly code that is the
+        translation of "pop static index" command
         """
         address = str(16 + index)
-        self.write(
-            "@" + address + "\nD=M\n@" + str(
-                index) + "\nD=D+A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
+        # todo check correct segment & remove address line above me
+        self.write\
+            ("@" + self.__filename +"."+str(index)+ "\nD=M\n@" +
+                    str(index) +
+                "\nD=D+A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
 
     def push_zero_k_times(self, k):
         for i in range(k):
-            self.push_constant_segment(0)  # todo
+            self.push_constant_segment(0)
 
     def write_label(self, label):
         """Writes assembly code that effects the label command."""
-        self.write("(" + label + ")\n")
+        if self.__in_function:
+            self.write("("+self.__function_name+"$"+label+")\n")
+        else:
+            self.write("(" + label + ")\n")
         # write (label_name)
 
     def write_goto(self, label):
@@ -281,69 +296,89 @@ class CodeWriter:
         #
 
     def write_call(self, function_name, num_args):
-        """Writes assembly code that effects the call command."""
+        """Writes assembly code that effects the calling a function."""
         num = self.new_return_num()
         return_address = "return_address" + str(num)
+        self.push_label(return_address)
         self.push_label("THAT")
         self.push_label("LCL")
         self.push_label("ARG")
         self.push_label("THIS")
         self.push_label("THAT")
-        self.label_eq_label_minus_constant("ARG", "SP", num_args + 5)
+        self.label_eq_label_minus_num("ARG", "SP", (num_args + 5))
         self.label_eq_label("LCL", "SP")
         self.write_goto(function_name)
         self.write_label(return_address)
-
-    def write_return(self):
-        """Writes assembly code that effects the return command."""
-        # todo
-        # self.label_eq_label("R13","LCL")
-        # self.label_eq_label("R13","LCL")
-        #
-        #
-        #
-        #
-        #
+        # todo see if this works
 
     def write_function(self, function_name, num_locals):
-        """Writes assembly code that effects the function command."""
+        """Writes assembly code that effects a function def start."""
+        # todo see if this works
+        self.__function_name = function_name
+        self.__in_function = True
+        self.write_label(function_name)
+        self.push_zero_k_times(num_locals)
 
-    def write_init(self, label):
+    def write_return(self):
+        """Writes assembly code that effects
+        the return command in a func def."""
+        # FRAME is R13
+        self.label_eq_label("R13","LCL")
+        # RET is R14
+        self.label_eq_label_minus_num("R14", "R13", 5)
+        # todo - *ARG = pop() 
+        self.pop_lcl_arg_this_that_segments("argument", 0)
+        # todo is this ok??
+
+        # todo check that negative const works
+        self.label_eq_label_minus_num("SP", "ARG", -1)
+
+
+        self.label_eq_label_minus_num("THAT", "R13", 1)
+        self.label_eq_label_minus_num("THIS", "R13", 2)
+        self.label_eq_label_minus_num("ARG", "R13", 3)
+        self.label_eq_label_minus_num("LCL", "R13", 4)
+        self.write_goto("R14")
+        self.__in_function = False
+
+    def write_init(self):
         """Writes bootstrap code"""
+        # todo check
+        self.write\
+            ("@256\nD=A\n@SP\nM=D\n")
+        self.write_call("Sys.init", 0)
 
     def label_eq_constant(self, label, constant):
-        """Writes assmebly for label=constant"""
-        self.write("@" + str(constant) + "\nD=A\n@" + label + "\nM=D\n")
+        """Writes assembly for label=constant"""
+        self.write\
+            ("@" + str(constant) + "\nD=A\n@" + label + "\nM=D\n")
         # @constant
         # D=A
         # @label
         # M=D
 
     def label_eq_label(self, label1, label2):
-        """Writes assmebly for label1=label2"""
-        self.write("@" + label2 + "\nD=A\n@" + label1 + "\nM=D\n")
+        """Writes assembly for label1=label2"""
+        self.write\
+            ("@" + label2 + "\nD=A\n@" + label1 + "\nM=D\n")
         # @label2
         # D=A
         # @label1
         # M=D
 
-    def label_eq_label_minus_constant(self, label1, label2, constant):
-        """Writes assmebly for label=*(label2-constant)"""
-        self.write("@" + label2 + "\nD=A\n@" + label1 + "\nM=D\n")
-        self.label_eq_label("R15", label2)
-        self.label_eq_constant("R14", constant)
-        # @R15
-        # D=M
-        # @R14
+    def label_eq_label_minus_num(self, label1, label2, num):
+        """Writes assembly for label=*(label2-constant)"""
+        # @label2
+        # D=A
+        # @str(constant)
         # D=D-A
         # @label1
         # M=D
-        self.write("@R15\nD+M\n@R14\nD=D-A\n@" + label1 + "\nM+D\n")
-        # todo without registers for safety
-        # todo recheck logic
+        self.write\
+            ("@"+label2+"\nD=A\n@"+str(num)+"\nD=D-A\n@"+label1+"\nM=D\n")
 
     def push_label(self, label):
-        """Writes assmebly for push adress of label to stack"""
+        """Writes assembly to push ram address of label to stack"""
         self.write("@" + label + "\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
         # @label
         # D=M
@@ -355,7 +390,7 @@ class CodeWriter:
 
     def write(self, string):
         """
-        close an output file
+        short form for file write
         """
         self.__file.write(string)
 

@@ -55,7 +55,7 @@ class Parser:
         returns the type of the current VM command
         """
         split_line = self.__current_line.split()
-        if split_line[0] in Parser.arithmeticCommands:
+        if split_line[0] in Parser.arithmeticCommands:  ##
             return "C_ARITHMETIC"
         elif split_line[0] == "push":
             return "C_PUSH"
@@ -65,12 +65,10 @@ class Parser:
             return "C_LABEL"
         elif split_line[0] == "goto":
             return "C_GOTO"
-        elif split_line[0] == "if":
+        elif split_line[0] == "if-goto": #todo check string
             return "C_IF"
         elif split_line[0] == "function":
             return "C_FUNCTION"
-        elif split_line[0] == "return":
-            return "C_RETURN"
         elif split_line[0] == "return":
             return "C_RETURN"
         elif split_line[0] == "call":
@@ -94,13 +92,12 @@ class Parser:
             return None
 
     def close_file(self):
-        "closes the input file"
+        """closes the input file"""
         self.__file.close()
 
 
 def get_file_name(file_path):
     """
-
     :param file_path: path to a file, including file itself
     :return:  path of the directory in which the object resides
     """
@@ -116,9 +113,21 @@ def parse_file_to_write(parser, codeWriter):
         type = parser.command_type()
         if type == "C_ARITHMETIC":
             codeWriter.write_arithmetic(parser.arg1())
-
         elif type == "C_PUSH" or type == "C_POP":
             codeWriter.write_push_pop(type, parser.arg1(), parser.arg2())
+        elif type == "C_LABEL":
+            codeWriter.write_label(parser.arg1())
+        elif type == "C_GOTO":
+            codeWriter.write_goto(parser.arg1())
+        elif type == "C_IF":
+            codeWriter.write_if(parser.arg1())
+        elif type == "C_FUNCTION":
+            codeWriter.write_function(parser.arg1(), parser.arg2())
+        elif type == "C_RETURN":
+            codeWriter.write_return()
+        elif type == "C_CALL":
+            codeWriter.write_call(parser.arg1(), parser.arg2())
+        # todo check
 
 
 def parse_file(file_path, writer):

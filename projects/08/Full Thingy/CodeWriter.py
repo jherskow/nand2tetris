@@ -75,14 +75,14 @@ class CodeWriter:
             self.__label_num) + ")\n@SP\nA=M-1\nA=A-1\nD=M\n@NEG2" +
                           str(self.__label_num) + "\nD;JLT\n@CONT" + str(self.__label_num) + "\n0;JMP\n(POS2" + str(
             self.__label_num) + ")\n@SP"
-                                "\nA=M-1\nA=A-1\nM=-1\n@SP\nM=M-1\n@ENDֹLABEL" + str(
+                                "\nA=M-1\nA=A-1\nM=-1\n@SP\nM=M-1\n@ENDLABEL" + str(
             self.__label_num) + "\n0;JMP\n(NEG2" + str(self.__label_num) + ")\n@SP" +
-                          "\nA=M-1\nA=A-1\nM=0\n@SP\nM=M-1\n@ENDֹLABEL" + str(
+                          "\nA=M-1\nA=A-1\nM=0\n@SP\nM=M-1\n@ENDLABEL" + str(
             self.__label_num) + "\n0;JMP\n(CONT" + str(self.__label_num) + ")\n"
                                                                            "@SP\nM=M-1\nA=M\nD=M\n@SP\nA=M-1\nD=M-D\n@TRUE" + str(
-            self.__label_num) + "\nD;JGT\n@SP\nA=M-1\nM=0\n@ENDֹLABEL" +
+            self.__label_num) + "\nD;JGT\n@SP\nA=M-1\nM=0\n@ENDLABEL" +
                           str(self.__label_num) + "\n0;JMP\n(TRUE" + str(
-            self.__label_num) + ")\n@SP\nA=M-1\nM=-1\n(ENDֹLABEL" +
+            self.__label_num) + ")\n@SP\nA=M-1\nM=-1\n(ENDLABEL" +
                           str(self.__label_num) + ")\n")
 
     def lt_command(self):
@@ -97,14 +97,14 @@ class CodeWriter:
             self.__label_num) + ")\n@SP\nA=M-1\nA=A-1\nD=M\n@NEG2" +
                           str(self.__label_num) + "\nD;JLT\n@CONT" + str(self.__label_num) + "\n0;JMP\n(POS2" + str(
             self.__label_num) + ")\n@SP"
-                                "\nA=M-1\nA=A-1\nM=0\n@SP\nM=M-1\n@ENDֹLABEL" + str(
+                                "\nA=M-1\nA=A-1\nM=0\n@SP\nM=M-1\n@ENDLABEL" + str(
             self.__label_num) + "\n0;JMP\n(NEG2" + str(self.__label_num) + ")\n@SP" +
-                          "\nA=M-1\nA=A-1\nM=-1\n@SP\nM=M-1\n@ENDֹLABEL" + str(
+                          "\nA=M-1\nA=A-1\nM=-1\n@SP\nM=M-1\n@ENDLABEL" + str(
             self.__label_num) + "\n0;JMP\n(CONT" + str(self.__label_num) + ")\n"
                                                                            "@SP\nM=M-1\nA=M\nD=M\n@SP\nA=M-1\nD=M-D\n@TRUE" + str(
-            self.__label_num) + "\nD;JGE\n@SP\nA=M-1\nM=-1\n@ENDֹLABEL" +
+            self.__label_num) + "\nD;JGE\n@SP\nA=M-1\nM=-1\n@ENDLABEL" +
                           str(self.__label_num) + "\n0;JMP\n(TRUE" + str(
-            self.__label_num) + ")\n@SP\nA=M-1\nM=0\n(ENDֹLABEL" +
+            self.__label_num) + ")\n@SP\nA=M-1\nM=0\n(ENDLABEL" +
                           str(self.__label_num) + ")\n")
 
     def and_command(self):
@@ -230,10 +230,13 @@ class CodeWriter:
 
     def write_label(self, label):
         """Writes assembly code that effects the label command."""
+        # make label name (f$b) or whatever
+        # write (label_name)
+        #
 
     def write_goto(self, label):
         """Writes assembly code that effects the goto command."""
-        # @ f$label LABEL
+        # @ f$label_name
         # 0:JMP
         #
 
@@ -254,8 +257,6 @@ class CodeWriter:
 
     def write_function(self,function_name, num_locals):
         """Writes assembly code that effects the function command."""
-
-
 
     def write_init(self, label):
         """Writes bootstrap code"""

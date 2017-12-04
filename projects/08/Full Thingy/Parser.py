@@ -115,10 +115,10 @@ def parse_file_to_write(parser, codeWriter):
     while parser.has_more_commands():
         type = parser.command_type()
         if type == "C_ARITHMETIC":
-            codeWriter.writeArithmetic(parser.arg1())
+            codeWriter.write_arithmetic(parser.arg1())
 
         elif type == "C_PUSH" or type == "C_POP":
-            codeWriter.writePushPop(type, parser.arg1(), parser.arg2())
+            codeWriter.write_push_pop(type, parser.arg1(), parser.arg2())
 
 
 def parse_file(file_path, writer):

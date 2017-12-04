@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# This file assumes that the main is contained in Main.py 
+# Obviously, your project may be more complicated and require 
+# a different run file.
+
+python3 HackAssembler.py $1

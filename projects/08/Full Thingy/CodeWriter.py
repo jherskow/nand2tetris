@@ -3,8 +3,10 @@ C_POP = "pop"
 
 
 class CodeWriter:
-    arithmeticCommands = {"add", "sub", "neg", "eq", "gt", "lt", "and", "or", "not"}
-    segments = {"local": "LCL", "argument": "ARG", "this": "THIS", "that": "THAT"}
+    arithmeticCommands = {"add", "sub", "neg", "eq", "gt", "lt", "and",
+                          "or", "not"}
+    segments = {"local": "LCL", "argument": "ARG", "this": "THIS",
+                "that": "THAT"}
 
     def __init__(self, out_filepath):
         self.__file = open(out_filepath, 'w')
@@ -61,27 +63,36 @@ class CodeWriter:
 
         write assembly code that is the translation of the eq comparision command
         """
-        self.write("@SP\nAM=M-1\nD=M\n@SP\nA=M-1\nD=M-D\n@CONDITION" + str(self.__label_num) + "\n" +
+        self.write("@SP\nAM=M-1\nD=M\n@SP\nA=M-1\nD=M-D\n@CONDITION" + str(
+            self.__label_num) + "\n" +
                    "D;" + "JEQ" + "\n@SP\nA=M-1\nM=0\n@CONTINUE" + str(
             self.__label_num) + "\n0;JMP\n(CONDITION" +
-                   str(self.__label_num) + ")\n@SP\nA=M-1\nM=-1\n(CONTINUE" + str(self.__label_num) + ")\n")
+                   str(
+                       self.__label_num) + ")\n@SP\nA=M-1\nM=-1\n(CONTINUE" + str(
+            self.__label_num) + ")\n")
 
     def gt_command(self):
         """
                write assembly code that is equivalent to a gt comparision command
          """
         self.write(
-            "@SP\nA=M-1\nD=M\n@NEG1" + str(self.__label_num) + "\nD;JLT\n@POS1" + str(self.__label_num) +
-            "\nD;JGE\n(NEG1" + str(self.__label_num) + ")\n@SP\nA=M-1\nA=A-1\nD=M\n@POS2" + str(
+            "@SP\nA=M-1\nD=M\n@NEG1" + str(
+                self.__label_num) + "\nD;JLT\n@POS1" + str(
+                self.__label_num) +
+            "\nD;JGE\n(NEG1" + str(
+                self.__label_num) + ")\n@SP\nA=M-1\nA=A-1\nD=M\n@POS2" + str(
                 self.__label_num) + "\nD;JGT\n@CONT"
             + str(self.__label_num) + "\n0;JMP\n(POS1" + str(
                 self.__label_num) + ")\n@SP\nA=M-1\nA=A-1\nD=M\n@NEG2" +
-            str(self.__label_num) + "\nD;JLT\n@CONT" + str(self.__label_num) + "\n0;JMP\n(POS2" + str(
+            str(self.__label_num) + "\nD;JLT\n@CONT" + str(
+                self.__label_num) + "\n0;JMP\n(POS2" + str(
                 self.__label_num) + ")\n@SP"
                                     "\nA=M-1\nA=A-1\nM=-1\n@SP\nM=M-1\n@ENDLABEL" + str(
-                self.__label_num) + "\n0;JMP\n(NEG2" + str(self.__label_num) + ")\n@SP" +
+                self.__label_num) + "\n0;JMP\n(NEG2" + str(
+                self.__label_num) + ")\n@SP" +
             "\nA=M-1\nA=A-1\nM=0\n@SP\nM=M-1\n@ENDLABEL" + str(
-                self.__label_num) + "\n0;JMP\n(CONT" + str(self.__label_num) + ")\n"
+                self.__label_num) + "\n0;JMP\n(CONT" + str(
+                self.__label_num) + ")\n"
                                     "@SP\nM=M-1\nA=M\nD=M\n@SP\nA=M-1\nD=M-D\n@TRUE" + str(
                 self.__label_num) + "\nD;JGT\n@SP\nA=M-1\nM=0\n@ENDLABEL" +
             str(self.__label_num) + "\n0;JMP\n(TRUE" + str(
@@ -94,17 +105,23 @@ class CodeWriter:
                write assembly code that is equivalent to a lt comparision command
                """
         self.write(
-            "@SP\nA=M-1\nD=M\n@NEG1" + str(self.__label_num) + "\nD;JLT\n@POS1" + str(self.__label_num) +
-            "\nD;JGE\n(NEG1" + str(self.__label_num) + ")\n@SP\nA=M-1\nA=A-1\nD=M\n@POS2" + str(
+            "@SP\nA=M-1\nD=M\n@NEG1" + str(
+                self.__label_num) + "\nD;JLT\n@POS1" + str(
+                self.__label_num) +
+            "\nD;JGE\n(NEG1" + str(
+                self.__label_num) + ")\n@SP\nA=M-1\nA=A-1\nD=M\n@POS2" + str(
                 self.__label_num) + "\nD;JGT\n@CONT"
             + str(self.__label_num) + "\n0;JMP\n(POS1" + str(
                 self.__label_num) + ")\n@SP\nA=M-1\nA=A-1\nD=M\n@NEG2" +
-            str(self.__label_num) + "\nD;JLT\n@CONT" + str(self.__label_num) + "\n0;JMP\n(POS2" + str(
+            str(self.__label_num) + "\nD;JLT\n@CONT" + str(
+                self.__label_num) + "\n0;JMP\n(POS2" + str(
                 self.__label_num) + ")\n@SP"
                                     "\nA=M-1\nA=A-1\nM=0\n@SP\nM=M-1\n@ENDLABEL" + str(
-                self.__label_num) + "\n0;JMP\n(NEG2" + str(self.__label_num) + ")\n@SP" +
+                self.__label_num) + "\n0;JMP\n(NEG2" + str(
+                self.__label_num) + ")\n@SP" +
             "\nA=M-1\nA=A-1\nM=-1\n@SP\nM=M-1\n@ENDLABEL" + str(
-                self.__label_num) + "\n0;JMP\n(CONT" + str(self.__label_num) + ")\n"
+                self.__label_num) + "\n0;JMP\n(CONT" + str(
+                self.__label_num) + ")\n"
                                     "@SP\nM=M-1\nA=M\nD=M\n@SP\nA=M-1\nD=M-D\n@TRUE" + str(
                 self.__label_num) + "\nD;JGE\n@SP\nA=M-1\nM=-1\n@ENDLABEL" +
             str(self.__label_num) + "\n0;JMP\n(TRUE" + str(
@@ -145,7 +162,8 @@ class CodeWriter:
         if segment == "constant":
             self.push_constant_segment(index)
         if segment in CodeWriter.segments:
-            self.push_lcl_arg_this_that_segments(CodeWriter.segments.get(segment), index)
+            self.push_lcl_arg_this_that_segments(
+                CodeWriter.segments.get(segment), index)
         if segment == "temp" or segment == "pointer":
             self.push_pointer_temp_segments(segment, index)
         if segment == "static":
@@ -158,13 +176,15 @@ class CodeWriter:
     def push_static_segment(self, index):
         """ write the assembly code that is the translation of "push static index " command"""
         address = str(16 + int(index))
-        self.write("@" + address + "\nD=M\n@" + str(index) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
+        self.write("@" + address + "\nD=M\n@" + str(
+            index) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
 
     def push_lcl_arg_this_that_segments(self, segment, index):
         """
         write the assembly code that is translation of "push (local\argument\this\that) index" command
         """
-        self.write("@" + segment + "\nD=M\n@" + str(index) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
+        self.write("@" + segment + "\nD=M\n@" + str(
+            index) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
 
     def push_pointer_temp_segments(self, segment, index):
         """
@@ -173,22 +193,26 @@ class CodeWriter:
         if segment == "temp":
             index += 5
             address = "R5"
-            self.write("@" + address + "\nD=M\n@" + str(index) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
+            self.write("@" + address + "\nD=M\n@" + str(
+                index) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
         elif segment == "pointer":
             if index == 0:
                 address = "THIS"
-                self.write("@" + address + "\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
+                self.write(
+                    "@" + address + "\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
 
             if index == 1:
                 address = "THAT"
-                self.write("@" + address + "\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
+                self.write(
+                    "@" + address + "\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
 
     def pop_command(self, segment, index):
         """
         write the assembly code that translation of pop command
         """
         if segment in CodeWriter.segments:
-            self.pop_lcl_arg_this_that_segments(CodeWriter.segments.get(segment), index)
+            self.pop_lcl_arg_this_that_segments(
+                CodeWriter.segments.get(segment), index)
         elif segment == "temp" or segment == "pointer":
             self.pop_temp_pointer_segments(segment, int(index))
         elif segment == "static":
@@ -259,14 +283,14 @@ class CodeWriter:
     def write_call(self, function_name, num_args):
         """Writes assembly code that effects the call command."""
         num = self.new_return_num()
-        return_address = "return_address"+str(num)
+        return_address = "return_address" + str(num)
         self.push_label("THAT")
         self.push_label("LCL")
         self.push_label("ARG")
         self.push_label("THIS")
         self.push_label("THAT")
-        self.label_eq_label_minus_constant("ARG","SP",num_args+5)
-        self.label_eq_label("LCL","SP")
+        self.label_eq_label_minus_constant("ARG", "SP", num_args + 5)
+        self.label_eq_label("LCL", "SP")
         self.write_goto(function_name)
         self.write_label(return_address)
 
@@ -306,7 +330,7 @@ class CodeWriter:
     def label_eq_label_minus_constant(self, label1, label2, constant):
         """Writes assmebly for label=*(label2-constant)"""
         self.write("@" + label2 + "\nD=A\n@" + label1 + "\nM=D\n")
-        self.label_eq_label("R15",label2)
+        self.label_eq_label("R15", label2)
         self.label_eq_constant("R14", constant)
         # @R15
         # D=M
@@ -314,7 +338,7 @@ class CodeWriter:
         # D=D-A
         # @label1
         # M=D
-        self.write("@R15\nD+M\n@R14\nD=D-A\n@"+label1+"\nM+D\n")
+        self.write("@R15\nD+M\n@R14\nD=D-A\n@" + label1 + "\nM+D\n")
         # todo without registers for safety
         # todo recheck logic
 
@@ -337,9 +361,8 @@ class CodeWriter:
 
     def new_return_num(self):
         num = self.__return_num
-        self.__return_num +=1
+        self.__return_num += 1
         return num
-
 
     def close(self):
         """

@@ -1,0 +1,30 @@
+jherskow
+===============================================================================
+Joshua Herskowitz, ID 321658379, jherskow@cs.huji.ac.il
+===============================================================================
+                         ----------------------------------
+                           Project 6 - AVENGERS ASSEMBLE
+                         ----------------------------------
+  
+
+Submitted Files
+---------------
+README - This file.
+
+Assembler
+Makefile
+HackAssembler.py
+symbol_table.py
+
+
+Remarks
+-------
+* n/a
+
+===============================================================================
+tar -czvf nand-03.tar *.hdl README
+
+or to maintain subfolders:
+tar -cf nand-03.tar **/*.hdl **/README README
+
+

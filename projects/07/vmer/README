@@ -1,0 +1,18 @@
+ayaj,jherskow
+===============================================================================
+Aya Jbara, ID 209048156, aya.jbara@mail.huji.ac.il
+Joshua Herskowitz, ID 321658379, jherskow@cs.huji.ac.il
+===============================================================================
+Project 7 -VMtranslator
+
+
+Submitted Files
+---------------
+README - This file.
+Makefile - A script that give permisssions to the VMtranslator program to get invoke from terminal
+Parser.py - The main program that translates a given vm files to assembly files
+CodeWriter.py - A class that translate every single line from vm language to assembly language
+
+Remarks
+-------
+

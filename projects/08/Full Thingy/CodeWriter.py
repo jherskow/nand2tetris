@@ -12,7 +12,7 @@ class CodeWriter:
 
     def writeArithmetic(self, command):
         """
-        write assembly code that is the translation of the given arithmetic command
+        write assembly code that is equivalent to the given arithmetic command
         """
         if command == "add":
             self.add_command()
@@ -38,19 +38,19 @@ class CodeWriter:
 
     def add_command(self):
         """
-        write assembly code that is the translation of add command
+        write assembly code that is equivalent an add command
         """
         self.__file.write("@SP\nAM=M-1\nD=M\nA=A-1\nM=M+D\n")
 
     def sub_command(self):
         """
-        write assembly code that is the translation of sub command
+        write assembly code that is equivalent to a sub command
         """
         self.__file.write("@SP\nAM=M-1\nD=M\nA=A-1\nM=M-D\n")
 
     def neg_command(self):
         """
-        write assembly code that is the translation of neg command
+        write assembly code that is equivalent to a neg command
         """
         self.__file.write("D=0\n@SP\nA=M-1\nM=D-M\n")
 
@@ -66,7 +66,7 @@ class CodeWriter:
 
     def gt_command(self):
         """
-               write assembly code that is the translation of the gt comparision command
+               write assembly code that is equivalent to a gt comparision command
          """
         self.__file.write("@SP\nA=M-1\nD=M\n@NEG1" + str(self.__label_num) + "\nD;JLT\n@POS1" + str(self.__label_num) +
                           "\nD;JGE\n(NEG1" + str(self.__label_num) + ")\n@SP\nA=M-1\nA=A-1\nD=M\n@POS2" + str(
@@ -88,7 +88,7 @@ class CodeWriter:
     def lt_command(self):
         """
 
-               write assembly code that is the translation of the lt comparision command
+               write assembly code that is equivalent to a lt comparision command
                """
         self.__file.write("@SP\nA=M-1\nD=M\n@NEG1" + str(self.__label_num) + "\nD;JLT\n@POS1" + str(self.__label_num) +
                           "\nD;JGE\n(NEG1" + str(self.__label_num) + ")\n@SP\nA=M-1\nA=A-1\nD=M\n@POS2" + str(
@@ -109,28 +109,25 @@ class CodeWriter:
 
     def and_command(self):
         """
-
         write assembly code that is the translation of and command
         """
         self.__file.write("@SP\nAM=M-1\nD=M\nA=A-1\nM=M&D\n")
 
     def not_command(self):
         """
-
-        write assembly code that is the translation of the not command
+        write assembly code that is equivalent to a not command
         """
         self.__file.write("@SP\nA=M-1\nM=!M\n")
 
     def or_command(self):
         """
-
-        write assembly code that is the translation of the or command
+        write assembly code that is equivalent to an or command
         """
         self.__file.write("@SP\nAM=M-1\nD=M\nA=A-1\nM=M|D\n")
 
     def writePushPop(self, command, segment, index):
         """
-        write the assembly code that is the translation of the given command, where command is either C_PUSH or C_POP
+        write assembly code that is equivalent to a given command, where command is either C_PUSH or C_POP
         """
         if command == "C_PUSH":
             self.push_command(segment, int(index))
@@ -139,7 +136,7 @@ class CodeWriter:
 
     def push_command(self, segment, index):
         """
-        write the assembly code that is the translation of the push command
+        write assembly code that is equivalent to a push command
         """
         if segment == "constant": self.push_constant_segment(index)
         if segment in CodeWriter.segments:
@@ -225,6 +222,45 @@ class CodeWriter:
         address = str(16 + index)
         self.__file.write(
             "@" + address + "\nD=M\n@" + str(index) + "\nD=D+A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
+
+    def push_zero_k_times(self,k):
+        # todo
+        for i in range(k):
+            self.push_constant_segment(0) #todo
+
+    def write_label(self, label):
+        """Writes assembly code that effects the label command."""
+
+    def write_goto(self, label):
+        """Writes assembly code that effects the goto command."""
+        # @ f$label LABEL
+        # 0:JMP
+        #
+
+    def write_if(self, label):
+        """Writes assembly code that effects the if-goto command."""
+        # @SP
+        # D=M
+        # @ f$label LABEL
+        # D:JNE
+        #
+
+
+    def write_call(self, function_name, num_args):
+        """Writes assembly code that effects the call command."""
+
+    def write_return(self):
+        """Writes assembly code that effects the return command."""
+
+    def write_function(self,function_name, num_locals):
+        """Writes assembly code that effects the function command."""
+
+
+
+    def write_init(self, label):
+        """Writes bootstrap code"""
+
+
 
     def close(self):
         """

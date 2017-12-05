@@ -1,0 +1,4 @@
+function func 0
+push argument 0
+return
+call func 1

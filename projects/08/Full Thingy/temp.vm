@@ -1,0 +1,42 @@
+function Sys.init 0
+push constant 4000	
+pop pointer 0
+push constant 5000
+pop pointer 1
+call Sys.main 0
+pop temp 1
+label LOOP
+goto LOOP
+function Sys.main 5
+push constant 4001
+pop pointer 0
+push constant 5001
+pop pointer 1
+push constant 200
+pop local 1
+push constant 40
+pop local 2
+push constant 6
+pop local 3
+push constant 123
+call Sys.add12 1
+pop temp 0
+push local 0
+push local 1
+push local 2
+push local 3
+push local 4
+add
+add
+add
+add
+return
+function Sys.add12 0
+push constant 4002
+pop pointer 0
+push constant 5002
+pop pointer 1
+push argument 0
+push constant 12
+add
+return

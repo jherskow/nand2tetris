@@ -11,11 +11,11 @@ class CodeWriter:
     def __init__(self, out_filepath):
         self.__file = open(out_filepath, 'w')
         self.__label_num = 0  # counter of labels number
-        self.__return_num = 0  # counter of labels number
-        self.__filename = out_filepath.split("/")[-1].strip(".asm")
-        self.__in_function = False
+        self.__return_num_counter = 0  # counter of labels number
+        self.__cur_filename = ""
+        self.__in_function_def = False
         self.__function_name = ""
-        self.write_init() #todo correct spot?
+        # self.write_init() #todo put when necessary
 
 
     def write_arithmetic(self, command):
@@ -183,7 +183,7 @@ class CodeWriter:
         """ write the assembly code that is the translation of "push static index " command"""
         address = str(16 + int(index))
         # todo check correct segment & remove address line above me
-        self.write("@" + self.__filename +"."+str(index)+ "\nD=M\n@" + str(
+        self.write("@" + self.__cur_filename + "." + str(index) + "\nD=M\n@" + str(
             index) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
 
     def push_lcl_arg_this_that_segments(self, segment, index):
@@ -263,8 +263,8 @@ class CodeWriter:
         address = str(16 + index)
         # todo check correct segment & remove address line above me
         self.write\
-            ("@" + self.__filename +"."+str(index)+ "\nD=M\n@" +
-                    str(index) +
+            ("@" + self.__cur_filename + "." + str(index) + "\nD=M\n@" +
+             str(index) +
                 "\nD=D+A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
 
     def push_zero_k_times(self, k):
@@ -273,51 +273,49 @@ class CodeWriter:
 
     def write_label(self, label):
         """Writes assembly code that effects the label command."""
-        if self.__in_function:
-            self.write("("+self.__function_name+"$"+label+")\n")
-        else:
-            self.write("(" + label + ")\n")
+        label = self.label_by_scope(label)
+        self.write("(" + label + ")\n")
         # write (label_name)
 
     def write_goto(self, label):
-        """Writes assembly code that effects the goto command."""
+        """Writes assembly code that effects the goto @label command."""
+        label = self.label_by_scope(label)
         self.write("@" + label + "\n0;JMP\n")
-        # @ f$label_name
+        # @label
         # 0:JMP
         #
 
     def write_if(self, label):
         """Writes assembly code that effects the if-goto command."""
+        label=self.label_by_scope(label)
         self.write("@SP\nD=M\n@" + label + "\nD;JNE\n")
         # @SP
         # D=M
-        # @ f$label LABEL
+        # @label
         # D:JNE
         #
 
     def write_call(self, function_name, num_args):
         """Writes assembly code that effects the calling a function."""
-        num = self.new_return_num()
-        return_address = "return_address" + str(num)
+        return_num = self.new_return_num()
+        return_address = "return_address_" + str(return_num)
         self.push_label(return_address)
         self.push_label("THAT")
         self.push_label("LCL")
         self.push_label("ARG")
         self.push_label("THIS")
         self.push_label("THAT")
-        self.label_eq_label_minus_num("ARG", "SP", (num_args + 5))
+        self.label_eq_label_minus_num("ARG", "SP", (int(num_args)+5))
         self.label_eq_label("LCL", "SP")
         self.write_goto(function_name)
         self.write_label(return_address)
-        # todo see if this works
 
     def write_function(self, function_name, num_locals):
         """Writes assembly code that effects a function def start."""
-        # todo see if this works
         self.__function_name = function_name
-        self.__in_function = True
         self.write_label(function_name)
-        self.push_zero_k_times(num_locals)
+        self.__in_function_def = True
+        self.push_zero_k_times(int(num_locals))
 
     def write_return(self):
         """Writes assembly code that effects
@@ -326,8 +324,16 @@ class CodeWriter:
         self.label_eq_label("R13","LCL")
         # RET is R14
         self.label_eq_label_minus_num("R14", "R13", 5)
-        # todo - *ARG = pop() 
-        self.pop_lcl_arg_this_that_segments("argument", 0)
+
+        # todo - *ARG = pop()  - pop value to ARG (actual arg pointer value)
+        self.write("@SP\nA=A-1\nD=M\n@ARG\nM=D\n@SP\nM=M-1\n")
+        # @SP
+        # A=A-1
+        # D=M
+        # @ARG
+        # M=D
+        # @SP
+        # M=M-1
         # todo is this ok??
 
         # todo check that negative const works
@@ -338,8 +344,9 @@ class CodeWriter:
         self.label_eq_label_minus_num("THIS", "R13", 2)
         self.label_eq_label_minus_num("ARG", "R13", 3)
         self.label_eq_label_minus_num("LCL", "R13", 4)
+        self.__in_function_def = False
         self.write_goto("R14")
-        self.__in_function = False
+
 
     def write_init(self):
         """Writes bootstrap code"""
@@ -387,6 +394,8 @@ class CodeWriter:
         # M=D
         # @SP
         # M=M+1
+    def set_cur_filename(self, filename):
+        self.__cur_filename = filename
 
     def write(self, string):
         """
@@ -395,9 +404,14 @@ class CodeWriter:
         self.__file.write(string)
 
     def new_return_num(self):
-        num = self.__return_num
-        self.__return_num += 1
+        num = self.__return_num_counter
+        self.__return_num_counter += 1
         return num
+
+    def label_by_scope(self,label):
+        if self.__in_function_def:
+           label = self.__function_name+"$"+label
+        return label
 
     def close(self):
         """

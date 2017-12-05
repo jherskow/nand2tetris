@@ -129,6 +129,8 @@ def parse_file_to_write(parser, codeWriter):
 
 def parse_file(file_path, writer):
     parser = Parser(file_path)
+    file_name = sys.argv[1].split("/")[-1].split(".")[0]
+    writer.set_cur_filename(file_name)
     parse_file_to_write(parser, writer)
     parser.close_file()
 
@@ -142,7 +144,7 @@ def parse_dir(dir_path, writer):
 
 def main():
     if len(sys.argv) != 2:
-        print("USAGE: VMEmulator ~directory")
+        print("USAGE: VMEmulator ~directory/file")
         return exit(1)
 
     if os.path.isfile(sys.argv[1]):

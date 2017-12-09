@@ -181,7 +181,7 @@ class CodeWriter:
 
     def push_static_segment(self, index):
         """ write the assembly code that is the translation of "push static index " command"""
-        address = str(16 + int(index))
+        # address = str(16 + int(index))
         # todo check correct segment & remove address line above me
         self.write("@" + self.__cur_filename + "." + str(index) + "\nD=M\n@" + str(
             index) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
@@ -198,20 +198,29 @@ class CodeWriter:
         write the assembly code that is translation of "push (pointer\temp) index" command
         """
         if segment == "temp":
-            index += 5
-            address = "R5" # todo - maybe redo as pop @(ram[5+i])
-            self.write("@" + address + "\nD=M\n@" + str(
-                index) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
-        elif segment == "pointer": # todo - maybe redo as pop @(ram[3+i])
-            if index == 0:
-                address = "THIS"
-                self.write(
-                    "@" + address + "\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
+            ram_address = index +5
+            self.write(
+                # @place //point to ram[i+5]
+                # D=M // put value in D
+                # @SP // look at SP
+                # A=M // Put number of SP in A
+                # M=D //put value there
+                # @SP // look at Sp
+                # M=M+1 increase SP by one
+                "@"+ram_address+"\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1")
 
-            if index == 1:
-                address = "THAT"
-                self.write(
-                    "@" + address + "\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
+
+        elif segment == "pointer":
+            ram_address = index + 3
+            self.write(
+                # @place //point to ram[i+5]
+                # D=M // put value in D
+                # @SP // look at SP
+                # A=M // Put number of SP in A
+                # M=D //put value there
+                # @SP // look at Sp
+                # M=M+1 increase SP by one
+                "@" + ram_address + "\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1")
 
     def pop_command(self, segment, index):
         """
@@ -237,30 +246,31 @@ class CodeWriter:
         """
         write the assembly code that translation of "pop (temp\pointer) index" command
         """
-        if segment == "temp": # todo - maybe redo as pop @(ram[5+i])
-            index += 5
-            address = "R5"
+        if segment == "temp":
+            ram_address = index + 5
             self.write(
-                "@" + address + "\nD=M\n@" + str(index) +
-                "\nD=D+A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
-        elif segment == "pointer": # todo - maybe redo as pop @(ram[3+i])
-            if index == 0:
-                address = "THIS"
-                self.write(
-                    "@" + address +
-                    "\nD=A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
-            if index == 1:
-                address = "THAT"
-                self.write\
-                    ("@" + address +
-                     "\nD=A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
+                # @SP
+                # MA=M-1 // deacrease SP and A to see top of stack
+                # D=M //d has the value at top of stack
+                # @place //point to ram[i+5]
+                # M=D //put value there #todo check correctness
+                "@SP\nMA=M-1\nD=M\n@"+ram_address+"\nM=D\n")
+        elif segment == "pointer":
+            ram_address = index + 3
+            self.write(
+                # @SP
+                # MA=M-1 // deacrease SP and A to see new top of stack
+                # D=M //d has the value at top of stack
+                # @place //point to ram[i+3]
+                # M=D //put value there
+                "@SP\nMA=M-1\nD=M\n@"+ram_address+"\nM=D\n")
 
     def pop_static_segment(self, index):
         """
         write the assembly code that is the
         translation of "pop static index" command
         """
-        address = str(16 + index)
+        # address = str(16 + index)
         # todo check correct segment & remove address line above me
         self.write\
             ("@" + self.__cur_filename + "." + str(index) + "\nD=M\n@" +
@@ -288,9 +298,10 @@ class CodeWriter:
     def write_if(self, label):
         """Writes assembly code that effects the if-goto command."""
         label=self.label_by_scope(label)
-        self.write("@SP\nD=M\n@" + label + "\nD;JNE\n")
+        self.write("@SP\nMA=M-1\nD=M\n@" + label + "\nD;JNE\n")
         # @SP
-        # D=M
+        # MA=M-1 // decrease SP
+        # D=M /Put value in D
         # @label
         # D:JNE
         #
@@ -298,7 +309,7 @@ class CodeWriter:
     def write_call(self, function_name, num_args):
         """Writes assembly code that effects the calling a function."""
         return_num = self.new_return_num()
-        return_address = "return_address_" + str(return_num)
+        return_address = self.__cur_filename + "_ret_" + str(return_num)
         self.push_label(return_address)
         self.push_label("THAT")
         self.push_label("LCL")
@@ -394,6 +405,7 @@ class CodeWriter:
         # M=D
         # @SP
         # M=M+1
+
     def set_cur_filename(self, filename):
         self.__cur_filename = filename
 

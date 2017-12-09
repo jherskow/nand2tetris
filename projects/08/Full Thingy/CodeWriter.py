@@ -396,7 +396,7 @@ class CodeWriter:
         # @str(num)
         # A=D+A  //todo check logic
         # D=M
-        # @label1
+        # @label1  e
         # M=D
         self.write\
             ("@" + label2 +"\nD=A\n@" + str(pos_num) + "\nA=D+A\nD=M\n@" + label1 + "\nM=D\n")

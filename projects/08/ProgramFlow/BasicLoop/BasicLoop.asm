@@ -100,6 +100,7 @@ M=D
 @SP
 M=M+1
 @SP
+AM=M-1
 D=M
 @LOOP_START
 D;JNE

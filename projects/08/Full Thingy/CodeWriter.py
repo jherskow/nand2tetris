@@ -198,7 +198,7 @@ class CodeWriter:
         write the assembly code that is translation of "push (pointer\temp) index" command
         """
         if segment == "temp":
-            ram_address = index +5
+            ram_address = str(index +5)
             self.write(
                 # @place //point to ram[i+5]
                 # D=M // put value in D
@@ -207,11 +207,11 @@ class CodeWriter:
                 # M=D //put value there
                 # @SP // look at Sp
                 # M=M+1 increase SP by one
-                "@"+ram_address+"\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1")
+                "@"+ram_address+"\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
 
 
         elif segment == "pointer":
-            ram_address = index + 3
+            ram_address = str(index + 3)
             self.write(
                 # @place //point to ram[i+5]
                 # D=M // put value in D
@@ -220,7 +220,7 @@ class CodeWriter:
                 # M=D //put value there
                 # @SP // look at Sp
                 # M=M+1 increase SP by one
-                "@" + ram_address + "\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1")
+                "@" + ram_address + "\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
 
     def pop_command(self, segment, index):
         """
@@ -247,23 +247,23 @@ class CodeWriter:
         write the assembly code that translation of "pop (temp\pointer) index" command
         """
         if segment == "temp":
-            ram_address = index + 5
+            ram_address = str(index + 5)
             self.write(
                 # @SP
-                # MA=M-1 // deacrease SP and A to see top of stack
+                # AM=M-1 // deacrease SP and A to see top of stack
                 # D=M //d has the value at top of stack
                 # @place //point to ram[i+5]
                 # M=D //put value there #todo check correctness
-                "@SP\nMA=M-1\nD=M\n@"+ram_address+"\nM=D\n")
+                "@SP\nAM=M-1\nD=M\n@"+ram_address+"\nM=D\n")
         elif segment == "pointer":
-            ram_address = index + 3
+            ram_address = str(index + 3)
             self.write(
                 # @SP
-                # MA=M-1 // deacrease SP and A to see new top of stack
+                # AM=M-1 // deacrease SP and A to see new top of stack
                 # D=M //d has the value at top of stack
                 # @place //point to ram[i+3]
                 # M=D //put value there
-                "@SP\nMA=M-1\nD=M\n@"+ram_address+"\nM=D\n")
+                "@SP\nAM=M-1\nD=M\n@"+ram_address+"\nM=D\n")
 
     def pop_static_segment(self, index):
         """
@@ -281,7 +281,7 @@ class CodeWriter:
         for i in range(k):
             self.push_constant_segment(0)
 
-    def write_label(self, label):
+    def make_label(self, label):
         """Writes assembly code that effects the label command."""
         label = self.label_by_scope(label)
         self.write("(" + label + ")\n")
@@ -298,9 +298,9 @@ class CodeWriter:
     def write_if(self, label):
         """Writes assembly code that effects the if-goto command."""
         label=self.label_by_scope(label)
-        self.write("@SP\nMA=M-1\nD=M\n@" + label + "\nD;JNE\n")
+        self.write("@SP\nAM=M-1\nD=M\n@" + label + "\nD;JNE\n")
         # @SP
-        # MA=M-1 // decrease SP
+        # AM=M-1 // decrease SP
         # D=M /Put value in D
         # @label
         # D:JNE
@@ -319,12 +319,12 @@ class CodeWriter:
         self.label_eq_label_minus_num("ARG", "SP", (int(num_args)+5))
         self.label_eq_label("LCL", "SP")
         self.write_goto(function_name)
-        self.write_label(return_address)
+        self.make_label(return_address)
 
     def write_function(self, function_name, num_locals):
         """Writes assembly code that effects a function def start."""
         self.__function_name = function_name
-        self.write_label(function_name)
+        self.make_label(function_name)
         self.__in_function_def = True
         self.push_zero_k_times(int(num_locals))
 

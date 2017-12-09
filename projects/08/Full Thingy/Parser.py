@@ -113,7 +113,7 @@ def parse_file_to_write(parser, codeWriter):
         elif type == "C_PUSH" or type == "C_POP":
             codeWriter.write_push_pop(type, parser.arg1(), parser.arg2())
         elif type == "C_LABEL":
-            codeWriter.write_label(parser.arg1())
+            codeWriter.make_label(parser.arg1())
         elif type == "C_GOTO":
             codeWriter.write_goto(parser.arg1())
         elif type == "C_IF":
@@ -147,15 +147,17 @@ def main():
         print("USAGE: VMEmulator ~directory/file")
         return exit(1)
 
-    if os.path.isfile(sys.argv[1]):
-        out_filepath = sys.argv[1].split(".")[0] + ASM_EXTENSION
+    abs_path = str(os.path.abspath(sys.argv[1]))
+
+    if os.path.isfile(abs_path):
+        out_filepath = abs_path.split(".vm")[0] + ASM_EXTENSION
         writer = CodeWriter.CodeWriter(out_filepath)
         parse_file(sys.argv[1], writer)
         writer.close()
 
-    if os.path.isdir(sys.argv[1]):
-        file_name = get_file_name(sys.argv[1])
-        out_filepath = sys.argv[1] +"/"+ file_name + ASM_EXTENSION
+    if os.path.isdir(abs_path):
+        file_name = get_file_name(abs_path)
+        out_filepath = abs_path +"/"+ file_name + ASM_EXTENSION
         writer = CodeWriter.CodeWriter(out_filepath)
         parse_dir(sys.argv[1], writer)
 

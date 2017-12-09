@@ -1,42 +1,29 @@
-function Sys.init 0
-push constant 4000	
-pop pointer 0
-push constant 5000
-pop pointer 1
-call Sys.main 0
-pop temp 1
-label LOOP
-goto LOOP
-function Sys.main 5
-push constant 4001
-pop pointer 0
-push constant 5001
-pop pointer 1
-push constant 200
-pop local 1
-push constant 40
-pop local 2
-push constant 6
-pop local 3
-push constant 123
-call Sys.add12 1
-pop temp 0
-push local 0
-push local 1
-push local 2
-push local 3
-push local 4
-add
-add
-add
-add
-return
-function Sys.add12 0
-push constant 4002
-pop pointer 0
-push constant 5002
-pop pointer 1
+push argument 1
+pop pointer 1           
+push constant 0
+pop that 0              
+push constant 1
+pop that 1              
 push argument 0
-push constant 12
+push constant 2
+sub
+pop argument 0          
+label MAIN_LOOP_START
+push argument 0
+if-goto COMPUTE_ELEMENT 
+goto END_PROGRAM        
+label COMPUTE_ELEMENT
+push that 0
+push that 1
 add
-return
+pop that 2              
+push pointer 1
+push constant 1
+add
+pop pointer 1           
+push argument 0
+push constant 1
+sub
+pop argument 0          
+goto MAIN_LOOP_START
+label END_PROGRAM

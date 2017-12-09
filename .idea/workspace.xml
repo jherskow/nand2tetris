@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eacdd40-89ba-40e8-a58d-4fd62e45556a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/nand2tetris.iml" afterPath="$PROJECT_DIR$/.idea/nand2tetris.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py" afterPath="$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" afterPath="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/Full Thingy/temp.vm" afterPath="$PROJECT_DIR$/projects/08/Full Thingy/temp.vm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/ProgramFlow/BasicLoop/BasicLoop.asm" afterPath="$PROJECT_DIR$/projects/08/ProgramFlow/BasicLoop/BasicLoop.asm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/ProgramFlow/BasicLoop/BasicLoop.out" afterPath="$PROJECT_DIR$/projects/08/ProgramFlow/BasicLoop/BasicLoop.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/bin/CPU Emulator.dat" afterPath="$PROJECT_DIR$/tools/bin/CPU Emulator.dat" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,7 +22,9 @@
     <SUITE FILE_PATH="coverage/nand2tetris$Parser.coverage" NAME="Parser test Coverage Results" MODIFIED="1512481774326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$SimpleFunction.coverage" NAME="SimpleFunction Coverage Results" MODIFIED="1512484230328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$Parser_NestedCall.coverage" NAME="Parser NestedCall Coverage Results" MODIFIED="1512486493575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$FibonacciSeries.coverage" NAME="FibonacciSeries Coverage Results" MODIFIED="1512851693053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$CodeWriter.coverage" NAME="CodeWriter Coverage Results" MODIFIED="1512480293079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$BasicLoop_vm.coverage" NAME="BasicLoop.vm Coverage Results" MODIFIED="1512851573045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand$Assembler.coverage" NAME="Assembler Coverage Results" MODIFIED="1511279515754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/06/the assembler" />
     <SUITE FILE_PATH="coverage/nand2tetris$Parser_basic_loop.coverage" NAME="BasicLoop.vm Coverage Results" MODIFIED="1512484244616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$StackTest__ex_7_.coverage" NAME="StackTest (ex 7) Coverage Results" MODIFIED="1512484109490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
@@ -29,8 +34,8 @@
       <file leaf-file-name="CodeWriter.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="301" column="13" lean-forward="true" selection-start-line="301" selection-start-column="13" selection-end-line="301" selection-end-column="13" />
+            <state relative-caret-position="107">
+              <caret line="204" column="35" lean-forward="true" selection-start-line="204" selection-start-column="35" selection-end-line="204" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -39,8 +44,8 @@
       <file leaf-file-name="Parser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/Parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2990">
-              <caret line="115" column="28" lean-forward="false" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="28" />
+            <state relative-caret-position="273">
+              <caret line="148" column="0" lean-forward="true" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -68,10 +73,14 @@
       <find>argume</find>
       <find>write_l</find>
       <find>return_</find>
+      <find>MA=</find>
+      <find>M=M+1</find>
+      <find>&quot;)</find>
     </findStrings>
     <replaceStrings>
       <replace>type</replace>
       <replace>assembly</replace>
+      <replace>AM=</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -96,7 +105,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
+  <component name="ProjectFrameBounds">
     <option name="width" value="960" />
     <option name="height" value="1046" />
   </component>
@@ -142,6 +151,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -158,34 +168,6 @@
               <item name="nand2tetris" type="b2602c69:ProjectViewProjectNode" />
               <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
               <item name="projects" type="462c0819:PsiDirectoryNode" />
-              <item name="07" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nand2tetris" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
-              <item name="projects" type="462c0819:PsiDirectoryNode" />
-              <item name="07" type="462c0819:PsiDirectoryNode" />
-              <item name="StackArithmetic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nand2tetris" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
-              <item name="projects" type="462c0819:PsiDirectoryNode" />
-              <item name="07" type="462c0819:PsiDirectoryNode" />
-              <item name="StackArithmetic" type="462c0819:PsiDirectoryNode" />
-              <item name="StackTest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nand2tetris" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
-              <item name="projects" type="462c0819:PsiDirectoryNode" />
-              <item name="07" type="462c0819:PsiDirectoryNode" />
-              <item name="VMtranslator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nand2tetris" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
-              <item name="projects" type="462c0819:PsiDirectoryNode" />
               <item name="08" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -193,13 +175,12 @@
               <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
               <item name="projects" type="462c0819:PsiDirectoryNode" />
               <item name="08" type="462c0819:PsiDirectoryNode" />
-              <item name="FunctionCalls" type="462c0819:PsiDirectoryNode" />
+              <item name="ProgramFlow" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -225,7 +206,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Parser NestedCall">
+  <component name="RunManager" selected="Python.FibonacciSeries">
     <configuration name="BasicLoop.vm" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -240,7 +221,7 @@
       <module name="nand2tetris" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" />
-      <option name="PARAMETERS" value="$PROJECT_DIR$/projects/08/ProgramFlow/BasicLoop/BasicLoop.vm" />
+      <option name="PARAMETERS" value="../ProgramFlow/BasicLoop/BasicLoop.vm" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
@@ -258,7 +239,7 @@
       <module name="nand2tetris" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" />
-      <option name="PARAMETERS" value="$PROJECT_DIR$/projects/08/ProgramFlow/FibonacciSeries" />
+      <option name="PARAMETERS" value="../ProgramFlow/FibonacciSeries" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
@@ -449,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512420553296</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="much work">
+      <created>1512850721922</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1512850721922</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -462,19 +450,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="960" height="1046" extended-state="4" />
+    <frame x="0" y="0" width="960" height="1046" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22816594" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2328618" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2327113" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934713" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22807017" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821077" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39846322" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -482,7 +471,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -500,7 +488,8 @@
     <MESSAGE value="fixed structure" />
     <MESSAGE value="More work" />
     <MESSAGE value="updated todos" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated todos" />
+    <MESSAGE value="much work" />
+    <option name="LAST_COMMIT_MESSAGE" value="much work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -511,7 +500,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="22" />
+      <option name="time" value="25" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -635,8 +624,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/Parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2990">
-          <caret line="115" column="28" lean-forward="false" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="28" />
+        <state relative-caret-position="273">
+          <caret line="148" column="0" lean-forward="true" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -645,8 +634,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="301" column="13" lean-forward="true" selection-start-line="301" selection-start-column="13" selection-end-line="301" selection-end-column="13" />
+        <state relative-caret-position="107">
+          <caret line="204" column="35" lean-forward="true" selection-start-line="204" selection-start-column="35" selection-end-line="204" selection-end-column="35" />
           <folding />
         </state>
       </provider>

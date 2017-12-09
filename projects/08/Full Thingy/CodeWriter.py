@@ -308,6 +308,8 @@ class CodeWriter:
 
     def write_call(self, function_name, num_args):
         """Writes assembly code that effects the calling a function."""
+        temp = self.__in_function_def
+        self.__in_function_def = False
         return_num = self.new_return_num()
         return_address = self.__cur_filename + "_ret_" + str(return_num)
         self.push_label(return_address)
@@ -320,6 +322,7 @@ class CodeWriter:
         self.label_eq_label("LCL", "SP")
         self.write_goto(function_name)
         self.make_label(return_address)
+        self.__in_function_def = temp
 
     def write_function(self, function_name, num_locals):
         """Writes assembly code that effects a function def start."""
@@ -337,18 +340,17 @@ class CodeWriter:
         self.label_eq_label_minus_num("R14", "R13", 5)
 
         # todo - *ARG = pop()  - pop value to ARG (actual arg pointer value)
-        self.write("@SP\nA=A-1\nD=M\n@ARG\nM=D\n@SP\nM=M-1\n")
-        # @SP
-        # A=A-1
-        # D=M
+        self.write("@SP\nA=M-1\nD=M\n@ARG\nM=D\n@SP\nM=M-1\n")
+        # @SP    // A is adressof empty stack spot
+        # A=M-1 //A is adressof top stack val  #todo fix
+        # D=M    // D is top stack val
         # @ARG
-        # M=D
+        # M=D    // value where ARG is pointing is now top stack val
         # @SP
-        # M=M-1
+        # M=M-1   // sp now points to the val (which we done care about
         # todo is this ok??
 
-        # todo check that negative const works
-        self.label_eq_label_minus_num("SP", "ARG", -1)
+        self.label_eq_label_plus_num("SP", "ARG", 1)
 
 
         self.label_eq_label_minus_num("THAT", "R13", 1)
@@ -366,37 +368,42 @@ class CodeWriter:
             ("@256\nD=A\n@SP\nM=D\n")
         self.write_call("Sys.init", 0)
 
-    def label_eq_constant(self, label, constant):
-        """Writes assembly for label=constant"""
-        self.write\
-            ("@" + str(constant) + "\nD=A\n@" + label + "\nM=D\n")
-        # @constant
-        # D=A
-        # @label
-        # M=D
-
     def label_eq_label(self, label1, label2):
         """Writes assembly for label1=label2"""
         self.write\
-            ("@" + label2 + "\nD=A\n@" + label1 + "\nM=D\n")
+            ("@" + label2 + "\nD=M\n@" + label1 + "\nM=D\n")
         # @label2
-        # D=A
+        # D=M  //todo check logic
         # @label1
         # M=D
 
-    def label_eq_label_minus_num(self, label1, label2, num):
+    def label_eq_label_minus_num(self, label1, label2, pos_num):
         """Writes assembly for label=*(label2-constant)"""
         # @label2
         # D=A
-        # @str(constant)
-        # D=D-A
+        # @str(num)
+        # A=D-A  //todo check logic
+        # D=M
         # @label1
         # M=D
         self.write\
-            ("@"+label2+"\nD=A\n@"+str(num)+"\nD=D-A\n@"+label1+"\nM=D\n")
+            ("@" + label2 +"\nD=A\n@" + str(pos_num) + "\nA=D-A\nD=M\n@" + label1 + "\nM=D\n")
+
+    def label_eq_label_plus_num(self, label1, label2, pos_num):
+        """Writes assembly for label=*(label2+constant)"""
+        # @label2
+        # D=A
+        # @str(num)
+        # A=D+A  //todo check logic
+        # D=M
+        # @label1
+        # M=D
+        self.write\
+            ("@" + label2 +"\nD=A\n@" + str(pos_num) + "\nA=D+A\nD=M\n@" + label1 + "\nM=D\n")
+
 
     def push_label(self, label):
-        """Writes assembly to push ram address of label to stack"""
+        """Writes assembly to push val pointed by label to stack"""
         self.write("@" + label + "\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
         # @label
         # D=M

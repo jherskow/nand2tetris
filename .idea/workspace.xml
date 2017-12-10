@@ -4,8 +4,12 @@
     <list default="true" id="1eacdd40-89ba-40e8-a58d-4fd62e45556a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py" afterPath="$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/Full Thingy/temp.vm" afterPath="$PROJECT_DIR$/projects/08/Full Thingy/temp.vm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/FunctionCalls/FibonacciElement/FibonacciElement.asm" afterPath="$PROJECT_DIR$/projects/08/FunctionCalls/FibonacciElement/FibonacciElement.asm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/FunctionCalls/NestedCall/NestedCall.asm" afterPath="$PROJECT_DIR$/projects/08/FunctionCalls/NestedCall/NestedCall.asm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/FunctionCalls/SimpleFunction/SimpleFunction.asm" afterPath="$PROJECT_DIR$/projects/08/FunctionCalls/SimpleFunction/SimpleFunction.asm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/FunctionCalls/SimpleFunction/SimpleFunction.out" afterPath="$PROJECT_DIR$/projects/08/FunctionCalls/SimpleFunction/SimpleFunction.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/bin/CPU Emulator.dat" afterPath="$PROJECT_DIR$/tools/bin/CPU Emulator.dat" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,26 +19,30 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/nand2tetris$StackTest.coverage" NAME="StackTest Coverage Results" MODIFIED="1512852193655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$BasicTest__ex_7_.coverage" NAME="BasicTest (ex 7) Coverage Results" MODIFIED="1512893642494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$NestedCall.coverage" NAME="NestedCall Coverage Results" MODIFIED="1512892562467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$StackTest.coverage" NAME="StackTest Coverage Results" MODIFIED="1512892947377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$Assembler.coverage" NAME="Assembler Coverage Results" MODIFIED="1512480283144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/06/the assembler" />
-    <SUITE FILE_PATH="coverage/nand2tetris$Parser.coverage" NAME="Parser test Coverage Results" MODIFIED="1512481774326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
-    <SUITE FILE_PATH="coverage/nand2tetris$FibonacciElement.coverage" NAME="FibonacciElement Coverage Results" MODIFIED="1512853817654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
-    <SUITE FILE_PATH="coverage/nand2tetris$Parser_NestedCall.coverage" NAME="Parser NestedCall Coverage Results" MODIFIED="1512486493575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$PointerTest__ex_7_.coverage" NAME="PointerTest (ex 7) Coverage Results" MODIFIED="1512893425007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$FibonacciElement.coverage" NAME="II FibonacciElement Coverage Results" MODIFIED="1512895779443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$FibonacciSeries.coverage" NAME="FibonacciSeries Coverage Results" MODIFIED="1512852072945" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
-    <SUITE FILE_PATH="coverage/nand2tetris$SimpleFunction.coverage" NAME="SimpleFunction Coverage Results" MODIFIED="1512856322717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$CodeWriter.coverage" NAME="CodeWriter Coverage Results" MODIFIED="1512480293079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$BasicLoop_vm.coverage" NAME="BasicLoop.vm Coverage Results" MODIFIED="1512851573045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$staticTest__ex_7_.coverage" NAME="StaticTest (ex 7) Coverage Results" MODIFIED="1512893604340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$StackTest__ex_7_.coverage" NAME="StackTest (ex 7) Coverage Results" MODIFIED="1512484109490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$Parser.coverage" NAME="Parser test Coverage Results" MODIFIED="1512481774326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$Parser_NestedCall.coverage" NAME="Parser NestedCall Coverage Results" MODIFIED="1512486493575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$SimpleFunction.coverage" NAME="SimpleFunction Coverage Results" MODIFIED="1512891977335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand$Assembler.coverage" NAME="Assembler Coverage Results" MODIFIED="1511279515754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/06/the assembler" />
     <SUITE FILE_PATH="coverage/nand2tetris$Parser_basic_loop.coverage" NAME="BasicLoop.vm Coverage Results" MODIFIED="1512484244616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
-    <SUITE FILE_PATH="coverage/nand2tetris$StackTest__ex_7_.coverage" NAME="StackTest (ex 7) Coverage Results" MODIFIED="1512484109490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="CodeWriter.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-871">
-              <caret line="384" column="18" lean-forward="false" selection-start-line="384" selection-start-column="18" selection-end-line="384" selection-end-column="18" />
+            <state relative-caret-position="283">
+              <caret line="291" column="99" lean-forward="false" selection-start-line="291" selection-start-column="99" selection-end-line="291" selection-end-column="99" />
               <folding />
             </state>
           </provider>
@@ -79,6 +87,7 @@
       <find>A=M\nM=D</find>
       <find>\\\\</find>
       <find>push_label</find>
+      <find>sys</find>
     </findStrings>
     <replaceStrings>
       <replace>type</replace>
@@ -172,6 +181,19 @@
               <item name="nand2tetris" type="b2602c69:ProjectViewProjectNode" />
               <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
               <item name="projects" type="462c0819:PsiDirectoryNode" />
+              <item name="07" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nand2tetris" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
+              <item name="projects" type="462c0819:PsiDirectoryNode" />
+              <item name="07" type="462c0819:PsiDirectoryNode" />
+              <item name="MemoryAccess" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nand2tetris" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
+              <item name="projects" type="462c0819:PsiDirectoryNode" />
               <item name="08" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -217,8 +239,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.testZone">
-    <configuration name="BasicLoop.vm" type="PythonConfigurationType" factoryName="Python">
+  <component name="RunManager" selected="Python.II FibonacciElement">
+    <configuration name="BasicTest (ex 7)" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projects/08/Full Thingy" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="nand2tetris" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" />
+      <option name="PARAMETERS" value="../../07/MemoryAccess/BasicTest" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="I BasicLoop" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -236,25 +276,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="FibonacciElement" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projects/08/Full Thingy" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="nand2tetris" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" />
-      <option name="PARAMETERS" value="../FunctionCalls/FibonacciElement" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="FibonacciSeries" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="I FibonacciSeries" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -272,7 +294,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="Parser NestedCall" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="I SimpleFunction" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -286,7 +308,43 @@
       <module name="nand2tetris" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" />
-      <option name="PARAMETERS" value="$PROJECT_DIR$/projects/08/FunctionCalls/NestedCall" />
+      <option name="PARAMETERS" value="$PROJECT_DIR$/projects/08/FunctionCalls/SimpleFunction" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="II FibonacciElement" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projects/08/Full Thingy" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="nand2tetris" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" />
+      <option name="PARAMETERS" value="../FunctionCalls/FibonacciElement" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="II NestedCall" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projects/08/Full Thingy" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="nand2tetris" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" />
+      <option name="PARAMETERS" value="../FunctionCalls/NestedCall" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
@@ -308,7 +366,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="SimpleFunction" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="PointerTest (ex 7)" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -322,7 +380,7 @@
       <module name="nand2tetris" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" />
-      <option name="PARAMETERS" value="$PROJECT_DIR$/projects/08/FunctionCalls/SimpleFunction" />
+      <option name="PARAMETERS" value="../../07/MemoryAccess/PointerTest" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
@@ -340,29 +398,11 @@
       <module name="nand2tetris" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" />
-      <option name="PARAMETERS" value="$PROJECT_DIR$/projects/07/StackArithmetic/StackTest" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="StackTest" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projects/08/Full Thingy" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="nand2tetris" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" />
       <option name="PARAMETERS" value="../../07/StackArithmetic/StackTest" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="StaticsTest" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="StaticTest (ex 7)" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -376,7 +416,7 @@
       <module name="nand2tetris" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" />
-      <option name="PARAMETERS" value="$PROJECT_DIR$/projects/08/FunctionCalls/StaticsTest" />
+      <option name="PARAMETERS" value="../../07/MemoryAccess/StaticTest" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
@@ -416,17 +456,18 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <list size="10">
-      <item index="0" class="java.lang.String" itemvalue="Python.BasicLoop.vm" />
-      <item index="1" class="java.lang.String" itemvalue="Python.FibonacciSeries" />
-      <item index="2" class="java.lang.String" itemvalue="Python.StackTest" />
-      <item index="3" class="java.lang.String" itemvalue="Python.FibonacciElement" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Parser NestedCall" />
-      <item index="5" class="java.lang.String" itemvalue="Python.SimpleFunction" />
+    <list size="11">
+      <item index="0" class="java.lang.String" itemvalue="Python.testZone" />
+      <item index="1" class="java.lang.String" itemvalue="Python.I BasicLoop" />
+      <item index="2" class="java.lang.String" itemvalue="Python.I FibonacciSeries" />
+      <item index="3" class="java.lang.String" itemvalue="Python.I SimpleFunction" />
+      <item index="4" class="java.lang.String" itemvalue="Python.II FibonacciElement" />
+      <item index="5" class="java.lang.String" itemvalue="Python.II NestedCall" />
       <item index="6" class="java.lang.String" itemvalue="Python.StackTest (ex 7)" />
-      <item index="7" class="java.lang.String" itemvalue="Python.StaticsTest" />
-      <item index="8" class="java.lang.String" itemvalue="Python.testZone" />
-      <item index="9" class="java.lang.String" itemvalue="Python.Parser test" />
+      <item index="7" class="java.lang.String" itemvalue="Python.StaticTest (ex 7)" />
+      <item index="8" class="java.lang.String" itemvalue="Python.PointerTest (ex 7)" />
+      <item index="9" class="java.lang.String" itemvalue="Python.BasicTest (ex 7)" />
+      <item index="10" class="java.lang.String" itemvalue="Python.Parser test" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -518,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512854826599</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="more logic fixes">
+      <created>1512891290925</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1512891290925</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -536,7 +584,7 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821077" sideWeight="0.50438595" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2327113" sideWeight="0.49561402" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2327113" sideWeight="0.49561402" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -572,7 +620,8 @@
     <MESSAGE value="more error fix work" />
     <MESSAGE value="logic fixes in label equalities" />
     <MESSAGE value="more work" />
-    <option name="LAST_COMMIT_MESSAGE" value="more work" />
+    <MESSAGE value="more logic fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="more logic fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -725,8 +774,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-871">
-          <caret line="384" column="18" lean-forward="false" selection-start-line="384" selection-start-column="18" selection-end-line="384" selection-end-column="18" />
+        <state relative-caret-position="283">
+          <caret line="291" column="99" lean-forward="false" selection-start-line="291" selection-start-column="99" selection-end-line="291" selection-end-column="99" />
           <folding />
         </state>
       </provider>

@@ -15,7 +15,7 @@ class CodeWriter:
         self.__cur_filename = ""
         self.__in_function_def = False
         self.__function_name = ""
-        # self.write_init() #todo put when necessary
+        self.write_init() #todo put when necessary
 
 
     def write_arithmetic(self, command):
@@ -181,8 +181,6 @@ class CodeWriter:
 
     def push_static_segment(self, index):
         """ write the assembly code that is the translation of "push static index " command"""
-        # address = str(16 + int(index))
-        # todo check correct segment & remove address line above me
         self.write("@" + self.__cur_filename + "." + str(index) + "\nD=M\n@" + str(
             index) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
 
@@ -253,7 +251,7 @@ class CodeWriter:
                 # AM=M-1 // deacrease SP and A to see top of stack
                 # D=M //d has the value at top of stack
                 # @place //point to ram[i+5]
-                # M=D //put value there #todo check correctness
+                # M=D //put value there
                 "@SP\nAM=M-1\nD=M\n@"+ram_address+"\nM=D\n")
         elif segment == "pointer":
             ram_address = str(index + 3)
@@ -270,17 +268,28 @@ class CodeWriter:
         write the assembly code that is the
         translation of "pop static index" command
         """
-        # address = str(16 + index)
-        # todo check correct segment & remove address line above me
         self.write("@" + self.__cur_filename + "." + str(index) + "\nD=M\n@" +
              str(index) +
                 "\nD=D+A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
+
+    def close(self):
+        """
+        close an output file
+        """
+        self.__file.close()
+
+
+# todo ////////////////////////    MY STUFF      ////////////////////////////////////////////////
+
+
     def push_zero_k_times(self, k):
         for i in range(k):
             self.push_constant_segment(0)
 
     def make_label(self, label):
         """Writes assembly code that effects the label command."""
+        #if "." not in label:
+         #   label = self.__cur_filename + "." + label  #todo (forum seems to have cleared this up)
         label = self.label_by_scope(label)
         self.write("(" + label + ")\n")
         # write (label_name)
@@ -309,18 +318,20 @@ class CodeWriter:
         #self.write("\\\\call "+function_name+"_"+num_args+"\n")
         temp = self.__in_function_def
         self.__in_function_def = False
+
         return_num = self.new_return_num()
         return_address = self.__cur_filename + "_ret_" + str(return_num)
-        self.push_value_of_pointer(return_address)
-        self.push_value_of_pointer("THAT")
-        self.push_value_of_pointer("LCL")
-        self.push_value_of_pointer("ARG")
-        self.push_value_of_pointer("THIS")
-        self.push_value_of_pointer("THAT")
-        self.val_pointer_eq_val_at_pointer_minus_num("ARG", "SP", (int(num_args) + 5))
+        # todo check
+        self.push_address_of_label(return_address) #todo ok1
+        self.push_value_of_pointer("LCL")   #todo ok1
+        self.push_value_of_pointer("ARG")    #todo ok1
+        self.push_value_of_pointer("THIS")   #todo ok1
+        self.push_value_of_pointer("THAT")     #todo ok1
+        self.val_pointer_eq_val_at_pointer_minus_num("ARG","SP",(int(num_args)+5))
         self.val_pointer_eq_val_pointer("LCL", "SP")
         self.write_goto(function_name)
         self.make_label(return_address)
+
         self.__in_function_def = temp
         #self.write("\\\\end call "+function_name+"\n")
 
@@ -329,7 +340,8 @@ class CodeWriter:
         #self.write("\\\\funcdef "+function_name+"_"+num_locals+"\n")
         self.__function_name = function_name
         self.make_label(function_name)
-        self.__in_function_def = True
+        if function_name != "Sys.init":
+            self.__in_function_def = True
         self.push_zero_k_times(int(num_locals))
         #self.write("\\\\end def "+function_name+"\n")
 
@@ -345,14 +357,16 @@ class CodeWriter:
         self.val_pointer_eq_val_at_pointer_minus_num("R14", "R13", 5)
 
         # todo - *ARG = pop()  - pop value to ARG (actual arg pointer value)
-        self.write("@SP\nA=M-1\nD=M\n@ARG\nM=D\n@SP\nM=M-1\n")
-        # @SP    // A is adressof empty stack spot
-        # A=M-1 //A is adressof top stack val  #todo fix
+        self.write("@SP\nA=M\nA=A-1\nD=M\n@ARG\nA=M\nM=D\n@SP\nM=M-1\n")
+        # @SP    // A is adressof sp
+        # A=M   //A is adressof top stack space  #todo fix
+        # A=A-1   // a is correct adresss (one down from top
         # D=M    // D is top stack val
-        # @ARG
+        # @ARG    // A is arg pointer
+        # A=M     // a is spot pointed by ARG
         # M=D    // value where ARG is pointing is now top stack val
         # @SP
-        # M=M-1   // sp now points to the val (which we done care about
+        # M=M-1   // SP--
         # todo is this ok??
 
         self.label_eq_val_label_plus_num("SP", "ARG", 1)
@@ -387,7 +401,7 @@ class CodeWriter:
         # @label2
         # D=M   //d has value of label 2
         # @str(num)
-        # A=D-A  // a has address of valLab2 minus num
+        # A=D-A  // a has (valLab2 minus num)
         # D=M    // d has value at A
         # @label1
         # M=D     // label one now has this value
@@ -410,12 +424,23 @@ class CodeWriter:
         """Writes assembly to push number saved in label to stack"""
         self.write("@" + label + "\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
         # @label
-        # D=M
+        # D=M     // D is value of label
         # @SP
-        # A=M
-        # M=D
+        # A=M    // A is adress of stack head
+        # M=D    // memory at stack head now has value
+        # @SP    // advance SP
+        # M=M+1  //
+
+    def push_address_of_label(self, label):
+        """Writes assembly to push @label address to stack"""
+        self.write("@" + label + "\nD=A\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
+        # @label
+        # D=A     // D is adress of label
         # @SP
-        # M=M+1
+        # A=M    // A is adress of stack head
+        # M=D    // memory at stack head has adress
+        # @SP
+        # M=M+1  //
 
 
     def set_cur_filename(self, filename):
@@ -437,8 +462,3 @@ class CodeWriter:
            label = self.__function_name+"$"+label
         return label
 
-    def close(self):
-        """
-        close an output file
-        """
-        self.__file.close()

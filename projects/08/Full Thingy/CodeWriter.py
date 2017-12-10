@@ -285,10 +285,10 @@ class CodeWriter:
         for i in range(k):
             self.push_constant_segment(0)
 
-    def make_label(self, label):
+    def make_unscoped_label(self, label):
         """Writes assembly code that effects the label command."""
         #if "." not in label:
-         #   label = self.__cur_filename + "." + label  #todo (forum seems to have cleared this up)
+         #   label = self.__cur_filename + "." + label  #todo figure out func names
         self.write("(" + label + ")\n")
         # write (label_name)
 
@@ -320,48 +320,54 @@ class CodeWriter:
         """Writes assembly code that effects the calling a function."""
         return_num = self.new_return_num()
         return_address = self.__cur_filename + "_ret_" + str(return_num)
-        self.push_value_of_pointer(return_address)
+        self.write("@" + return_address + "\nD=A\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
+       # push lcl
         self.push_value_of_pointer("LCL")
+        # push lcl
         self.push_value_of_pointer("ARG")
+        # push lcl
         self.push_value_of_pointer("THIS")
+        # push lcl
         self.push_value_of_pointer("THAT")
+
+        # arg =*(SP -n -5)
         self.val_pointer_eq_val_at_pointer_minus_num("ARG","SP",(int(num_args)+5))
+
+        #lcl = SP
         self.val_pointer_eq_val_pointer("LCL", "SP")
-        self.write_goto(function_name)
-        self.make_label(return_address)
+
+        #goto(function_name)
+        self.write("@"+function_name+"\n0;JMP\n")
+        self.make_unscoped_label(return_address)
 
     def write_function(self, function_name, num_locals):
         """Writes assembly code that effects a function def start."""
-        #self.write("\\\\funcdef "+function_name+"_"+num_locals+"\n")
         self.__function_name = function_name
-        self.make_label(function_name)
+        self.make_unscoped_label(function_name)
         self.push_zero_k_times(int(num_locals))
-        #self.write("\\\\end def "+function_name+"\n")
+
 
     def write_return(self):
         """Writes assembly code that effects
         the return command in a func def."""
 
-        #self.write("\\\\return from "+self.__function_name+"\n")
 
         # FRAME is R13
         self.val_pointer_eq_val_pointer("R13", "LCL")
+
         # RET is R14
         self.val_pointer_eq_val_at_pointer_minus_num("R14", "R13", 5)
 
-        # todo - *ARG = pop()  - pop value to ARG (actual arg pointer value)
-        self.write("@SP\nA=M\nA=A-1\nD=M\n@ARG\nA=M\nM=D\n@SP\nM=M-1\n")
+        # *ARG = pop()  - pop value from stack to where ARG is pointing
+        self.write("@SP\nAM=M-1\nD=M\n@ARG\nA=M\nM=D\n")
         # @SP    // A is adressof sp
-        # A=M   //A is adressof top stack space  #todo fix
-        # A=A-1   // a is correct adresss (one down from top
+        # AM=M-1   //A is adressof top stack val, SP--  #todo fixed?
         # D=M    // D is top stack val
         # @ARG    // A is arg pointer
         # A=M     // a is spot pointed by ARG
         # M=D    // value where ARG is pointing is now top stack val
-        # @SP
-        # M=M-1   // SP--
-        # todo is this ok??
 
+        # SP=ARG+1
         self.label_eq_val_label_plus_num("SP", "ARG", 1)
 
 
@@ -369,9 +375,9 @@ class CodeWriter:
         self.val_pointer_eq_val_at_pointer_minus_num("THIS", "R13", 2)
         self.val_pointer_eq_val_at_pointer_minus_num("ARG", "R13", 3)
         self.val_pointer_eq_val_at_pointer_minus_num("LCL", "R13", 4)
-        self.write_goto("R14")
-        #self.write("@R14\n0;JMP\n")
-        #self.write("\\\\end return "+self.__function_name+"\n")
+
+        # goto R14(RET)
+        self.write("@R14\n0;JMP\n")
 
 
     def write_init(self):

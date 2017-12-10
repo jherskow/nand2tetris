@@ -3,7 +3,7 @@ D=A
 @SP
 M=D
 @_ret_0
-D=M
+D=A
 @SP
 A=M
 M=D
@@ -47,7 +47,7 @@ M=D
 D=M
 @LCL
 M=D
-@$Sys.init
+@Sys.init
 0;JMP
 (_ret_0)
 (Main.fibonacci)
@@ -160,14 +160,11 @@ D=D-A
 @R14
 M=D
 @SP
-A=M
-A=A-1
+AM=M-1
 D=M
 @ARG
 A=M
 M=D
-@SP
-M=M-1
 @ARG
 D=M
 @1
@@ -198,7 +195,7 @@ D=M
 D=D-A
 @LCL
 M=D
-R14
+@R14
 0;JMP
 (Main.fibonacci$IF_FALSE)
 @ARG
@@ -224,7 +221,7 @@ D=M
 A=A-1
 M=M-D
 @FibonacciElement_ret_1
-D=M
+D=A
 @SP
 A=M
 M=D
@@ -268,7 +265,7 @@ M=D
 D=M
 @LCL
 M=D
-@Main.fibonacci$Main.fibonacci
+@Main.fibonacci
 0;JMP
 (FibonacciElement_ret_1)
 @ARG
@@ -294,7 +291,7 @@ D=M
 A=A-1
 M=M-D
 @FibonacciElement_ret_2
-D=M
+D=A
 @SP
 A=M
 M=D
@@ -338,7 +335,7 @@ M=D
 D=M
 @LCL
 M=D
-@Main.fibonacci$Main.fibonacci
+@Main.fibonacci
 0;JMP
 (FibonacciElement_ret_2)
 @SP
@@ -357,14 +354,11 @@ D=D-A
 @R14
 M=D
 @SP
-A=M
-A=A-1
+AM=M-1
 D=M
 @ARG
 A=M
 M=D
-@SP
-M=M-1
 @ARG
 D=M
 @1
@@ -395,7 +389,7 @@ D=M
 D=D-A
 @LCL
 M=D
-R14
+@R14
 0;JMP
 (Sys.init)
 @4
@@ -406,7 +400,7 @@ M=D
 @SP
 M=M+1
 @FibonacciElement_ret_3
-D=M
+D=A
 @SP
 A=M
 M=D
@@ -450,7 +444,7 @@ M=D
 D=M
 @LCL
 M=D
-@Sys.init$Main.fibonacci
+@Main.fibonacci
 0;JMP
 (FibonacciElement_ret_3)
 (Sys.init$WHILE)

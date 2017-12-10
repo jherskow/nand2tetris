@@ -115,7 +115,7 @@ def parse_file_to_write(parser, codeWriter):
         elif type == "C_LABEL":
             codeWriter.make_scoped_label(parser.arg1())
         elif type == "C_GOTO":
-            codeWriter.write_goto(parser.arg1())
+            codeWriter.write_goto_in_func(parser.arg1())
         elif type == "C_IF":
             codeWriter.write_if(parser.arg1())
         elif type == "C_FUNCTION":

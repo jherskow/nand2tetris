@@ -83,14 +83,11 @@ D=M
 @R14
 M=D
 @SP
-A=M
-A=A-1
+AM=M-1
 D=M
 @ARG
 A=M
 M=D
-@SP
-M=M-1
 @ARG
 D=M
 @1
@@ -126,3 +123,4 @@ D=M
 @LCL
 M=D
 @R14
+0;JMP

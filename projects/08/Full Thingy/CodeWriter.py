@@ -14,7 +14,7 @@ class CodeWriter:
         self.__return_num_counter = 0  # counter of labels number
         self.__cur_filename = ""
         self.__function_name = ""
-        self.write_init() #todo put when necessary
+        #self.write_init() #todo put when necessary
 
 
     def write_arithmetic(self, command):
@@ -298,12 +298,12 @@ class CodeWriter:
         self.write("(" + label + ")\n")
         # write (label_name)
 
-    def write_goto(self, label):
+    def write_goto_in_func(self, label):
         """Writes assembly code that effects the goto @label command."""
         label = self.label_by_scope(label)
         self.write("@" + label + "\n0;JMP\n")
         # @label
-        # 0:JMP
+        # 0;JMP
 
     def write_if(self, label):
         """Writes assembly code that effects the if-goto command."""
@@ -313,14 +313,16 @@ class CodeWriter:
         # AM=M-1 // decrease SP
         # D=M /Put value in D
         # @label
-        # D:JNE
+        # D;JNE
         #
 
     def write_call(self, function_name, num_args):
         """Writes assembly code that effects the calling a function."""
         return_num = self.new_return_num()
         return_address = self.__cur_filename + "_ret_" + str(return_num)
+
         self.write("@" + return_address + "\nD=A\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
+
        # push lcl
         self.push_value_of_pointer("LCL")
         # push lcl
@@ -397,23 +399,24 @@ class CodeWriter:
 
     def val_pointer_eq_val_at_pointer_minus_num(self, label1, label2, pos_num):
         """Writes assembly for label=*(label2-constant) (value at num before pointe by lab2)"""
-        # @label2
-        # D=M   //d has value of label 2
+        # @LCL
+        # D=M   //d has value of LCL
         # @str(num)
-        # D=D-A  // D has valLab2 minus num //todo check
+        # A=D-A  // A has LCL-num //todo check
+        # D=M  // D has the value at ram[LCL-num]
         # @label1
         # M=D     // label one now has this value
         self.write\
-            ("@" + label2 +"\nD=M\n@" + str(pos_num) + "\nD=D-A\n@" + label1 + "\nM=D\n")
+            ("@" + label2 +"\nD=M\n@" + str(pos_num) + "\nA=D-A\nD=M\n@" + label1 + "\nM=D\n")
 
     def label_eq_val_label_plus_num(self, label1, label2, pos_num):
         """Writes assembly for label=label2+constant """
-        # @label2
-        # D=M   // d has the value at label
+        # @ARG
+        # D=M   // d has the value of ARG
         # @str(num)
-        # D=D+A  // d has value+num
+        # D=D+A  // d has ARG+num
         # @label1
-        # M=D // label1= value+num
+        # M=D // label1= ARG+num
         self.write\
             ("@" + label2 +"\nD=M\n@" + str(pos_num) + "\nD=D+A\n@" + label1 + "\nM=D\n")
 

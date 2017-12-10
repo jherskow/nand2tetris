@@ -113,7 +113,7 @@ def parse_file_to_write(parser, codeWriter):
         elif type == "C_PUSH" or type == "C_POP":
             codeWriter.write_push_pop(type, parser.arg1(), parser.arg2())
         elif type == "C_LABEL":
-            codeWriter.make_label(parser.arg1())
+            codeWriter.make_scoped_label(parser.arg1())
         elif type == "C_GOTO":
             codeWriter.write_goto(parser.arg1())
         elif type == "C_IF":

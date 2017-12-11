@@ -31,9 +31,6 @@ class Parser:
 
     def remove_comments(self, line):
         """ removes comments from a line"""
-        """line = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", line)
-        # remove all occurrences of stream comments (/*COMMENT */) from string""" #todo remove
-
         line = re.sub(re.compile("//.*?\n"), "\n", line)
         # remove all occurrences of single line comments (//COMMENT\n ) from string
         return line
@@ -65,7 +62,7 @@ class Parser:
             return "C_LABEL"
         elif split_line[0] == "goto":
             return "C_GOTO"
-        elif split_line[0] == "if-goto": #todo check string
+        elif split_line[0] == "if-goto":
             return "C_IF"
         elif split_line[0] == "function":
             return "C_FUNCTION"
@@ -124,7 +121,6 @@ def parse_file_to_write(parser, codeWriter):
             codeWriter.write_return()
         elif type == "C_CALL":
             codeWriter.write_call(parser.arg1(), parser.arg2())
-        # todo check
 
 
 def parse_file(file_path, writer):

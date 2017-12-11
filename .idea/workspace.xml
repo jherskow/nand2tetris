@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1eacdd40-89ba-40e8-a58d-4fd62e45556a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py" afterPath="$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" afterPath="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,27 +30,27 @@
     <SUITE FILE_PATH="coverage/nand2tetris$II_NestedCall.coverage" NAME="II NestedCall Coverage Results" MODIFIED="1512986754783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$CodeWriter.coverage" NAME="CodeWriter Coverage Results" MODIFIED="1512480293079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$PointerTest__ex_7_.coverage" NAME="PointerTest (ex 7) Coverage Results" MODIFIED="1512893425007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
-    <SUITE FILE_PATH="coverage/nand2tetris$II_StaticsTest.coverage" NAME="II StaticsTest Coverage Results" MODIFIED="1512988086633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$II_StaticsTest.coverage" NAME="II StaticsTest Coverage Results" MODIFIED="1512988662902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand$Assembler.coverage" NAME="Assembler Coverage Results" MODIFIED="1511279515754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/06/the assembler" />
     <SUITE FILE_PATH="coverage/nand2tetris$Parser_basic_loop.coverage" NAME="BasicLoop.vm Coverage Results" MODIFIED="1512484244616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CodeWriter.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CodeWriter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2002">
-              <caret line="268" column="49" lean-forward="true" selection-start-line="268" selection-start-column="49" selection-end-line="268" selection-end-column="49" />
+            <state relative-caret-position="352">
+              <caret line="16" column="52" lean-forward="true" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Parser.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Parser.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/Parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="138" column="30" lean-forward="true" selection-start-line="138" selection-start-column="30" selection-end-line="138" selection-end-column="30" />
+            <state relative-caret-position="188">
+              <caret line="32" column="43" lean-forward="false" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -106,8 +105,8 @@
         <option value="$PROJECT_DIR$/projects/06/the assembler/Assembler.py" />
         <option value="$PROJECT_DIR$/projects/06/the assembler/Main.py" />
         <option value="$PROJECT_DIR$/projects/06/the assembler/HackAssembler.py" />
-        <option value="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" />
         <option value="$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py" />
+        <option value="$PROJECT_DIR$/projects/08/Full Thingy/Parser.py" />
       </list>
     </option>
   </component>
@@ -605,7 +604,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512986908168</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Passed tESTS :)">
+      <created>1512988376819</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1512988376819</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -625,7 +631,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821077" sideWeight="0.50438595" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23177366" sideWeight="0.49561402" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23177366" sideWeight="0.49561402" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -663,7 +669,8 @@
     <MESSAGE value="hard work" />
     <MESSAGE value="redo" />
     <MESSAGE value="Push for aya" />
-    <option name="LAST_COMMIT_MESSAGE" value="Push for aya" />
+    <MESSAGE value="Passed tESTS :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Passed tESTS :)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -821,21 +828,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/Parser.py">
+    <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="138" column="30" lean-forward="true" selection-start-line="138" selection-start-column="30" selection-end-line="138" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="352">
+          <caret line="16" column="52" lean-forward="true" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py">
+    <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/Parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2002">
-          <caret line="268" column="49" lean-forward="true" selection-start-line="268" selection-start-column="49" selection-end-line="268" selection-end-column="49" />
-          <folding />
+        <state relative-caret-position="188">
+          <caret line="32" column="43" lean-forward="false" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eacdd40-89ba-40e8-a58d-4fd62e45556a" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/08/Full Thingy/temp.vm" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/Full Thingy/README" afterPath="$PROJECT_DIR$/projects/08/Full Thingy/README" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/ProgramFlow/BasicLoop/BasicLoop.asm" afterPath="$PROJECT_DIR$/projects/08/ProgramFlow/BasicLoop/BasicLoop.asm" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,8 +41,8 @@
       <file leaf-file-name="CodeWriter.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="200" column="44" lean-forward="true" selection-start-line="200" selection-start-column="44" selection-end-line="200" selection-end-column="44" />
+            <state relative-caret-position="4510">
+              <caret line="205" column="35" lean-forward="true" selection-start-line="205" selection-start-column="35" selection-end-line="205" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -48,8 +51,8 @@
       <file leaf-file-name="Parser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/Parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-208">
-              <caret line="32" column="43" lean-forward="false" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+            <state relative-caret-position="2794">
+              <caret line="127" column="20" lean-forward="true" selection-start-line="127" selection-start-column="20" selection-end-line="127" selection-end-column="20" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -69,7 +72,6 @@
       <find>split_line[0]</find>
       <find>label</find>
       <find>static</find>
-      <find>5</find>
       <find>6</find>
       <find>R5</find>
       <find>assmebly</find>
@@ -85,6 +87,7 @@
       <find>\\\\</find>
       <find>push_label</find>
       <find>sys</find>
+      <find>5</find>
     </findStrings>
     <replaceStrings>
       <replace>type</replace>
@@ -617,7 +620,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512988742565</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Ready for extended testing">
+      <created>1512989484286</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1512989484286</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -677,7 +687,8 @@
     <MESSAGE value="Push for aya" />
     <MESSAGE value="Passed tESTS :)" />
     <MESSAGE value="fixes todos" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes todos" />
+    <MESSAGE value="Ready for extended testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ready for extended testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -837,8 +848,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/Parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208">
-          <caret line="32" column="43" lean-forward="false" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+        <state relative-caret-position="2794">
+          <caret line="127" column="20" lean-forward="true" selection-start-line="127" selection-start-column="20" selection-end-line="127" selection-end-column="20" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -847,8 +858,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="200" column="44" lean-forward="true" selection-start-line="200" selection-start-column="44" selection-end-line="200" selection-end-column="44" />
+        <state relative-caret-position="4510">
+          <caret line="205" column="35" lean-forward="true" selection-start-line="205" selection-start-column="35" selection-end-line="205" selection-end-column="35" />
           <folding />
         </state>
       </provider>

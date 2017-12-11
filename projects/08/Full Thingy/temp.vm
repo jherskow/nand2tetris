@@ -1,11 +1,10 @@
-push constant 111
-push constant 333
-push constant 888
-pop static 8
-pop static 3
-pop static 1
-push static 3
-push static 1
-sub
-push static 8
+function SimpleFunction.test 2
+push local 0
+push local 1
 add
+not
+push argument 0
+add
+push argument 1
+sub
+return

@@ -308,7 +308,10 @@ class CodeWriter:
     def write_if(self, label):
         """Writes assembly code that effects the if-goto command."""
         label=self.label_by_scope(label)
-        self.write("@SP\nAM=M-1\nD=M\n@" + label + "\nD;JNE\n")
+        self.pop_stack_to_d()
+        self.write("@" + label + "\nD;JNE\n")
+
+        # todo (stuff beneath is old)
         # @SP
         # AM=M-1 // decrease SP
         # D=M /Put value in D
@@ -321,16 +324,17 @@ class CodeWriter:
         return_num = self.new_return_num()
         return_address = self.__cur_filename + "_ret_" + str(return_num)
 
-        self.write("@" + return_address + "\nD=A\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
+        # push @return adress
+        self.push_address(return_address)
 
        # push lcl
-        self.push_value_of_pointer("LCL")
+        self.push_value("LCL")
         # push lcl
-        self.push_value_of_pointer("ARG")
+        self.push_value("ARG")
         # push lcl
-        self.push_value_of_pointer("THIS")
+        self.push_value("THIS")
         # push lcl
-        self.push_value_of_pointer("THAT")
+        self.push_value("THAT")
 
         # arg =*(SP -n -5)
         self.val_pointer_eq_val_at_pointer_minus_num("ARG","SP",(int(num_args)+5))
@@ -390,8 +394,14 @@ class CodeWriter:
 
     def val_pointer_eq_val_pointer(self, label1, label2):
         """Writes assembly for label1=label2"""
-        self.write\
-            ("@" + label2 + "\nD=M\n@" + label1 + "\nM=D\n")
+        # put label2's value in D
+        self.value_to_d(label2)
+        # put D in label 1
+        self.d_to_value(label1)
+
+        # todo (stuff beneath is old)
+        # self.write\
+        #     ("@" + label2 + "\nD=M\n@" + label1 + "\nM=D\n")
         # @label2
         # D=M     // d is value of pinter2
         # @label1
@@ -399,38 +409,59 @@ class CodeWriter:
 
     def val_pointer_eq_val_at_pointer_minus_num(self, label1, label2, pos_num):
         """Writes assembly for label=*(label2-constant) (value at num before pointe by lab2)"""
+        # put label2's value in D
+        self.value_to_d(label2)
+        # remove number from D
+        self.write("@"+str(pos_num)+"\nD=D-A\n")
+        # put the result as the adress
+        # and save value at this aress to D
+        self.write("A=D\nD=M\n")
+        # put D in label 1
+        self.d_to_value(label1)
+
+        # todo (stuff beneath is old)
         # @LCL
         # D=M   //d has value of LCL
         # @str(num)
-        # A=D-A  // A has LCL-num //todo check
+        # A=D-A  // A has LCL-num
         # D=M  // D has the value at ram[LCL-num]
         # @label1
         # M=D     // label one now has this value
-        self.write\
-            ("@" + label2 +"\nD=M\n@" + str(pos_num) + "\nA=D-A\nD=M\n@" + label1 + "\nM=D\n")
+        # self.write\
+        #     ("@" + label2 +"\nD=M\n@" + str(pos_num) + "\nA=D-A\nD=M\n@" + label1 + "\nM=D\n")
 
     def label_eq_val_label_plus_num(self, label1, label2, pos_num):
         """Writes assembly for label=label2+constant """
+        self.value_to_d(label2)
+        # add number to D
+        self.write("@"+str(pos_num)+"\nD=D+A\n")
+        self.d_to_value(label1)
+
+        # todo (stuff beneath is old)
         # @ARG
         # D=M   // d has the value of ARG
         # @str(num)
         # D=D+A  // d has ARG+num
         # @label1
         # M=D // label1= ARG+num
-        self.write\
-            ("@" + label2 +"\nD=M\n@" + str(pos_num) + "\nD=D+A\n@" + label1 + "\nM=D\n")
+        #self.write\
+        #    ("@" + label2 +"\nD=M\n@" + str(pos_num) + "\nD=D+A\n@" + label1 + "\nM=D\n")
 
-
-    def push_value_of_pointer(self, label):
+    def push_address(self, label):
         """Writes assembly to push number saved in label to stack"""
-        self.write("@" + label + "\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
-        # @label
-        # D=M     // D is value of label
-        # @SP
-        # A=M    // A is address of stack head
-        # M=D    // memory at stack head now has value D
-        # @SP    // advance SP
-        # M=M+1  //
+        self.address_to_d(label)
+        self.push_d_to_stack()
+
+    def push_value(self, label):
+        """Writes assembly to push number saved in label to stack"""
+        self.value_to_d(label)
+        self.push_d_to_stack()
+
+    def push_pointed_value(self, label):
+        """Writes assembly to push number saved in label to stack"""
+        self.pointed_value_to_d(label)
+        self.push_d_to_stack()
+
 
     def set_cur_filename(self, filename):
         self.__cur_filename = filename
@@ -450,3 +481,48 @@ class CodeWriter:
         label = self.__function_name+"$"+label
         return label
 
+
+
+ # todo //////// new idea
+
+    def push_d_to_stack(self):
+        self.write("@SP\nA=M\nM=D\n@SP\nM=M+1\n")
+        # @SP      A is adresss of SP (ram[0])
+        # A=M    // A is address of stack head
+        # M=D    // memory at stack head now has value D
+        # @SP    // advance SP
+        # M=M+1  //
+
+    def pop_stack_to_d(self):
+        self.write("@SP\nAM=M-1\nD=M\n")
+        # @SP      A is adresss of SP (ram[0])
+        # AM=M-1    // A and SP both have one less than SP's orig value
+        # D=M    // D now has the value at this place
+
+    def address_to_d(self,label):
+        self.write("@"+label+"\nD=A\n")
+        # @label      A is adress for label
+        # D=A    // D now has this adress
+
+    def value_to_d(self, label):
+        self.write("@" + label + "\nA=M\nD=A\n")
+        # @label      A is address for label
+        # A=M     // a is value at label
+        # D=A    // D now has this value
+
+    def pointed_value_to_d(self, label):
+        self.write("@" + label + "\nA=M\nD=M\n")
+        # @label      A is adress for label
+        # A=M     // a is value at label
+        # D=M    // D now has the var at RAM[value]
+
+    def d_to_pointed_value(self, label):
+        self.write("@" + label + "\nA=M\nM=D\n")
+        # @label      A is adress for label
+        # A=M     // A is value at label
+        # M=D    // RAM[value] now has the var at D
+
+    def d_to_value(self, label):
+        self.write("@" + label + "\nM=D\n")
+        # @label      A is adress for label
+        # M=D    // RAM[label] now has the var at D

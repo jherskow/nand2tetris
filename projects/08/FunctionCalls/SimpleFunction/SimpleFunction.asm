@@ -135,4 +135,5 @@ D=M
 @LCL
 M=D
 @R14
+A=M
 0;JMP

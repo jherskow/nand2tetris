@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eacdd40-89ba-40e8-a58d-4fd62e45556a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/nand2tetris.iml" afterPath="$PROJECT_DIR$/.idea/nand2tetris.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py" afterPath="$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/Full Thingy/temp.vm" afterPath="$PROJECT_DIR$/projects/08/Full Thingy/temp.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/bin/CPU Emulator.dat" afterPath="$PROJECT_DIR$/tools/bin/CPU Emulator.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/08/FunctionCalls/SimpleFunction/SimpleFunction.asm" afterPath="$PROJECT_DIR$/projects/08/FunctionCalls/SimpleFunction/SimpleFunction.asm" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,7 +27,7 @@
     <SUITE FILE_PATH="coverage/nand2tetris$StackTest__ex_7_.coverage" NAME="StackTest (ex 7) Coverage Results" MODIFIED="1512484109490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$Parser.coverage" NAME="Parser test Coverage Results" MODIFIED="1512481774326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$Parser_NestedCall.coverage" NAME="Parser NestedCall Coverage Results" MODIFIED="1512486493575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
-    <SUITE FILE_PATH="coverage/nand2tetris$SimpleFunction.coverage" NAME="I SimpleFunction Coverage Results" MODIFIED="1512980328262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$SimpleFunction.coverage" NAME="I SimpleFunction Coverage Results" MODIFIED="1512982928260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand$Assembler.coverage" NAME="Assembler Coverage Results" MODIFIED="1511279515754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/06/the assembler" />
     <SUITE FILE_PATH="coverage/nand2tetris$Parser_basic_loop.coverage" NAME="BasicLoop.vm Coverage Results" MODIFIED="1512484244616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
   </component>
@@ -39,8 +36,8 @@
       <file leaf-file-name="CodeWriter.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="508" column="34" lean-forward="false" selection-start-line="508" selection-start-column="34" selection-end-line="508" selection-end-column="34" />
+            <state relative-caret-position="572">
+              <caret line="427" column="8" lean-forward="false" selection-start-line="427" selection-start-column="8" selection-end-line="427" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -691,7 +688,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512897568114</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="redo">
+      <created>1512982297681</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1512982297681</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
@@ -747,7 +751,8 @@
     <MESSAGE value="more work" />
     <MESSAGE value="more logic fixes" />
     <MESSAGE value="hard work" />
-    <option name="LAST_COMMIT_MESSAGE" value="hard work" />
+    <MESSAGE value="redo" />
+    <option name="LAST_COMMIT_MESSAGE" value="redo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -900,8 +905,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="508" column="34" lean-forward="false" selection-start-line="508" selection-start-column="34" selection-end-line="508" selection-end-column="34" />
+        <state relative-caret-position="572">
+          <caret line="427" column="8" lean-forward="false" selection-start-line="427" selection-start-column="8" selection-end-line="427" selection-end-column="8" />
           <folding />
         </state>
       </provider>

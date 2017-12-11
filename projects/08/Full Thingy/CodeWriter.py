@@ -336,8 +336,8 @@ class CodeWriter:
         # push lcl
         self.push_value("THAT")
 
-        # arg =*(SP -n -5)
-        self.val_pointer_eq_val_at_pointer_minus_num("ARG","SP",(int(num_args)+5))
+        # arg = (SP -n -5)
+        self.val_label_eq_val_label_minus_num("ARG","SP",(int(num_args)+5))
 
         #lcl = SP
         self.val_pointer_eq_val_pointer("LCL", "SP")
@@ -365,16 +365,23 @@ class CodeWriter:
         self.val_pointer_eq_val_at_pointer_minus_num("R14", "R13", 5)
 
         # *ARG = pop()  - pop value from stack to where ARG is pointing
-        self.write("@SP\nAM=M-1\nD=M\n@ARG\nA=M\nM=D\n")
-        # @SP    // A is adressof sp
-        # AM=M-1   //A is adressof top stack val, SP--  #todo fixed?
-        # D=M    // D is top stack val
-        # @ARG    // A is arg pointer
-        # A=M     // a is spot pointed by ARG
-        # M=D    // value where ARG is pointing is now top stack val
+        self.pop_stack_to_d()
+        self.d_to_pointed_value("ARG")
+
+        # todo old -----------------------------------
+        # # *ARG = pop()  - pop value from stack to where ARG is pointing
+        # self.write("@SP\nAM=M-1\nD=M\n@ARG\nA=M\nM=D\n")
+        # # @SP    // A is adressof sp
+        # # AM=M-1   //A is adressof top stack val, SP--  #todo fixed?
+        # # D=M    // D is top stack val
+        # # @ARG    // A is arg pointer
+        # # A=M     // a is spot pointed by ARG
+        # # M=D    // value where ARG is pointing is now top stack val
+        # todo old -----------------------------------
+
 
         # SP=ARG+1
-        self.label_eq_val_label_plus_num("SP", "ARG", 1)
+        self.val_label_eq_val_label_plus_num("SP", "ARG", 1)
 
 
         self.val_pointer_eq_val_at_pointer_minus_num("THAT", "R13", 1)
@@ -388,8 +395,8 @@ class CodeWriter:
 
     def write_init(self):
         """Writes bootstrap code"""
-        self.write\
-            ("@256\nD=A\n@SP\nM=D\n")
+        # todo check
+        self.write("@256\nD=A\n@SP\nM=D\n")
         self.write_call("Sys.init", 0)
 
     def val_pointer_eq_val_pointer(self, label1, label2):
@@ -411,11 +418,14 @@ class CodeWriter:
         """Writes assembly for label=*(label2-constant) (value at num before pointe by lab2)"""
         # put label2's value in D
         self.value_to_d(label2)
+
         # remove number from D
         self.write("@"+str(pos_num)+"\nD=D-A\n")
-        # put the result as the adress
-        # and save value at this aress to D
+
+        # A=D // A = label2 - num
+        # D=M   // and save RAM[label2 - num] to D
         self.write("A=D\nD=M\n")
+
         # put D in label 1
         self.d_to_value(label1)
 
@@ -430,7 +440,7 @@ class CodeWriter:
         # self.write\
         #     ("@" + label2 +"\nD=M\n@" + str(pos_num) + "\nA=D-A\nD=M\n@" + label1 + "\nM=D\n")
 
-    def label_eq_val_label_plus_num(self, label1, label2, pos_num):
+    def val_label_eq_val_label_plus_num(self, label1, label2, pos_num):
         """Writes assembly for label=label2+constant """
         self.value_to_d(label2)
         # add number to D
@@ -446,6 +456,15 @@ class CodeWriter:
         # M=D // label1= ARG+num
         #self.write\
         #    ("@" + label2 +"\nD=M\n@" + str(pos_num) + "\nD=D+A\n@" + label1 + "\nM=D\n")
+
+    def val_label_eq_val_label_minus_num(self,label1,label2,pos_num):
+        self.value_to_d(label2)
+        # remove number from D
+        self.write("@"+str(pos_num)+"\nD=D-A\n")
+        # place in label 1
+        self.d_to_value(label1)
+
+
 
     def push_address(self, label):
         """Writes assembly to push number saved in label to stack"""

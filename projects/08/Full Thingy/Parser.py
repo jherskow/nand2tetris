@@ -129,7 +129,8 @@ def parse_file_to_write(parser, codeWriter):
 
 def parse_file(file_path, writer):
     parser = Parser(file_path)
-    file_name = sys.argv[1].split("/")[-1].split(".")[0]
+    name = file_path
+    file_name = name.split("/")[-1].split(".")[0]
     writer.set_cur_filename(file_name)
     parse_file_to_write(parser, writer)
     parser.close_file()

@@ -177,9 +177,12 @@ class CodeWriter:
 
     def push_static_segment(self, index):
         """ write the assembly code that is the translation of "push static index " command"""
-        self.write("@" + self.__cur_filename + "." + str(
-            index) + "\nD=M\n@" + str(
-            index) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
+        label = self.__cur_filename + "." + str(index)
+        self.value_to_d(label)
+        self.push_d_to_stack()
+        # self.write("@" + self.__cur_filename + "." + str(
+        #     index) + "\nD=M\n@" + str(
+        #     index) + "\nA=D+A\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
 
     def push_lcl_arg_this_that_segments(self, segment, index):
         """
@@ -265,10 +268,13 @@ class CodeWriter:
         write the assembly code that is the
         translation of "pop static index" command
         """
-        self.write(
-            "@" + self.__cur_filename + "." + str(index) + "\nD=M\n@" +
-            str(index) +
-            "\nD=D+A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
+        label = self.__cur_filename + "." + str(index)
+        self.pop_stack_to_d()
+        self.d_to_value(label)
+        # self.write(
+        #     "@" + self.__cur_filename + "." + str(index) + "\nD=M\n@" +
+        #     str(index) +
+        #     "\nD=D+A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n")
 
     def close(self):
         """

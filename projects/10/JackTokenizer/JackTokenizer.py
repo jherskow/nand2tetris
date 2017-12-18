@@ -5,6 +5,7 @@
 # EXERCISE : nand2tetris ex10 2017-2018
 # DESCRIPTION:
 ##########################################################################
+import re
 
 
 class JackTokenizer:
@@ -14,25 +15,70 @@ class JackTokenizer:
     as specified by the Jack grammar.
     """
 
+    keyWords = {"class": "CLASS", "method": "METHOD", "function": "FUNCTION", "constructor": "CONSTRUCTOR",
+                "int": "INT",
+                "boolean": "BOOLEAN", "char": "CHAR", "void": "VOID", "var": "VAR", "static": "STATIC",
+                "field": "FIELD",
+                "let": "LET", "do": "DO", "if": "IF", "else": "ELSE", "while": "WHILE", "return": "RETURN",
+                "true": "TRUE",
+                "false": "FALSE", "null": "NULL", "this": "THIS"}
+    symbols = {"(", ")", "{", "}", "[", "]", ",", ";", "=", ".", "+", "-", "*", "/", "&", "|", "~", "<", ">"}
 
-
-
-    def JackTokenizer(self, input_file):
+    def __init__(self, input_file):
         """Opens the input file/stream and gets ready to tokenize it."""
-        self.current_token=""
+        self.file = input_file
+        self.lines = {}
+        self.current_token = ""
+        self.tokens = []
+        self.counter = 0
 
+
+    def remove_comments(self,line):
+        """ removes comments from a line"""
+        line = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", line)
+        # remove all occurance streamed comments (/*COMMENT */) from string
+        line = re.sub(re.compile("//.*?\n"), "\n", line)
+        line = re.sub(re.compile("/\*\*.*?\*/", re.DOTALL), "", line)
+        return line
+
+
+    def get_tokens(self,line):
+        """"""
+        temp = line.split()  # split by space
+        print(temp)
+        tokens = []
+        for word in temp:
+            new_word = ""
+            for l in word:
+                if l in JackTokenizer.symbols:  # if the word have a symbol
+                    if new_word != "":  # first append all the words before the symbol
+                        tokens.append(new_word)
+                        new_word = ""
+                    tokens.append(l)
+                else:
+                    new_word += l
+            if new_word !="":
+                tokens.append(new_word)
+
+        return tokens
 
 
     def has_more_tokens(self):
         """Do we have more tokens in the input?"""
+        return bool(len(self.tokens) >self.counter+1)
 
 
     def advance(self):
         """
-        Gets the next token from the input and makes it the current token.
+            Gets the next token from the input and makes it the current token.
         This method should only be called if hasMoreTokens() is true.
         Initially there is no current token.
         """
+        if(self.has_more_tokens()):
+            self.counter+=1
+            self.current_token = self.tokens[self.counter]
+
+
 
     def token_type(self):
         """Returns the type of the current token."""
@@ -43,6 +89,16 @@ class JackTokenizer:
         IDENTIFIER, INT_CONST,
         STRING_CONST  
         """
+        if self.current_token in JackTokenizer.keyWords:
+            return "KEYWORD"
+        elif self.current_token in JackTokenizer.symbols:
+            return "SYMBOL"
+        elif re.match("\".*?\"",self.current_token):
+            return "STRING_CONST"
+        # elif re.match("[0-9]*")
+
+
+
 
     def key_word(self):
         """
@@ -61,6 +117,7 @@ class JackTokenizer:
         NULL, THIS
         """
 
+
     def symbol(self):
         """
         Returns the character which is the
@@ -68,6 +125,7 @@ class JackTokenizer:
         when tokenType() is SYMBOL .
         :return: char
         """
+
 
     def identifier(self):
         """
@@ -77,6 +135,7 @@ class JackTokenizer:
         :return: String
         """
 
+
     def int_val(self):
         """
         Returns the integer value of the
@@ -84,6 +143,7 @@ class JackTokenizer:
         when tokenType() is INT_CONST .
         :return: Int
         """
+
 
     def string_val(self):
         """
@@ -94,3 +154,32 @@ class JackTokenizer:
         :return: String
         """
 
+    def read_line(self):
+        nextLine = self.file.readline()
+        while nextLine:
+            nextLine = self.remove_comments(nextLine)
+            if(nextLine):
+                self.lines[nextLine] = self.counter
+                tokens = self.get_tokens(nextLine)
+                self.tokens += tokens
+            nextLine = self.file.readline()
+
+
+
+def main():
+    s = "let sum = (numerator * other.getDenominator()) +(other.getNumerator() * denominator());"
+    c = JackTokenizer("test").get_tokens(s)
+    print(c)
+    z= "54654"
+    print(re.match("[0-9]*",z))
+    print(re.match("[a-z]|[A-Z]",z)==None)
+    if re.match("[0-9]*",z)!=None and re.match("([a-z]|[A-Z])",z) == None :
+        print(111)
+    # a = s.split()
+    # x = s.split("[A-Z][a-z][0-9]")
+    # print(a)
+    # print(x)
+
+
+if __name__ == '__main__':
+    main()

@@ -89,15 +89,37 @@ class JackTokenizer:
         IDENTIFIER, INT_CONST,
         STRING_CONST  
         """
-        if self.current_token in JackTokenizer.keyWords:
+        if self.keyWord_type():
             return "KEYWORD"
-        elif self.current_token in JackTokenizer.symbols:
+        elif self.symbol_type():
             return "SYMBOL"
-        elif re.match("\".*?\"",self.current_token):
+        elif self.str_const_type():
             return "STRING_CONST"
-        # elif re.match("[0-9]*")
+        elif self.int_const_type():
+            return "INT_CONST"
+        elif self.identifier_type():
+            return "IDENTIFIER"
+        else:
+            return  None
 
 
+    def keyWord_type(self):
+        """return true if the current token type is keyword """
+        return bool(self.current_token in JackTokenizer.keyWords)
+
+    def symbol_type(self):
+        """return true if the current token type is symbol """
+        return bool(self.current_token in JackTokenizer.symbols)
+
+    def str_const_type(self):
+        """return true if the current token type is str const """
+        return bool(re.match("\".*?\"",self.current_token))
+
+    def int_const_type(self):
+        """return true if the current token type is int const"""
+
+    def identifier_type(self):
+        """return true if the current token type is identifier"""
 
 
     def key_word(self):
@@ -171,8 +193,9 @@ def main():
     c = JackTokenizer("test").get_tokens(s)
     print(c)
     z= "54654"
+
     print(re.match("[0-9]*",z))
-    print(re.match("[a-z]|[A-Z]",z)==None)
+    print(re.match("([a-z]|[A-Z])",z)==None)
     if re.match("[0-9]*",z)!=None and re.match("([a-z]|[A-Z])",z) == None :
         print(111)
     # a = s.split()

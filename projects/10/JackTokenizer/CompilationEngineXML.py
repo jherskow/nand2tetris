@@ -5,6 +5,7 @@
 # EXERCISE : nand2tetris ex10 2017-2018
 # DESCRIPTION:
 ##########################################################################
+import sym_table as d
 
 class CompilationEngineXML:
     """
@@ -25,18 +26,38 @@ class CompilationEngineXML:
     if indeed xxx is the next syntactic element of the input.
     """
 
-    def CompilationEngineVM(self, input_file, output_file):
+    def __init__(self, tokenizer, output_file):
         """
         Creates a new compilation
         engine with the given input and
         output. The next routine called
         must be compileClass() .
         """
+        self.output_file = output_file
+        self.token = tokenizer
+
+        if self.type() != d.KEYWORD or self.key_word() != d.K_CLASS:
+            raise SyntaxError("File must begin with \"class\"")
+        self.advance()
+
+        self.compile_class()
 
     def compile_class(self):
         """
         Compiles a complete class.
         """
+        this = "class"
+        self.xml_open(this)
+
+        if self.type() != d.IDENTIFIER:
+            raise SyntaxError("Class must begin with class name")
+        self.xml_identifier()
+
+        self.compile_symbol_check("{", "Class must begin with {")
+
+        self.compile_class_body()
+
+        self.xml_close(this)
 
 
     def compile_class_var_dec(self):
@@ -44,59 +65,306 @@ class CompilationEngineXML:
         Compiles a static declaration or a field declaration.
         """
 
+        this = "classVarDec"
+        self.xml_open(this)
+        # ( 'static' | 'field' ) type varName ( ',' varName)* ';'
+
+        # static | field
+        self.key_word()
+
+        # )
+        self.compile_symbol_check(")", "expected closing \")\" for static/field")
+
+        # type
+        self.compile_type()
+
+        # single varname
+        self.compile_var_name()
+
+        # possible additional ',' varname  's
+        while self.type() == d.SYMBOL and self.symbol() == ",":
+            self.advance()
+            self.compile_var_name()
+
+        # ;
+        self.compile_symbol_check(";","expected closing \";\" for declaration")
+
+        self.xml_close(this)
+
+
     def compile_subroutine(self):
         """
         Compiles a complete method, function, or constructor.
         """
+        this = "subroutineDec"
+        self.xml_open(this)
+        # ( 'constructor' | 'function' | 'method' )
+        #( 'void' | type) subroutineName '(' parameterList ')'
+        #subroutineBody
+
+        #'constructor' | 'function' | 'method'
+        self.xml_keyword()
+        self.advance()
+
+        # )
+        self.compile_symbol_check(")", "expected closing \")\" for 'constructor' | 'function' | 'method' ")
+
+        # (
+        self.compile_symbol_check("(", "expected opening \"(\" for 'void' | type ")
+
+        #'void' | type
+        if self.type() == d.KEYWORD and self.symbol() == d.K_VOID:
+            self.xml_keyword()
+            self.advance()
+        else:
+            self.compile_type()
+
+        # )
+        self.compile_symbol_check(")", "expected closing \")\" for 'void' | type ")
+
+        # subroutineName
+        self.compile_subroutine_name()
+
+        # (
+        self.compile_symbol_check("(", "expected opening \"(\" for parameterList ")
+
+        # parameterList
+        self.compile_parameter_list()
+
+        # )
+        self.compile_symbol_check(")", "expected closing \")\" for parameterList  ")
+
+        # subroutineBody
+        self.compile_subroutine_body()
+
+
+        self.xml_close(this)
 
     def compile_parameter_list(self):
         """
         Compiles a (possibly empty) parameter list,
         not including the enclosing ‘‘ () ’’.
         """
+        this = "parameterList"
+        self.xml_open(this)
+        # ( (type varName) ( ',' type varName)*)?
+
+        #if empty - ?
+        if self.type() == d.SYMBOL and self.symbol() == ")":
+            return
+
+        # othewise first type varname must exist
+
+        # single type varName
+        self.compile_type()
+        self.compile_var_name()
+
+        # possible additional type varname  's
+        while self.type() == d.SYMBOL and self.symbol() == ",":
+            self.advance()
+            self.compile_type()
+            self.compile_var_name()
+
+        self.xml_close(this)
 
     def compile_var_dec(self):
         """
         Compiles a var declaration.
         """
+        this = "varDec"
+        self.xml_open(this)
+        # 'var' type varName ( ',' varName)* ';'
+
+        # var
+        if self.type()!=d.KEYWORD and self.key_word() != d.K_VAR:
+            raise SyntaxError("expected variable declaration")
+
+        # single type varName
+        self.compile_type()
+        self.compile_var_name()
+
+        # possible additional type varname  's
+        while self.type() == d.SYMBOL and self.symbol() == ",":
+            self.advance()
+            self.compile_type()
+            self.compile_var_name()
+
+        # ';'
+        self.compile_symbol_check(";", "expected ; at end of variable declaration")
+
+        self.xml_close(this)
+
+
 
     def compile_statements(self):
         """
         Compiles a sequence of statements,
         not including the enclosing ‘‘{}’’.
         """
+        this = "statements"
+        self.xml_open(this)
+        # statement*  0 or more times
 
-    def compile_do(self):
-        """
-        Compiles a do statement.
-        """
+
+        # empty
+        if self.type()==d.SYMBOL and self.symbol() in d.statement_end:
+            return
+
+        while self.type()==d.KEYWORD and self.key_word() in d.statement_types:
+            type = self.key_word()
+
+            if type == d. K_LET:
+                self.advance()
+                self.compile_let()
+            elif type == d. K_LET:
+                self.advance()
+                self.compile_let()
+            elif type == d.K_IF:
+                self.advance()
+                self.compile_if()
+            elif type == d.K_WHILE:
+                self.advance()
+                self.compile_while()
+            elif type == d.K_DO:
+                self.advance()
+                self.compile_do()
+            elif type == d.K_RETURN:
+                self.advance()
+                self.compile_return()
+
+        self.xml_close(this)
 
     def compile_let(self):
         """
         Compiles a let statement.
         """
+        this = "letStatement"
+        self.xml_open(this)
+
+        # 'let' varName ( '[' expression ']' )? '=' expression ';'
+
+        # varname
+        self.compile_var_name()
+
+        # possible [ expression ]
+        if self.type() == d.SYMBOL and self.symbol() == "[":
+            self.advance()
+            self.compile_expression()
+            self.compile_symbol_check("]", "expected to match [")
+
+        # =
+        self.compile_symbol_check("=", "expected in assignment")
+
+        # expression
+        self.compile_expression()
+
+        # ;
+        self.compile_symbol_check(";", "expected ; at end of assignment")
+
+        self.xml_close(this)
+
+
+    def compile_do(self):
+        """
+        Compiles a do statement.
+        """
+        this = "doStatement"
+        self.xml_open(this)
+        # 'do' subroutineCall ';'
+
+        # subroutineCall
+        self.compile_subroutine_call()
+
+        # ;
+        self.compile_symbol_check(";", "expected ; after subroutine call")
+
+        self.xml_close(this)
 
     def compile_while(self):
         """
         Compiles a while statement.
         """
+        this = "whileStatement"
+        self.xml_open(this)
+        # 'while' '(' expression ')' '{' statements '}'
+
+        # '(' expression ')
+        self.compile_symbol_check("(","expected ( in (expression) for while")
+        self.compile_expression()
+        self.compile_symbol_check(")","expected ) in (expression) for while")
+
+        # '{' statements '}'
+        self.compile_symbol_check("{","expected { in {statements} for while")
+        self.compile_statements()
+        self.compile_symbol_check("}","expected } in {statements} for while")
+
+        self.xml_close(this)
 
     def compile_return(self):
         """
         Compiles a return statement.
         """
+        this = "returnStatement"
+        self.xml_open(this)
+
+        # 'return' expression? ';'
+
+        # expression?
+        if self.type() != d.SYMBOL:
+            self.compile_expression()
+
+        # ';'
+        self.compile_symbol_check(";","expected ; for return")
+
+        self.xml_close(this)
 
     def compile_if(self):
         """
         Compiles a if statement,
         possibly with a trailing else clause.
         """
+        this = "ifStatement"
+        self.xml_open(this)
+        #'if' '(' expression ')' '{' statements '}' ( 'else' '{' statements '}' )?
+
+        # '(' expression ')'
+        self.compile_symbol_check("(","expected ( in (expression) for if")
+        self.compile_expression()
+        self.compile_symbol_check(")","expected ) in (expression) for if")
+
+        # '{' statements '}'
+        self.compile_symbol_check("{","expected { in {statements} for if")
+        self.compile_statements()
+        self.compile_symbol_check("}","expected } in {statements} for if")
+
+        # else
+        if self.type() == d.KEYWORD and self.key_word() == d.K_ELSE:
+            self.advance()
+            # '{' statements '}'
+            self.compile_symbol_check("{", "expected { in {statements} for else")
+            self.compile_statements()
+            self.compile_symbol_check("}","expected } in {statements} for else")
+
+        self.xml_close(this)
 
     def compile_expression(self):
         """
         Compiles a expression.
         """
+        this = "expression"
+        self.xml_open(this)
 
+        # term (op term)*
+
+        # term
+        self.compile_term()
+
+        # (op term)*  0 or more times
+        while self.type()==d.SYMBOL and self.symbol() in d.op:
+            self.compile_op()
+            self.compile_term()
+
+        self.xml_close(this)
 
     def compile_term(self):
         """
@@ -118,9 +386,204 @@ class CompilationEngineXML:
         Any other token is not part of this term
         and should not be advanced over.
         """
+        this = "term"
+        self.xml_open(this)
+
+        # todo hard
+
+        self.xml_close(this)
 
 
     def compile_expression_list(self):
         """
         Compiles a (possibly empty) comma-separated list of expressions.
         """
+        this = "expressionList"
+        self.xml_open(this)
+
+        # (expression ( ',' expression)* )?
+        # nothing, an expression, or many
+
+        # empty
+        if self.type()==d.SYMBOL and self.symbol() == ")":
+            return
+
+        # one expression
+        self.compile_expression()
+
+        # possible additional expressions  's
+        while self.type() == d.SYMBOL and self.symbol() == ",":
+            self.advance()
+            self.compile_expression()
+
+        self.xml_close(this)
+
+
+# todo sub compiler functions __________________________
+
+    def compile_class_body(self):
+        """
+        Complies the body of a class
+        """
+        # we are now at first line in class
+
+        # while next toks match classVarDec, compile class var dec
+        while self.type() == d.SYMBOL and self.symbol() == "(":
+            # next is ( and then static or field)
+            self.advance()
+            if self.type() == d.KEYWORD and self.key_word() in d.class_var_dec:
+                self.compile_class_var_dec()
+            else:
+                self.retreat()
+                break
+
+        # while next toks match subroutineDec, compile subroutineDec
+        while self.type() == d.SYMBOL and self.symbol() == "(":
+            # next is ( and then constructor, function, or method)
+            self.advance()
+            if self.type() == d.KEYWORD and self.key_word() in d.subroutine_dec:
+                self.compile_subroutine()
+            else:
+                self.retreat()
+                break
+
+        # ensure next token is }
+        self.compile_symbol_check("}","Class must contain only variable declarations and then subroutine declarations")
+
+    def compile_type(self):
+        """
+        Compiles a type
+        :return:
+        """
+        if self.type() == d.KEYWORD and self.key_word() in d.type:
+            self.xml_keyword()
+        elif self.type() == d.IDENTIFIER:
+            self.xml_identifier()
+        else:
+            raise SyntaxError("type expected")
+        self.advance()
+
+    def compile_var_name(self):
+        """
+
+        """
+        # todo make in accordance with regex for legal variable name
+
+    def compile_symbol_check(self,symbol, message):
+        if self.type() != d.SYMBOL or self.symbol() != symbol:
+            raise SyntaxError(message)
+        self.advance()
+
+    def compile_subroutine_call(self):
+        """
+
+        """
+        #subroutineName '(' expressionList ')' | (className |varName) '.' subroutineName '(' expressionList ')'
+        #todo tough stuff
+        # todo - possibilities are
+        # func(list)
+        # class.func(list)
+        # var.func(list)
+
+
+        #
+        pass
+
+    def compile_subroutine_name(self):
+        """
+
+        :return:
+        """
+        self.xml_identifier()
+
+    def compile_subroutine_body(self):
+        """
+
+        :return:
+        """
+        this = "subroutineBody"
+        self.xml_open(this)
+        # '{' varDec* statements '}'
+        # todo
+
+        self.xml_close(this)
+
+    def compile_op(self):
+        """
+        compiles an operator
+        """
+        self.xml_symbol()
+
+# todo HELPER FUNCTIONS __________________________
+
+    def write(self, string):
+        """
+        writes a string to output file
+        """
+        #todo adapt to whatever library
+        self.output_file.write(string)
+
+    def xml_open(self, string):
+        """
+        writes <string> to output file
+        """
+        self.write("<"+string+">")
+
+    def xml_close(self, string):
+        """
+        writes <string> to output file
+        """
+        self.write("</" + string + ">")
+
+    def xml_keyword(self):
+        """
+        writes a keyword to output file
+        """
+        self.xml_open("keyword")
+        self.write(self.key_word())
+        self.xml_close("keyword")
+
+    def xml_identifier(self):
+        """
+        writes a identifier to output file
+        """
+        self.xml_open("identifier")
+        self.write(self.identifier())
+        self.xml_close("identifier")
+
+    def xml_symbol(self):
+        """
+        writes a identifier to output file
+        """
+        self.xml_open("symbol")
+        self.write(self.symbol())
+        self.xml_close("symbol")
+
+    def advance(self):
+        self.token.advance()
+
+    def retreat(self):
+        # todo adapt to tokenizer implementation
+        pass
+
+    def look_ahead(self):
+        # todo adapt to tokenizer implementation
+        pass
+
+    def type(self):
+        return self.token.token_type()
+
+    def key_word(self):
+        return self.token.key_word()
+
+    def symbol(self):
+        return self.token.symbol()
+
+    def identifier(self):
+        return self.token.identifier()
+
+    def int_val(self):
+        return self.token.int_val()
+
+    def string_val(self):
+        return self.token.string_val()

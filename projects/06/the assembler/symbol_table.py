@@ -1,5 +1,5 @@
 ##########################################################################
-# FILE : symbol_table.py
+# FILE : sym_table.py
 # WRITER : Josuha Herskowitz , jherskow , 321658379
 # EXERCISE : nand2tetris ex3 2017-2018
 # DESCRIPTION: lookup table fo hack Assemblers

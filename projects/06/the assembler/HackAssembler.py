@@ -8,7 +8,7 @@
 
 # ========= imports =============
 
-import symbol_table as sym
+import sym_table as sym
 import sys
 import os
 

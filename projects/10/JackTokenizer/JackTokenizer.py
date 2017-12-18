@@ -115,10 +115,10 @@ class JackTokenizer:
         """return true if the current token type is str const """
         return bool(re.match("\".*?\"",self.current_token))
 
-    def int_const_type(self):
+    def int_const_type(self): #todo
         """return true if the current token type is int const"""
 
-    def identifier_type(self):
+    def identifier_type(self):#todo
         """return true if the current token type is identifier"""
 
 
@@ -138,6 +138,7 @@ class JackTokenizer:
         RETURN, TRUE, FALSE,
         NULL, THIS
         """
+        return JackTokenizer.keyWords[self.current_token]
 
 
     def symbol(self):
@@ -147,6 +148,7 @@ class JackTokenizer:
         when tokenType() is SYMBOL .
         :return: char
         """
+        return self.current_token
 
 
     def identifier(self):
@@ -156,6 +158,7 @@ class JackTokenizer:
         when tokenType() is IDENTIFIER .
         :return: String
         """
+        return self.current_token
 
 
     def int_val(self):
@@ -165,6 +168,7 @@ class JackTokenizer:
         when tokenType() is INT_CONST .
         :return: Int
         """
+        return int(self.current_token)
 
 
     def string_val(self):
@@ -175,6 +179,7 @@ class JackTokenizer:
         tokenType() is STRING_CONST .
         :return: String
         """
+        return str(self.current_token)
 
     def read_line(self):
         nextLine = self.file.readline()

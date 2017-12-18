@@ -20,8 +20,12 @@ class JackTokenizer:
     def JackTokenizer(self, input_file):
         """Opens the input file/stream and gets ready to tokenize it."""
         self.current_token=""
+        self.tokens = []
+        self.tokens = self.tokenize()
 
-
+    def tokenize(self):
+        """:returns a list of tokens"""
+        #todo
 
     def has_more_tokens(self):
         """Do we have more tokens in the input?"""

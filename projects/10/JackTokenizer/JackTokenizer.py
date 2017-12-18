@@ -193,7 +193,6 @@ def main():
     c = JackTokenizer("test").get_tokens(s)
     print(c)
     z= "54654"
-
     print(re.match("[0-9]*",z))
     print(re.match("([a-z]|[A-Z])",z)==None)
     if re.match("[0-9]*",z)!=None and re.match("([a-z]|[A-Z])",z) == None :

@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eacdd40-89ba-40e8-a58d-4fd62e45556a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/nand2tetris.iml" afterPath="$PROJECT_DIR$/.idea/nand2tetris.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/10/JackTokenizer/JackTokenizer.py" afterPath="$PROJECT_DIR$/projects/10/JackTokenizer/JackTokenizer.py" />
     </list>
@@ -64,8 +62,8 @@
       <file leaf-file-name="JackTokenizer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/JackTokenizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="190" column="20" lean-forward="false" selection-start-line="190" selection-start-column="20" selection-end-line="190" selection-end-column="20" />
+            <state relative-caret-position="266">
+              <caret line="182" column="25" lean-forward="false" selection-start-line="182" selection-start-column="25" selection-end-line="182" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -831,7 +829,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513800459157</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="JackTokenizer 1051">
+      <created>1513803108795</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1513803108795</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">
@@ -923,7 +928,8 @@
     <MESSAGE value="push 1722 pm" />
     <MESSAGE value="josh work 2204" />
     <MESSAGE value="JackTokenizer 1007" />
-    <option name="LAST_COMMIT_MESSAGE" value="JackTokenizer 1007" />
+    <MESSAGE value="JackTokenizer 1051" />
+    <option name="LAST_COMMIT_MESSAGE" value="JackTokenizer 1051" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1271,8 +1277,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/JackTokenizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="190" column="20" lean-forward="false" selection-start-line="190" selection-start-column="20" selection-end-line="190" selection-end-column="20" />
+        <state relative-caret-position="266">
+          <caret line="182" column="25" lean-forward="false" selection-start-line="182" selection-start-column="25" selection-end-line="182" selection-end-column="25" />
           <folding />
         </state>
       </provider>

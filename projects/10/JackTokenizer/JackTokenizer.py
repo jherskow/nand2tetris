@@ -180,7 +180,7 @@ class JackTokenizer:
                 self.lines[nextLine] = self.counter
                 tokens = self.get_tokens(nextLine)
                 self.tokens += tokens
-            self.line_counter += 1
+            self.line_num += 1
             nextLine = self.file.readline()
 
 

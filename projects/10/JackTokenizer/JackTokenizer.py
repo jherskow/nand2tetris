@@ -32,8 +32,7 @@ class JackTokenizer:
         self.tokens = []
         self.counter = 0
 
-
-    def remove_comments(self,line):
+    def remove_comments(self, line):
         """ removes comments from a line"""
         line = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", line)
         # remove all occurance streamed comments (/*COMMENT */) from string
@@ -41,8 +40,7 @@ class JackTokenizer:
         line = re.sub(re.compile("/\*\*.*?\*/", re.DOTALL), "", line)
         return line
 
-
-    def get_tokens(self,line):
+    def get_tokens(self, line):
         """"""
         temp = line.split()  # split by space
         print(temp)
@@ -57,16 +55,14 @@ class JackTokenizer:
                     tokens.append(l)
                 else:
                     new_word += l
-            if new_word !="":
+            if new_word != "":
                 tokens.append(new_word)
 
         return tokens
 
-
     def has_more_tokens(self):
         """Do we have more tokens in the input?"""
-        return bool(len(self.tokens) >self.counter+1)
-
+        return bool(len(self.tokens) > self.counter + 1)
 
     def advance(self):
         """
@@ -74,11 +70,9 @@ class JackTokenizer:
         This method should only be called if hasMoreTokens() is true.
         Initially there is no current token.
         """
-        if(self.has_more_tokens()):
-            self.counter+=1
+        if (self.has_more_tokens()):
+            self.counter += 1
             self.current_token = self.tokens[self.counter]
-
-
 
     def token_type(self):
         """Returns the type of the current token."""
@@ -100,8 +94,7 @@ class JackTokenizer:
         elif self.identifier_type():
             return "IDENTIFIER"
         else:
-            return  None
-
+            return None
 
     def keyWord_type(self):
         """return true if the current token type is keyword """
@@ -113,14 +106,15 @@ class JackTokenizer:
 
     def str_const_type(self):
         """return true if the current token type is str const """
-        return bool(re.match("\".*?\"",self.current_token))
+        return bool(re.fullmatch("\".*?\"", self.current_token))
 
-    def int_const_type(self): #todo
+    def int_const_type(self):
         """return true if the current token type is int const"""
+        return bool(re.fullmatch("([0-9])*", self.current_token))
 
-    def identifier_type(self):#todo
+    def identifier_type(self):
         """return true if the current token type is identifier"""
-
+        return bool(re.fullmatch("(_|[a-z]|[A-Z])([a-z]?[A-Z]?[0-9]?_?)*", self.current_token))
 
     def key_word(self):
         """
@@ -140,7 +134,6 @@ class JackTokenizer:
         """
         return JackTokenizer.keyWords[self.current_token]
 
-
     def symbol(self):
         """
         Returns the character which is the
@@ -149,7 +142,6 @@ class JackTokenizer:
         :return: char
         """
         return self.current_token
-
 
     def identifier(self):
         """
@@ -160,7 +152,6 @@ class JackTokenizer:
         """
         return self.current_token
 
-
     def int_val(self):
         """
         Returns the integer value of the
@@ -169,7 +160,6 @@ class JackTokenizer:
         :return: Int
         """
         return int(self.current_token)
-
 
     def string_val(self):
         """
@@ -185,28 +175,27 @@ class JackTokenizer:
         nextLine = self.file.readline()
         while nextLine:
             nextLine = self.remove_comments(nextLine)
-            if(nextLine):
+            if (nextLine):
                 self.lines[nextLine] = self.counter
                 tokens = self.get_tokens(nextLine)
                 self.tokens += tokens
             nextLine = self.file.readline()
 
 
-
-def main():
-    s = "let sum = (numerator * other.getDenominator()) +(other.getNumerator() * denominator());"
-    c = JackTokenizer("test").get_tokens(s)
-    print(c)
-    z= "54654"
-    print(re.match("[0-9]*",z))
-    print(re.match("([a-z]|[A-Z])",z)==None)
-    if re.match("[0-9]*",z)!=None and re.match("([a-z]|[A-Z])",z) == None :
-        print(111)
+# def main():
+#     s = "let sum = (numerator * other.getDenominator()) +(other.getNumerator() * denominator());"
+#     c = JackTokenizer("test").get_tokens(s)
+#     print(c)
+#     z = "465j7"
+#     print(re.fullmatch("([0-9])*", z))
+    # print(re.match("([a-z]|[A-Z])",z))
+    # if re.match("[0-9]*",z)!=None and re.match("([a-z]|[A-Z])",z) == None :
+    #     print(111)
     # a = s.split()
     # x = s.split("[A-Z][a-z][0-9]")
     # print(a)
     # print(x)
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()

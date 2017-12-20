@@ -135,6 +135,7 @@ class JackTokenizer:
         """
         return JackTokenizer.keyWords[self.current_token]
 
+
     def symbol(self):
         """
         Returns the character which is the
@@ -172,6 +173,15 @@ class JackTokenizer:
         """
         return str(self.current_token)
 
+    def go_back(self):
+        return self.tokens[self.counter-1]
+
+
+
+    def get_cur_line(self):
+        return self.line_num
+
+
     def read_line(self):
         nextLine = self.file.readline()
         while nextLine:
@@ -182,6 +192,7 @@ class JackTokenizer:
                 self.tokens += tokens
             self.line_num += 1
             nextLine = self.file.readline()
+        self.file.close()
 
 
 def main():

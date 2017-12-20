@@ -1,3 +1,10 @@
+import sys
+import os
+import JackTokenizer
+import CompilationEngineXML
+
+
+XML_EXTENSION =".xml"
 
 class JackAnalyzer:
     """
@@ -15,5 +22,27 @@ class JackAnalyzer:
 
     """
 
-    # todo add file handling stuff and logic from ex9
+    def __init__(self, input_file):
+        self.input_file = open(input_file,"r")
+        self.output_file = open(input_file.split(".")[0] + XML_EXTENSION, "w")
 
+
+
+
+
+
+def main():
+    input_file = sys.argv[1]
+    if os.path.isfile(input_file):
+        JackAnalyzer(input_file)
+
+
+    if os.path.isdir(input_file):
+        for f in os.listdir(input_file):
+            if f.endswith(".jack"):
+                JackAnalyzer(f)
+
+
+
+if __name__ == '__main__':
+   main()

@@ -184,14 +184,13 @@ class JackTokenizer:
 
     def read_line(self):
         nextLine = self.file.readline()
-        while nextLine:
+        if nextLine:
             nextLine = self.remove_comments(nextLine)
             if (nextLine):
                 self.lines[nextLine] = self.counter
                 tokens = self.get_tokens(nextLine)
                 self.tokens += tokens
             self.line_num += 1
-            nextLine = self.file.readline()
         self.file.close()
 
 

@@ -29,8 +29,9 @@ class JackTokenizer:
         self.file = input_file
         self.lines = {}
         self.current_token = ""
-        self.tokens = []
-        self.counter = 0
+        self.tokens = [] #list of all the tokens in the file
+        self.counter = 0 #number the current token from all the tokens in the file or the list
+        self.line_num = 0 #line number of the current token
 
     def remove_comments(self, line):
         """ removes comments from a line"""
@@ -106,7 +107,7 @@ class JackTokenizer:
 
     def str_const_type(self):
         """return true if the current token type is str const """
-        return bool(re.fullmatch("\".*?\"", self.current_token))
+        return bool(re.fullmatch("\".*?\"", self.current_token))  # "...."
 
     def int_const_type(self):
         """return true if the current token type is int const"""
@@ -179,24 +180,23 @@ class JackTokenizer:
                 self.lines[nextLine] = self.counter
                 tokens = self.get_tokens(nextLine)
                 self.tokens += tokens
+            self.line_counter += 1
             nextLine = self.file.readline()
 
 
-# def main():
-#     #s = "let sum = (numerator * other.getDenominator()) +(other.getNumerator() * denominator());"
-#     s = "let str = \"string with space\";"
-#     c = JackTokenizer("test").get_tokens(s)
-#     print(c)
-#     z = "465j7"
-#     print(re.fullmatch("([0-9])*", z))
-#     print(re.match("([a-z]|[A-Z])",z))
-#     if re.match("[0-9]*",z)!=None and re.match("([a-z]|[A-Z])",z) == None :
-#         print(111)
-#     a = s.split()
-#     x = s.split("[A-Z][a-z][0-9]")
-#     print(a)
-#     print(x)
-#
-#
+        # def main():
+        #     s = "let sum = (numerator * other.getDenominator()) +(other.getNumerator() * denominator());"
+        #     c = JackTokenizer("test").get_tokens(s)
+        #     print(c)
+        #     z = "465j7"
+        #     print(re.fullmatch("([0-9])*", z))
+        # print(re.match("([a-z]|[A-Z])",z))
+        # if re.match("[0-9]*",z)!=None and re.match("([a-z]|[A-Z])",z) == None :
+        #     print(111)
+        # a = s.split()
+        # x = s.split("[A-Z][a-z][0-9]")
+        # print(a)
+        # print(x)
+
 # if __name__ == '__main__':
 #     main()

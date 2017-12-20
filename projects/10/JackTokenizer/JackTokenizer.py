@@ -183,19 +183,20 @@ class JackTokenizer:
 
 
 # def main():
-#     s = "let sum = (numerator * other.getDenominator()) +(other.getNumerator() * denominator());"
+#     #s = "let sum = (numerator * other.getDenominator()) +(other.getNumerator() * denominator());"
+#     s = "let str = \"string with space\";"
 #     c = JackTokenizer("test").get_tokens(s)
 #     print(c)
 #     z = "465j7"
 #     print(re.fullmatch("([0-9])*", z))
-    # print(re.match("([a-z]|[A-Z])",z))
-    # if re.match("[0-9]*",z)!=None and re.match("([a-z]|[A-Z])",z) == None :
-    #     print(111)
-    # a = s.split()
-    # x = s.split("[A-Z][a-z][0-9]")
-    # print(a)
-    # print(x)
-
-
+#     print(re.match("([a-z]|[A-Z])",z))
+#     if re.match("[0-9]*",z)!=None and re.match("([a-z]|[A-Z])",z) == None :
+#         print(111)
+#     a = s.split()
+#     x = s.split("[A-Z][a-z][0-9]")
+#     print(a)
+#     print(x)
+#
+#
 # if __name__ == '__main__':
 #     main()

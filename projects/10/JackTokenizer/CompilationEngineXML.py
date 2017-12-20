@@ -36,6 +36,7 @@ class CompilationEngineXML:
         self.output_file = output_file
         self.token = tokenizer
 
+
         if self.type() != d.KEYWORD or self.key_word() != d.K_CLASS:
             raise SyntaxError("File must begin with \"class\"")
         self.advance()
@@ -70,7 +71,8 @@ class CompilationEngineXML:
         # ( 'static' | 'field' ) type varName ( ',' varName)* ';'
 
         # static | field
-        self.key_word()
+        self.xml_keyword()
+        self.advance()
 
         # )
         self.compile_symbol_check(")", "expected closing \")\" for static/field")
@@ -151,9 +153,10 @@ class CompilationEngineXML:
 
         #if empty - ?
         if self.type() == d.SYMBOL and self.symbol() == ")":
+            self.xml_close(this)
             return
 
-        # othewise first type varname must exist
+        # otherwise first (type varname) must exist
 
         # single type varName
         self.compile_type()
@@ -177,7 +180,9 @@ class CompilationEngineXML:
 
         # var
         if self.type()!=d.KEYWORD and self.key_word() != d.K_VAR:
-            raise SyntaxError("expected variable declaration")
+            raise SyntaxError("expected \"var\" in variable declaration")
+        self.xml_keyword()
+        self.advance()
 
         # single type varName
         self.compile_type()
@@ -211,24 +216,24 @@ class CompilationEngineXML:
             return
 
         while self.type()==d.KEYWORD and self.key_word() in d.statement_types:
-            type = self.key_word()
+            statement_type = self.key_word()
 
-            if type == d. K_LET:
+            if statement_type == d. K_LET:
                 self.advance()
                 self.compile_let()
-            elif type == d. K_LET:
+            elif statement_type == d. K_LET:
                 self.advance()
                 self.compile_let()
-            elif type == d.K_IF:
+            elif statement_type == d.K_IF:
                 self.advance()
                 self.compile_if()
-            elif type == d.K_WHILE:
+            elif statement_type == d.K_WHILE:
                 self.advance()
                 self.compile_while()
-            elif type == d.K_DO:
+            elif statement_type == d.K_DO:
                 self.advance()
                 self.compile_do()
-            elif type == d.K_RETURN:
+            elif statement_type == d.K_RETURN:
                 self.advance()
                 self.compile_return()
 
@@ -389,7 +394,65 @@ class CompilationEngineXML:
         this = "term"
         self.xml_open(this)
 
-        # todo hard
+        first_type = self.type()
+
+        if first_type == d.INT_CONST:
+            self.compile_int_const()
+
+        elif first_type == d.STRING_CONST:
+            self.compile_str_const()
+
+        elif first_type == d.KEYWORD and self.key_word() in d.keyword_constant:
+            self.compile_keyword_const()
+        elif first_type == d.IDENTIFIER:
+            #could be varname, varname[expression], subroutine call ( "(" )
+            self.advance()
+            if self.type() == d.SYMBOL:
+
+                if self.symbol() == "[":
+                    #varname[expression]
+                    self.retreat()
+
+                    # varname
+                    self.compile_var_name()
+
+                    # [
+                    self.compile_symbol_check("[","[ expected for array index")
+
+                    #  expression
+                    self.compile_expression()
+
+                    # [
+                    self.compile_symbol_check("]","] expected for array index")
+
+                elif self.symbol() == "(":
+                    self.retreat()
+                    self.compile_subroutine_call()
+
+            else:
+                self.retreat()
+                self.xml_identifier()
+                self.advance()
+
+        elif first_type == d.SYMBOL and self.symbol() == "(":
+            # (expression)
+
+            # (
+            self.compile_symbol_check("(","expression should start with ( ")
+
+            # expression
+            self.compile_expression()
+
+            # )
+            self.compile_symbol_check(")","expression should end with ) ")
+        elif first_type == d.SYMBOL and self.symbol() in d.unary_op:
+            # unOp term
+            self.xml_symbol()
+            self.advance()
+
+            self.compile_term()
+        else:
+            raise SyntaxError("invalid term")
 
         self.xml_close(this)
 
@@ -419,7 +482,7 @@ class CompilationEngineXML:
         self.xml_close(this)
 
 
-# todo sub compiler functions __________________________
+# sub compiler functions __________________________
 
     def compile_class_body(self):
         """
@@ -465,13 +528,15 @@ class CompilationEngineXML:
 
     def compile_var_name(self):
         """
-
+        write a variable name
         """
-        # todo make in accordance with regex for legal variable name
+        self.xml_identifier()
+        self.advance()
 
     def compile_symbol_check(self,symbol, message):
         if self.type() != d.SYMBOL or self.symbol() != symbol:
             raise SyntaxError(message)
+        self.xml_symbol()
         self.advance()
 
     def compile_subroutine_call(self):
@@ -479,22 +544,57 @@ class CompilationEngineXML:
 
         """
         #subroutineName '(' expressionList ')' | (className |varName) '.' subroutineName '(' expressionList ')'
-        #todo tough stuff
-        # todo - possibilities are
+        # possibilities are
         # func(list)
         # class.func(list)
         # var.func(list)
 
+        self.advance()
+        if self.type() == d.SYMBOL and self.symbol() == "(":
+            # subroutineName '(' expressionList ')'
+            self.retreat()
 
-        #
-        pass
+
+            #subroutineName
+            self.xml_identifier()
+
+            # (
+            self.compile_symbol_check("(","expected ( for function arguments")
+
+            #expressionList
+            self.compile_expression_list()
+
+            # )
+            self.compile_symbol_check(")","expected ) for function arguments")
+
+        elif self.type() == d.SYMBOL and self.symbol() == ".":
+            # (className |varName) '.' subroutineName '(' expressionList ')'
+            self.retreat()
+
+            # '.'
+            self.compile_symbol_check(")", "expected . for class.method")
+
+            # subroutineName
+
+            # '('
+            self.compile_symbol_check("(", "expected ( for function arguments")
+
+            # expressionList
+            self.compile_expression_list()
+
+            # )
+            self.compile_symbol_check(")","expected ) for function arguments")
+
+        else:
+            raise SyntaxError("Expected func(list) or class.func(list)")
+
 
     def compile_subroutine_name(self):
         """
-
-        :return:
+        Complies a subroutine name
         """
         self.xml_identifier()
+        self.advance()
 
     def compile_subroutine_body(self):
         """
@@ -513,6 +613,24 @@ class CompilationEngineXML:
         compiles an operator
         """
         self.xml_symbol()
+
+
+    def compile_int_const(self):
+        self.xml_open("integerConstant")
+        self.write(self.int_val())
+        self.xml_close("integerConstant")
+        self.advance()
+
+    def compile_str_const(self):
+        self.xml_open("stringConstant")
+        self.write(self.string_val())
+        self.xml_close("stringConstant")
+        self.advance()
+
+    def compile_keyword_const(self):
+        self.xml_keyword()
+        self.advance()
+
 
 # todo HELPER FUNCTIONS __________________________
 
@@ -553,10 +671,10 @@ class CompilationEngineXML:
 
     def xml_symbol(self):
         """
-        writes a identifier to output file
+        writes a symbol to output file
         """
         self.xml_open("symbol")
-        self.write(self.symbol())
+        self.write(d.symbol_switch[self.symbol()])
         self.xml_close("symbol")
 
     def advance(self):
@@ -567,6 +685,10 @@ class CompilationEngineXML:
         pass
 
     def look_ahead(self):
+        # todo adapt to tokenizer implementation
+        pass
+
+    def line_num(self):
         # todo adapt to tokenizer implementation
         pass
 
@@ -587,3 +709,6 @@ class CompilationEngineXML:
 
     def string_val(self):
         return self.token.string_val()
+
+
+    #todo adress < > " & in string literals as well

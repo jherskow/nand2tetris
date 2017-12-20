@@ -42,3 +42,95 @@ statement_types={K_LET, K_IF, K_WHILE, K_DO, K_RETURN}
 op={'+','-','*','/','&','|','<','>','='}
 unary_op={'+','~'}
 keyword_constant={'true','false','null','this'}
+
+keyWords = \
+{'boolean': 'BOOLEAN',
+ 'char': 'CHAR',
+ 'class': 'CLASS',
+ 'constructor': 'CONSTRUCTOR',
+ 'do': 'DO',
+ 'else': 'ELSE',
+ 'false': 'FALSE',
+ 'field': 'FIELD',
+ 'function': 'FUNCTION',
+ 'if': 'IF',
+ 'int': 'INT',
+ 'let': 'LET',
+ 'method': 'METHOD',
+ 'null': 'NULL',
+ 'return': 'RETURN',
+ 'static': 'STATIC',
+ 'this': 'THIS',
+ 'true': 'TRUE',
+ 'var': 'VAR',
+ 'void': 'VOID',
+ 'while': 'WHILE'}
+
+
+symbols = \
+{'&',
+ '(',
+ ')',
+ '*',
+ '+',
+ ',',
+ '-',
+ '.',
+ '/',
+ ';',
+ '<',
+ '=',
+ '>',
+ '[',
+ ']',
+ '{',
+ '|',
+ '}',
+ '~'}
+
+
+keyword_switch = \
+{'BOOLEAN': 'boolean',
+ 'CHAR': 'char',
+ 'CLASS': 'class',
+ 'CONSTRUCTOR': 'constructor',
+ 'DO': 'do',
+ 'ELSE': 'else',
+ 'FALSE': 'false',
+ 'FIELD': 'field',
+ 'FUNCTION': 'function',
+ 'IF': 'if',
+ 'INT': 'int',
+ 'LET': 'let',
+ 'METHOD': 'method',
+ 'NULL': 'null',
+ 'RETURN': 'return',
+ 'STATIC': 'static',
+ 'THIS': 'this',
+ 'TRUE': 'true',
+ 'VAR': 'var',
+ 'VOID': 'void',
+ 'WHILE': 'while'}
+
+symbol_switch = \
+{'&': '&amp;', #todo make necessary adjustments " < > /
+ '(': '(',
+ ')': ')',
+ '*': '*',
+ '+': '+',
+ ',': ',',
+ '-': '-',
+ '.': '.',
+ '/': '/',
+ ';': ';',
+ '<': '&lt;',
+ '=': '=',
+ '>': '&gt;',
+ '[': '[',
+ ']': ']',
+ '{': '{',
+ '|': '|',
+ '}': '}',
+ '~': '~'}
+
+quote_switch =  {'\"': '&quot;'}

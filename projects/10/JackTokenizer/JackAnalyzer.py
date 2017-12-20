@@ -25,15 +25,14 @@ class JackAnalyzer:
     def __init__(self, input_file):
         self.input_file = open(input_file,"r")
         self.output_file = open(input_file.split(".")[0] + XML_EXTENSION, "w")
-        self.jacktokenizer = None
+        self.tokenizer = None
 
     def get_tokenizer(self):
-        self.jacktokenizer = JackTokenizer.JackTokenizer(self.input_file)
+        self.tokenizer = JackTokenizer.JackTokenizer(self.input_file)
 
-
-
-
-
+    def jack_to_xml(self):
+        self.get_tokenizer()
+        CompilationEngineXML.CompilationEngineXML(self.tokenizer, self.output_file)
 
 def main():
     input_file = sys.argv[1]

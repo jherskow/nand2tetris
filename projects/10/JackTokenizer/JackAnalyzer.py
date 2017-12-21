@@ -1,3 +1,7 @@
+import JackTokenizer
+
+
+XML_EXTENSION = ".xml"
 
 class JackAnalyzer:
     """
@@ -15,5 +19,12 @@ class JackAnalyzer:
 
     """
 
-    # todo add file handling stuff and logic from ex9
+    def __init__(self,input_file):
+        self.input_file = open(input_file,"r")
+        self.output_file = open(input_file.split(".")[0] + XML_EXTENSION)
+        self.tokenizer = None
+
+
+
+
 

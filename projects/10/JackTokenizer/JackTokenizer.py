@@ -172,16 +172,26 @@ class JackTokenizer:
         """
         return str(self.current_token)
 
+
+    def go_back(self):
+        return self.tokens[self.counter-1]
+
+
+    def get_cur_line(self):
+        return self.line_num
+
     def read_line(self):
         nextLine = self.file.readline()
-        while nextLine:
+        if nextLine:
             nextLine = self.remove_comments(nextLine)
             if (nextLine):
                 self.lines[nextLine] = self.counter
                 tokens = self.get_tokens(nextLine)
                 self.tokens += tokens
-            self.line_counter += 1
-            nextLine = self.file.readline()
+            self.line_num += 1
+            return nextLine
+        else:
+            return None
 
 
 def main():

@@ -6,6 +6,7 @@
 # DESCRIPTION:
 ##########################################################################
 import re
+import sym_table as d
 
 
 class JackTokenizer:
@@ -31,20 +32,34 @@ class JackTokenizer:
         self.current_token = ""
         self.tokens = [] #list of all the tokens in the file
         self.counter = 0 #number the current token from all the tokens in the file or the list
-        self.line_num = 0 #line number of the current token
+        # self.line_num = 0 #line number of the current token
+        self.is_in_comment = False
+        self.read_line()
+
+
 
     def remove_comments(self, line):
-        """ removes comments from a line"""
+        """ removes single line comments from a line"""
+
         line = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", line)
         # remove all occurance streamed comments (/*COMMENT */) from string
         line = re.sub(re.compile("//.*?\n"), "\n", line)
         line = re.sub(re.compile("/\*\*.*?\*/", re.DOTALL), "", line)
+
+        if self.is_in_comment:
+            if "*/" in line:
+                line = line.split("*/")[1]
+            else:
+                line = None
+        else:
+            if "/*" in line:
+                line = line.split("/*")[0]
         return line
+
 
     def get_tokens(self, line):
         """"""
         temp = line.split()  # split by space
-        print(temp)
         tokens = []
         for word in temp:
             new_word = ""
@@ -71,9 +86,12 @@ class JackTokenizer:
         This method should only be called if hasMoreTokens() is true.
         Initially there is no current token.
         """
-        if (self.has_more_tokens()):
-            self.counter += 1
+        # if self.counter+1 ==len(self.tokens):
+        #     self.read_line()
+        if self.has_more_tokens():
             self.current_token = self.tokens[self.counter]
+            self.counter += 1
+
 
     def token_type(self):
         """Returns the type of the current token."""
@@ -106,6 +124,7 @@ class JackTokenizer:
         return bool(self.current_token in JackTokenizer.symbols)
 
     def str_const_type(self):
+        # todo fix and debug
         """return true if the current token type is str const """
         return bool(re.fullmatch("\".*?\"", self.current_token))  # "...."
 
@@ -174,37 +193,46 @@ class JackTokenizer:
 
 
     def go_back(self):
-        return self.tokens[self.counter-1]
+        self.counter -= 2
+        self.current_token = self.tokens[self.counter]
+        self.counter +=1
 
 
-    def get_cur_line(self):
-        return self.line_num
+    def get_cur_line(self):#todo
+        return 000
 
     def read_line(self):
         nextLine = self.file.readline()
-        if nextLine:
+        line_num=0
+        while nextLine:
             nextLine = self.remove_comments(nextLine)
             if (nextLine):
-                self.lines[nextLine] = self.counter
+                self.lines[nextLine] = line_num
                 tokens = self.get_tokens(nextLine)
                 self.tokens += tokens
-            self.line_num += 1
-            return nextLine
-        else:
-            return None
+            line_num += 1
+            nextLine = self.file.readline()
 
+
+    def make_xml_toks(self, output_file):
+        self.counter = 0
+        output_file.write("<tokens>")
+        while self.has_more_tokens():
+            if self.token_type() == d.KEYWORD:
+                pass
+               # todo make if bugs
 
 def main():
     s = "let sum = (numerator * other.getDenominator()) +(other.getNumerator() * denominator());"
     c = JackTokenizer("test").get_tokens(s)
-    print(c)
+    # print(c)
     z = "\"465 j7\""
     print(re.fullmatch("\".*?\"", z))
     # print(re.match("([a-z]|[A-Z])",z))
     # if re.match("[0-9]*",z)!=None and re.match("([a-z]|[A-Z])",z) == None :
     #     print(111)
-    a = s.split()
-    x = s.split("[A-Z][a-z][0-9]")
+    # a = s.split()
+    # x = s.split("[A-Z][a-z][0-9]")
     # print(a)
     # print(x)
 

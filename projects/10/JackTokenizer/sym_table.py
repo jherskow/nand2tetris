@@ -42,7 +42,8 @@ statement_types={K_LET, K_IF, K_WHILE, K_DO, K_RETURN}
 op={'+','-','*','/','&','|','<','>','='}
 unary_op={'+','~'}
 keyword_constant={'true','false','null','this'}
-
+static_field={'STATIC','FIELD'}
+func = {'CONSTRUCTOR','FUNCTION','METHOD'}
 keyWords = \
 {'boolean': 'BOOLEAN',
  'char': 'CHAR',
@@ -111,6 +112,8 @@ keyword_switch = \
  'VAR': 'var',
  'VOID': 'void',
  'WHILE': 'while'}
+
+# todo when does " appear
 
 symbol_switch = \
 {'&': '&amp;', #todo make necessary adjustments " < > /

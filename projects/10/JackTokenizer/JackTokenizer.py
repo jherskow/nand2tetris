@@ -28,15 +28,13 @@ class JackTokenizer:
     def __init__(self, input_file):
         """Opens the input file/stream and gets ready to tokenize it."""
         self.file = input_file
-        self.lines = {}
+        self.tokens_num = []  # number of tokens in every line, the number of the tokens in line i is in cell i.
         self.current_token = ""
-        self.tokens = [] #list of all the tokens in the file
-        self.counter = 0 #number the current token from all the tokens in the file or the list
+        self.tokens = []  # list of all the tokens in the file
+        self.counter = 0  # number the current token from all the tokens in the file or the list
         # self.line_num = 0 #line number of the current token
         self.is_in_comment = False
         self.read_line()
-
-
 
     def remove_comments(self, line):
         """ removes single line comments from a line"""
@@ -55,7 +53,6 @@ class JackTokenizer:
             if "/*" in line:
                 line = line.split("/*")[0]
         return line
-
 
     def get_tokens(self, line):
         """"""
@@ -91,7 +88,6 @@ class JackTokenizer:
         if self.has_more_tokens():
             self.current_token = self.tokens[self.counter]
             self.counter += 1
-
 
     def token_type(self):
         """Returns the type of the current token."""
@@ -191,36 +187,36 @@ class JackTokenizer:
         """
         return str(self.current_token)
 
-
     def go_back(self):
         self.counter -= 2
         self.current_token = self.tokens[self.counter]
-        self.counter +=1
+        self.counter += 1
 
-
-    def get_cur_line(self):#todo
-        return 000
+    def get_cur_line(self):  # todo
+        sum = 0
+        for i in self.tokens_num:
+            sum += i
+            if self.counter <= sum & self.counter > sum - i:
+                return i
 
     def read_line(self):
         nextLine = self.file.readline()
-        line_num=0
         while nextLine:
             nextLine = self.remove_comments(nextLine)
+            tokens = []
             if (nextLine):
-                self.lines[nextLine] = line_num
                 tokens = self.get_tokens(nextLine)
                 self.tokens += tokens
-            line_num += 1
+            self.tokens_num.append(len(tokens))
             nextLine = self.file.readline()
 
-
-    def make_xml_toks(self, output_file):
-        self.counter = 0
-        output_file.write("<tokens>")
-        while self.has_more_tokens():
-            if self.token_type() == d.KEYWORD:
-                pass
-               # todo make if bugs
+    # def make_xml_toks(self, output_file):
+    #     self.counter = 0
+    #     output_file.write("<tokens>")
+    #     while self.has_more_tokens():
+    #         if self.token_type() == d.KEYWORD:
+    #             pass
+    #             # todo make if bugs
 
 def main():
     s = "let sum = (numerator * other.getDenominator()) +(other.getNumerator() * denominator());"
@@ -235,6 +231,7 @@ def main():
     # x = s.split("[A-Z][a-z][0-9]")
     # print(a)
     # print(x)
+
 
 if __name__ == '__main__':
     main()

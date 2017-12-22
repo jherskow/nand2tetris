@@ -41,8 +41,7 @@ class CompilationEngineXML:
 
         if self.type() != d.KEYWORD or self.key_word() != d.K_CLASS:
             raise CompilerError(self,"File must begin with \"class\"")
-        self.xml_keyword()
-        self.advance()
+
 
         self.compile_class()
 
@@ -52,7 +51,13 @@ class CompilationEngineXML:
         """
         this = "class"
         self.xml_open(this)
+        self.write("\n")
 
+        # class
+        self.xml_keyword()
+        self.advance()
+
+        # name
         if self.type() != d.IDENTIFIER:
             raise CompilerError(self,"Class must begin with class name")
         self.xml_identifier()
@@ -72,6 +77,8 @@ class CompilationEngineXML:
 
         this = "classVarDec"
         self.xml_open(this)
+        self.write("\n")
+
         # ( 'static' | 'field' ) type varName ( ',' varName)* ';'
 
         # static | field
@@ -101,6 +108,7 @@ class CompilationEngineXML:
         """
         this = "subroutineDec"
         self.xml_open(this)
+        self.write("\n")
         # ( 'constructor' | 'function' | 'method' )
         #( 'void' | type) subroutineName '(' parameterList ')'
         #subroutineBody
@@ -141,6 +149,7 @@ class CompilationEngineXML:
         """
         this = "parameterList"
         self.xml_open(this)
+        self.write("\n")
         # ( (type varName) ( ',' type varName)*)?
 
         #if empty - ?
@@ -168,6 +177,7 @@ class CompilationEngineXML:
         """
         this = "varDec"
         self.xml_open(this)
+        self.write("\n")
         # 'var' type varName ( ',' varName)* ';'
 
         # var
@@ -200,6 +210,7 @@ class CompilationEngineXML:
         """
         this = "statements"
         self.xml_open(this)
+        self.write("\n")
         # statement*  0 or more times
 
         while self.type()==d.KEYWORD and self.key_word() in d.statement_types:
@@ -224,7 +235,7 @@ class CompilationEngineXML:
         """
         this = "letStatement"
         self.xml_open(this)
-
+        self.write("\n")
 
 
         # 'let' varName ( '[' expression ']' )? '=' expression ';'
@@ -261,6 +272,8 @@ class CompilationEngineXML:
         """
         this = "doStatement"
         self.xml_open(this)
+        self.write("\n")
+
         # 'do' subroutineCall ';'
 
         # do
@@ -281,6 +294,8 @@ class CompilationEngineXML:
         """
         this = "whileStatement"
         self.xml_open(this)
+        self.write("\n")
+
         # 'while' '(' expression ')' '{' statements '}'
 
 
@@ -306,6 +321,7 @@ class CompilationEngineXML:
         """
         this = "returnStatement"
         self.xml_open(this)
+        self.write("\n")
 
         # 'return' expression? ';'
 
@@ -329,6 +345,7 @@ class CompilationEngineXML:
         """
         this = "ifStatement"
         self.xml_open(this)
+        self.write("\n")
 
         #'if' '(' expression ')' '{' statements '}' ( 'else' '{' statements '}' )?
 
@@ -361,6 +378,7 @@ class CompilationEngineXML:
         """
         this = "expression"
         self.xml_open(this)
+        self.write("\n")
 
         # term (op term)*
 
@@ -396,6 +414,7 @@ class CompilationEngineXML:
         """
         this = "term"
         self.xml_open(this)
+        self.write("\n")
 
         first_type = self.type()
 
@@ -474,6 +493,7 @@ class CompilationEngineXML:
         """
         this = "expressionList"
         self.xml_open(this)
+        self.write("\n")
 
         # (expression ( ',' expression)* )?
         # nothing, an expression, or many
@@ -611,6 +631,7 @@ class CompilationEngineXML:
         """
         this = "subroutineBody"
         self.xml_open(this)
+        self.write("\n")
         # '{' varDec* statements '}'
 
         # '{'

@@ -1,0 +1,71 @@
+class PlatformsList {
+
+	field Platform first;
+	field Platform last;
+
+	constructor PlatformsList new() {
+		let first = null;
+		let last = null;
+		return this;
+	}	
+	
+	method void moveUp() {
+		var Platform pointer;
+
+		if (first=null) {
+			return;
+		}
+
+		let pointer=first;		
+		
+		while (pointer.hasNext()) {
+			do pointer.moveUp();
+			let pointer=pointer.getNext();
+		}
+		return;
+	}
+	
+	method void add(Platform newPlatform) {
+	
+		if (first=null) {
+			let first=newPlatform;
+			let last=newPlatform;
+			return;
+		}
+
+		do last.setNext(newPlatform);
+		let last = newPlatform;
+		return;
+	}
+	
+	method void removePlatform() {
+		if (first=null) {
+			return;
+		}
+		if (first.hasNext()) {
+			let first = first.getNext(); 
+			return;
+		}
+		let first=null;
+		let last=null;
+		return;
+		
+	}
+	
+	method boolean isOnPlatform(int xCoordinate,int yCoordinate) {
+		var Platform pointer;
+		if (first=null) {
+			return false;
+		}
+		let pointer=first;		
+		
+		while (pointer.hasNext()) {
+			if (pointer.isOnPlatform(xCoordinate,yCoordinate)) {
+				return true;
+			}
+			let pointer=pointer.getNext();
+		}
+		return false;
+		
+	}
+}

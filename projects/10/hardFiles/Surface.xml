@@ -1,0 +1,2663 @@
+<class>
+    <keyword> class </keyword>
+    <identifier> Surface </identifier>
+    <symbol> { </symbol>
+    <classVarDec>
+        <keyword> field </keyword>
+        <keyword> int </keyword>
+        <identifier> BUILDINGS_FLOOR_HEIGHT </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> field </keyword>
+        <keyword> int </keyword>
+        <identifier> BUILDINGS_WIDTH_UNIT </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> field </keyword>
+        <keyword> int </keyword>
+        <identifier> _buildingsNum </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> field </keyword>
+        <identifier> Array </identifier>
+        <identifier> _buildingsX </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> field </keyword>
+        <identifier> Array </identifier>
+        <identifier> _buildingsWidths </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> field </keyword>
+        <identifier> Array </identifier>
+        <identifier> _buildingsHeights </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <subroutineDec>
+        <keyword> constructor </keyword>
+        <identifier> Surface </identifier>
+        <identifier> new </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> _buildingsNum </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <integerConstant> 30 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> _buildingsX </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> Array </identifier>
+                            <symbol> . </symbol>
+                            <identifier> new </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> _buildingsNum </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> _buildingsWidths </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> Array </identifier>
+                            <symbol> . </symbol>
+                            <identifier> new </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> _buildingsNum </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> _buildingsHeights </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> Array </identifier>
+                            <symbol> . </symbol>
+                            <identifier> new </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> _buildingsNum </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> BUILDINGS_FLOOR_HEIGHT </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <integerConstant> 10 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> BUILDINGS_WIDTH_UNIT </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <integerConstant> 10 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <keyword> this </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> function </keyword>
+        <keyword> int </keyword>
+        <identifier> getUpperDivider </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <integerConstant> 25 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> function </keyword>
+        <keyword> int </keyword>
+        <identifier> getLowerDivider </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <integerConstant> 250 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> void </keyword>
+        <identifier> init </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> i </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> lastPos </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> tempRand </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> boolean </keyword>
+                <identifier> exceeded </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> floors </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> cannonX </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> cannonY </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> lastPos </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <integerConstant> 0 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> i </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <integerConstant> 0 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> exceeded </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <keyword> false </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <whileStatement>
+                    <keyword> while </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <symbol> ~ </symbol>
+                                    <term>
+                                        <symbol> ( </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> exceeded </identifier>
+                                            </term>
+                                        </expression>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                        </term>
+                        <symbol> &amp; </symbol>
+                        <term>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> i </identifier>
+                                </term>
+                                <symbol> &lt; </symbol>
+                                <term>
+                                    <identifier> _buildingsNum </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> floors </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> Utils </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> random </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <integerConstant> 18 </integerConstant>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> _buildingsWidths </identifier>
+                            <symbol> [ </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> i </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ] </symbol>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> Utils </identifier>
+                                            <symbol> . </symbol>
+                                            <identifier> random </identifier>
+                                            <symbol> ( </symbol>
+                                            <expressionList>
+                                                <expression>
+                                                    <term>
+                                                        <integerConstant> 3 </integerConstant>
+                                                    </term>
+                                                </expression>
+                                            </expressionList>
+                                            <symbol> ) </symbol>
+                                        </term>
+                                        <symbol> + </symbol>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                </term>
+                                <symbol> * </symbol>
+                                <term>
+                                    <identifier> BUILDINGS_WIDTH_UNIT </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> _buildingsHeights </identifier>
+                            <symbol> [ </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> i </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ] </symbol>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> Surface </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> getLowerDivider </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                                <symbol> - </symbol>
+                                <term>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> floors </identifier>
+                                        </term>
+                                        <symbol> * </symbol>
+                                        <term>
+                                            <identifier> BUILDINGS_FLOOR_HEIGHT </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> tempRand </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> Utils </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> random </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <integerConstant> 25 </integerConstant>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> _buildingsX </identifier>
+                            <symbol> [ </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> i </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ] </symbol>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> lastPos </identifier>
+                                </term>
+                                <symbol> + </symbol>
+                                <term>
+                                    <identifier> tempRand </identifier>
+                                </term>
+                                <symbol> + </symbol>
+                                <term>
+                                    <identifier> BUILDINGS_WIDTH_UNIT </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <ifStatement>
+                            <keyword> if </keyword>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> _buildingsX </identifier>
+                                    <symbol> [ </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> i </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ] </symbol>
+                                </term>
+                                <symbol> &gt; </symbol>
+                                <term>
+                                    <integerConstant> 490 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                            <symbol> { </symbol>
+                            <statements>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> _buildingsNum </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> i </identifier>
+                                        </term>
+                                        <symbol> - </symbol>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> exceeded </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <keyword> true </keyword>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                        </ifStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> lastPos </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> _buildingsX </identifier>
+                                    <symbol> [ </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> i </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ] </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> i </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> i </identifier>
+                                </term>
+                                <symbol> + </symbol>
+                                <term>
+                                    <integerConstant> 1 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </whileStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> int </keyword>
+        <identifier> getCannonPosX </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <keyword> int </keyword>
+            <identifier> player </identifier>
+            <symbol> , </symbol>
+            <keyword> int </keyword>
+            <identifier> index </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> player </identifier>
+                        </term>
+                        <symbol> = </symbol>
+                        <term>
+                            <integerConstant> 1 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <identifier> _buildingsX </identifier>
+                                    <symbol> [ </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> index </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ] </symbol>
+                                </term>
+                                <symbol> + </symbol>
+                                <term>
+                                    <integerConstant> 1 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <identifier> _buildingsX </identifier>
+                            <symbol> [ </symbol>
+                            <expression>
+                                <term>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> _buildingsNum </identifier>
+                                        </term>
+                                        <symbol> - </symbol>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                        <symbol> - </symbol>
+                                        <term>
+                                            <identifier> index </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ] </symbol>
+                        </term>
+                        <symbol> + </symbol>
+                        <term>
+                            <identifier> _buildingsWidths </identifier>
+                            <symbol> [ </symbol>
+                            <expression>
+                                <term>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> _buildingsNum </identifier>
+                                        </term>
+                                        <symbol> - </symbol>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                        <symbol> - </symbol>
+                                        <term>
+                                            <identifier> index </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ] </symbol>
+                        </term>
+                        <symbol> - </symbol>
+                        <term>
+                            <integerConstant> 9 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> int </keyword>
+        <identifier> getCannonPosY </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <keyword> int </keyword>
+            <identifier> player </identifier>
+            <symbol> , </symbol>
+            <keyword> int </keyword>
+            <identifier> index </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> height </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> player </identifier>
+                        </term>
+                        <symbol> = </symbol>
+                        <term>
+                            <integerConstant> 1 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> height </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> findHeightForCannon </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <identifier> index </identifier>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> getCannonPosX </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                    <expression>
+                                                        <term>
+                                                            <integerConstant> 1 </integerConstant>
+                                                        </term>
+                                                    </expression>
+                                                    <symbol> , </symbol>
+                                                    <expression>
+                                                        <term>
+                                                            <identifier> index </identifier>
+                                                        </term>
+                                                    </expression>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                            <symbol> - </symbol>
+                                            <term>
+                                                <integerConstant> 1 </integerConstant>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <identifier> height </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                    <keyword> else </keyword>
+                    <symbol> { </symbol>
+                    <statements>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> height </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> findHeightForCannon </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <identifier> _buildingsNum </identifier>
+                                            </term>
+                                            <symbol> - </symbol>
+                                            <term>
+                                                <integerConstant> 1 </integerConstant>
+                                            </term>
+                                            <symbol> - </symbol>
+                                            <term>
+                                                <identifier> index </identifier>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> getCannonPosX </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                    <expression>
+                                                        <term>
+                                                            <integerConstant> 2 </integerConstant>
+                                                        </term>
+                                                    </expression>
+                                                    <symbol> , </symbol>
+                                                    <expression>
+                                                        <term>
+                                                            <identifier> index </identifier>
+                                                        </term>
+                                                    </expression>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                            <symbol> - </symbol>
+                                            <term>
+                                                <integerConstant> 1 </integerConstant>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <identifier> height </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> int </keyword>
+        <identifier> getMinHeight </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <keyword> int </keyword>
+            <identifier> curHeight </identifier>
+            <symbol> , </symbol>
+            <keyword> int </keyword>
+            <identifier> startX </identifier>
+            <symbol> , </symbol>
+            <keyword> int </keyword>
+            <identifier> checkIndex </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> height </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> checkIndex </identifier>
+                                </term>
+                                <symbol> &gt; </symbol>
+                                <term>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> _buildingsNum </identifier>
+                                        </term>
+                                        <symbol> - </symbol>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                        </term>
+                        <symbol> | </symbol>
+                        <term>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> checkIndex </identifier>
+                                </term>
+                                <symbol> &lt; </symbol>
+                                <term>
+                                    <integerConstant> 0 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                        </term>
+                        <symbol> | </symbol>
+                        <term>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> curHeight </identifier>
+                                </term>
+                                <symbol> = </symbol>
+                                <term>
+                                    <integerConstant> 0 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <identifier> curHeight </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> height </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> curHeight </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> _buildingsX </identifier>
+                                            <symbol> [ </symbol>
+                                            <expression>
+                                                <term>
+                                                    <identifier> checkIndex </identifier>
+                                                </term>
+                                            </expression>
+                                            <symbol> ] </symbol>
+                                        </term>
+                                        <symbol> + </symbol>
+                                        <term>
+                                            <identifier> _buildingsWidths </identifier>
+                                            <symbol> [ </symbol>
+                                            <expression>
+                                                <term>
+                                                    <identifier> checkIndex </identifier>
+                                                </term>
+                                            </expression>
+                                            <symbol> ] </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                </term>
+                                <symbol> &gt; </symbol>
+                                <term>
+                                    <identifier> startX </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                        </term>
+                        <symbol> &amp; </symbol>
+                        <term>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> _buildingsX </identifier>
+                                    <symbol> [ </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> checkIndex </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ] </symbol>
+                                </term>
+                                <symbol> &lt; </symbol>
+                                <term>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> startX </identifier>
+                                        </term>
+                                        <symbol> + </symbol>
+                                        <term>
+                                            <integerConstant> 10 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> height </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> Math </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> min </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <identifier> _buildingsHeights </identifier>
+                                                <symbol> [ </symbol>
+                                                <expression>
+                                                    <term>
+                                                        <identifier> checkIndex </identifier>
+                                                    </term>
+                                                </expression>
+                                                <symbol> ] </symbol>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> height </identifier>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <identifier> height </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> int </keyword>
+        <identifier> findHeightForCannon </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <keyword> int </keyword>
+            <identifier> index </identifier>
+            <symbol> , </symbol>
+            <keyword> int </keyword>
+            <identifier> startX </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> height </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> j </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> height </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> _buildingsHeights </identifier>
+                            <symbol> [ </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> index </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ] </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> j </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <symbol> - </symbol>
+                            <term>
+                                <integerConstant> 2 </integerConstant>
+                            </term>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <whileStatement>
+                    <keyword> while </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> j </identifier>
+                        </term>
+                        <symbol> &lt; </symbol>
+                        <term>
+                            <integerConstant> 3 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> height </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> getMinHeight </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <identifier> height </identifier>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> startX </identifier>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <symbol> ( </symbol>
+                                                <expression>
+                                                    <term>
+                                                        <identifier> index </identifier>
+                                                    </term>
+                                                    <symbol> + </symbol>
+                                                    <term>
+                                                        <identifier> j </identifier>
+                                                    </term>
+                                                </expression>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> j </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> j </identifier>
+                                </term>
+                                <symbol> + </symbol>
+                                <term>
+                                    <integerConstant> 1 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </whileStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <identifier> height </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> int </keyword>
+        <identifier> get_buildingsNum </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <identifier> _buildingsNum </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> void </keyword>
+        <identifier> dispose </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> _buildingsWidths </identifier>
+                    <symbol> . </symbol>
+                    <identifier> dispose </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> _buildingsHeights </identifier>
+                    <symbol> . </symbol>
+                    <identifier> dispose </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> _buildingsX </identifier>
+                    <symbol> . </symbol>
+                    <identifier> dispose </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> Memory </identifier>
+                    <symbol> . </symbol>
+                    <identifier> deAlloc </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                        <expression>
+                            <term>
+                                <keyword> this </keyword>
+                            </term>
+                        </expression>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> void </keyword>
+        <identifier> drawAllBuildings </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> i </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <whileStatement>
+                    <keyword> while </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> i </identifier>
+                        </term>
+                        <symbol> &lt; </symbol>
+                        <term>
+                            <identifier> _buildingsNum </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> drawBuilding </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> i </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> i </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> i </identifier>
+                                </term>
+                                <symbol> + </symbol>
+                                <term>
+                                    <integerConstant> 1 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </whileStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> int </keyword>
+        <identifier> isHitBuilding </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <keyword> int </keyword>
+            <identifier> x </identifier>
+            <symbol> , </symbol>
+            <keyword> int </keyword>
+            <identifier> y </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> i </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> i </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <integerConstant> 0 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <whileStatement>
+                    <keyword> while </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> i </identifier>
+                        </term>
+                        <symbol> &lt; </symbol>
+                        <term>
+                            <identifier> _buildingsNum </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <ifStatement>
+                            <keyword> if </keyword>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> x </identifier>
+                                        </term>
+                                        <symbol> &gt; </symbol>
+                                        <term>
+                                            <identifier> _buildingsX </identifier>
+                                            <symbol> [ </symbol>
+                                            <expression>
+                                                <term>
+                                                    <identifier> i </identifier>
+                                                </term>
+                                            </expression>
+                                            <symbol> ] </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                </term>
+                                <symbol> &amp; </symbol>
+                                <term>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> x </identifier>
+                                        </term>
+                                        <symbol> &lt; </symbol>
+                                        <term>
+                                            <symbol> ( </symbol>
+                                            <expression>
+                                                <term>
+                                                    <identifier> _buildingsX </identifier>
+                                                    <symbol> [ </symbol>
+                                                    <expression>
+                                                        <term>
+                                                            <identifier> i </identifier>
+                                                        </term>
+                                                    </expression>
+                                                    <symbol> ] </symbol>
+                                                </term>
+                                                <symbol> + </symbol>
+                                                <term>
+                                                    <identifier> _buildingsWidths </identifier>
+                                                    <symbol> [ </symbol>
+                                                    <expression>
+                                                        <term>
+                                                            <identifier> i </identifier>
+                                                        </term>
+                                                    </expression>
+                                                    <symbol> ] </symbol>
+                                                </term>
+                                            </expression>
+                                            <symbol> ) </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                </term>
+                                <symbol> &amp; </symbol>
+                                <term>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> y </identifier>
+                                        </term>
+                                        <symbol> &gt; </symbol>
+                                        <term>
+                                            <identifier> _buildingsHeights </identifier>
+                                            <symbol> [ </symbol>
+                                            <expression>
+                                                <term>
+                                                    <identifier> i </identifier>
+                                                </term>
+                                            </expression>
+                                            <symbol> ] </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                            <symbol> { </symbol>
+                            <statements>
+                                <returnStatement>
+                                    <keyword> return </keyword>
+                                    <expression>
+                                        <term>
+                                            <identifier> i </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </returnStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                        </ifStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> i </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> i </identifier>
+                                </term>
+                                <symbol> + </symbol>
+                                <term>
+                                    <integerConstant> 1 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </whileStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <symbol> - </symbol>
+                            <term>
+                                <integerConstant> 1 </integerConstant>
+                            </term>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> void </keyword>
+        <identifier> drawBuilding </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <keyword> int </keyword>
+            <identifier> i </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> j </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> h </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> floors </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> width </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> floors </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> Math </identifier>
+                            <symbol> . </symbol>
+                            <identifier> divide </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> Surface </identifier>
+                                        <symbol> . </symbol>
+                                        <identifier> getLowerDivider </identifier>
+                                        <symbol> ( </symbol>
+                                        <expressionList>
+                                        </expressionList>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                    <symbol> - </symbol>
+                                    <term>
+                                        <identifier> _buildingsHeights </identifier>
+                                        <symbol> [ </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> i </identifier>
+                                            </term>
+                                        </expression>
+                                        <symbol> ] </symbol>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> BUILDINGS_FLOOR_HEIGHT </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> width </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> Math </identifier>
+                            <symbol> . </symbol>
+                            <identifier> divide </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> _buildingsWidths </identifier>
+                                        <symbol> [ </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> i </identifier>
+                                            </term>
+                                        </expression>
+                                        <symbol> ] </symbol>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> BUILDINGS_WIDTH_UNIT </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> floors </identifier>
+                                </term>
+                                <symbol> = </symbol>
+                                <term>
+                                    <integerConstant> 0 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                        </term>
+                        <symbol> | </symbol>
+                        <term>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> width </identifier>
+                                </term>
+                                <symbol> = </symbol>
+                                <term>
+                                    <integerConstant> 0 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> Screen </identifier>
+                    <symbol> . </symbol>
+                    <identifier> drawRectangle </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                        <expression>
+                            <term>
+                                <identifier> _buildingsX </identifier>
+                                <symbol> [ </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> i </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> ] </symbol>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> _buildingsHeights </identifier>
+                                <symbol> [ </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> i </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> ] </symbol>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> _buildingsX </identifier>
+                                <symbol> [ </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> i </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> ] </symbol>
+                            </term>
+                            <symbol> + </symbol>
+                            <term>
+                                <identifier> _buildingsWidths </identifier>
+                                <symbol> [ </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> i </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> ] </symbol>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> Surface </identifier>
+                                <symbol> . </symbol>
+                                <identifier> getLowerDivider </identifier>
+                                <symbol> ( </symbol>
+                                <expressionList>
+                                </expressionList>
+                                <symbol> ) </symbol>
+                            </term>
+                        </expression>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> Screen </identifier>
+                    <symbol> . </symbol>
+                    <identifier> setColor </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                        <expression>
+                            <term>
+                                <keyword> false </keyword>
+                            </term>
+                        </expression>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> Screen </identifier>
+                    <symbol> . </symbol>
+                    <identifier> drawRectangle </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                        <expression>
+                            <term>
+                                <identifier> _buildingsX </identifier>
+                                <symbol> [ </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> i </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> ] </symbol>
+                            </term>
+                            <symbol> + </symbol>
+                            <term>
+                                <integerConstant> 1 </integerConstant>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> _buildingsHeights </identifier>
+                                <symbol> [ </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> i </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> ] </symbol>
+                            </term>
+                            <symbol> + </symbol>
+                            <term>
+                                <integerConstant> 1 </integerConstant>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> _buildingsX </identifier>
+                                <symbol> [ </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> i </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> ] </symbol>
+                            </term>
+                            <symbol> + </symbol>
+                            <term>
+                                <identifier> _buildingsWidths </identifier>
+                                <symbol> [ </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> i </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> ] </symbol>
+                            </term>
+                            <symbol> - </symbol>
+                            <term>
+                                <integerConstant> 1 </integerConstant>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> Surface </identifier>
+                                <symbol> . </symbol>
+                                <identifier> getLowerDivider </identifier>
+                                <symbol> ( </symbol>
+                                <expressionList>
+                                </expressionList>
+                                <symbol> ) </symbol>
+                            </term>
+                        </expression>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> Screen </identifier>
+                    <symbol> . </symbol>
+                    <identifier> setColor </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                        <expression>
+                            <term>
+                                <keyword> true </keyword>
+                            </term>
+                        </expression>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> Screen </identifier>
+                    <symbol> . </symbol>
+                    <identifier> drawRectangle </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                        <expression>
+                            <term>
+                                <identifier> _buildingsX </identifier>
+                                <symbol> [ </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> i </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> ] </symbol>
+                            </term>
+                            <symbol> + </symbol>
+                            <term>
+                                <integerConstant> 2 </integerConstant>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> _buildingsHeights </identifier>
+                                <symbol> [ </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> i </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> ] </symbol>
+                            </term>
+                            <symbol> + </symbol>
+                            <term>
+                                <integerConstant> 2 </integerConstant>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> _buildingsX </identifier>
+                                <symbol> [ </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> i </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> ] </symbol>
+                            </term>
+                            <symbol> + </symbol>
+                            <term>
+                                <identifier> _buildingsWidths </identifier>
+                                <symbol> [ </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> i </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> ] </symbol>
+                            </term>
+                            <symbol> - </symbol>
+                            <term>
+                                <integerConstant> 2 </integerConstant>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> Surface </identifier>
+                                <symbol> . </symbol>
+                                <identifier> getLowerDivider </identifier>
+                                <symbol> ( </symbol>
+                                <expressionList>
+                                </expressionList>
+                                <symbol> ) </symbol>
+                            </term>
+                        </expression>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> floors </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> floors </identifier>
+                        </term>
+                        <symbol> - </symbol>
+                        <term>
+                            <integerConstant> 1 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> floors </identifier>
+                        </term>
+                        <symbol> &gt; </symbol>
+                        <term>
+                            <integerConstant> 0 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> Screen </identifier>
+                            <symbol> . </symbol>
+                            <identifier> setColor </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <keyword> false </keyword>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <whileStatement>
+                            <keyword> while </keyword>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> j </identifier>
+                                </term>
+                                <symbol> &lt; </symbol>
+                                <term>
+                                    <identifier> floors </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                            <symbol> { </symbol>
+                            <statements>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> h </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <integerConstant> 0 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <whileStatement>
+                                    <keyword> while </keyword>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> h </identifier>
+                                        </term>
+                                        <symbol> &lt; </symbol>
+                                        <term>
+                                            <identifier> width </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                    <symbol> { </symbol>
+                                    <statements>
+                                        <doStatement>
+                                            <keyword> do </keyword>
+                                            <identifier> Screen </identifier>
+                                            <symbol> . </symbol>
+                                            <identifier> drawRectangle </identifier>
+                                            <symbol> ( </symbol>
+                                            <expressionList>
+                                                <expression>
+                                                    <term>
+                                                        <identifier> _buildingsX </identifier>
+                                                        <symbol> [ </symbol>
+                                                        <expression>
+                                                            <term>
+                                                                <identifier> i </identifier>
+                                                            </term>
+                                                        </expression>
+                                                        <symbol> ] </symbol>
+                                                    </term>
+                                                    <symbol> + </symbol>
+                                                    <term>
+                                                        <integerConstant> 4 </integerConstant>
+                                                    </term>
+                                                    <symbol> + </symbol>
+                                                    <term>
+                                                        <symbol> ( </symbol>
+                                                        <expression>
+                                                            <term>
+                                                                <identifier> h </identifier>
+                                                            </term>
+                                                            <symbol> * </symbol>
+                                                            <term>
+                                                                <identifier> BUILDINGS_WIDTH_UNIT </identifier>
+                                                            </term>
+                                                        </expression>
+                                                        <symbol> ) </symbol>
+                                                    </term>
+                                                </expression>
+                                                <symbol> , </symbol>
+                                                <expression>
+                                                    <term>
+                                                        <identifier> _buildingsHeights </identifier>
+                                                        <symbol> [ </symbol>
+                                                        <expression>
+                                                            <term>
+                                                                <identifier> i </identifier>
+                                                            </term>
+                                                        </expression>
+                                                        <symbol> ] </symbol>
+                                                    </term>
+                                                    <symbol> + </symbol>
+                                                    <term>
+                                                        <integerConstant> 4 </integerConstant>
+                                                    </term>
+                                                    <symbol> + </symbol>
+                                                    <term>
+                                                        <symbol> ( </symbol>
+                                                        <expression>
+                                                            <term>
+                                                                <identifier> j </identifier>
+                                                            </term>
+                                                            <symbol> * </symbol>
+                                                            <term>
+                                                                <identifier> BUILDINGS_FLOOR_HEIGHT </identifier>
+                                                            </term>
+                                                        </expression>
+                                                        <symbol> ) </symbol>
+                                                    </term>
+                                                </expression>
+                                                <symbol> , </symbol>
+                                                <expression>
+                                                    <term>
+                                                        <identifier> _buildingsX </identifier>
+                                                        <symbol> [ </symbol>
+                                                        <expression>
+                                                            <term>
+                                                                <identifier> i </identifier>
+                                                            </term>
+                                                        </expression>
+                                                        <symbol> ] </symbol>
+                                                    </term>
+                                                    <symbol> + </symbol>
+                                                    <term>
+                                                        <integerConstant> 6 </integerConstant>
+                                                    </term>
+                                                    <symbol> + </symbol>
+                                                    <term>
+                                                        <symbol> ( </symbol>
+                                                        <expression>
+                                                            <term>
+                                                                <identifier> h </identifier>
+                                                            </term>
+                                                            <symbol> * </symbol>
+                                                            <term>
+                                                                <identifier> BUILDINGS_WIDTH_UNIT </identifier>
+                                                            </term>
+                                                        </expression>
+                                                        <symbol> ) </symbol>
+                                                    </term>
+                                                </expression>
+                                                <symbol> , </symbol>
+                                                <expression>
+                                                    <term>
+                                                        <identifier> _buildingsHeights </identifier>
+                                                        <symbol> [ </symbol>
+                                                        <expression>
+                                                            <term>
+                                                                <identifier> i </identifier>
+                                                            </term>
+                                                        </expression>
+                                                        <symbol> ] </symbol>
+                                                    </term>
+                                                    <symbol> + </symbol>
+                                                    <term>
+                                                        <integerConstant> 7 </integerConstant>
+                                                    </term>
+                                                    <symbol> + </symbol>
+                                                    <term>
+                                                        <symbol> ( </symbol>
+                                                        <expression>
+                                                            <term>
+                                                                <identifier> j </identifier>
+                                                            </term>
+                                                            <symbol> * </symbol>
+                                                            <term>
+                                                                <identifier> BUILDINGS_FLOOR_HEIGHT </identifier>
+                                                            </term>
+                                                        </expression>
+                                                        <symbol> ) </symbol>
+                                                    </term>
+                                                </expression>
+                                            </expressionList>
+                                            <symbol> ) </symbol>
+                                            <symbol> ; </symbol>
+                                        </doStatement>
+                                        <letStatement>
+                                            <keyword> let </keyword>
+                                            <identifier> h </identifier>
+                                            <symbol> = </symbol>
+                                            <expression>
+                                                <term>
+                                                    <identifier> h </identifier>
+                                                </term>
+                                                <symbol> + </symbol>
+                                                <term>
+                                                    <integerConstant> 1 </integerConstant>
+                                                </term>
+                                            </expression>
+                                            <symbol> ; </symbol>
+                                        </letStatement>
+                                    </statements>
+                                    <symbol> } </symbol>
+                                </whileStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> j </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> j </identifier>
+                                        </term>
+                                        <symbol> + </symbol>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                        </whileStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> Screen </identifier>
+                            <symbol> . </symbol>
+                            <identifier> setColor </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <keyword> true </keyword>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> void </keyword>
+        <identifier> inflictBuildingsDemage </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <keyword> int </keyword>
+            <identifier> x </identifier>
+            <symbol> , </symbol>
+            <keyword> int </keyword>
+            <identifier> y </identifier>
+            <symbol> , </symbol>
+            <keyword> int </keyword>
+            <identifier> radius </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> i </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> i </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <integerConstant> 0 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <whileStatement>
+                    <keyword> while </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> i </identifier>
+                        </term>
+                        <symbol> &lt; </symbol>
+                        <term>
+                            <identifier> _buildingsNum </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <ifStatement>
+                            <keyword> if </keyword>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> x </identifier>
+                                        </term>
+                                        <symbol> &gt; </symbol>
+                                        <term>
+                                            <symbol> ( </symbol>
+                                            <expression>
+                                                <term>
+                                                    <identifier> _buildingsX </identifier>
+                                                    <symbol> [ </symbol>
+                                                    <expression>
+                                                        <term>
+                                                            <identifier> i </identifier>
+                                                        </term>
+                                                    </expression>
+                                                    <symbol> ] </symbol>
+                                                </term>
+                                                <symbol> - </symbol>
+                                                <term>
+                                                    <identifier> radius </identifier>
+                                                </term>
+                                            </expression>
+                                            <symbol> ) </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                </term>
+                                <symbol> &amp; </symbol>
+                                <term>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> x </identifier>
+                                        </term>
+                                        <symbol> &lt; </symbol>
+                                        <term>
+                                            <symbol> ( </symbol>
+                                            <expression>
+                                                <term>
+                                                    <identifier> _buildingsX </identifier>
+                                                    <symbol> [ </symbol>
+                                                    <expression>
+                                                        <term>
+                                                            <identifier> i </identifier>
+                                                        </term>
+                                                    </expression>
+                                                    <symbol> ] </symbol>
+                                                </term>
+                                                <symbol> + </symbol>
+                                                <term>
+                                                    <identifier> _buildingsWidths </identifier>
+                                                    <symbol> [ </symbol>
+                                                    <expression>
+                                                        <term>
+                                                            <identifier> i </identifier>
+                                                        </term>
+                                                    </expression>
+                                                    <symbol> ] </symbol>
+                                                </term>
+                                                <symbol> + </symbol>
+                                                <term>
+                                                    <identifier> radius </identifier>
+                                                </term>
+                                            </expression>
+                                            <symbol> ) </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                </term>
+                                <symbol> &amp; </symbol>
+                                <term>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> y </identifier>
+                                        </term>
+                                        <symbol> &gt; </symbol>
+                                        <term>
+                                            <symbol> ( </symbol>
+                                            <expression>
+                                                <term>
+                                                    <identifier> _buildingsHeights </identifier>
+                                                    <symbol> [ </symbol>
+                                                    <expression>
+                                                        <term>
+                                                            <identifier> i </identifier>
+                                                        </term>
+                                                    </expression>
+                                                    <symbol> ] </symbol>
+                                                </term>
+                                                <symbol> - </symbol>
+                                                <term>
+                                                    <identifier> radius </identifier>
+                                                </term>
+                                            </expression>
+                                            <symbol> ) </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                            <symbol> { </symbol>
+                            <statements>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> _buildingsHeights </identifier>
+                                    <symbol> [ </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> i </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ] </symbol>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> Math </identifier>
+                                            <symbol> . </symbol>
+                                            <identifier> min </identifier>
+                                            <symbol> ( </symbol>
+                                            <expressionList>
+                                                <expression>
+                                                    <term>
+                                                        <identifier> Surface </identifier>
+                                                        <symbol> . </symbol>
+                                                        <identifier> getLowerDivider </identifier>
+                                                        <symbol> ( </symbol>
+                                                        <expressionList>
+                                                        </expressionList>
+                                                        <symbol> ) </symbol>
+                                                    </term>
+                                                </expression>
+                                                <symbol> , </symbol>
+                                                <expression>
+                                                    <term>
+                                                        <identifier> _buildingsHeights </identifier>
+                                                        <symbol> [ </symbol>
+                                                        <expression>
+                                                            <term>
+                                                                <identifier> i </identifier>
+                                                            </term>
+                                                        </expression>
+                                                        <symbol> ] </symbol>
+                                                    </term>
+                                                    <symbol> + </symbol>
+                                                    <term>
+                                                        <identifier> BUILDINGS_FLOOR_HEIGHT </identifier>
+                                                    </term>
+                                                </expression>
+                                            </expressionList>
+                                            <symbol> ) </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                        </ifStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> i </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> i </identifier>
+                                </term>
+                                <symbol> + </symbol>
+                                <term>
+                                    <integerConstant> 1 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </whileStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> void </keyword>
+        <identifier> drawBottomAndTopLines </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> Screen </identifier>
+                    <symbol> . </symbol>
+                    <identifier> drawLine </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                        <expression>
+                            <term>
+                                <integerConstant> 0 </integerConstant>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> Surface </identifier>
+                                <symbol> . </symbol>
+                                <identifier> getLowerDivider </identifier>
+                                <symbol> ( </symbol>
+                                <expressionList>
+                                </expressionList>
+                                <symbol> ) </symbol>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <integerConstant> 511 </integerConstant>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> Surface </identifier>
+                                <symbol> . </symbol>
+                                <identifier> getLowerDivider </identifier>
+                                <symbol> ( </symbol>
+                                <expressionList>
+                                </expressionList>
+                                <symbol> ) </symbol>
+                            </term>
+                        </expression>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> Screen </identifier>
+                    <symbol> . </symbol>
+                    <identifier> drawLine </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                        <expression>
+                            <term>
+                                <integerConstant> 0 </integerConstant>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> Surface </identifier>
+                                <symbol> . </symbol>
+                                <identifier> getUpperDivider </identifier>
+                                <symbol> ( </symbol>
+                                <expressionList>
+                                </expressionList>
+                                <symbol> ) </symbol>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <integerConstant> 511 </integerConstant>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> Surface </identifier>
+                                <symbol> . </symbol>
+                                <identifier> getUpperDivider </identifier>
+                                <symbol> ( </symbol>
+                                <expressionList>
+                                </expressionList>
+                                <symbol> ) </symbol>
+                            </term>
+                        </expression>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <symbol> } </symbol>
+</class>

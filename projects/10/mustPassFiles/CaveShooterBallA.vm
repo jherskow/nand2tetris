@@ -1,0 +1,317 @@
+function CaveShooterBall.new 0
+push constant 13
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+pop this 1
+push constant 10
+call SlowAppender.new 1
+pop this 4
+push argument 2
+push constant 10
+call Math.divide 2
+pop this 2
+push argument 3
+push constant 10
+call Math.divide 2
+pop this 3
+push argument 2
+call Math.abs 1
+push constant 10
+call Utils.modulo 2
+pop this 11
+push argument 3
+push constant 10
+call Utils.modulo 2
+pop this 12
+push constant 10
+call SlowAppender.new 1
+pop this 9
+push constant 10
+call SlowAppender.new 1
+pop this 10
+push constant 50
+call SlowAppender.new 1
+pop this 5
+push argument 4
+call Math.abs 1
+pop this 7
+push argument 2
+push constant 0
+gt
+pop this 8
+push argument 4
+push constant 0
+gt
+pop this 6
+push this 8
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 6
+not
+pop this 6
+label IF_FALSE0
+push pointer 0
+return
+function CaveShooterBall.dispose 0
+push argument 0
+pop pointer 0
+push this 4
+call SlowAppender.dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function CaveShooterBall.draw 0
+push argument 0
+pop pointer 0
+push pointer 0
+call CaveShooterBall.isDrawBall 1
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+push this 1
+push constant 1
+call Screen.drawCircle 3
+pop temp 0
+label IF_FALSE0
+push constant 0
+return
+function CaveShooterBall.getX 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function CaveShooterBall.getY 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function CaveShooterBall.isDrawBall 0
+push argument 0
+pop pointer 0
+push pointer 0
+call CaveShooterBall.isReachedEdge 1
+not
+push this 1
+call Surface.getUpperDivider 0
+push constant 1
+add
+gt
+and
+return
+function CaveShooterBall.isDrawExplosion 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 5
+lt
+push this 0
+push constant 507
+gt
+or
+push this 1
+call Surface.getUpperDivider 0
+push constant 1
+add
+lt
+or
+not
+return
+function CaveShooterBall.move 0
+push argument 0
+pop pointer 0
+push this 0
+push this 2
+add
+pop this 0
+push this 8
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+push this 9
+call SlowAppender.getIntValue 1
+add
+pop this 0
+goto IF_END0
+label IF_FALSE0
+push this 0
+push this 9
+call SlowAppender.getIntValue 1
+sub
+pop this 0
+label IF_END0
+push this 1
+push this 3
+sub
+pop this 1
+push this 1
+push this 10
+call SlowAppender.getIntValue 1
+sub
+pop this 1
+push this 9
+push this 11
+call SlowAppender.addSlices 2
+pop temp 0
+push this 10
+push this 12
+call SlowAppender.addSlices 2
+pop temp 0
+push constant 0
+return
+function CaveShooterBall.affectByGravity 0
+push argument 0
+pop pointer 0
+push this 3
+push this 4
+call SlowAppender.getIntValue 1
+sub
+pop this 3
+push this 4
+push constant 1
+call SlowAppender.addSlices 2
+pop temp 0
+push constant 0
+return
+function CaveShooterBall.affectByWind 0
+push argument 0
+pop pointer 0
+push this 6
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+push this 5
+call SlowAppender.getIntValue 1
+add
+pop this 0
+goto IF_END0
+label IF_FALSE0
+push this 0
+push this 5
+call SlowAppender.getIntValue 1
+sub
+pop this 0
+label IF_END0
+push this 5
+push this 7
+call SlowAppender.addSlices 2
+pop temp 0
+push constant 0
+return
+function CaveShooterBall.isReachedEdge 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 1
+lt
+push this 0
+push constant 510
+gt
+or
+push this 1
+call Surface.getLowerDivider 0
+gt
+or
+return
+function CaveShooterBall.drawExplosion 1
+push argument 0
+pop pointer 0
+push pointer 0
+call CaveShooterBall.isDrawExplosion 1
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push this 1
+call Surface.getLowerDivider 0
+gt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+call Surface.getLowerDivider 0
+pop this 1
+label IF_FALSE1
+push constant 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 5
+lt
+not
+if-goto WHILE_END0
+push this 0
+push this 1
+push local 0
+call Screen.drawCircle 3
+pop temp 0
+push constant 30
+call Sys.wait 1
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+pop local 0
+push constant 50
+call Sys.wait 1
+pop temp 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+label WHILE_EXP1
+push local 0
+push constant 5
+lt
+not
+if-goto WHILE_END1
+push this 0
+push this 1
+push local 0
+call Screen.drawCircle 3
+pop temp 0
+push constant 20
+call Sys.wait 1
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP1
+label WHILE_END1
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push constant 0
+return
+function CaveShooterBall.clear 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+call CaveShooterBall.draw 1
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push constant 0
+return

@@ -1,0 +1,24 @@
+/*
+*
+* Class: Main.jack
+*
+* This class if a simple driver for the game. 
+*
+*/
+
+
+class CaveShooterMain {
+
+    /*
+    * Initializes a new game and starts it. 
+    */    
+    function void main() {
+        var GameControl game;
+        let game = GameControl.new();
+        do game.start();
+		do game.dispose();
+
+        return;
+    }
+    
+}

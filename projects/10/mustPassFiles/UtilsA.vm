@@ -1,0 +1,107 @@
+function Utils.initRandomSeed 0
+push argument 0
+pop static 0
+push constant 91
+pop static 1
+push constant 1
+pop static 2
+push constant 16354
+pop static 3
+push constant 0
+return
+function Utils.random 1
+push static 0
+push argument 0
+call Utils.modulo 2
+pop local 0
+push static 0
+push static 1
+call Math.multiply 2
+push static 2
+add
+pop static 0
+push static 0
+push constant 1024
+call Utils.moduloPower2 2
+pop static 0
+push local 0
+return
+function Utils.isBound 0
+push argument 0
+push argument 1
+lt
+not
+push argument 0
+push argument 2
+gt
+not
+and
+return
+function Utils.getLastNum 0
+push static 0
+return
+function Utils.modulo 1
+push argument 0
+push argument 1
+gt
+not
+push argument 1
+push constant 0
+eq
+or
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 0
+pop local 0
+goto IF_END0
+label IF_FALSE0
+push argument 0
+push argument 1
+push argument 0
+push argument 1
+call Math.divide 2
+call Math.multiply 2
+sub
+pop local 0
+label IF_END0
+push local 0
+return
+function Utils.moduloPower2 0
+push argument 0
+push argument 1
+push constant 1
+sub
+and
+return
+function Utils.distance 3
+push argument 0
+push argument 2
+sub
+call Math.abs 1
+pop local 0
+push argument 1
+push argument 3
+sub
+call Math.abs 1
+pop local 1
+push local 0
+push local 0
+call Math.multiply 2
+push local 1
+push local 1
+call Math.multiply 2
+add
+pop local 2
+push local 2
+push constant 0
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push static 3
+pop local 2
+label IF_FALSE0
+push local 2
+call Math.sqrt 1
+return

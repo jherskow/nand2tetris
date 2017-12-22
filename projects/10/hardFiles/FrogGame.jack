@@ -1,0 +1,236 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/09/Square/SquareGame.jack
+
+/**
+ * The SquareDance class implements the Square Dance game.
+ * In this game you can move a black square around the screen and
+ * change its size during the movement.
+ * In the beggining, the square is located at the top left corner.
+ * Use the arrow keys to move the square.
+ * Use 'z' & 'x' to decrement & increment the size.
+ * Use 'q' to quit.
+ */
+class FrogGame {
+
+    field Frog frog;
+    field Fly fly;	
+    field int flyLoc;	
+    field Log log1;
+    field Log log2;
+    field Log log3;
+    field Log log4;
+    field Log log5;
+    field Log log6;
+    field Log log7;
+    field Log log8;
+    field int speed;
+    field int score;
+    field boolean exit;
+
+    // The square's movement direction
+    field int direction; // 0=none,1=up,2=down,3=left,4=right
+
+    /** Constructs a new Square Game. */
+    constructor FrogGame new() {
+	var int i;
+	let log1= Log.new(10,10,true,165,19);
+	let log2= Log.new(41,100,false,123,25);
+	let log3= Log.new(72,300,true,164,23);
+	let log4= Log.new(103,150,false,191,17);
+	let log5= Log.new(134,100,true,183,20);
+	let log6= Log.new(165,300,true,130,22);
+	let log7= Log.new(196,0,false,198,18);
+	let log8= Log.new(227,305,true,169,21);
+        let frog = Frog.new();
+	let flyLoc = 1;	
+	let fly = Fly.new(flyLoc);
+	let speed = 20;
+	let score = 0;
+        let direction = 0;
+
+        return this;
+    }
+
+    /** Deallocates the object's memory. */
+    method void dispose() {
+	do fly.dispose();
+        do frog.dispose();
+	do log1.dispose();
+	do log2.dispose();
+	do log3.dispose();
+	do log4.dispose();
+	do log5.dispose();
+	do log6.dispose();
+	do log7.dispose();
+	do log8.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    /** Display the logs */
+    method void displayLogs(){
+        do Sys.wait(speed); // Delays the next movement.
+	do log1.move();
+	do log2.move();
+	do log3.move();
+	do log4.move();
+	do log5.move();
+	do log6.move();
+	do log7.move();
+	do log8.move();
+	do fly.draw();	
+	return;
+    }
+
+    method void isGameOver(){
+	var boolean go;
+	let go=false;
+	if (log1.isFrogOnLog(frog.x(), frog.y())){
+		let go= true;
+	}	
+	if (log2.isFrogOnLog(frog.x(), frog.y())){
+		let go= true;
+	}
+	if (log3.isFrogOnLog( frog.x(), frog.y())){
+		let go= true;
+	}
+	if (log4.isFrogOnLog( frog.x(), frog.y())){
+		let go= true;
+	}
+	if (log5.isFrogOnLog( frog.x(), frog.y())){
+		let go= true;
+	}
+	if (log6.isFrogOnLog( frog.x(), frog.y())){
+		let go= true;
+	}
+	if (log7.isFrogOnLog( frog.x(), frog.y())){
+		let go= true;
+	}
+	if (log8.isFrogOnLog( frog.x(), frog.y())){
+		let go= true;
+	}
+	if (go){
+		do Screen.clearScreen();
+		do Output.printString("GAME OVER YOU SUCK! :) YOUR SCORE IS :  ");
+		do Output.printInt(score);
+		let exit=true;
+	}
+	return;
+    }
+
+    /*  Starts the game. Handles inputs from the user that controls
+     *  the square movement direction and size. 
+     */
+    method void run() {
+        var char key;
+	var int i;
+	var int sHelp;
+	let sHelp=0;
+        let exit = false;
+        while (~exit) {
+            // waits for a key to be pressed.
+            while ((~exit) & (key = 0)) {
+                let key = Keyboard.keyPressed();
+		do displayLogs();
+	        do isGameOver();
+            }
+            if (key = 81) {
+                let exit = true;
+		do Screen.clearScreen();
+		do Output.printString("EXITING THE GAME, YOUR SCORE IS : ");
+		do Output.printInt(score);
+            }
+            if (key = 131) {
+                let direction = 1;
+            }
+            if (key = 133) {
+                let direction = 2;
+            }
+            if (key = 130) {
+                let direction = 3;
+            }
+            if (key = 132) {
+                let direction = 4;
+            }
+
+            // waits for the key to be released.
+            while (~(key = 0) & ~exit) {
+                let key = Keyboard.keyPressed();
+		do displayLogs();
+	        do isGameOver();
+                do moveSquare();
+		do fly.draw();
+	        do isGameOver();
+            }
+	    do checkFly();
+	    if (speed>2 & sHelp = 5){
+		let speed = speed-1;
+		let sHelp = -1;
+	    }
+	    let sHelp = sHelp+1;
+	    let score = score+20-speed;
+        }
+        return;
+    }
+
+    //today function.
+    /** Checks if the frog eat the fly and change the location of the fly if so. */ 
+    method void checkFly(){
+	var boolean eaten;
+	let eaten = isFlyEaten();
+	if(eaten){
+	    let score = score + 100;
+	    let flyLoc = flyLoc + 1;
+	    if(flyLoc > 5){
+		let flyLoc = 1;
+	    }
+	    do fly.erase();
+	    do frog.draw();
+	    let fly = Fly.new(flyLoc);
+	}
+	return;
+    }
+
+
+    //today function.
+    /** Checks if the frog eat the fly and change its location if so. */
+    method boolean isFlyEaten(){
+	var int dx, dy;
+	var boolean fly_x_smaller, fly_y_smaller;
+	var boolean fly_x_eaten, fly_y_eaten;
+
+	let dx = Math.abs(frog.x() - fly.x());
+	let dy = Math.abs(frog.y() - fly.y());
+	let fly_x_smaller = (frog.x() > fly.x());
+	let fly_y_smaller = (frog.y() < fly.y());
+	let fly_x_eaten = (dx<15);
+	let fly_y_eaten = (dy<15);
+
+	if( fly_x_eaten & fly_y_eaten){
+	    return true;
+	}
+	return false;
+    }
+
+
+    /** Moves the square by 2 in the current direction. */
+    method void moveSquare() {
+        if (direction = 1) {
+            do frog.moveUp();
+        }
+        if (direction = 2) {
+            do frog.moveDown();
+        }
+        if (direction = 3) {
+            do frog.moveLeft();
+        }
+        if (direction = 4) {
+            do frog.moveRight();
+        }
+
+       // do Sys.wait(4); // Delays the next movement.
+        return;
+    }
+}

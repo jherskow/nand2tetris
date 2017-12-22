@@ -415,8 +415,6 @@ class CompilationEngineXML:
         self.xml_open(this)
         self.write("\n")
 
-        x = self.token.current_token
-
         first_type = self.type()
 
         if first_type == d.INT_CONST:
@@ -468,6 +466,7 @@ class CompilationEngineXML:
             # (expression)
 
             # (
+            self.xml_symbol()
             self.advance()
 
             # expression
@@ -660,7 +659,7 @@ class CompilationEngineXML:
 
     def compile_int_const(self):
         self.xml_open("integerConstant")
-        self.write(self.int_val())
+        self.write(str(self.int_val()))
         self.xml_close("integerConstant")
         self.advance()
 
@@ -693,7 +692,7 @@ class CompilationEngineXML:
             if char in d.symbol_switch:
                 new_str += d.symbol_switch[char]
             else:
-                new_str += d.symbol_switch[char]
+                new_str += char
         self.write(new_str)
 
     def xml_open(self, string):

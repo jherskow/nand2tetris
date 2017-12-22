@@ -1,0 +1,99 @@
+class Random {
+	static int seed;
+
+	//initialize seed
+	function void init(int user_input) {
+		if(seed<0) {
+			let seed = -seed;
+		}
+		let seed = Random.mod(user_input, 1000);
+		return;
+	}
+	
+	//get random number
+	function int get() {
+		let seed = seed+1;
+		if((seed>20000)|(seed<0)) {
+			let seed = 17;
+		}
+		return seed;
+	}
+
+	//change seed
+	function void changeSeed(int change) {
+		let seed = seed+change;
+		if((seed>20000)|(seed<0)) {
+			let seed = change+17;
+		}
+		return;
+	}
+
+	//get remainder
+	function int mod(int a, int b) {
+		var int div, mult, mod;
+		let div = Math.divide(a, b);
+		let mult = Math.multiply(b, div);
+		let mod = a-mult;
+		return mod;
+	}
+	//get random radius
+	function int getRadius() {
+		var int return_radius;
+		let return_radius = Random.mod(Random.get(), 5);
+		let return_radius = return_radius + 20;
+		return return_radius;
+	}
+	
+	//get random if its a bomb
+	function boolean isBomb() {
+		var int isBomb;
+		let isBomb = Random.mod(Random.get(), 5);
+		if(~(isBomb=0)) {
+			return false;			
+		}
+		return true;
+	}
+
+	//get random direction of fruit
+	function boolean isDirection() {
+		var int isDirection;
+		let isDirection = Random.mod(Random.get(), 2);
+		if(~(isDirection=0)) {
+			return false;			
+		}
+		return true;
+	}
+
+	//get random factor for movement
+	function int getFactor() {
+		var int factor;
+		let factor = Random.mod(Random.get(), 4);
+		let factor = factor + 3;
+		if(factor=0) {
+			let factor=3;
+		}
+		return factor;
+	}
+
+	//get random fruit offset
+	function int getOffset() {
+		var int offset;
+		let offset = Random.mod(Random.get(), 15);
+		let offset = offset + 15;
+		if(offset=0) {
+			let offset=16;
+		}
+		return offset;
+	}
+	
+	//get random char
+	function char getChar() {
+		var char return_char;
+		let return_char = Random.mod(Random.get(), 25);
+		if(return_char<0) {
+			let return_char = -return_char;
+		}
+		let return_char = return_char + 65;
+		return return_char;
+	}
+}

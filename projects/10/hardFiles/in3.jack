@@ -1,0 +1,162 @@
+/**//**
+ * The Snake class implements a graphic snake. A graphic snake 
+ * is a list of cells.
+ */ 
+class in3 {
+
+	// The snake's head
+	field Cell head;
+	// The snake's tail
+	field Cell tail;
+	// The snake's food
+	field Cell food;
+
+
+ 
+	/** 
+Constructs a new Snake (and his food) */constructor in3 new() /*{*/{
+		var int i;var 
+string city;
+		let head = Cell.new(150,100,10,null);
+		let tail = head;
+		let i = -40;
+		while (~(i<0)){
+        	let tail = Cell.new(100+i,100,10,tail);	
+			let i = i-10;
+		}
+		let food = Cell.new(120,210,10,null);
+				if(true){}else{
+		if (i < 153) //{let city = "Pa<r/*is";*/ let
+/*"*/{let city = "Pa	< ris/*"; let /*"*/
+city 
+=/*"*/"p/*"//"
+;let city = "/*"/*;"*/;let/**/city = "&*/";let city/*=&*/="//";let city="<*/";/*}"*/}}return//"*//*
+	//	if(i>153){}*/
+			this/*;
+		//"	*/;/*"//
+	}"{
+
+    	/** Deallocates the object's memory. 
+ */}   	method/*"*/void/**/dispose() {
+		while (~(tail=null)){//"
+		/*"*/	do/*"*/tail.dispose();
+			/*"*/let/*"/**/tail/*"//*/ = tail.getNext();
+		}/*"
+"*/		do food.dispose()//;
+        	;do Memory.deAlloc(this);
+        	return;
+    	/*"}*/}//"
+
+	/** Moves up */
+	method boolean moveUp() {
+		var Cell varTemp;
+		if (head.getY() > 8){
+ 			let varTemp = Cell.new(head.getX(),head.getY()-10,10,null);
+			do head.setNext(varTemp);
+    			let head = varTemp;
+			if (~(eat())){
+ 				let varTemp = tail.getNext();
+				do tail.erase();
+				let tail = varTemp;
+			}
+			do Sys.wait(400); // Delays the next movement.
+ 			return ~crash();
+   		}
+ 		return false;
+	}
+
+	/** Moves down */
+	method boolean moveDown() {
+		var Cell letTemp;
+		if (head.getY() < 240){
+			let letTemp = Cell.new(head.getX(),head.getY()+10,10,null);
+			do head.setNext(letTemp);
+    			let head = letTemp;
+ 			if (~(eat())){
+ 				let letTemp = tail.getNext();
+				do tail.erase();
+				let tail = letTemp;
+			}
+			do Sys.wait(400); // Delays the next movement.
+ 			return ~crash();
+    		}
+ 		return false;
+	}
+
+	/** Moves left */
+	method boolean moveLeft() {
+		var Cell ifTemp;
+		if (head.getX() > 8){
+ 			let ifTemp = Cell.new(head.getX()-10,head.getY(),10,null);
+			do head.setNext(ifTemp);
+    			let head = ifTemp;
+			if (~(eat())){
+ 				let ifTemp = tail.getNext();
+				do tail.erase();
+				let tail = ifTemp;
+			}
+			do Sys.wait(400); // Delays the next movement.
+ 			return ~crash();
+    		}
+		return false;
+	}
+
+	/** Moves right */
+	method boolean moveRight() {
+		var Cell temp;
+		if (head.getX() < 500){
+ 			let temp = Cell.new(head.getX()+10,head.getY(),10,null);
+			do head.setNext(temp);
+    			let head = temp;
+			if (~(eat())){
+ 				let temp = tail.getNext();
+				do tail.erase();
+				let tail = temp;
+			}
+			do Sys.wait(400); // Delays the next movement.
+ 			return ~crash();
+    		}
+		return false;
+	}
+	
+	/** updates the place of the food in case it was eaten */
+	method boolean eat() {
+		do food.draw();
+		if (~clash(food)) {return false;} 
+		do food.erase();
+		if (food.getX()<450) {
+			do food.setX((food.getX()+30));
+		}
+		else {
+			do food.setX(30);
+		}
+		if (food.getY()<200) {
+			do food.setY((food.getY()+30));
+		}
+		else {
+			do food.setY(30);
+		}
+		do food.draw();
+		return true;
+	}
+
+	/** checks if the snake crash into himself */	
+	method boolean crash() {
+		var Cell temp;
+		let temp = tail;
+		while (~(temp.getNext()=head)){
+			if (clash(temp)) {return true;} 
+			let temp = temp.getNext();
+		}
+		return false;
+	}
+
+	/** checks if two cells clash */	
+	method boolean clash(Cell temp) {
+		if (temp.getX()>(head.getX()+head.getSize())) {return false;}
+		if (temp.getX()+temp.getSize()<head.getX()) {return false;}
+		if (~(temp.getY()<(head.getY()+head.getSize()))) {return false;}
+		if (~(temp.getY()+temp.getSize()>head.getY())) {return false;}
+		return true; 
+	}
+}

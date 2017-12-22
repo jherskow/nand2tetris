@@ -1,0 +1,21 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/12/Array.jack
+
+/**
+ * A general array - can be used to hold any type of object.
+ */
+class Array {
+
+    /** Constructs a new Array of the given size. */
+    function Array new(int size) {
+    	return Memory.alloc(size);
+    }
+
+    /** De-allocates the array and frees its space. */
+    method void dispose() {
+    	do Memory.deAlloc(this);
+    	return;
+    }
+}

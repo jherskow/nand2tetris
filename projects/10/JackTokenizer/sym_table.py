@@ -40,7 +40,7 @@ type={K_INT, K_CHAR, K_BOOLEAN}
 statement_end={";","}"}
 statement_types={K_LET, K_IF, K_WHILE, K_DO, K_RETURN}
 op={'+','-','*','/','&','|','<','>','='}
-unary_op={'+','~'}
+unary_op={'-','~'}
 keyword_constant={'TRUE','FALSE','NULL','THIS'}
 static_field={'STATIC','FIELD'}
 func = {'CONSTRUCTOR','FUNCTION','METHOD'}
@@ -125,6 +125,7 @@ symbol_switch = \
  '-': '-',
  '.': '.',
  '/': '/',
+ '\"': '',
  ';': ';',
  '<': '&lt;',
  '=': '=',

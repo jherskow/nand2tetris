@@ -1,0 +1,182 @@
+function Random.init 0
+push static 0
+push constant 0
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push static 0
+neg
+pop static 0
+label IF_FALSE0
+push argument 0
+push constant 1000
+call Random.mod 2
+pop static 0
+push constant 0
+return
+function Random.get 0
+push static 0
+push constant 1
+add
+pop static 0
+push static 0
+push constant 20000
+gt
+push static 0
+push constant 0
+lt
+or
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 17
+pop static 0
+label IF_FALSE0
+push static 0
+return
+function Random.changeSeed 0
+push static 0
+push argument 0
+add
+pop static 0
+push static 0
+push constant 20000
+gt
+push static 0
+push constant 0
+lt
+or
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 0
+push constant 17
+add
+pop static 0
+label IF_FALSE0
+push constant 0
+return
+function Random.mod 3
+push argument 0
+push argument 1
+call Math.divide 2
+pop local 0
+push argument 1
+push local 0
+call Math.multiply 2
+pop local 1
+push argument 0
+push local 1
+sub
+pop local 2
+push local 2
+return
+function Random.getRadius 1
+call Random.get 0
+push constant 5
+call Random.mod 2
+pop local 0
+push local 0
+push constant 20
+add
+pop local 0
+push local 0
+return
+function Random.isBomb 1
+call Random.get 0
+push constant 5
+call Random.mod 2
+pop local 0
+push local 0
+push constant 0
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push constant 0
+not
+return
+function Random.isDirection 1
+call Random.get 0
+push constant 2
+call Random.mod 2
+pop local 0
+push local 0
+push constant 0
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push constant 0
+not
+return
+function Random.getFactor 1
+call Random.get 0
+push constant 4
+call Random.mod 2
+pop local 0
+push local 0
+push constant 3
+add
+pop local 0
+push local 0
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 3
+pop local 0
+label IF_FALSE0
+push local 0
+return
+function Random.getOffset 1
+call Random.get 0
+push constant 15
+call Random.mod 2
+pop local 0
+push local 0
+push constant 15
+add
+pop local 0
+push local 0
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 16
+pop local 0
+label IF_FALSE0
+push local 0
+return
+function Random.getChar 1
+call Random.get 0
+push constant 25
+call Random.mod 2
+pop local 0
+push local 0
+push constant 0
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 0
+neg
+pop local 0
+label IF_FALSE0
+push local 0
+push constant 65
+add
+pop local 0
+push local 0
+return

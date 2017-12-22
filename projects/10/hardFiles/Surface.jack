@@ -1,0 +1,250 @@
+/*
+*
+* Class: Surface.jack
+*
+* This class represents the game surface: Top and bottom dividers, and buildings
+*
+*/
+
+
+class Surface {
+
+	// The height of a single building floor
+	field int BUILDINGS_FLOOR_HEIGHT;
+	// Buildings width unit: building's width is this unit multiplied by 1-3
+	field int BUILDINGS_WIDTH_UNIT;
+
+	// The number of buildings
+	field int _buildingsNum;
+	
+	// This array holds all buildings' vertical positions (the left edge X position)
+	field Array _buildingsX;
+	// This array holds the widths of all buildings
+	field Array _buildingsWidths;
+	// This array holds all buildings' vertical positions (the top edge Y position)
+	field Array _buildingsHeights;
+
+	/*
+	* Constructor. Allocates this object.
+	*/
+    constructor Surface new() {
+    	let _buildingsNum = 30;
+    	let _buildingsX = Array.new(_buildingsNum);
+    	let _buildingsWidths = Array.new(_buildingsNum);
+    	let _buildingsHeights = Array.new(_buildingsNum);
+    	let BUILDINGS_FLOOR_HEIGHT = 10;
+    	let BUILDINGS_WIDTH_UNIT = 10;
+        return this;
+    }
+    
+    /*
+    * Returns the y position of the upper divide line
+    */
+    function int getUpperDivider() {
+    	return 25;
+    }
+
+    /*
+    * Returns the y position of the lower divide line
+    */    
+    function int getLowerDivider() {
+    	return 250;
+    }
+    
+    /*
+    * Initializes the surface: Create random buildings
+    */
+    method void init() {
+    	var int i;
+    	var int lastPos;
+    	var int tempRand;
+    	var boolean exceeded;
+    	var int floors;
+    	var int cannonX;
+    	var int cannonY;
+    	let lastPos = 0;
+    	let i = 0;
+    	let exceeded = false;
+    	while((~(exceeded)) & (i < _buildingsNum)) {
+    		let floors = Utils.random(18);
+    		let _buildingsWidths[i] = (Utils.random(3) + 1) * BUILDINGS_WIDTH_UNIT;
+    		let _buildingsHeights[i] = Surface.getLowerDivider() - (floors * BUILDINGS_FLOOR_HEIGHT);
+    		let tempRand = Utils.random(25);
+    		let _buildingsX[i] = lastPos + tempRand + BUILDINGS_WIDTH_UNIT;
+    		if(_buildingsX[i] > 490) {
+    			let _buildingsNum = i - 1;
+    			let exceeded = true;
+    		}
+    		let lastPos = _buildingsX[i]; 
+    		let i = i + 1;
+    	}
+    	return;
+    }
+    
+    /*
+    * Calculates the x position for cannon owned by the given player
+    */
+    method int getCannonPosX(int player, int index) {
+    	if(player = 1) {
+    		return _buildingsX[index] + 1;
+    	}
+    	return _buildingsX[(_buildingsNum - 1 - index)] + _buildingsWidths[(_buildingsNum - 1 - index)] - 9;
+    } 
+
+    /*
+    * Calculates the y position for cannon owned by the given player
+    */
+    method int getCannonPosY(int player, int index) {
+    	var int height;
+    	if(player = 1) {
+    		let height = findHeightForCannon(index, getCannonPosX(1, index) - 1);
+    		return height;   
+    	}
+    	else {
+    		let height = findHeightForCannon(_buildingsNum - 1 - index, getCannonPosX(2, index) - 1);
+    		return height;   
+    	}
+    } 
+    
+    /*
+    * Given a height value, building index and x position, find if the given building
+    * intersects with the given x position. If it is - returns the smaller value between
+    * this building height and the given height. If not, simply return the given height
+    */
+   	method int getMinHeight(int curHeight, int startX, int checkIndex) {
+   		var int height;
+   		if((checkIndex > (_buildingsNum - 1)) | (checkIndex < 0) | (curHeight = 0)) {
+   			// The building index or the given height are illegal
+   			return curHeight;
+   		}
+   		let height = curHeight;
+   		if(((_buildingsX[checkIndex] + _buildingsWidths[checkIndex]) > startX) &
+   			(_buildingsX[checkIndex] < (startX + 10))) {
+   			// Intersection found
+    		let height = Math.min(_buildingsHeights[checkIndex], height);
+    	}
+    	return height;
+   	}
+    
+    /*
+    * This method is required in order to avoid the case where the right
+    * cannon is located "inside" a building that is higher than the building
+    * it is on.
+    */
+    method int findHeightForCannon(int index, int startX) {
+    	var int height;
+    	var int j;
+    	let height = _buildingsHeights[index];
+    	let j = -2;
+    	while(j < 3) {
+    		let height = getMinHeight(height, startX, (index + j));
+    		let j = j + 1;
+    	}
+    	return height;
+    }
+    
+    /*
+    * Returns the number of buildings on that surface
+    */
+    method int get_buildingsNum() {
+    	return _buildingsNum;
+    }
+
+    /*
+    * Clean the memory and disposes of this object
+    */
+    method void dispose() {
+    	do _buildingsWidths.dispose();
+    	do _buildingsHeights.dispose();
+    	do _buildingsX.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+    
+    method void drawAllBuildings() {
+    	var int i;
+    	while(i < _buildingsNum) {
+    		do drawBuilding(i);
+    		let i = i + 1;
+    	}
+    	return;
+    }
+
+    /*
+    * Given a point position, check if it intersects with any building, and returns that
+    * building index. If not, returns -1
+    */
+    method int isHitBuilding(int x, int y) {
+    	var int i;
+    	let i = 0;
+    	while(i < _buildingsNum) {
+    		if((x > _buildingsX[i]) & (x < (_buildingsX[i] + _buildingsWidths[i])) & (y > _buildingsHeights[i])) {
+    			return i;
+    		}
+    		let i = i + 1;
+    	}
+    	return -1;
+    }
+    
+    /*
+    * Draw a building
+    */
+    method void drawBuilding(int i) {
+    	var int j;
+    	var int h;
+    	var int floors;
+    	var int width;
+    	let floors = Math.divide(Surface.getLowerDivider() - _buildingsHeights[i], BUILDINGS_FLOOR_HEIGHT);
+    	let width = Math.divide(_buildingsWidths[i], BUILDINGS_WIDTH_UNIT);
+    	if ((floors = 0) | (width = 0)) {
+    		return;
+    	}
+    	do Screen.drawRectangle(_buildingsX[i], _buildingsHeights[i], _buildingsX[i] + _buildingsWidths[i], Surface.getLowerDivider());
+    	do Screen.setColor(false);
+    	do Screen.drawRectangle(_buildingsX[i] + 1, _buildingsHeights[i] + 1, _buildingsX[i] + _buildingsWidths[i] - 1, Surface.getLowerDivider());
+    	do Screen.setColor(true);
+    	do Screen.drawRectangle(_buildingsX[i] + 2, _buildingsHeights[i] + 2, _buildingsX[i] + _buildingsWidths[i] - 2, Surface.getLowerDivider());
+    	// Avoid the first floor
+    	let floors = floors - 1;
+    	if(floors > 0) {
+    		// Draw the windows
+			do Screen.setColor(false);
+			while(j < floors) {
+				let h = 0;
+				while(h < width) {
+					do Screen.drawRectangle(_buildingsX[i] + 4 + (h * BUILDINGS_WIDTH_UNIT), _buildingsHeights[i] + 4 + (j * BUILDINGS_FLOOR_HEIGHT), _buildingsX[i] + 6 + (h * BUILDINGS_WIDTH_UNIT), _buildingsHeights[i] + 7 + (j * BUILDINGS_FLOOR_HEIGHT));
+					let h = h + 1;
+				}
+				let j = j + 1;
+			}
+			do Screen.setColor(true);
+    	}
+    	return;
+    }
+    
+    /*
+    * Given an explosion position and radius, inflict damage to all buildings in range.
+    */
+    method void inflictBuildingsDemage(int x, int y, int radius) {
+    	var int i;
+    	let i = 0;
+    	while(i < _buildingsNum) {
+    		if((x > (_buildingsX[i] - radius)) & (x < (_buildingsX[i] + _buildingsWidths[i] + radius)) & (y > (_buildingsHeights[i] - radius))) {
+    			let _buildingsHeights[i] = Math.min(Surface.getLowerDivider(), _buildingsHeights[i] + BUILDINGS_FLOOR_HEIGHT);
+    		}
+    		let i = i + 1;
+    	}	
+    
+    	return;
+    }
+ 
+	/*
+	* Draw the top and the bottom dividing lines
+	*/   
+    method void drawBottomAndTopLines() {
+    	do Screen.drawLine(0, Surface.getLowerDivider(), 511, Surface.getLowerDivider());
+    	do Screen.drawLine(0, Surface.getUpperDivider(), 511, Surface.getUpperDivider());
+    	return;
+    }
+
+}

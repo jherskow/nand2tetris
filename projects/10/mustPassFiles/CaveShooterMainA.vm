@@ -1,0 +1,11 @@
+function CaveShooterMain.main 1
+call GameControl.new 0
+pop local 0
+push local 0
+call GameControl.start 1
+pop temp 0
+push local 0
+call GameControl.dispose 1
+pop temp 0
+push constant 0
+return

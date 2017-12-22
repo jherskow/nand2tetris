@@ -1,0 +1,148 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/12/Math.jack
+
+/**
+ * A basic math library.
+ */
+class Math {
+	
+	// Holds bit masks of the 2^n numbers (till 2^16)
+	// i.e. 00000001, 00000010, 00000100, ...
+	static Array bitMasks;
+
+    /** Initializes the library. */
+    function void init() {
+    	var int cur, i;
+    	let bitMasks = Array.new(16);
+    	let cur = 1;
+    	let i = 0;
+    	while(i < 16) {
+    		let bitMasks[i] = cur;
+    		let cur = cur + cur;
+    		let i = i + 1;
+    	}
+    	return;
+    }
+
+    /** Returns the absolute value of x. */
+    function int abs(int x) {
+    	if(x < 0) {
+    		return -x;
+    	} 
+    	else {
+    		return x;
+    	}
+    }
+
+    /** Returns the product of x and y. */
+    function int multiply(int x, int y) {
+		var int sum, shiftedX, i;
+		var boolean neg;
+		if((x = 0) | (y = 0)) {
+			return 0;
+		}
+    	let i = 0;
+    	let sum = 0;
+    	let shiftedX = x;
+    	while (i < 16) {
+    		if(Math.bitValueAt(y, i)) {
+    			let sum = sum + shiftedX;
+    		}
+    		let shiftedX = shiftedX + shiftedX;
+    		let i = i + 1;
+    	}
+	    return sum;	
+    }
+    
+        
+    /** Returns the integer part of x/y. */
+    function int divide(int x, int y) {
+    	var int res;
+    	var boolean neg;
+    	if((x = 0) | (y = 0)) {
+    		// TODO: Is there any system error for this?
+    		return 0;
+    	}
+    	// Is the output negative?
+    	let neg = (((x < 0) & (y > 0)) | ((y < 0) & (x > 0)));
+    	let x = Math.abs(x);
+    	let y = Math.abs(y);
+    	let res = Math.divideHelper(x, y);
+    	if(neg) {
+    		// Negates that number
+    		return -res;
+    	}
+    	else {
+    		return res;
+    	}
+    }
+    
+    /**
+    * Helper function: Recursively calculates x/y, where both
+    * x and y are positives
+    */
+    function int divideHelper(int x, int y) {
+    	var int q;
+    	if (y > x) {
+			return 0;
+		}
+		let q = Math.divideHelper(x, y + y);
+		if ((x - Math.multiply(q + q, y)) < y) {
+			return q + q;
+		} 
+		else {
+			return q + q + 1;
+		}
+    }
+
+    /** Returns the integer part of the square root of x. */
+    function int sqrt(int x) {
+    	var int y, i, temp;
+    	let y = 0;
+       	// Do (16 / 2 - 1) = 7 iterations
+    	let i = 7;
+    	while(i > -1) {   		
+    		let temp = y + bitMasks[i];
+    		let temp = Math.multiply(temp, temp);
+    		if (~(temp > x) & (temp > 0)) {
+    			let y = y + bitMasks[i];
+    		}
+    		let i = i - 1;
+    	}
+    	return y;
+    }
+    
+    /** Returns the greater number. */
+    function int max(int a, int b) {
+    	if(a > b) {
+    		return a;
+    	} 
+    	else {
+    		return b;
+    	}
+    }
+
+    /** Returns the smaller number. */
+    function int min(int a, int b) {
+    	if(a < b) {
+    		return a;
+    	}
+    	else {
+	    	return b;
+	    }
+    }
+    
+    /**
+    * Given an integer, return what is its bit value in a specified location
+    */
+    function boolean bitValueAt(int num, int pos) {
+    	if((num & bitMasks[pos]) = 0) {
+    		return false;
+    	}
+    	else {
+    		return true;
+    	}    
+    }
+}

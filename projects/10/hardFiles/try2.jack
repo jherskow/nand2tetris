@@ -1,0 +1,123 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/10/Square/Square.jack
+
+/**
+ * The Square class implements a graphic square. A graphic square 
+ * has a location on the screen and a size. It also has methods 
+ * for drawing, erasing, moving on the screen, and changing its size.
+ */
+class try2 {
+
+
+	field className c1;
+	static className c2;
+	static int _d2;
+
+    /** Moves left by 2. */
+    method void doS() {
+	var int i;
+        if(i>0){}else{let i = 5;}
+        if(i>0){}else{}
+  	return;
+    }
+    
+    
+	method void doT() {
+	var String x1, x2, x3, x4, x5, x6, x7,x8;
+	let x1 = "dddd // /* t";
+	let x2 = " // /* ";
+	let x3 = " // ";
+	let x4 = " /* ";
+	let x5 = " */ ";
+	let x6 = " /* */ ";
+	let x7 = "  *//*// ";
+	let x8 = " \t */\t/*/\t/ fff\thhl ";
+	
+  	return;
+    }
+    
+    method void underscore() {
+        var int _c;
+        let _c = 7;
+  	return;
+    }
+    
+    method void checkDoS() {
+        var int i,f, offset,base;
+        do GGG.d(AAA.c(i),f);
+  
+        let i = Math.multiply(Math.abs(i),base) + offset;
+  	return;
+    }
+    
+    method void checkDoLL() {
+    	var int i;
+        do M.t(M.s(i));
+  	return;
+    }
+    
+    
+    
+    method void checkvar() {
+            var className c;
+  	return;
+    }    
+    
+   function void checkStrSend() {
+   	var String p, mess;
+   	let p = "fff";
+   	do try2.checkStr("ddd");
+   	do try2.checkStr(p);
+   	let mess = " |  Fruits dropped: ";
+	do Output.printString(mess);
+	do Output.printString("///t*/\*");
+  	return;
+  }
+    
+   function void checkStr(String str) {
+   	let str="rrr";
+  	return;
+   }
+   
+    function void checkPrint(String str) {
+	   do Output.printString("W");
+  	return;
+   }
+   
+   function void checkSpace(String str) {
+   	var int i,j;
+   	let i=j+1;
+   	return;
+   }
+   
+   function int checkMinus() {
+   	var int i,j,p,offset,base,t;
+   	let i=-1-j;
+   	let i=j-1-1;
+   	let i=-1-j-1;
+   	let i=-1-(j-1);
+   	let i=-1-(-j-(-1));
+	let i=-(1-(-j-(-1)));
+	let i=(-(1-(-j-(-1))-p)-(-2-(-1)));
+	let i = base + i + offset;
+	return -j;
+   }
+   
+   
+   function void checkNeg() {
+   	var int i,j,p,offset,base,e,t;
+   	let t = ((~(i = 113)) & (~(i = 81)) & (~(base)));
+	let t = ((~(i < j)) & (~(e = i)));
+	let t = ( ~ base) & (~ i);
+	return;
+   }
+   
+    
+
+
+
+
+
+}

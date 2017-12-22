@@ -1,0 +1,191 @@
+class Frog {
+	field int x;
+	field int y;
+	field int facing; //1 ahead 2 right 3 left 4 backwards
+
+	constructor Frog new(){
+		let x = 15;
+		let y = 239;
+		let facing=1;
+		do draw();
+		return this;
+	}
+	
+	method int x(){
+		return x;
+	}
+
+	method int y(){
+		return y;
+	}
+	
+	method void jumpAhead(){
+		let y = y+1;
+		return;
+	}
+	
+	method void jumpRight(){
+		let x = x+1;
+		return;
+	}
+	
+	method void jumpLeft(){
+		let x = x-1;
+		return;
+	}
+
+   /** Deallocates the object's memory. */
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    /** Draws the square on the screen. */
+    method void draw() {
+	do Screen.setColor(true);
+	if (facing=1){
+		do Screen.drawLine(x, y, x -8, y -10);	//eyes
+		do Screen.drawLine(x, y, x +8, y-10);
+		do Screen.drawLine(x, y, x -7, y -11); //emphasis
+		do Screen.drawLine(x, y, x +7, y-11);
+
+		do Screen.drawLine(x+5, y+10, x +13, y); //legs
+		do Screen.drawLine(x-5, y+10, x -13, y);
+		do Screen.drawLine(x+5, y+11, x +13, y); //emphasis
+		do Screen.drawLine(x-5, y+11, x -13, y);
+	}
+	if (facing=2){
+		do Screen.drawLine(x, y, x +10, y -8);	//eyes
+		do Screen.drawLine(x, y, x +10, y+8);
+		do Screen.drawLine(x, y, x +11, y - 7); //emphasis
+		do Screen.drawLine(x, y, x +11, y + 7);
+		do Screen.drawLine(x-10, y-5, x , y-13); //legs
+		do Screen.drawLine(x-10, y+5, x , y+13);
+		do Screen.drawLine(x-11, y-5, x , y-13); //emphasis
+		do Screen.drawLine(x-11, y+5, x , y+13);
+	}
+	if (facing=3){
+		do Screen.drawLine(x, y, x -10, y -8);	//eyes
+		do Screen.drawLine(x, y, x -10, y+8);
+		do Screen.drawLine(x, y, x -11, y - 7); //emphasis
+		do Screen.drawLine(x, y, x -11, y + 7);
+		do Screen.drawLine(x+10, y-5, x , y-13); //legs
+		do Screen.drawLine(x+10, y+5, x , y+13);
+		do Screen.drawLine(x+11, y-5, x , y-13); //emphasis
+		do Screen.drawLine(x+11, y+5, x , y+13);
+	}
+	if (facing=4){
+		do Screen.drawLine(x, y, x -8, y +10);	//eyes
+		do Screen.drawLine(x, y, x +8, y+10);
+		do Screen.drawLine(x, y, x -7, y +11); //emphasis
+		do Screen.drawLine(x, y, x +7, y+11);
+		do Screen.drawLine(x+5, y-10, x +13, y); //legs
+		do Screen.drawLine(x-5, y-10, x -13, y);
+		do Screen.drawLine(x+5, y-11, x +13, y); //emphasis
+		do Screen.drawLine(x-5, y-11, x -13, y);
+	}
+        do Screen.setColor(true);
+        do Screen.drawCircle(x, y, 10);
+        return;
+    }
+
+    /** Erases the square from the screen. */
+    method void erase() {
+        do Screen.setColor(false);
+        do Screen.drawCircle(x, y, 10);
+        return;
+    }
+
+    method void coverTracks() {
+        do Screen.setColor(false);
+	if (facing=1){
+		do Screen.drawLine(x, y, x -8, y -10);	//eyes
+		do Screen.drawLine(x, y, x +8, y-10);
+		do Screen.drawLine(x, y, x -7, y -11); //emphasis
+		do Screen.drawLine(x, y, x +7, y-11);
+		do Screen.drawLine(x+5, y+10, x +13, y); //legs
+		do Screen.drawLine(x-5, y+10, x -13, y);
+		do Screen.drawLine(x+5, y+11, x +13, y); //emphasis
+		do Screen.drawLine(x-5, y+11, x -13, y);
+	}
+	if (facing=2){
+		do Screen.drawLine(x, y, x +10, y -8);	//eyes
+		do Screen.drawLine(x, y, x +10, y+8);
+		do Screen.drawLine(x, y, x +11, y - 7); //emphasis
+		do Screen.drawLine(x, y, x +11, y + 7);
+		do Screen.drawLine(x-10, y-5, x , y-13); //legs
+		do Screen.drawLine(x-10, y+5, x , y+13);
+		do Screen.drawLine(x-11, y-5, x , y-13); //emphasis
+		do Screen.drawLine(x-11, y+5, x , y+13);
+	}
+	if (facing=3){
+		do Screen.drawLine(x, y, x -10, y -8);	//eyes
+		do Screen.drawLine(x, y, x -10, y+8);
+		do Screen.drawLine(x, y, x -11, y - 7); //emphasis
+		do Screen.drawLine(x, y, x -11, y + 7);
+		do Screen.drawLine(x+10, y-5, x , y-13); //legs
+		do Screen.drawLine(x+10, y+5, x , y+13);
+		do Screen.drawLine(x+11, y-5, x , y-13); //emphasis
+		do Screen.drawLine(x+11, y+5, x , y+13);
+	}
+	if (facing=4){
+		do Screen.drawLine(x, y, x -8, y +10);	//eyes
+		do Screen.drawLine(x, y, x +8, y+10);
+		do Screen.drawLine(x, y, x -7, y +11); //emphasis
+		do Screen.drawLine(x, y, x +7, y+11);
+		do Screen.drawLine(x+5, y-10, x +13, y); //legs
+		do Screen.drawLine(x-5, y-10, x -13, y);
+		do Screen.drawLine(x+5, y-11, x +13, y); //emphasis
+		do Screen.drawLine(x-5, y-11, x -13, y);
+	}
+        do Screen.drawCircle(x, y, 10);
+        return;
+    }
+
+    /** Moves up by 2. */
+    method void moveDown() {
+
+	if ((y+15)<254){ 
+        	do coverTracks();    
+		let facing=4;  
+		let y= y+5;        
+		do draw();
+        }
+
+        return;
+    }
+
+    /** Moves down by 2. */
+    method void moveUp() {
+	if ((y-15)>5){
+        	do coverTracks();    
+		let facing=1;  
+		let y= y-5;        
+		do draw();
+        }
+	return;
+    }
+
+    /** Moves left by 2. */
+    method void moveLeft() {
+	if ((x-15)>1){   
+        	do coverTracks();    
+		let facing=3;  
+		let x= x-5;        
+		do draw();
+        }
+	return;
+    }
+
+    /** Moves right by 2. */
+    method void moveRight() {
+	if ((x+15)<510){
+
+        	do coverTracks();    
+		let facing=2;  
+		let x= x+5;        
+		do draw();
+        }
+	return;
+    }
+}

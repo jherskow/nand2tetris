@@ -1,0 +1,1055 @@
+<class>
+    <keyword> class </keyword>
+    <identifier> RapidRollGame </identifier>
+    <symbol> { </symbol>
+    <classVarDec>
+        <keyword> field </keyword>
+        <identifier> Ball </identifier>
+        <identifier> myBall </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> field </keyword>
+        <keyword> int </keyword>
+        <identifier> scores </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> field </keyword>
+        <keyword> boolean </keyword>
+        <identifier> gameOver </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> field </keyword>
+        <identifier> PlatformsGenerator </identifier>
+        <identifier> platsGenerator </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> field </keyword>
+        <identifier> RandomNumbersGenerator </identifier>
+        <identifier> numsGenerator </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> field </keyword>
+        <identifier> PlatformsList </identifier>
+        <identifier> platformsList </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <subroutineDec>
+        <keyword> constructor </keyword>
+        <identifier> RapidRollGame </identifier>
+        <identifier> new </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> platformsList </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> PlatformsList </identifier>
+                            <symbol> . </symbol>
+                            <identifier> new </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> platsGenerator </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> PlatformsGenerator </identifier>
+                            <symbol> . </symbol>
+                            <identifier> new </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> platformsList </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> numsGenerator </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> RandomNumbersGenerator </identifier>
+                            <symbol> . </symbol>
+                            <identifier> new </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> myBall </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> Ball </identifier>
+                            <symbol> . </symbol>
+                            <identifier> new </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <integerConstant> 5 </integerConstant>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <keyword> this </keyword>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> gameOver </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <keyword> false </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <keyword> this </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> void </keyword>
+        <identifier> run </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> char </keyword>
+                <identifier> key </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> clockCycle </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> boolean </keyword>
+                <identifier> seedTaken </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> boolean </keyword>
+                <identifier> gameOver </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> direction </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> randomSeed </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> clockCycle </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <integerConstant> 0 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> seedTaken </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <keyword> false </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <whileStatement>
+                    <keyword> while </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <symbol> ~ </symbol>
+                            <term>
+                                <identifier> gameOver </identifier>
+                            </term>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> myBall </identifier>
+                            <symbol> . </symbol>
+                            <identifier> isOnPlatform </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> myBall </identifier>
+                            <symbol> . </symbol>
+                            <identifier> move </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> direction </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> clockCycle </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> clockCycle </identifier>
+                                </term>
+                                <symbol> + </symbol>
+                                <term>
+                                    <integerConstant> 1 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <whileStatement>
+                            <keyword> while </keyword>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> key </identifier>
+                                </term>
+                                <symbol> = </symbol>
+                                <term>
+                                    <integerConstant> 0 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                            <symbol> { </symbol>
+                            <statements>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> clockCycle </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> clockCycle </identifier>
+                                        </term>
+                                        <symbol> + </symbol>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <doStatement>
+                                    <keyword> do </keyword>
+                                    <identifier> platformsList </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> moveUp </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                    <symbol> ; </symbol>
+                                </doStatement>
+                                <doStatement>
+                                    <keyword> do </keyword>
+                                    <identifier> makePlatform </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <identifier> clockCycle </identifier>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> randomSeed </identifier>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                    <symbol> ; </symbol>
+                                </doStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> direction </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <integerConstant> 0 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> key </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> Keyboard </identifier>
+                                            <symbol> . </symbol>
+                                            <identifier> keyPressed </identifier>
+                                            <symbol> ( </symbol>
+                                            <expressionList>
+                                            </expressionList>
+                                            <symbol> ) </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <doStatement>
+                                    <keyword> do </keyword>
+                                    <identifier> myBall </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> isOnPlatform </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                    <symbol> ; </symbol>
+                                </doStatement>
+                                <doStatement>
+                                    <keyword> do </keyword>
+                                    <identifier> myBall </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> move </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <identifier> direction </identifier>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                    <symbol> ; </symbol>
+                                </doStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                        </whileStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> makePlatform </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> clockCycle </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> randomSeed </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <ifStatement>
+                            <keyword> if </keyword>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <symbol> ~ </symbol>
+                                    <term>
+                                        <identifier> seedTaken </identifier>
+                                    </term>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                            <symbol> { </symbol>
+                            <statements>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> randomSeed </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> numsGenerator </identifier>
+                                            <symbol> . </symbol>
+                                            <identifier> modulo </identifier>
+                                            <symbol> ( </symbol>
+                                            <expressionList>
+                                                <expression>
+                                                    <term>
+                                                        <identifier> clockCycle </identifier>
+                                                    </term>
+                                                </expression>
+                                                <symbol> , </symbol>
+                                                <expression>
+                                                    <term>
+                                                        <integerConstant> 10 </integerConstant>
+                                                    </term>
+                                                </expression>
+                                            </expressionList>
+                                            <symbol> ) </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <doStatement>
+                                    <keyword> do </keyword>
+                                    <identifier> platsGenerator </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> setSeed </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <identifier> randomSeed </identifier>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                    <symbol> ; </symbol>
+                                </doStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> seedTaken </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <keyword> true </keyword>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                        </ifStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> randomSeed </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> clockCycle </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> makePlatform </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> clockCycle </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> randomSeed </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <ifStatement>
+                            <keyword> if </keyword>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> key </identifier>
+                                </term>
+                                <symbol> = </symbol>
+                                <term>
+                                    <integerConstant> 130 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                            <symbol> { </symbol>
+                            <statements>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> direction </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <doStatement>
+                                    <keyword> do </keyword>
+                                    <identifier> myBall </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> move </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <identifier> direction </identifier>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                    <symbol> ; </symbol>
+                                </doStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                        </ifStatement>
+                        <ifStatement>
+                            <keyword> if </keyword>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> key </identifier>
+                                </term>
+                                <symbol> = </symbol>
+                                <term>
+                                    <integerConstant> 132 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                            <symbol> { </symbol>
+                            <statements>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> direction </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <integerConstant> 2 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <doStatement>
+                                    <keyword> do </keyword>
+                                    <identifier> myBall </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> move </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <identifier> direction </identifier>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                    <symbol> ; </symbol>
+                                </doStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                        </ifStatement>
+                        <whileStatement>
+                            <keyword> while </keyword>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <symbol> ~ </symbol>
+                                    <term>
+                                        <symbol> ( </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> key </identifier>
+                                            </term>
+                                            <symbol> = </symbol>
+                                            <term>
+                                                <integerConstant> 0 </integerConstant>
+                                            </term>
+                                        </expression>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                            <symbol> { </symbol>
+                            <statements>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> clockCycle </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> clockCycle </identifier>
+                                        </term>
+                                        <symbol> + </symbol>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <doStatement>
+                                    <keyword> do </keyword>
+                                    <identifier> makePlatform </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <identifier> clockCycle </identifier>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> randomSeed </identifier>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                    <symbol> ; </symbol>
+                                </doStatement>
+                                <doStatement>
+                                    <keyword> do </keyword>
+                                    <identifier> platformsList </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> moveUp </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                    <symbol> ; </symbol>
+                                </doStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> key </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> Keyboard </identifier>
+                                            <symbol> . </symbol>
+                                            <identifier> keyPressed </identifier>
+                                            <symbol> ( </symbol>
+                                            <expressionList>
+                                            </expressionList>
+                                            <symbol> ) </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <doStatement>
+                                    <keyword> do </keyword>
+                                    <identifier> myBall </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> isOnPlatform </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                    <symbol> ; </symbol>
+                                </doStatement>
+                                <doStatement>
+                                    <keyword> do </keyword>
+                                    <identifier> myBall </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> move </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <identifier> direction </identifier>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                    <symbol> ; </symbol>
+                                </doStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                        </whileStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> makePlatform </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> clockCycle </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> randomSeed </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </whileStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> void </keyword>
+        <identifier> makePlatform </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <keyword> int </keyword>
+            <identifier> clockCycle </identifier>
+            <symbol> , </symbol>
+            <keyword> int </keyword>
+            <identifier> randomSeed </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> platformGenereateTime </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> toGenerate </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> platformGenereateTime </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> numsGenerator </identifier>
+                            <symbol> . </symbol>
+                            <identifier> generateRandomNumber </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> randomSeed </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <integerConstant> 10 </integerConstant>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <integerConstant> 240 </integerConstant>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> toGenerate </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> numsGenerator </identifier>
+                            <symbol> . </symbol>
+                            <identifier> modulo </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> clockCycle </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <integerConstant> 100 </integerConstant>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> toGenerate </identifier>
+                        </term>
+                        <symbol> = </symbol>
+                        <term>
+                            <integerConstant> 0 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> platsGenerator </identifier>
+                            <symbol> . </symbol>
+                            <identifier> setSeed </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> platformGenereateTime </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> addPlatform </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> platsGenerator </identifier>
+                                        <symbol> . </symbol>
+                                        <identifier> generatePlatform </identifier>
+                                        <symbol> ( </symbol>
+                                        <expressionList>
+                                        </expressionList>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> void </keyword>
+        <identifier> gameOver </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> gameOver </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <keyword> true </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> void </keyword>
+        <identifier> addPlatform </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <identifier> Platform </identifier>
+            <identifier> platform </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> platformsList </identifier>
+                    <symbol> . </symbol>
+                    <identifier> add </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                        <expression>
+                            <term>
+                                <identifier> platform </identifier>
+                            </term>
+                        </expression>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <identifier> PlatformsList </identifier>
+        <identifier> getPlatformsList </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <identifier> platformsList </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> boolean </keyword>
+        <identifier> isOnPlatform </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <keyword> int </keyword>
+            <identifier> xCoordinate </identifier>
+            <symbol> , </symbol>
+            <keyword> int </keyword>
+            <identifier> yCoordinate </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <identifier> platformsList </identifier>
+                            <symbol> . </symbol>
+                            <identifier> isOnPlatform </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> xCoordinate </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> yCoordinate </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <symbol> } </symbol>
+</class>

@@ -1,0 +1,226 @@
+function Fruit.new 0
+push constant 11
+call Memory.alloc 1
+pop pointer 0
+call Random.isDirection 0
+pop this 10
+call Random.getFactor 0
+pop this 7
+call Random.getOffset 0
+pop this 8
+call Random.getChar 0
+pop this 0
+call Random.getRadius 0
+pop this 4
+call Random.isBomb 0
+pop this 9
+push constant 0
+pop this 6
+push this 9
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 4
+push constant 6
+sub
+pop this 5
+goto IF_END0
+label IF_FALSE0
+push this 4
+push constant 2
+sub
+pop this 5
+label IF_END0
+push constant 1
+neg
+pop this 1
+push constant 30
+pop this 2
+push constant 7
+pop this 3
+push pointer 0
+return
+function Fruit.isBomb 0
+push argument 0
+pop pointer 0
+push this 9
+return
+function Fruit.getLetter 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Fruit.isDropped 1
+push argument 0
+pop pointer 0
+push this 1
+push this 6
+call Math.multiply 2
+pop local 0
+push local 0
+call Random.changeSeed 1
+pop temp 0
+push local 0
+push this 2
+add
+pop local 0
+push local 0
+push constant 0
+lt
+push argument 1
+push constant 0
+lt
+and
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+return
+label IF_FALSE0
+push constant 0
+return
+function Fruit.draw 4
+push argument 0
+pop pointer 0
+push this 6
+push this 6
+call Math.multiply 2
+pop local 1
+push this 1
+push local 1
+call Math.multiply 2
+pop local 1
+push this 2
+push this 6
+call Math.multiply 2
+pop local 2
+push local 1
+push local 2
+add
+push this 3
+add
+pop local 0
+push pointer 0
+push local 0
+call Fruit.isDropped 2
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+return
+label IF_FALSE0
+push constant 256
+push local 0
+sub
+pop local 0
+push this 6
+pop local 3
+push this 6
+push this 8
+add
+pop this 6
+push this 6
+push this 7
+call Math.multiply 2
+pop this 6
+push this 6
+push this 4
+sub
+push constant 0
+gt
+push local 0
+push this 4
+sub
+push constant 0
+gt
+and
+push this 6
+push this 4
+add
+push constant 512
+lt
+and
+push local 0
+push this 4
+add
+push constant 256
+lt
+and
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 10
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 512
+push this 6
+sub
+pop this 6
+label IF_FALSE2
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 6
+push local 0
+push this 4
+call Screen.drawCircle 3
+pop temp 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 6
+push local 0
+push this 5
+call Screen.drawCircle 3
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+push this 6
+push local 0
+call Fruit.pixelToRow 3
+pop temp 0
+push this 0
+call Output.printChar 1
+pop temp 0
+label IF_FALSE1
+push local 3
+push constant 1
+add
+pop this 6
+push this 6
+call Random.changeSeed 1
+pop temp 0
+push constant 0
+return
+function Fruit.pixelToRow 2
+push argument 0
+pop pointer 0
+push argument 1
+push constant 8
+call Math.divide 2
+pop local 0
+push argument 2
+push constant 11
+call Math.divide 2
+pop local 1
+push local 1
+push local 0
+call Output.moveCursor 2
+pop temp 0
+push constant 0
+return
+function Fruit.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return

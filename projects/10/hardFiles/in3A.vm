@@ -1,0 +1,514 @@
+function in3.new 2
+push constant 3
+call Memory.alloc 1
+pop pointer 0
+push constant 150
+push constant 100
+push constant 10
+push constant 0
+call Cell.new 4
+pop this 0
+push this 0
+pop this 1
+push constant 40
+neg
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 0
+lt
+not
+not
+if-goto WHILE_END0
+push constant 100
+push local 0
+add
+push constant 100
+push constant 10
+push this 1
+call Cell.new 4
+pop this 1
+push local 0
+push constant 10
+sub
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 120
+push constant 210
+push constant 10
+push constant 0
+call Cell.new 4
+pop this 2
+push constant 0
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+goto IF_END0
+label IF_FALSE0
+push local 0
+push constant 153
+lt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 10
+call String.new 1
+push constant 80
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 9
+call String.appendChar 2
+push constant 60
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 47
+call String.appendChar 2
+push constant 42
+call String.appendChar 2
+pop local 1
+push constant 3
+call String.new 1
+push constant 112
+call String.appendChar 2
+push constant 47
+call String.appendChar 2
+push constant 42
+call String.appendChar 2
+pop local 1
+push constant 2
+call String.new 1
+push constant 47
+call String.appendChar 2
+push constant 42
+call String.appendChar 2
+pop local 1
+push constant 3
+call String.new 1
+push constant 38
+call String.appendChar 2
+push constant 42
+call String.appendChar 2
+push constant 47
+call String.appendChar 2
+pop local 1
+push constant 2
+call String.new 1
+push constant 47
+call String.appendChar 2
+push constant 47
+call String.appendChar 2
+pop local 1
+push constant 3
+call String.new 1
+push constant 60
+call String.appendChar 2
+push constant 42
+call String.appendChar 2
+push constant 47
+call String.appendChar 2
+pop local 1
+label IF_FALSE1
+label IF_END0
+push pointer 0
+return
+function in3.dispose 0
+push argument 0
+pop pointer 0
+label WHILE_EXP0
+push this 1
+push constant 0
+eq
+not
+not
+if-goto WHILE_END0
+push this 1
+call Cell.dispose 1
+pop temp 0
+push this 1
+call Cell.getNext 1
+pop this 1
+goto WHILE_EXP0
+label WHILE_END0
+push this 2
+call Cell.dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function in3.moveUp 1
+push argument 0
+pop pointer 0
+push this 0
+call Cell.getY 1
+push constant 8
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+call Cell.getX 1
+push this 0
+call Cell.getY 1
+push constant 10
+sub
+push constant 10
+push constant 0
+call Cell.new 4
+pop local 0
+push this 0
+push local 0
+call Cell.setNext 2
+pop temp 0
+push local 0
+pop this 0
+push pointer 0
+call in3.eat 1
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 1
+call Cell.getNext 1
+pop local 0
+push this 1
+call Cell.erase 1
+pop temp 0
+push local 0
+pop this 1
+label IF_FALSE1
+push constant 400
+call Sys.wait 1
+pop temp 0
+push pointer 0
+call in3.crash 1
+not
+return
+label IF_FALSE0
+push constant 0
+return
+function in3.moveDown 1
+push argument 0
+pop pointer 0
+push this 0
+call Cell.getY 1
+push constant 240
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+call Cell.getX 1
+push this 0
+call Cell.getY 1
+push constant 10
+add
+push constant 10
+push constant 0
+call Cell.new 4
+pop local 0
+push this 0
+push local 0
+call Cell.setNext 2
+pop temp 0
+push local 0
+pop this 0
+push pointer 0
+call in3.eat 1
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 1
+call Cell.getNext 1
+pop local 0
+push this 1
+call Cell.erase 1
+pop temp 0
+push local 0
+pop this 1
+label IF_FALSE1
+push constant 400
+call Sys.wait 1
+pop temp 0
+push pointer 0
+call in3.crash 1
+not
+return
+label IF_FALSE0
+push constant 0
+return
+function in3.moveLeft 1
+push argument 0
+pop pointer 0
+push this 0
+call Cell.getX 1
+push constant 8
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+call Cell.getX 1
+push constant 10
+sub
+push this 0
+call Cell.getY 1
+push constant 10
+push constant 0
+call Cell.new 4
+pop local 0
+push this 0
+push local 0
+call Cell.setNext 2
+pop temp 0
+push local 0
+pop this 0
+push pointer 0
+call in3.eat 1
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 1
+call Cell.getNext 1
+pop local 0
+push this 1
+call Cell.erase 1
+pop temp 0
+push local 0
+pop this 1
+label IF_FALSE1
+push constant 400
+call Sys.wait 1
+pop temp 0
+push pointer 0
+call in3.crash 1
+not
+return
+label IF_FALSE0
+push constant 0
+return
+function in3.moveRight 1
+push argument 0
+pop pointer 0
+push this 0
+call Cell.getX 1
+push constant 500
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+call Cell.getX 1
+push constant 10
+add
+push this 0
+call Cell.getY 1
+push constant 10
+push constant 0
+call Cell.new 4
+pop local 0
+push this 0
+push local 0
+call Cell.setNext 2
+pop temp 0
+push local 0
+pop this 0
+push pointer 0
+call in3.eat 1
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 1
+call Cell.getNext 1
+pop local 0
+push this 1
+call Cell.erase 1
+pop temp 0
+push local 0
+pop this 1
+label IF_FALSE1
+push constant 400
+call Sys.wait 1
+pop temp 0
+push pointer 0
+call in3.crash 1
+not
+return
+label IF_FALSE0
+push constant 0
+return
+function in3.eat 0
+push argument 0
+pop pointer 0
+push this 2
+call Cell.draw 1
+pop temp 0
+push pointer 0
+push this 2
+call in3.clash 2
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push this 2
+call Cell.erase 1
+pop temp 0
+push this 2
+call Cell.getX 1
+push constant 450
+lt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 2
+push this 2
+call Cell.getX 1
+push constant 30
+add
+call Cell.setX 2
+pop temp 0
+goto IF_END1
+label IF_FALSE1
+push this 2
+push constant 30
+call Cell.setX 2
+pop temp 0
+label IF_END1
+push this 2
+call Cell.getY 1
+push constant 200
+lt
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 2
+push this 2
+call Cell.getY 1
+push constant 30
+add
+call Cell.setY 2
+pop temp 0
+goto IF_END2
+label IF_FALSE2
+push this 2
+push constant 30
+call Cell.setY 2
+pop temp 0
+label IF_END2
+push this 2
+call Cell.draw 1
+pop temp 0
+push constant 0
+not
+return
+function in3.crash 1
+push argument 0
+pop pointer 0
+push this 1
+pop local 0
+label WHILE_EXP0
+push local 0
+call Cell.getNext 1
+push this 0
+eq
+not
+not
+if-goto WHILE_END0
+push pointer 0
+push local 0
+call in3.clash 2
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+return
+label IF_FALSE0
+push local 0
+call Cell.getNext 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function in3.clash 0
+push argument 0
+pop pointer 0
+push argument 1
+call Cell.getX 1
+push this 0
+call Cell.getX 1
+push this 0
+call Cell.getSize 1
+add
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push argument 1
+call Cell.getX 1
+push argument 1
+call Cell.getSize 1
+add
+push this 0
+call Cell.getX 1
+lt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+return
+label IF_FALSE1
+push argument 1
+call Cell.getY 1
+push this 0
+call Cell.getY 1
+push this 0
+call Cell.getSize 1
+add
+lt
+not
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+return
+label IF_FALSE2
+push argument 1
+call Cell.getY 1
+push argument 1
+call Cell.getSize 1
+add
+push this 0
+call Cell.getY 1
+gt
+not
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 0
+return
+label IF_FALSE3
+push constant 0
+not
+return

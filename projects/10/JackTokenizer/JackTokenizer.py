@@ -35,6 +35,7 @@ class JackTokenizer:
         # self.line_num = 0 #line number of the current token
         self.is_in_comment = False
         self.read_line()
+        print(self.tokens)
 
     def remove_comments(self, line):
         """ removes single line comments from a line"""
@@ -58,16 +59,29 @@ class JackTokenizer:
         """"""
         temp = line.split()  # split by space
         tokens = []
+        string_word = ""
         for word in temp:
             new_word = ""
+            if "\"" in word and string_word=="":
+                string_word+=word
+                continue
             for l in word:
                 if l in JackTokenizer.symbols:  # if the word have a symbol
-                    if new_word != "":  # first append all the words before the symbol
+                    if string_word != "" and new_word != "" and "\"" in new_word:
+                        string_word+=" " +new_word
+                        tokens.append(string_word)
+                        string_word =""
+                        new_word=""
+                    if string_word != "" and new_word != "" and "\"" not in new_word:
+                        string_word+=" " +new_word
+                        new_word=""
+                    elif  new_word != "": # first append all the words before the symbol
                         tokens.append(new_word)
                         new_word = ""
                     tokens.append(l)
                 else:
                     new_word += l
+
             if new_word != "":
                 tokens.append(new_word)
 
@@ -196,10 +210,11 @@ class JackTokenizer:
         sum = 0
         for i in self.tokens_num:
             sum += i
-            if self.counter <= sum & self.counter > sum - i:
+            if self.counter <= sum and self.counter > sum - i:
                 return i
 
     def read_line(self):
+
         nextLine = self.file.readline()
         while nextLine:
             nextLine = self.remove_comments(nextLine)
@@ -217,21 +232,21 @@ class JackTokenizer:
     #         if self.token_type() == d.KEYWORD:
     #             pass
     #             # todo make if bugs
-
-def main():
-    s = "let sum = (numerator * other.getDenominator()) +(other.getNumerator() * denominator());"
-    c = JackTokenizer("test").get_tokens(s)
-    # print(c)
-    z = "\"465 j7\""
-    print(re.fullmatch("\".*?\"", z))
-    # print(re.match("([a-z]|[A-Z])",z))
-    # if re.match("[0-9]*",z)!=None and re.match("([a-z]|[A-Z])",z) == None :
-    #     print(111)
-    # a = s.split()
-    # x = s.split("[A-Z][a-z][0-9]")
-    # print(a)
-    # print(x)
-
-
-if __name__ == '__main__':
-    main()
+#
+# def main():
+#     s = "let sum = (numerator * other.getDenominator()) +(other.getNumerator() * denominator());"
+#     c = JackTokenizer("test").get_tokens(s)
+#     # print(c)
+#     z = "\"465 j7\""
+#     print(re.fullmatch("\".*?\"", z))
+#     # print(re.match("([a-z]|[A-Z])",z))
+#     # if re.match("[0-9]*",z)!=None and re.match("([a-z]|[A-Z])",z) == None :
+#     #     print(111)
+#     # a = s.split()
+#     # x = s.split("[A-Z][a-z][0-9]")
+#     # print(a)
+#     # print(x)
+#
+#
+# if __name__ == '__main__':
+#     main()

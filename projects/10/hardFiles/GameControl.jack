@@ -1,0 +1,423 @@
+/*
+*
+* Class: GameControl.jack
+*
+* This class runs the game loop. 
+*
+*/
+
+class GameControl {	
+	/** Game objects **/
+	// The surface - buildings, border lines, and background
+	field Surface _surface;
+	// The shooted ball
+    field Ball _ball;
+    // Current player
+    field int _player;
+    // Cannons
+    field Cannon _cannon1;
+    field Cannon _cannon2;
+    // Locations of the cannons, represented by the index of the building
+    // on which each of them is located
+    field int _cannon1Location;
+    field int _cannon2Location;
+    
+    /*
+    * Empty constructor
+    */
+    constructor GameControl new() {
+        return this;
+    }
+    
+    /*
+    * Initializes all values. Depends on the random seed created by the
+    * welcome screen, and therefore must be called only after the welcome
+    * screen
+    */
+    method void init() {
+        let _surface = Surface.new();
+    	let _player = 1;
+        do _surface.init();
+        do initCannons();    
+    	return;
+    }
+    
+    /*
+    * Display a welcome screen, and waits for the user to press any key.
+    * Returns the int value represents the key pressed by the user.
+    * Also, based on the time it took for the user to continue, generate
+    * a random seed.
+    */
+    method int displayWelcomeScreen() {
+    	var int i;
+    	var int key;
+    	var int pressed;
+    	let key = 0;
+    	do Screen.clearScreen();
+    	do Output.moveCursor(5, 22);
+    	do Output.printString("*** City mayhem ***");
+    	do Output.moveCursor(7, 16);
+    	do Output.printString("Press any key to start, or Q to quit");
+    	while (key = 0) {
+			let key = Keyboard.keyPressed();
+			let i = i + 1;
+			let i = Utils.moduloPower2(i, 256);
+		}
+		let pressed = key;
+		while (~(key = 0)) {
+		    let key = Keyboard.keyPressed();
+   			let i = i + 1;
+			let i = Utils.moduloPower2(i, 256);
+        }
+    	do Utils.initRandomSeed(i);
+    	do Output.moveCursor(7, 18);
+    	do Screen.clearScreen();
+    	return pressed;
+    }
+    
+    /*
+    * Initializes the cannons and calculates their locations
+    */
+    method void initCannons() {
+    	let _cannon1Location = Utils.random(4);
+    	let _cannon2Location = Utils.random(4);
+    	let _cannon1 = Cannon.new();
+    	let _cannon2 = Cannon.new();
+    	do calculateCannonLocations();
+    	return;
+    }
+    
+    /*
+    * Based on the surface status and the building location, calculates 
+    * the cannons exact positions
+    */
+    method void calculateCannonLocations() {
+    	do _cannon1.setX(_surface.getCannonPosX(1, _cannon1Location));
+    	do _cannon1.setY(_surface.getCannonPosY(1, _cannon1Location));
+    	do _cannon2.setX(_surface.getCannonPosX(2, _cannon2Location));
+    	do _cannon2.setY(_surface.getCannonPosY(2, _cannon2Location));
+    	return;
+    }
+    
+    /*
+    * Draw the cannons
+    */
+    method void drawCannons() {
+    	do _cannon1.draw();
+    	do _cannon2.draw();
+    	return;
+    }
+
+	/*
+	* Asks the user for the vertical power of the next shoot, and returns that value
+	*/
+    method int getVertical() {
+    	do Output.moveCursor(4,0);
+    	return Keyboard.readInt("Enter vertical power (0-100): ");
+    }
+
+	/*
+	* Asks the user for the horizontal power of the next shoot, and returns that value
+	*/
+    method int getHorizontal() {
+    	var int power;
+    	do Output.moveCursor(5,0);
+    	let power = Keyboard.readInt("Enter horizontal power (0-100): ");
+    	return power;
+    }
+    
+    /*
+    * Clear the area below the upper divide line 
+    */
+    function void clearQuestions() {
+    	do Screen.setColor(false);
+    	do Screen.drawRectangle(0, (Surface.getUpperDivider() + 1), 511, (Surface.getUpperDivider() + 45));
+    	do Screen.setColor(true);
+    	return;
+    }
+
+    /*
+    * Deallocates the object's memory
+    */
+    method void dispose() {
+        do _surface.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+    
+    /*
+    * Check if any of the players won the game. Returns the player number if
+    * true, or 0 if the game still continues
+    */
+    method int checkWinner() {
+    	if(_cannon1.isDead()) {
+    		return 2;
+    	}
+    	if(_cannon2.isDead()) {
+    		return 1;
+    	}
+    	return 0;
+    }
+    
+    /*
+    * Shoot a ball from the given position, with the given power and wind. Check
+    * and apply this shoot results
+    */
+    method int sendBall(int x, int y, int dirX, int dirY, int wind) {
+    	var Ball ball;
+    	var boolean hit;
+    	var int status;
+    	var int buildingHit;
+    	var int d1;
+    	var int d2;
+    	let ball = Ball.new(x, y, dirX, dirY, wind);
+    	let status = 0;
+    	do printState(0, 1);
+    	while(~(hit)) {
+    		do ball.draw();
+    		do Sys.wait(50);
+    		do ball.clear();
+    		do ball.move();
+    		do ball.affectByGravity();
+    		do ball.affectByWind();
+    		let hit = ball.isReachedEdge();
+    		let buildingHit = _surface.isHitBuilding(ball.getX(), ball.getY());
+    		if(~(buildingHit = -1)) {
+    			let hit = true;
+    		}
+    	
+    	}
+    	// Draw the ball explosion
+    	do ball.drawExplosion();
+    	// Inflict the damage, and set the returned status
+    	do _surface.inflictBuildingsDemage(ball.getX(), ball.getY(), 5);
+    	let d1 = _cannon1.damageInflicted(ball.getX(), ball.getY(), _cannon2.getDamageRadius());
+    	let d2 = _cannon2.damageInflicted(ball.getX(), ball.getY(), _cannon1.getDamageRadius());
+    	if (d1 > 0) {
+    		if(_player = 2) {
+    			let status = 1;
+    		} else {
+    			let status = 2;
+    		}
+    	}
+    	if (d2 > 0) {
+    		if(_player = 1) {
+    			let status = 1;
+    		}
+    		else {
+    			let status = 2;
+    		}
+    	}
+    	do ball.dispose();
+    	return status;
+    }
+    
+    /*
+    * Clear the status box (from top of the screen to the upper divide line)
+    */
+    method void clearStatusBox() {
+    	do Screen.setColor(false);
+    	do Screen.drawRectangle(0,0, 511, (Surface.getUpperDivider() - 1));
+    	do Screen.setColor(true);
+    	return;
+    }
+    
+    /*
+    * Given a player number, returns the other player number
+    */
+    function int otherPlayer(int player) {
+    	if(player = 1) {
+    		return 2;
+    	}
+    	return 1;
+    }
+    
+    /*
+    * Print the message shown in each turn's end
+    */
+    function void printContinueMessage() {
+    	do Output.moveCursor(3,0);
+    	do Output.printString("End turn. Press any key to continue, 'Q' to quit");
+  		return;
+    }
+    
+    /*
+    * Print the life values of both players in the status box
+    */
+    method void printPlayersLife() {
+    	do Output.moveCursor(0,0);
+    	do Output.printString("Player 1: ");
+    	do Output.printInt(_cannon1.getLife());
+    	do Output.moveCursor(0, 40);
+    	do Output.printString("Player 2: ");
+    	do Output.printInt(_cannon2.getLife());
+    	return;
+    
+    }
+    
+    /*
+    * Print the wind power value
+    */
+    method void printWind(int wind) {
+    	do Output.moveCursor(3, 0);
+    	do Output.printString("Wind: ");
+    	do Output.printInt(Math.abs(wind));
+    	if (wind < 0) {
+    		do Output.printString(" to the left");
+    	}
+    	if (wind > 0) {
+    		do Output.printString(" to the right");
+    	}
+    	return;
+    }
+    
+    /*
+    * Display the victory message for a given player
+    */
+    method void displayVictoryMessage(int player) {
+    	do Screen.clearScreen();
+    	do Output.moveCursor(10, 23);
+    	do Output.printString("Player ");
+    	do Output.printInt(player);
+    	do Output.printString(" wins!!!");
+    	return;
+    }
+    
+    /*
+    * Print the current game status in the status box, according to the
+    * given parameters
+    */
+    method void printState(int player, int statusCode) {
+    	do clearStatusBox();
+    	do Output.moveCursor(1,0);
+    	do Output.printString("Status: ");
+    	if(statusCode = 1) {
+    		do Output.printString("FIRE!");
+    		do printPlayersLife();
+    		return;
+    	}
+    	do Output.printString("Player ");
+    	do Output.printInt(player);
+    	if(statusCode = 2) {
+    		do Output.printString(", it's your turn");
+    	}
+    	if(statusCode = 3) {
+    		do Output.printString(" wins the game!");
+    	}
+    	if(statusCode = 4) {
+			do Output.printString(" missed");
+		}
+    	if(statusCode = 5) {
+    		do Output.printString(" hit player ");
+    		do Output.printInt(GameControl.otherPlayer(player));
+		}
+		if(statusCode = 6) {
+			do Output.printString(" hit itself!");
+		}
+		do printPlayersLife();
+    	return;
+    
+    }
+
+	/*
+	* Start the game: Play game rounds in loop until the user chooses to quit
+	*/
+	method void start() {
+		var boolean exit;
+		var int pressed;
+		let exit = false;
+		while (~exit) {
+			let pressed = displayWelcomeScreen();
+			do init();
+			if(pressed = 81) {
+				let exit = true;
+			}
+			else {
+				do run();
+			}
+		}
+		return;
+	}
+
+    /*
+    * Runs the game 
+    */
+    method void run() {
+        var char key;
+        var int status;
+        var int dirX;
+        var int dirY;
+        var int tempX;
+        var int tempY;
+        var boolean exit;		var boolean legal;
+		var int winner;
+		var int wind;
+        let exit = false;
+        
+        while (~exit) {
+        	let legal = false;
+        	// Calculates a random wind value
+        	let wind = (20 - Utils.random(40));
+        	// Draw everything
+            do _surface.drawBottomAndTopLines();
+        	do _surface.drawAllBuildings();
+        	do calculateCannonLocations();
+        	do drawCannons();
+        	// Print status and wind value
+        	do printWind(wind);
+        	do printState(_player, 2);
+        	// Asks the user for the next shoot values. Loops until
+        	// values are legal
+        	while(~legal) {
+        		let dirX = getVertical();
+				let dirY = getHorizontal();
+				let legal = (Utils.isBound(dirX, 0, 100) & Utils.isBound(dirY, 0, 100));
+				do GameControl.clearQuestions();
+			}
+			if(_player = 1) {
+				let tempX = _cannon1.getX();
+				let tempY = _cannon1.getY();
+			} else {
+				let dirX = -dirX;
+				let tempX = _cannon2.getX();
+				let tempY = _cannon2.getY();
+			}
+			// Shoot the ball
+			let status = sendBall(tempX + 4, tempY - 6, dirX, dirY, wind);
+			// Print the results of that shoot (miss, hit, etc)
+			do printState(_player, status + 4);
+			// Check if any of the players won after this round
+			let winner = checkWinner();
+			if (winner = 0) {
+				// The game continues - both cannons are still alive
+				do GameControl.printContinueMessage();
+		        // Waits for a key to be pressed.
+		        while (key = 0) {
+		            let key = Keyboard.keyPressed();
+		        }
+	 
+		        if (key = 81) {
+		            let exit = true;
+		        }
+		        
+		        // waits for the key to be released.
+		        while (~(key = 0)) {
+		            let key = Keyboard.keyPressed();
+		        }
+		        // Clear the screen and switches player
+		        do GameControl.clearQuestions();
+		        do Screen.clearScreen();
+		        let _player = GameControl.otherPlayer(_player);
+		    }
+			else {
+				// If any of the players won the game
+				let exit = true;
+				do displayVictoryMessage(winner);
+				do Sys.wait(5000);
+			}    
+        }
+            
+        return;
+	}
+
+}

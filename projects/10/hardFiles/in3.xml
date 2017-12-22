@@ -1,0 +1,2016 @@
+<class>
+    <keyword> class </keyword>
+    <identifier> in3 </identifier>
+    <symbol> { </symbol>
+    <classVarDec>
+        <keyword> field </keyword>
+        <identifier> Cell </identifier>
+        <identifier> head </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> field </keyword>
+        <identifier> Cell </identifier>
+        <identifier> tail </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> field </keyword>
+        <identifier> Cell </identifier>
+        <identifier> food </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <subroutineDec>
+        <keyword> constructor </keyword>
+        <identifier> in3 </identifier>
+        <identifier> new </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> i </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <identifier> string </identifier>
+                <identifier> city </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> head </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> Cell </identifier>
+                            <symbol> . </symbol>
+                            <identifier> new </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <integerConstant> 150 </integerConstant>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <integerConstant> 100 </integerConstant>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <integerConstant> 10 </integerConstant>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <keyword> null </keyword>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> tail </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> head </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> i </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <symbol> - </symbol>
+                            <term>
+                                <integerConstant> 40 </integerConstant>
+                            </term>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <whileStatement>
+                    <keyword> while </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <symbol> ~ </symbol>
+                            <term>
+                                <symbol> ( </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> i </identifier>
+                                    </term>
+                                    <symbol> &lt; </symbol>
+                                    <term>
+                                        <integerConstant> 0 </integerConstant>
+                                    </term>
+                                </expression>
+                                <symbol> ) </symbol>
+                            </term>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> tail </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> Cell </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> new </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <integerConstant> 100 </integerConstant>
+                                            </term>
+                                            <symbol> + </symbol>
+                                            <term>
+                                                <identifier> i </identifier>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <integerConstant> 100 </integerConstant>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <integerConstant> 10 </integerConstant>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> tail </identifier>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> i </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> i </identifier>
+                                </term>
+                                <symbol> - </symbol>
+                                <term>
+                                    <integerConstant> 10 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </whileStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> food </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> Cell </identifier>
+                            <symbol> . </symbol>
+                            <identifier> new </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <integerConstant> 120 </integerConstant>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <integerConstant> 210 </integerConstant>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <integerConstant> 10 </integerConstant>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <keyword> null </keyword>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <keyword> true </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                    </statements>
+                    <symbol> } </symbol>
+                    <keyword> else </keyword>
+                    <symbol> { </symbol>
+                    <statements>
+                        <ifStatement>
+                            <keyword> if </keyword>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> i </identifier>
+                                </term>
+                                <symbol> &lt; </symbol>
+                                <term>
+                                    <integerConstant> 153 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                            <symbol> { </symbol>
+                            <statements>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> city </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <stringConstant> Pa	< ris/* </stringConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> city </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <stringConstant> p/* </stringConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> city </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <stringConstant> /* </stringConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> city </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <stringConstant> &*/ </stringConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> city </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <stringConstant> // </stringConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> city </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <stringConstant> <*/ </stringConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                        </ifStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <keyword> this </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> void </keyword>
+        <identifier> dispose </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <whileStatement>
+                    <keyword> while </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <symbol> ~ </symbol>
+                            <term>
+                                <symbol> ( </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> tail </identifier>
+                                    </term>
+                                    <symbol> = </symbol>
+                                    <term>
+                                        <keyword> null </keyword>
+                                    </term>
+                                </expression>
+                                <symbol> ) </symbol>
+                            </term>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> tail </identifier>
+                            <symbol> . </symbol>
+                            <identifier> dispose </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> tail </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> tail </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> getNext </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </whileStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> food </identifier>
+                    <symbol> . </symbol>
+                    <identifier> dispose </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> Memory </identifier>
+                    <symbol> . </symbol>
+                    <identifier> deAlloc </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                        <expression>
+                            <term>
+                                <keyword> this </keyword>
+                            </term>
+                        </expression>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> boolean </keyword>
+        <identifier> moveUp </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <identifier> Cell </identifier>
+                <identifier> varTemp </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> head </identifier>
+                            <symbol> . </symbol>
+                            <identifier> getY </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                        <symbol> &gt; </symbol>
+                        <term>
+                            <integerConstant> 8 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> varTemp </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> Cell </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> new </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <identifier> head </identifier>
+                                                <symbol> . </symbol>
+                                                <identifier> getX </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> head </identifier>
+                                                <symbol> . </symbol>
+                                                <identifier> getY </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                            <symbol> - </symbol>
+                                            <term>
+                                                <integerConstant> 10 </integerConstant>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <integerConstant> 10 </integerConstant>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <keyword> null </keyword>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> head </identifier>
+                            <symbol> . </symbol>
+                            <identifier> setNext </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> varTemp </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> head </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> varTemp </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <ifStatement>
+                            <keyword> if </keyword>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <symbol> ~ </symbol>
+                                    <term>
+                                        <symbol> ( </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> eat </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                        </expression>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                            <symbol> { </symbol>
+                            <statements>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> varTemp </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> tail </identifier>
+                                            <symbol> . </symbol>
+                                            <identifier> getNext </identifier>
+                                            <symbol> ( </symbol>
+                                            <expressionList>
+                                            </expressionList>
+                                            <symbol> ) </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <doStatement>
+                                    <keyword> do </keyword>
+                                    <identifier> tail </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> erase </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                    <symbol> ; </symbol>
+                                </doStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> tail </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> varTemp </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                        </ifStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> Sys </identifier>
+                            <symbol> . </symbol>
+                            <identifier> wait </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <integerConstant> 400 </integerConstant>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <symbol> ~ </symbol>
+                                    <term>
+                                        <identifier> crash </identifier>
+                                        <symbol> ( </symbol>
+                                        <expressionList>
+                                        </expressionList>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <keyword> false </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> boolean </keyword>
+        <identifier> moveDown </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <identifier> Cell </identifier>
+                <identifier> letTemp </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> head </identifier>
+                            <symbol> . </symbol>
+                            <identifier> getY </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                        <symbol> &lt; </symbol>
+                        <term>
+                            <integerConstant> 240 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> letTemp </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> Cell </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> new </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <identifier> head </identifier>
+                                                <symbol> . </symbol>
+                                                <identifier> getX </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> head </identifier>
+                                                <symbol> . </symbol>
+                                                <identifier> getY </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                            <symbol> + </symbol>
+                                            <term>
+                                                <integerConstant> 10 </integerConstant>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <integerConstant> 10 </integerConstant>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <keyword> null </keyword>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> head </identifier>
+                            <symbol> . </symbol>
+                            <identifier> setNext </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> letTemp </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> head </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> letTemp </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <ifStatement>
+                            <keyword> if </keyword>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <symbol> ~ </symbol>
+                                    <term>
+                                        <symbol> ( </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> eat </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                        </expression>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                            <symbol> { </symbol>
+                            <statements>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> letTemp </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> tail </identifier>
+                                            <symbol> . </symbol>
+                                            <identifier> getNext </identifier>
+                                            <symbol> ( </symbol>
+                                            <expressionList>
+                                            </expressionList>
+                                            <symbol> ) </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <doStatement>
+                                    <keyword> do </keyword>
+                                    <identifier> tail </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> erase </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                    <symbol> ; </symbol>
+                                </doStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> tail </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> letTemp </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                        </ifStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> Sys </identifier>
+                            <symbol> . </symbol>
+                            <identifier> wait </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <integerConstant> 400 </integerConstant>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <symbol> ~ </symbol>
+                                    <term>
+                                        <identifier> crash </identifier>
+                                        <symbol> ( </symbol>
+                                        <expressionList>
+                                        </expressionList>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <keyword> false </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> boolean </keyword>
+        <identifier> moveLeft </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <identifier> Cell </identifier>
+                <identifier> ifTemp </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> head </identifier>
+                            <symbol> . </symbol>
+                            <identifier> getX </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                        <symbol> &gt; </symbol>
+                        <term>
+                            <integerConstant> 8 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> ifTemp </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> Cell </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> new </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <identifier> head </identifier>
+                                                <symbol> . </symbol>
+                                                <identifier> getX </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                            <symbol> - </symbol>
+                                            <term>
+                                                <integerConstant> 10 </integerConstant>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> head </identifier>
+                                                <symbol> . </symbol>
+                                                <identifier> getY </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <integerConstant> 10 </integerConstant>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <keyword> null </keyword>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> head </identifier>
+                            <symbol> . </symbol>
+                            <identifier> setNext </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> ifTemp </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> head </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> ifTemp </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <ifStatement>
+                            <keyword> if </keyword>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <symbol> ~ </symbol>
+                                    <term>
+                                        <symbol> ( </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> eat </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                        </expression>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                            <symbol> { </symbol>
+                            <statements>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> ifTemp </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> tail </identifier>
+                                            <symbol> . </symbol>
+                                            <identifier> getNext </identifier>
+                                            <symbol> ( </symbol>
+                                            <expressionList>
+                                            </expressionList>
+                                            <symbol> ) </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <doStatement>
+                                    <keyword> do </keyword>
+                                    <identifier> tail </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> erase </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                    <symbol> ; </symbol>
+                                </doStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> tail </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> ifTemp </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                        </ifStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> Sys </identifier>
+                            <symbol> . </symbol>
+                            <identifier> wait </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <integerConstant> 400 </integerConstant>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <symbol> ~ </symbol>
+                                    <term>
+                                        <identifier> crash </identifier>
+                                        <symbol> ( </symbol>
+                                        <expressionList>
+                                        </expressionList>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <keyword> false </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> boolean </keyword>
+        <identifier> moveRight </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <identifier> Cell </identifier>
+                <identifier> temp </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> head </identifier>
+                            <symbol> . </symbol>
+                            <identifier> getX </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                        <symbol> &lt; </symbol>
+                        <term>
+                            <integerConstant> 500 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> temp </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> Cell </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> new </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <identifier> head </identifier>
+                                                <symbol> . </symbol>
+                                                <identifier> getX </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                            <symbol> + </symbol>
+                                            <term>
+                                                <integerConstant> 10 </integerConstant>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> head </identifier>
+                                                <symbol> . </symbol>
+                                                <identifier> getY </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <integerConstant> 10 </integerConstant>
+                                            </term>
+                                        </expression>
+                                        <symbol> , </symbol>
+                                        <expression>
+                                            <term>
+                                                <keyword> null </keyword>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> head </identifier>
+                            <symbol> . </symbol>
+                            <identifier> setNext </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> temp </identifier>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> head </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> temp </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <ifStatement>
+                            <keyword> if </keyword>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <symbol> ~ </symbol>
+                                    <term>
+                                        <symbol> ( </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> eat </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                        </expression>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                            <symbol> { </symbol>
+                            <statements>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> temp </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> tail </identifier>
+                                            <symbol> . </symbol>
+                                            <identifier> getNext </identifier>
+                                            <symbol> ( </symbol>
+                                            <expressionList>
+                                            </expressionList>
+                                            <symbol> ) </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <doStatement>
+                                    <keyword> do </keyword>
+                                    <identifier> tail </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> erase </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                    <symbol> ; </symbol>
+                                </doStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> tail </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> temp </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                        </ifStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> Sys </identifier>
+                            <symbol> . </symbol>
+                            <identifier> wait </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <integerConstant> 400 </integerConstant>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <symbol> ~ </symbol>
+                                    <term>
+                                        <identifier> crash </identifier>
+                                        <symbol> ( </symbol>
+                                        <expressionList>
+                                        </expressionList>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <keyword> false </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> boolean </keyword>
+        <identifier> eat </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> food </identifier>
+                    <symbol> . </symbol>
+                    <identifier> draw </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <symbol> ~ </symbol>
+                            <term>
+                                <identifier> clash </identifier>
+                                <symbol> ( </symbol>
+                                <expressionList>
+                                    <expression>
+                                        <term>
+                                            <identifier> food </identifier>
+                                        </term>
+                                    </expression>
+                                </expressionList>
+                                <symbol> ) </symbol>
+                            </term>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <keyword> false </keyword>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> food </identifier>
+                    <symbol> . </symbol>
+                    <identifier> erase </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> food </identifier>
+                            <symbol> . </symbol>
+                            <identifier> getX </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                        <symbol> &lt; </symbol>
+                        <term>
+                            <integerConstant> 450 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> food </identifier>
+                            <symbol> . </symbol>
+                            <identifier> setX </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <symbol> ( </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> food </identifier>
+                                                <symbol> . </symbol>
+                                                <identifier> getX </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                            <symbol> + </symbol>
+                                            <term>
+                                                <integerConstant> 30 </integerConstant>
+                                            </term>
+                                        </expression>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                    <keyword> else </keyword>
+                    <symbol> { </symbol>
+                    <statements>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> food </identifier>
+                            <symbol> . </symbol>
+                            <identifier> setX </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <integerConstant> 30 </integerConstant>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> food </identifier>
+                            <symbol> . </symbol>
+                            <identifier> getY </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                        <symbol> &lt; </symbol>
+                        <term>
+                            <integerConstant> 200 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> food </identifier>
+                            <symbol> . </symbol>
+                            <identifier> setY </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <symbol> ( </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> food </identifier>
+                                                <symbol> . </symbol>
+                                                <identifier> getY </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                            <symbol> + </symbol>
+                                            <term>
+                                                <integerConstant> 30 </integerConstant>
+                                            </term>
+                                        </expression>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                    <keyword> else </keyword>
+                    <symbol> { </symbol>
+                    <statements>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> food </identifier>
+                            <symbol> . </symbol>
+                            <identifier> setY </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <integerConstant> 30 </integerConstant>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> food </identifier>
+                    <symbol> . </symbol>
+                    <identifier> draw </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <keyword> true </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> boolean </keyword>
+        <identifier> crash </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <identifier> Cell </identifier>
+                <identifier> temp </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> temp </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> tail </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <whileStatement>
+                    <keyword> while </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <symbol> ~ </symbol>
+                            <term>
+                                <symbol> ( </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> temp </identifier>
+                                        <symbol> . </symbol>
+                                        <identifier> getNext </identifier>
+                                        <symbol> ( </symbol>
+                                        <expressionList>
+                                        </expressionList>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                    <symbol> = </symbol>
+                                    <term>
+                                        <identifier> head </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> ) </symbol>
+                            </term>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <ifStatement>
+                            <keyword> if </keyword>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> clash </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                        <expression>
+                                            <term>
+                                                <identifier> temp </identifier>
+                                            </term>
+                                        </expression>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                            <symbol> { </symbol>
+                            <statements>
+                                <returnStatement>
+                                    <keyword> return </keyword>
+                                    <expression>
+                                        <term>
+                                            <keyword> true </keyword>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </returnStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                        </ifStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> temp </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> temp </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> getNext </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </whileStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <keyword> false </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> boolean </keyword>
+        <identifier> clash </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <identifier> Cell </identifier>
+            <identifier> temp </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> temp </identifier>
+                            <symbol> . </symbol>
+                            <identifier> getX </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                        <symbol> &gt; </symbol>
+                        <term>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> head </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> getX </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                                <symbol> + </symbol>
+                                <term>
+                                    <identifier> head </identifier>
+                                    <symbol> . </symbol>
+                                    <identifier> getSize </identifier>
+                                    <symbol> ( </symbol>
+                                    <expressionList>
+                                    </expressionList>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <keyword> false </keyword>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> temp </identifier>
+                            <symbol> . </symbol>
+                            <identifier> getX </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                        <symbol> + </symbol>
+                        <term>
+                            <identifier> temp </identifier>
+                            <symbol> . </symbol>
+                            <identifier> getSize </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                        <symbol> &lt; </symbol>
+                        <term>
+                            <identifier> head </identifier>
+                            <symbol> . </symbol>
+                            <identifier> getX </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <keyword> false </keyword>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <symbol> ~ </symbol>
+                            <term>
+                                <symbol> ( </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> temp </identifier>
+                                        <symbol> . </symbol>
+                                        <identifier> getY </identifier>
+                                        <symbol> ( </symbol>
+                                        <expressionList>
+                                        </expressionList>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                    <symbol> &lt; </symbol>
+                                    <term>
+                                        <symbol> ( </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> head </identifier>
+                                                <symbol> . </symbol>
+                                                <identifier> getY </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                            <symbol> + </symbol>
+                                            <term>
+                                                <identifier> head </identifier>
+                                                <symbol> . </symbol>
+                                                <identifier> getSize </identifier>
+                                                <symbol> ( </symbol>
+                                                <expressionList>
+                                                </expressionList>
+                                                <symbol> ) </symbol>
+                                            </term>
+                                        </expression>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                </expression>
+                                <symbol> ) </symbol>
+                            </term>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <keyword> false </keyword>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <symbol> ~ </symbol>
+                            <term>
+                                <symbol> ( </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> temp </identifier>
+                                        <symbol> . </symbol>
+                                        <identifier> getY </identifier>
+                                        <symbol> ( </symbol>
+                                        <expressionList>
+                                        </expressionList>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                    <symbol> + </symbol>
+                                    <term>
+                                        <identifier> temp </identifier>
+                                        <symbol> . </symbol>
+                                        <identifier> getSize </identifier>
+                                        <symbol> ( </symbol>
+                                        <expressionList>
+                                        </expressionList>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                    <symbol> &gt; </symbol>
+                                    <term>
+                                        <identifier> head </identifier>
+                                        <symbol> . </symbol>
+                                        <identifier> getY </identifier>
+                                        <symbol> ( </symbol>
+                                        <expressionList>
+                                        </expressionList>
+                                        <symbol> ) </symbol>
+                                    </term>
+                                </expression>
+                                <symbol> ) </symbol>
+                            </term>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <keyword> false </keyword>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <keyword> true </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <symbol> } </symbol>
+</class>

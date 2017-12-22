@@ -1,0 +1,130 @@
+function Cannon.new 0
+push constant 4
+call Memory.alloc 1
+pop pointer 0
+push constant 10
+pop this 2
+push constant 5
+pop this 3
+push pointer 0
+return
+function Cannon.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function Cannon.setX 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 0
+push constant 0
+return
+function Cannon.setY 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 1
+push constant 0
+return
+function Cannon.getX 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Cannon.getY 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Cannon.getDamageRadius 0
+push argument 0
+pop pointer 0
+push this 3
+return
+function Cannon.draw 0
+push argument 0
+pop pointer 0
+push this 0
+push this 1
+push this 0
+push constant 4
+add
+push this 1
+push constant 4
+sub
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push constant 4
+add
+push this 1
+push constant 4
+sub
+push this 0
+push constant 8
+add
+push this 1
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 8
+add
+push this 1
+call Screen.drawLine 4
+pop temp 0
+push constant 0
+return
+function Cannon.damageInflicted 3
+push argument 0
+pop pointer 0
+push argument 3
+push constant 4
+add
+pop local 2
+push argument 1
+push argument 2
+push this 0
+push constant 4
+add
+push this 1
+call Utils.distance 4
+pop local 0
+push local 0
+push local 2
+gt
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 2
+push local 0
+sub
+pop local 1
+push this 2
+push local 1
+sub
+pop this 2
+push local 1
+return
+label IF_FALSE0
+push constant 0
+return
+function Cannon.getLife 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function Cannon.isDead 0
+push argument 0
+pop pointer 0
+push this 2
+push constant 0
+gt
+not
+return

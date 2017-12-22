@@ -40,9 +40,10 @@ type={K_INT, K_CHAR, K_BOOLEAN}
 statement_end={";","}"}
 statement_types={K_LET, K_IF, K_WHILE, K_DO, K_RETURN}
 op={'+','-','*','/','&','|','<','>','='}
-unary_op={'+','~'}
-keyword_constant={'true','false','null','this'}
-
+unary_op={'-','~'}
+keyword_constant={'TRUE','FALSE','NULL','THIS'}
+static_field={'STATIC','FIELD'}
+func = {'CONSTRUCTOR','FUNCTION','METHOD'}
 keyWords = \
 {'boolean': 'BOOLEAN',
  'char': 'CHAR',
@@ -112,6 +113,8 @@ keyword_switch = \
  'VOID': 'void',
  'WHILE': 'while'}
 
+# todo when does " appear
+
 symbol_switch = \
 {'&': '&amp;', #todo make necessary adjustments " < > /
  '(': '(',
@@ -122,6 +125,7 @@ symbol_switch = \
  '-': '-',
  '.': '.',
  '/': '/',
+ '\"': '',
  ';': ';',
  '<': '&lt;',
  '=': '=',

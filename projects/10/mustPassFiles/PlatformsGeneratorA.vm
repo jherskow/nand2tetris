@@ -1,0 +1,92 @@
+function PlatformsGenerator.new 0
+push constant 3
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 2
+call RandomNumbersGenerator.new 0
+pop this 0
+push constant 0
+pop this 1
+push pointer 0
+return
+function PlatformsGenerator.setSeed 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 1
+push constant 0
+return
+function PlatformsGenerator.generatePlatform 4
+push argument 0
+pop pointer 0
+push this 0
+push this 1
+push constant 0
+push constant 230
+call RandomNumbersGenerator.generateRandomNumber 4
+pop local 0
+push local 0
+push constant 100
+add
+push constant 255
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 255
+pop local 2
+goto IF_END0
+label IF_FALSE0
+push local 0
+push constant 100
+add
+pop local 2
+label IF_END0
+push local 0
+push constant 0
+lt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 460
+pop local 0
+push constant 500
+pop local 2
+label IF_FALSE1
+push local 2
+push constant 0
+lt
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 10
+pop local 0
+push constant 80
+pop local 2
+label IF_FALSE2
+push this 0
+push this 1
+push local 0
+push local 2
+call RandomNumbersGenerator.generateRandomNumber 4
+pop local 1
+push local 0
+push local 1
+gt
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 350
+pop local 0
+push constant 400
+pop local 1
+label IF_FALSE3
+push local 0
+push local 1
+push constant 245
+push this 2
+call Platform.new 4
+pop local 3
+push local 3
+return

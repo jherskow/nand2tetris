@@ -1,0 +1,755 @@
+<class>
+    <keyword> class </keyword>
+    <identifier> Memory </identifier>
+    <symbol> { </symbol>
+    <classVarDec>
+        <keyword> static </keyword>
+        <keyword> int </keyword>
+        <identifier> freeListBase </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> static </keyword>
+        <identifier> Array </identifier>
+        <identifier> memory </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> static </keyword>
+        <keyword> int </keyword>
+        <identifier> HEAP_BASE </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> static </keyword>
+        <keyword> int </keyword>
+        <identifier> HEAP_MAX </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> static </keyword>
+        <keyword> int </keyword>
+        <identifier> END_OF_LIST </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <subroutineDec>
+        <keyword> function </keyword>
+        <keyword> void </keyword>
+        <identifier> init </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> memory </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <integerConstant> 0 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> HEAP_BASE </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <integerConstant> 2048 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> HEAP_MAX </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <integerConstant> 16383 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> END_OF_LIST </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <symbol> - </symbol>
+                            <term>
+                                <integerConstant> 1 </integerConstant>
+                            </term>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> freeListBase </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> HEAP_BASE </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> memory </identifier>
+                    <symbol> [ </symbol>
+                    <expression>
+                        <term>
+                            <identifier> freeListBase </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ] </symbol>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> HEAP_MAX </identifier>
+                                </term>
+                                <symbol> - </symbol>
+                                <term>
+                                    <identifier> HEAP_BASE </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> memory </identifier>
+                    <symbol> [ </symbol>
+                    <expression>
+                        <term>
+                            <identifier> freeListBase </identifier>
+                        </term>
+                        <symbol> + </symbol>
+                        <term>
+                            <integerConstant> 1 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ] </symbol>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> END_OF_LIST </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> function </keyword>
+        <keyword> int </keyword>
+        <identifier> peek </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <keyword> int </keyword>
+            <identifier> address </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <identifier> memory </identifier>
+                            <symbol> [ </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> address </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ] </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> function </keyword>
+        <keyword> void </keyword>
+        <identifier> poke </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <keyword> int </keyword>
+            <identifier> address </identifier>
+            <symbol> , </symbol>
+            <keyword> int </keyword>
+            <identifier> value </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> memory </identifier>
+                    <symbol> [ </symbol>
+                    <expression>
+                        <term>
+                            <identifier> address </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ] </symbol>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> value </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> function </keyword>
+        <keyword> int </keyword>
+        <identifier> alloc </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <keyword> int </keyword>
+            <identifier> size </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> i </identifier>
+                <symbol> , </symbol>
+                <identifier> currentNode </identifier>
+                <symbol> , </symbol>
+                <identifier> prevNode </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> returnAddress </identifier>
+                <symbol> , </symbol>
+                <identifier> temp </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> returnAddress </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <symbol> - </symbol>
+                            <term>
+                                <integerConstant> 1 </integerConstant>
+                            </term>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> prevNode </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> freeListBase </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> currentNode </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> freeListBase </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <whileStatement>
+                    <keyword> while </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <symbol> ~ </symbol>
+                            <term>
+                                <symbol> ( </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> currentNode </identifier>
+                                    </term>
+                                    <symbol> = </symbol>
+                                    <term>
+                                        <identifier> END_OF_LIST </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> ) </symbol>
+                            </term>
+                        </term>
+                        <symbol> &amp; </symbol>
+                        <term>
+                            <symbol> ~ </symbol>
+                            <term>
+                                <symbol> ( </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> memory </identifier>
+                                        <symbol> [ </symbol>
+                                        <expression>
+                                            <term>
+                                                <identifier> currentNode </identifier>
+                                            </term>
+                                        </expression>
+                                        <symbol> ] </symbol>
+                                    </term>
+                                    <symbol> &gt; </symbol>
+                                    <term>
+                                        <identifier> size </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> ) </symbol>
+                            </term>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> prevNode </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> currentNode </identifier>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> currentNode </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> memory </identifier>
+                                    <symbol> [ </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> currentNode </identifier>
+                                        </term>
+                                        <symbol> + </symbol>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ] </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </whileStatement>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <symbol> ~ </symbol>
+                            <term>
+                                <symbol> ( </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> currentNode </identifier>
+                                    </term>
+                                    <symbol> = </symbol>
+                                    <term>
+                                        <identifier> END_OF_LIST </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> ) </symbol>
+                            </term>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <ifStatement>
+                            <keyword> if </keyword>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> memory </identifier>
+                                    <symbol> [ </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> currentNode </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ] </symbol>
+                                </term>
+                                <symbol> &lt; </symbol>
+                                <term>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> size </identifier>
+                                        </term>
+                                        <symbol> + </symbol>
+                                        <term>
+                                            <integerConstant> 3 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                            <symbol> { </symbol>
+                            <statements>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> memory </identifier>
+                                    <symbol> [ </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> prevNode </identifier>
+                                        </term>
+                                        <symbol> + </symbol>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ] </symbol>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> memory </identifier>
+                                            <symbol> [ </symbol>
+                                            <expression>
+                                                <term>
+                                                    <identifier> currentNode </identifier>
+                                                </term>
+                                                <symbol> + </symbol>
+                                                <term>
+                                                    <integerConstant> 1 </integerConstant>
+                                                </term>
+                                            </expression>
+                                            <symbol> ] </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> memory </identifier>
+                                    <symbol> [ </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> currentNode </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ] </symbol>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> size </identifier>
+                                        </term>
+                                        <symbol> + </symbol>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> returnAddress </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> currentNode </identifier>
+                                        </term>
+                                        <symbol> + </symbol>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                            <keyword> else </keyword>
+                            <symbol> { </symbol>
+                            <statements>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> memory </identifier>
+                                    <symbol> [ </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> currentNode </identifier>
+                                        </term>
+                                    </expression>
+                                    <symbol> ] </symbol>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> memory </identifier>
+                                            <symbol> [ </symbol>
+                                            <expression>
+                                                <term>
+                                                    <identifier> currentNode </identifier>
+                                                </term>
+                                            </expression>
+                                            <symbol> ] </symbol>
+                                        </term>
+                                        <symbol> - </symbol>
+                                        <term>
+                                            <identifier> size </identifier>
+                                        </term>
+                                        <symbol> - </symbol>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> returnAddress </identifier>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> currentNode </identifier>
+                                        </term>
+                                        <symbol> + </symbol>
+                                        <term>
+                                            <identifier> memory </identifier>
+                                            <symbol> [ </symbol>
+                                            <expression>
+                                                <term>
+                                                    <identifier> currentNode </identifier>
+                                                </term>
+                                            </expression>
+                                            <symbol> ] </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                                <letStatement>
+                                    <keyword> let </keyword>
+                                    <identifier> memory </identifier>
+                                    <symbol> [ </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> returnAddress </identifier>
+                                        </term>
+                                        <symbol> - </symbol>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ] </symbol>
+                                    <symbol> = </symbol>
+                                    <expression>
+                                        <term>
+                                            <symbol> ( </symbol>
+                                            <expression>
+                                                <term>
+                                                    <identifier> size </identifier>
+                                                </term>
+                                                <symbol> + </symbol>
+                                                <term>
+                                                    <integerConstant> 1 </integerConstant>
+                                                </term>
+                                            </expression>
+                                            <symbol> ) </symbol>
+                                        </term>
+                                    </expression>
+                                    <symbol> ; </symbol>
+                                </letStatement>
+                            </statements>
+                            <symbol> } </symbol>
+                        </ifStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <identifier> returnAddress </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> function </keyword>
+        <keyword> void </keyword>
+        <identifier> deAlloc </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <keyword> int </keyword>
+            <identifier> object </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> memory </identifier>
+                    <symbol> [ </symbol>
+                    <expression>
+                        <term>
+                            <identifier> object </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ] </symbol>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> memory </identifier>
+                            <symbol> [ </symbol>
+                            <expression>
+                                <term>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> object </identifier>
+                                        </term>
+                                        <symbol> - </symbol>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ] </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> memory </identifier>
+                    <symbol> [ </symbol>
+                    <expression>
+                        <term>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> object </identifier>
+                                </term>
+                                <symbol> + </symbol>
+                                <term>
+                                    <integerConstant> 1 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ] </symbol>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> memory </identifier>
+                            <symbol> [ </symbol>
+                            <expression>
+                                <term>
+                                    <symbol> ( </symbol>
+                                    <expression>
+                                        <term>
+                                            <identifier> freeListBase </identifier>
+                                        </term>
+                                        <symbol> + </symbol>
+                                        <term>
+                                            <integerConstant> 1 </integerConstant>
+                                        </term>
+                                    </expression>
+                                    <symbol> ) </symbol>
+                                </term>
+                            </expression>
+                            <symbol> ] </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> memory </identifier>
+                    <symbol> [ </symbol>
+                    <expression>
+                        <term>
+                            <symbol> ( </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> freeListBase </identifier>
+                                </term>
+                                <symbol> + </symbol>
+                                <term>
+                                    <integerConstant> 1 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                        </term>
+                    </expression>
+                    <symbol> ] </symbol>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> object </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <symbol> } </symbol>
+</class>

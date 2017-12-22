@@ -1,0 +1,25 @@
+class Problem {
+function void addFruit() {
+		var int fruits;
+		var int arrayLength;
+		var Fruit newFruit, tempFruit;
+		var int i;
+		let newFruit = Fruit.new();
+		//check it doesn't yet exist
+		let i = 0;
+		
+		while(i<arrayLength) {
+			let tempFruit = fruits[i];
+			if(newFruit.getLetter()=tempFruit.getLetter()) {
+				//dispose
+				do newFruit.dispose();
+				return;
+			}
+			let i = i+1;
+		}
+		//add fruit to array
+		let fruits[arrayLength] = newFruit;
+		let arrayLength = arrayLength+1;
+		return;
+	}
+}

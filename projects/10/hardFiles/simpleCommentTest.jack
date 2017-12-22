@@ -1,0 +1,9 @@
+
+class simpleCommentTest { 
+	function void main() {
+		var String a;
+		let a = "test to // test";
+		return;
+	}
+}
+

@@ -1,0 +1,108 @@
+/*
+*
+* Class: Utils.jack
+*
+* This class implements basic utils required for the game, such as random numbers
+*
+*/
+
+class Utils {
+
+	static int _lastNum;
+	static int PSEUDA_RAND_MULTIPLIER;
+	static int PSEUDA_RAND_ADDER;
+	static int MAX_DIST;
+	
+	/*
+	* Initialize the random seed used for the pseudo-random numbers generator
+	*/
+	function void initRandomSeed(int seed) {
+		let _lastNum = seed;
+		let PSEUDA_RAND_MULTIPLIER = 91;
+		let PSEUDA_RAND_ADDER = 1;
+		let MAX_DIST = 16354;
+		return;
+	}
+	
+	/*
+	* Generate a pseudo-random number in the range 0-limit
+	*/
+	function int random(int limit) {
+		var int res;
+		let res = Utils.modulo(_lastNum, limit);
+		let _lastNum = (_lastNum * PSEUDA_RAND_MULTIPLIER) + PSEUDA_RAND_ADDER;
+		let _lastNum = Utils.moduloPower2(_lastNum, 1024);
+		return res;
+	}
+	
+	/*
+	* Check if given number fulfill the condition a <= num <= b
+	*/
+	function boolean isBound(int num, int a, int b) {
+		return ((~(num < a)) & (~(num > b)));
+	}
+	
+	/*
+	* Getter for the last number used for debugging
+	*/
+	function int getLastNum() {
+		return _lastNum;
+	}
+	
+	/*
+	* Calculates modulo
+	*/
+	function int modulo(int num, int x) {
+		var int res;
+		if((~(num > x)) | (x=0)) {
+			let res = num;
+		} else {
+			let res = num - (x * Math.divide(num, x));
+		}
+		return res;
+	}
+	
+	/*
+	* Provides an efficient way to calculate modulo of 2^n numbers
+	* Assumes x is power of 2
+	*/
+	function int moduloPower2(int num, int x) {
+		return (num & (x-1));
+	}
+	
+	/*
+	* Calculates the auclidian distance between two given points
+	*/
+	function int distance(int x1, int y1, int x2, int y2) {
+		var int gapX;
+		var int gapY;
+		var int dist;
+		let gapX = Math.abs(x1 - x2);
+		let gapY = Math.abs(y1 - y2);
+		let dist = ((Math.multiply(gapX, gapX)) + Math.multiply(gapY, gapY));	
+		if(dist < 0) {
+			let dist = MAX_DIST;
+		}
+		
+		return Math.sqrt(dist);
+	}
+	
+	/**
+	* Draw a sprite on the screen. The sprite consists of a flattered two-dimension
+	* array, with a given size, in a given location.
+	*
+	function void drawSprite(Array arr, int size, int width, int topX, int topY) {
+		var int i;
+		var int j;
+		let i = 0;
+		let j = 0;
+		do Screen.setColor(true);
+		while (~(i > size)) {
+			let i = i+1;
+		}
+		return;
+	}*/
+	
+
+}
+

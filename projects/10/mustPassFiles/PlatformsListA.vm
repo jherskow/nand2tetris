@@ -1,0 +1,129 @@
+function PlatformsList.new 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push constant 0
+pop this 0
+push constant 0
+pop this 1
+push pointer 0
+return
+function PlatformsList.moveUp 1
+push argument 0
+pop pointer 0
+push this 0
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push this 0
+pop local 0
+label WHILE_EXP0
+push local 0
+call Platform.hasNext 1
+not
+if-goto WHILE_END0
+push local 0
+call Platform.moveUp 1
+pop temp 0
+push local 0
+call Platform.getNext 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function PlatformsList.add 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 1
+pop this 0
+push argument 1
+pop this 1
+push constant 0
+return
+label IF_FALSE0
+push this 1
+push argument 1
+call Platform.setNext 2
+pop temp 0
+push argument 1
+pop this 1
+push constant 0
+return
+function PlatformsList.removePlatform 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push this 0
+call Platform.hasNext 1
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 0
+call Platform.getNext 1
+pop this 0
+push constant 0
+return
+label IF_FALSE1
+push constant 0
+pop this 0
+push constant 0
+pop this 1
+push constant 0
+return
+function PlatformsList.isOnPlatform 1
+push argument 0
+pop pointer 0
+push this 0
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push this 0
+pop local 0
+label WHILE_EXP0
+push local 0
+call Platform.hasNext 1
+not
+if-goto WHILE_END0
+push local 0
+push argument 1
+push argument 2
+call Platform.isOnPlatform 3
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+not
+return
+label IF_FALSE1
+push local 0
+call Platform.getNext 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return

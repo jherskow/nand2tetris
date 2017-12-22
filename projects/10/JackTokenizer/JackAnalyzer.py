@@ -1,10 +1,13 @@
 import sys
+
 import os
+
 import JackTokenizer
 import CompilationEngineXML
+import CompilationEngineVM
 
 
-XML_EXTENSION =".xml"
+XML_EXTENSION = "A.xml"
 
 class JackAnalyzer:
     """
@@ -22,30 +25,44 @@ class JackAnalyzer:
 
     """
 
-    def __init__(self, input_file):
+    def __init__(self,input_file):
         self.input_file = open(input_file,"r")
-        self.output_file = open(input_file.split(".")[0] + XML_EXTENSION, "w")
+        self.output_file = open(input_file.split(".jack")[0] + XML_EXTENSION, 'w')
         self.tokenizer = None
 
-    def get_tokenizer(self):
+    def compile_xml(self):
         self.tokenizer = JackTokenizer.JackTokenizer(self.input_file)
-
-    def jack_to_xml(self):
-        self.get_tokenizer()
         CompilationEngineXML.CompilationEngineXML(self.tokenizer, self.output_file)
 
+        self.input_file.close()
+        self.output_file.close()
+
+def parse_dir(dir_path):
+    count = 0 # todo debug remove
+    for f in os.listdir(dir_path):
+        if f.endswith(".jack"):
+            parse_file(dir_path + "/" + f)
+            count += 1
+            print("passed"+str(count)+"files\n")
+
+def parse_file(abs_path):
+    analyzer = JackAnalyzer(abs_path)
+    analyzer.compile_xml()
+
+
 def main():
-    input_file = sys.argv[1]
-    if os.path.isfile(input_file):
-        JackAnalyzer(input_file)
+    if len(sys.argv) != 2:
+        print("USAGE: JackTokenizer ~directory/file")
+        return exit(1)
 
+    abs_path = str(os.path.abspath(sys.argv[1]))
 
-    if os.path.isdir(input_file):
-        for f in os.listdir(input_file):
-            if f.endswith(".jack"):
-                JackAnalyzer(f)
+    if os.path.isfile(abs_path):
+       parse_file(abs_path)
 
+    if os.path.isdir(abs_path):
+        parse_dir(abs_path)
 
 
 if __name__ == '__main__':
-   main()
+    main()

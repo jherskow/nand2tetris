@@ -1,0 +1,89 @@
+class Platform {
+
+	field Platform next;
+	
+	field int rightCoordinate;
+	field int leftCoordinate;
+	field int horizontalLocation;
+	
+	static PlatformsList list;
+
+	constructor Platform new(int lCoordinate, int rCoordinate,int hl, PlatformsList platformsList) {
+	
+		let leftCoordinate = lCoordinate;
+		let rightCoordinate = rCoordinate;
+		let horizontalLocation = hl;
+		let next = null;
+		let list = platformsList;
+		return this;
+	}
+	
+	method void drawPlatform() {
+		// The slower cause the game run slower, to let human players have fun of the game.
+		var int slower;
+		let slower=0;
+		while (slower<10) {
+			let slower=slower+1;
+		}
+					
+		do Screen.setColor(true);
+		do Screen.drawRectangle(leftCoordinate, horizontalLocation, rightCoordinate, horizontalLocation + 1);
+		return;
+	}
+	
+	
+	method boolean hasNext() {
+		if (next=null) {
+			return false;
+		}
+		return true;
+	}
+	
+	method void setNext(Platform nextPlatform) {
+		let next = nextPlatform;
+		return;
+	}
+	
+		
+	method Platform getNext() {
+		return next;
+	}
+	
+	method void moveUp() {
+		if (horizontalLocation > 0) {
+			
+			do Screen.setColor(false);
+			do Screen.drawRectangle(leftCoordinate,horizontalLocation,rightCoordinate,horizontalLocation + 1);
+			let horizontalLocation = horizontalLocation - 1; 
+			do Screen.setColor(true);
+			do Screen.drawRectangle(leftCoordinate, horizontalLocation, rightCoordinate, horizontalLocation + 1);
+        	}
+		else {
+			do disposePlatform();		
+		}
+        	return;
+	}
+
+	method void disposePlatform(){
+		do Screen.setColor(false);
+		do Screen.drawRectangle(leftCoordinate,horizontalLocation,rightCoordinate,horizontalLocation + 10);
+		do list.removePlatform();
+		return;
+	}
+	
+	method boolean isOnPlatform(int xCoordinate,int yCoordinate) {
+		if (yCoordinate+7<horizontalLocation) {
+			return false;
+		}
+		if (yCoordinate+3>horizontalLocation) {
+			return false;
+		}
+		if (xCoordinate<leftCoordinate) {
+			return false;
+		}
+		if (xCoordinate>rightCoordinate) {
+			return false;
+		}
+		return true;
+	}
+}

@@ -1,0 +1,759 @@
+<class>
+    <keyword> class </keyword>
+    <identifier> Platform </identifier>
+    <symbol> { </symbol>
+    <classVarDec>
+        <keyword> field </keyword>
+        <identifier> Platform </identifier>
+        <identifier> next </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> field </keyword>
+        <keyword> int </keyword>
+        <identifier> rightCoordinate </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> field </keyword>
+        <keyword> int </keyword>
+        <identifier> leftCoordinate </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> field </keyword>
+        <keyword> int </keyword>
+        <identifier> horizontalLocation </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <classVarDec>
+        <keyword> static </keyword>
+        <identifier> PlatformsList </identifier>
+        <identifier> list </identifier>
+        <symbol> ; </symbol>
+    </classVarDec>
+    <subroutineDec>
+        <keyword> constructor </keyword>
+        <identifier> Platform </identifier>
+        <identifier> new </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <keyword> int </keyword>
+            <identifier> lCoordinate </identifier>
+            <symbol> , </symbol>
+            <keyword> int </keyword>
+            <identifier> rCoordinate </identifier>
+            <symbol> , </symbol>
+            <keyword> int </keyword>
+            <identifier> hl </identifier>
+            <symbol> , </symbol>
+            <identifier> PlatformsList </identifier>
+            <identifier> platformsList </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> leftCoordinate </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> lCoordinate </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> rightCoordinate </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> rCoordinate </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> horizontalLocation </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> hl </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> next </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <keyword> null </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> list </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> platformsList </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <keyword> this </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> void </keyword>
+        <identifier> drawPlatform </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <keyword> int </keyword>
+                <identifier> slower </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> slower </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <integerConstant> 0 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <whileStatement>
+                    <keyword> while </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> slower </identifier>
+                        </term>
+                        <symbol> &lt; </symbol>
+                        <term>
+                            <integerConstant> 10 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> slower </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> slower </identifier>
+                                </term>
+                                <symbol> + </symbol>
+                                <term>
+                                    <integerConstant> 1 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </whileStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> Screen </identifier>
+                    <symbol> . </symbol>
+                    <identifier> setColor </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                        <expression>
+                            <term>
+                                <keyword> true </keyword>
+                            </term>
+                        </expression>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> Screen </identifier>
+                    <symbol> . </symbol>
+                    <identifier> drawRectangle </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                        <expression>
+                            <term>
+                                <identifier> leftCoordinate </identifier>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> horizontalLocation </identifier>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> rightCoordinate </identifier>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> horizontalLocation </identifier>
+                            </term>
+                            <symbol> + </symbol>
+                            <term>
+                                <integerConstant> 1 </integerConstant>
+                            </term>
+                        </expression>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> boolean </keyword>
+        <identifier> hasNext </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> next </identifier>
+                        </term>
+                        <symbol> = </symbol>
+                        <term>
+                            <keyword> null </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <keyword> false </keyword>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <keyword> true </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> void </keyword>
+        <identifier> setNext </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <identifier> Platform </identifier>
+            <identifier> nextPlatform </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> next </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <identifier> nextPlatform </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <identifier> Platform </identifier>
+        <identifier> getNext </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <identifier> next </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> void </keyword>
+        <identifier> moveUp </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> horizontalLocation </identifier>
+                        </term>
+                        <symbol> &gt; </symbol>
+                        <term>
+                            <integerConstant> 0 </integerConstant>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> Screen </identifier>
+                            <symbol> . </symbol>
+                            <identifier> setColor </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <keyword> false </keyword>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> Screen </identifier>
+                            <symbol> . </symbol>
+                            <identifier> drawRectangle </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> leftCoordinate </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> horizontalLocation </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> rightCoordinate </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> horizontalLocation </identifier>
+                                    </term>
+                                    <symbol> + </symbol>
+                                    <term>
+                                        <integerConstant> 1 </integerConstant>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <letStatement>
+                            <keyword> let </keyword>
+                            <identifier> horizontalLocation </identifier>
+                            <symbol> = </symbol>
+                            <expression>
+                                <term>
+                                    <identifier> horizontalLocation </identifier>
+                                </term>
+                                <symbol> - </symbol>
+                                <term>
+                                    <integerConstant> 1 </integerConstant>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </letStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> Screen </identifier>
+                            <symbol> . </symbol>
+                            <identifier> setColor </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <keyword> true </keyword>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> Screen </identifier>
+                            <symbol> . </symbol>
+                            <identifier> drawRectangle </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                                <expression>
+                                    <term>
+                                        <identifier> leftCoordinate </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> horizontalLocation </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> rightCoordinate </identifier>
+                                    </term>
+                                </expression>
+                                <symbol> , </symbol>
+                                <expression>
+                                    <term>
+                                        <identifier> horizontalLocation </identifier>
+                                    </term>
+                                    <symbol> + </symbol>
+                                    <term>
+                                        <integerConstant> 1 </integerConstant>
+                                    </term>
+                                </expression>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                    <keyword> else </keyword>
+                    <symbol> { </symbol>
+                    <statements>
+                        <doStatement>
+                            <keyword> do </keyword>
+                            <identifier> disposePlatform </identifier>
+                            <symbol> ( </symbol>
+                            <expressionList>
+                            </expressionList>
+                            <symbol> ) </symbol>
+                            <symbol> ; </symbol>
+                        </doStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> void </keyword>
+        <identifier> disposePlatform </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> Screen </identifier>
+                    <symbol> . </symbol>
+                    <identifier> setColor </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                        <expression>
+                            <term>
+                                <keyword> false </keyword>
+                            </term>
+                        </expression>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> Screen </identifier>
+                    <symbol> . </symbol>
+                    <identifier> drawRectangle </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                        <expression>
+                            <term>
+                                <identifier> leftCoordinate </identifier>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> horizontalLocation </identifier>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> rightCoordinate </identifier>
+                            </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                            <term>
+                                <identifier> horizontalLocation </identifier>
+                            </term>
+                            <symbol> + </symbol>
+                            <term>
+                                <integerConstant> 10 </integerConstant>
+                            </term>
+                        </expression>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <doStatement>
+                    <keyword> do </keyword>
+                    <identifier> list </identifier>
+                    <symbol> . </symbol>
+                    <identifier> removePlatform </identifier>
+                    <symbol> ( </symbol>
+                    <expressionList>
+                    </expressionList>
+                    <symbol> ) </symbol>
+                    <symbol> ; </symbol>
+                </doStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <subroutineDec>
+        <keyword> method </keyword>
+        <keyword> boolean </keyword>
+        <identifier> isOnPlatform </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+            <keyword> int </keyword>
+            <identifier> xCoordinate </identifier>
+            <symbol> , </symbol>
+            <keyword> int </keyword>
+            <identifier> yCoordinate </identifier>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <statements>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> yCoordinate </identifier>
+                        </term>
+                        <symbol> + </symbol>
+                        <term>
+                            <integerConstant> 7 </integerConstant>
+                        </term>
+                        <symbol> &lt; </symbol>
+                        <term>
+                            <identifier> horizontalLocation </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <keyword> false </keyword>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> yCoordinate </identifier>
+                        </term>
+                        <symbol> + </symbol>
+                        <term>
+                            <integerConstant> 3 </integerConstant>
+                        </term>
+                        <symbol> &gt; </symbol>
+                        <term>
+                            <identifier> horizontalLocation </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <keyword> false </keyword>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> xCoordinate </identifier>
+                        </term>
+                        <symbol> &lt; </symbol>
+                        <term>
+                            <identifier> leftCoordinate </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <keyword> false </keyword>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <ifStatement>
+                    <keyword> if </keyword>
+                    <symbol> ( </symbol>
+                    <expression>
+                        <term>
+                            <identifier> xCoordinate </identifier>
+                        </term>
+                        <symbol> &gt; </symbol>
+                        <term>
+                            <identifier> rightCoordinate </identifier>
+                        </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                    <symbol> { </symbol>
+                    <statements>
+                        <returnStatement>
+                            <keyword> return </keyword>
+                            <expression>
+                                <term>
+                                    <keyword> false </keyword>
+                                </term>
+                            </expression>
+                            <symbol> ; </symbol>
+                        </returnStatement>
+                    </statements>
+                    <symbol> } </symbol>
+                </ifStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <expression>
+                        <term>
+                            <keyword> true </keyword>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <symbol> } </symbol>
+</class>

@@ -1,0 +1,701 @@
+function Surface.new 0
+push constant 6
+call Memory.alloc 1
+pop pointer 0
+push constant 30
+pop this 2
+push this 2
+call Array.new 1
+pop this 3
+push this 2
+call Array.new 1
+pop this 4
+push this 2
+call Array.new 1
+pop this 5
+push constant 10
+pop this 0
+push constant 10
+pop this 1
+push pointer 0
+return
+function Surface.getUpperDivider 0
+push constant 25
+return
+function Surface.getLowerDivider 0
+push constant 250
+return
+function Surface.init 7
+push argument 0
+pop pointer 0
+push constant 0
+pop local 1
+push constant 0
+pop local 0
+push constant 0
+pop local 3
+label WHILE_EXP0
+push local 3
+not
+push local 0
+push this 2
+lt
+and
+not
+if-goto WHILE_END0
+push constant 18
+call Utils.random 1
+pop local 4
+push local 0
+push this 4
+add
+push constant 3
+call Utils.random 1
+push constant 1
+add
+push this 1
+call Math.multiply 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 0
+push this 5
+add
+call Surface.getLowerDivider 0
+push local 4
+push this 0
+call Math.multiply 2
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 25
+call Utils.random 1
+pop local 2
+push local 0
+push this 3
+add
+push local 1
+push local 2
+add
+push this 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 0
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 490
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 0
+push constant 1
+sub
+pop this 2
+push constant 0
+not
+pop local 3
+label IF_FALSE0
+push local 0
+push this 3
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function Surface.getCannonPosX 0
+push argument 0
+pop pointer 0
+push argument 1
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 2
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+return
+label IF_FALSE0
+push this 2
+push constant 1
+sub
+push argument 2
+sub
+push this 3
+add
+pop pointer 1
+push that 0
+push this 2
+push constant 1
+sub
+push argument 2
+sub
+push this 4
+add
+pop pointer 1
+push that 0
+add
+push constant 9
+sub
+return
+function Surface.getCannonPosY 1
+push argument 0
+pop pointer 0
+push argument 1
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+push argument 2
+push pointer 0
+push constant 1
+push argument 2
+call Surface.getCannonPosX 3
+push constant 1
+sub
+call Surface.findHeightForCannon 3
+pop local 0
+push local 0
+return
+goto IF_END0
+label IF_FALSE0
+push pointer 0
+push this 2
+push constant 1
+sub
+push argument 2
+sub
+push pointer 0
+push constant 2
+push argument 2
+call Surface.getCannonPosX 3
+push constant 1
+sub
+call Surface.findHeightForCannon 3
+pop local 0
+push local 0
+return
+label IF_END0
+function Surface.getMinHeight 1
+push argument 0
+pop pointer 0
+push argument 3
+push this 2
+push constant 1
+sub
+gt
+push argument 3
+push constant 0
+lt
+or
+push argument 1
+push constant 0
+eq
+or
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 1
+return
+label IF_FALSE0
+push argument 1
+pop local 0
+push argument 3
+push this 3
+add
+pop pointer 1
+push that 0
+push argument 3
+push this 4
+add
+pop pointer 1
+push that 0
+add
+push argument 2
+gt
+push argument 3
+push this 3
+add
+pop pointer 1
+push that 0
+push argument 2
+push constant 10
+add
+lt
+and
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 3
+push this 5
+add
+pop pointer 1
+push that 0
+push local 0
+call Math.min 2
+pop local 0
+label IF_FALSE1
+push local 0
+return
+function Surface.findHeightForCannon 2
+push argument 0
+pop pointer 0
+push argument 1
+push this 5
+add
+pop pointer 1
+push that 0
+pop local 0
+push constant 2
+neg
+pop local 1
+label WHILE_EXP0
+push local 1
+push constant 3
+lt
+not
+if-goto WHILE_END0
+push pointer 0
+push local 0
+push argument 2
+push argument 1
+push local 1
+add
+call Surface.getMinHeight 4
+pop local 0
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push local 0
+return
+function Surface.get_buildingsNum 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function Surface.dispose 0
+push argument 0
+pop pointer 0
+push this 4
+call Array.dispose 1
+pop temp 0
+push this 5
+call Array.dispose 1
+pop temp 0
+push this 3
+call Array.dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function Surface.drawAllBuildings 1
+push argument 0
+pop pointer 0
+label WHILE_EXP0
+push local 0
+push this 2
+lt
+not
+if-goto WHILE_END0
+push pointer 0
+push local 0
+call Surface.drawBuilding 2
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function Surface.isHitBuilding 1
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push this 2
+lt
+not
+if-goto WHILE_END0
+push argument 1
+push local 0
+push this 3
+add
+pop pointer 1
+push that 0
+gt
+push argument 1
+push local 0
+push this 3
+add
+pop pointer 1
+push that 0
+push local 0
+push this 4
+add
+pop pointer 1
+push that 0
+add
+lt
+and
+push argument 2
+push local 0
+push this 5
+add
+pop pointer 1
+push that 0
+gt
+and
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 0
+return
+label IF_FALSE0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 1
+neg
+return
+function Surface.drawBuilding 4
+push argument 0
+pop pointer 0
+call Surface.getLowerDivider 0
+push argument 1
+push this 5
+add
+pop pointer 1
+push that 0
+sub
+push this 0
+call Math.divide 2
+pop local 2
+push argument 1
+push this 4
+add
+pop pointer 1
+push that 0
+push this 1
+call Math.divide 2
+pop local 3
+push local 2
+push constant 0
+eq
+push local 3
+push constant 0
+eq
+or
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push argument 1
+push this 3
+add
+pop pointer 1
+push that 0
+push argument 1
+push this 5
+add
+pop pointer 1
+push that 0
+push argument 1
+push this 3
+add
+pop pointer 1
+push that 0
+push argument 1
+push this 4
+add
+pop pointer 1
+push that 0
+add
+call Surface.getLowerDivider 0
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push argument 1
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+push argument 1
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+push argument 1
+push this 3
+add
+pop pointer 1
+push that 0
+push argument 1
+push this 4
+add
+pop pointer 1
+push that 0
+add
+push constant 1
+sub
+call Surface.getLowerDivider 0
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push argument 1
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 2
+add
+push argument 1
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 2
+add
+push argument 1
+push this 3
+add
+pop pointer 1
+push that 0
+push argument 1
+push this 4
+add
+pop pointer 1
+push that 0
+add
+push constant 2
+sub
+call Surface.getLowerDivider 0
+call Screen.drawRectangle 4
+pop temp 0
+push local 2
+push constant 1
+sub
+pop local 2
+push local 2
+push constant 0
+gt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+label WHILE_EXP0
+push local 0
+push local 2
+lt
+not
+if-goto WHILE_END0
+push constant 0
+pop local 1
+label WHILE_EXP1
+push local 1
+push local 3
+lt
+not
+if-goto WHILE_END1
+push argument 1
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 4
+add
+push local 1
+push this 1
+call Math.multiply 2
+add
+push argument 1
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 4
+add
+push local 0
+push this 0
+call Math.multiply 2
+add
+push argument 1
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 6
+add
+push local 1
+push this 1
+call Math.multiply 2
+add
+push argument 1
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 7
+add
+push local 0
+push this 0
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP1
+label WHILE_END1
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+label IF_FALSE1
+push constant 0
+return
+function Surface.inflictBuildingsDemage 1
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push this 2
+lt
+not
+if-goto WHILE_END0
+push argument 1
+push local 0
+push this 3
+add
+pop pointer 1
+push that 0
+push argument 3
+sub
+gt
+push argument 1
+push local 0
+push this 3
+add
+pop pointer 1
+push that 0
+push local 0
+push this 4
+add
+pop pointer 1
+push that 0
+add
+push argument 3
+add
+lt
+and
+push argument 2
+push local 0
+push this 5
+add
+pop pointer 1
+push that 0
+push argument 3
+sub
+gt
+and
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 0
+push this 5
+add
+call Surface.getLowerDivider 0
+push local 0
+push this 5
+add
+pop pointer 1
+push that 0
+push this 0
+add
+call Math.min 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function Surface.drawBottomAndTopLines 0
+push argument 0
+pop pointer 0
+push constant 0
+call Surface.getLowerDivider 0
+push constant 511
+call Surface.getLowerDivider 0
+call Screen.drawLine 4
+pop temp 0
+push constant 0
+call Surface.getUpperDivider 0
+push constant 511
+call Surface.getUpperDivider 0
+call Screen.drawLine 4
+pop temp 0
+push constant 0
+return

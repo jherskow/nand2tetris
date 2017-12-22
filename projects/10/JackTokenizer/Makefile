@@ -7,8 +7,5 @@
 # Joshua Herskowitz, ID 321658379, jherskow@cs.huji.ac.il
 ###############################################################################
 all:
-	chmod a+x VMtranslator
-	chmod a+x Parser.py
-	chmod a+x CodeWriter.py
-
-	#todo change
+	chmod a+x JackAnalyzer
+	

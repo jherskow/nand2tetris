@@ -1,0 +1,117 @@
+/*
+*
+* Class: Cannon.jack
+*
+* This class represents a cannon 
+*
+*/
+
+class Cannon {
+	
+	// Cannon location (bottom left point)
+	field int _bottomX;
+	field int _bottomY;
+	// Cannon life
+	field int _life;
+	// Radius of the damage inflicted by that cannon
+	field int DAMAGE_RADIUS;
+	
+	/*
+	* Constructor
+	*/
+	constructor Cannon new() {
+		let _life = 10;
+		let DAMAGE_RADIUS = 5;
+        return this;
+    }
+    
+    /*
+    * Dispose of this object
+    */
+    method void dispose() {
+    	do Memory.deAlloc(this);
+        return;
+    }
+    
+    /*
+    * Set the cannon x position
+    */
+    method void setX(int x) {
+    	let _bottomX = x;
+    	return;
+    }
+    
+    /*
+    * Set the cannon y position
+    */
+    method void setY(int y) {
+    	let _bottomY = y;
+    	return;
+    }
+    
+    /*
+    * Getter for the cannon x position
+    */
+    method int getX() {
+    	return _bottomX;
+    }
+
+    /*
+    * Getter for the cannon y position
+    */    
+    method int getY() {
+    	return _bottomY;
+    }
+
+    /*
+    * Getter for the cannon damage radius
+    */	
+    method int getDamageRadius() {
+    	return DAMAGE_RADIUS;
+    }
+    
+    /*
+    * Draw the cannon
+    */
+    method void draw() {
+    	do Screen.drawLine(_bottomX, _bottomY, _bottomX + 4, _bottomY - 4);
+    	do Screen.drawLine(_bottomX + 4, _bottomY - 4, _bottomX + 8, _bottomY);
+    	do Screen.drawLine(_bottomX, _bottomY, _bottomX + 8, _bottomY);
+    	return;
+    }
+    
+    /*
+    * Check if this cannon is damaged by a ball hit in the given position,
+    * and return the damage inflicted (0 if the cannon was not damaged at all)
+    */
+	method int damageInflicted(int x, int y, int damageRadius) {
+		var int dist;
+		var int inflicted;
+		var int overAllRadius;
+		// Both ball damage radius and cannon size
+		let overAllRadius = damageRadius + 4;
+		let dist = Utils.distance(x, y, _bottomX + 4, _bottomY);
+		if(~(dist > overAllRadius)) {
+			let inflicted = overAllRadius - dist;
+			let _life = _life - inflicted;
+			return inflicted;
+		}
+		return 0;
+	}    
+	
+    /*
+    * Getter for the cannon life
+    */
+	method int getLife() {
+		return _life;
+	}
+	
+    /*
+    * Return true iff this cannon life value is 0 or below
+    */
+	method char isDead() {
+		return (~(_life > 0));
+	}
+
+}
+

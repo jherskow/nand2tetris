@@ -1,0 +1,41 @@
+class RandomNumbersGenerator {
+	
+	field int lastCreatedRandNum;
+
+	constructor RandomNumbersGenerator new() {
+		// 0 is the default seed
+		let lastCreatedRandNum=0;		
+		return this;
+	}
+
+	method int generateRandomNumber(int seed, int from, int to) {
+			var int multiplier;
+			var int modulus;
+			var int increment;
+			var int createdRandNum;
+
+			let lastCreatedRandNum=seed;
+			let modulus = to;
+			let multiplier = 83;
+			let increment = 91;
+
+			let createdRandNum = (multiplier*lastCreatedRandNum);
+			let createdRandNum = createdRandNum + increment;
+			let createdRandNum =  modulo(createdRandNum, modulus);
+			let createdRandNum = createdRandNum + from; 
+			let lastCreatedRandNum = createdRandNum;
+
+			return  createdRandNum; 
+	}
+
+	method int modulo(int num, int modulus) {
+		var int div;
+		var int modulo;
+		let div = num/modulus;
+		let modulo = num-(div*modulus);
+		return modulo;
+	}	
+
+
+}
+

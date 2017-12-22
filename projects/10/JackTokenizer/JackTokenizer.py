@@ -27,35 +27,87 @@ class JackTokenizer:
     def __init__(self, input_file):
         """Opens the input file/stream and gets ready to tokenize it."""
         self.file = input_file
-        self.lines = {}
+        self.tokens_num = []  # number of tokens in every line, the number of the tokens in line i is in cell i.
         self.current_token = ""
-        self.tokens = [] #list of all the tokens in the file
-        self.counter = 0 #number the current token from all the tokens in the file or the list
-        self.line_num = 0 #line number of the current token
+        self.tokens = []  # list of all the tokens in the file
+        self.counter = 0  # number the current token from all the tokens in the file or the list
 
-    def remove_comments(self, line):
-        """ removes comments from a line"""
-        line = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", line)
-        # remove all occurance streamed comments (/*COMMENT */) from string
-        line = re.sub(re.compile("//.*?\n"), "\n", line)
-        line = re.sub(re.compile("/\*\*.*?\*/", re.DOTALL), "", line)
-        return line
+        #remove multi line comments
+        file_string = input_file.read()
+        file_string = self.remove_multi_comments(file_string)
+        self.read_line(file_string)
+        # print(self.tokens)
+
+    def remove_multi_comments(self, string):
+        """ removes ONLY /* */ comments from an entire file string"""
+
+        char_list = list(string)
+        in_comment = False
+        new_string = ""
+
+        i = 0
+        while i< len(char_list):
+            if char_list[i] == "\n":  # keep newliens for line num
+                new_string += char_list[i]
+                i += 1
+                continue
+            elif char_list[i] == "/" and i+1<len(char_list) and char_list[i+1] == "*" :
+                i+=2
+                in_comment = True
+            elif char_list[i] == "*" and i+1<len(char_list) and char_list[i+1] == "/":
+                i+=2
+                in_comment= False
+            else:
+                if not in_comment:
+                    new_string += char_list[i]
+                i+=1
+
+        return new_string
+
+
+        # line = self.file.read()
+        # line = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", line)
+        # # remove all occurance streamed comments (/*COMMENT */) from string
+        # line = re.sub(re.compile("//.*?\n"), "\n", line)
+        # line = re.sub(re.compile("/\*\*.*?\*/", re.DOTALL), "", line)
+        # # line = re.sub(re.compile("/\*.*?/", re.DOTALL), "", line)
+        # while "/*" in line or "*/" in line:
+        #     if self.is_in_comment:
+        #         if "*/" in line:
+        #             line = line.split("*/")[1]
+        #         else:
+        #             line = None
+        #     else:
+        #         if "/*" in line:
+        #             line = line.split("/*")[0]
+        # return line
+
 
     def get_tokens(self, line):
         """"""
         temp = line.split()  # split by space
-        print(temp)
         tokens = []
+        string_word = ""
         for word in temp:
             new_word = ""
             for l in word:
-                if l in JackTokenizer.symbols:  # if the word have a symbol
-                    if new_word != "":  # first append all the words before the symbol
+                if "\"" == l and string_word=="":
+                    string_word+=l
+                elif "\"" == l and string_word!="":
+                    string_word +=l
+                    tokens.append(string_word)
+                    string_word= ""
+                elif string_word !="":
+                    string_word+=l
+                elif l in JackTokenizer.symbols:  # if the word have a symbol
+                    if  new_word != "": # first append all the words before the symbol
                         tokens.append(new_word)
                         new_word = ""
                     tokens.append(l)
                 else:
                     new_word += l
+            if string_word != "" and new_word != "" and "\"" not in new_word:
+                string_word+=" " +new_word
             if new_word != "":
                 tokens.append(new_word)
 
@@ -71,9 +123,11 @@ class JackTokenizer:
         This method should only be called if hasMoreTokens() is true.
         Initially there is no current token.
         """
-        if (self.has_more_tokens()):
-            self.counter += 1
+        # if self.counter+1 ==len(self.tokens):
+        #     self.read_line()
+        if self.has_more_tokens():
             self.current_token = self.tokens[self.counter]
+            self.counter += 1
 
     def token_type(self):
         """Returns the type of the current token."""
@@ -106,6 +160,7 @@ class JackTokenizer:
         return bool(self.current_token in JackTokenizer.symbols)
 
     def str_const_type(self):
+        # todo fix and debug
         """return true if the current token type is str const """
         return bool(re.fullmatch("\".*?\"", self.current_token))  # "...."
 
@@ -134,7 +189,6 @@ class JackTokenizer:
         NULL, THIS
         """
         return JackTokenizer.keyWords[self.current_token]
-
 
     def symbol(self):
         """
@@ -174,39 +228,34 @@ class JackTokenizer:
         return str(self.current_token)
 
     def go_back(self):
-        return self.tokens[self.counter-1]
+        self.counter -= 2
+        self.current_token = self.tokens[self.counter]
+        self.counter += 1
 
+    def get_cur_line(self):  # todo
+        sum = 0
+        for i in self.tokens_num:
+            sum += i
+            if self.counter <= sum and self.counter > sum - i:
+                return i
 
+    def remove_line_comment(self,line):
+        """ removes single line comments from a line"""
+        line = line.split("//")[0]
+        line = line.strip()
+        return line
 
-    def get_cur_line(self):
-        return self.line_num
+    # def remove_line_comment(self, line):
+    #     line = re.sub(re.compile("//.*?\n"), "\n", line)
+    #     line = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", line)
+    #     return line
 
-
-    def read_line(self):
-        nextLine = self.file.readline()
-        if nextLine:
-            nextLine = self.remove_comments(nextLine)
+    def read_line(self, lines):
+        split_lines = lines.split("\n")
+        for line in split_lines:
+            nextLine = self.remove_line_comment(line)
+            tokens = []
             if (nextLine):
-                self.lines[nextLine] = self.counter
                 tokens = self.get_tokens(nextLine)
                 self.tokens += tokens
-            self.line_num += 1
-        self.file.close()
-
-
-def main():
-    s = "let sum = (numerator * other.getDenominator()) +(other.getNumerator() * denominator());"
-    c = JackTokenizer("test").get_tokens(s)
-    print(c)
-    z = "\"465 j7\""
-    print(re.fullmatch("\".*?\"", z))
-    # print(re.match("([a-z]|[A-Z])",z))
-    # if re.match("[0-9]*",z)!=None and re.match("([a-z]|[A-Z])",z) == None :
-    #     print(111)
-    a = s.split()
-    x = s.split("[A-Z][a-z][0-9]")
-    # print(a)
-    # print(x)
-
-if __name__ == '__main__':
-    main()
+            self.tokens_num.append(len(tokens))

@@ -1,0 +1,412 @@
+function Fly.new 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 141
+pop this 0
+push constant 123
+pop this 1
+label IF_FALSE0
+push argument 0
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 100
+pop this 0
+push constant 200
+pop this 1
+label IF_FALSE1
+push argument 0
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 29
+pop this 0
+push constant 34
+pop this 1
+label IF_FALSE2
+push argument 0
+push constant 4
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 350
+pop this 0
+push constant 156
+pop this 1
+label IF_FALSE3
+push argument 0
+push constant 5
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push constant 230
+pop this 0
+push constant 67
+pop this 1
+label IF_FALSE4
+push pointer 0
+call Fly.draw 1
+pop temp 0
+push pointer 0
+return
+function Fly.draw 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push constant 5
+call Screen.drawCircle 3
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 10
+add
+push this 1
+push constant 4
+sub
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 10
+sub
+push this 1
+push constant 4
+sub
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 10
+add
+push this 1
+push constant 4
+add
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 10
+sub
+push this 1
+push constant 4
+add
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 10
+add
+push this 1
+push constant 7
+sub
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 10
+sub
+push this 1
+push constant 7
+sub
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 10
+add
+push this 1
+push constant 7
+add
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 10
+sub
+push this 1
+push constant 7
+add
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 2
+sub
+push this 1
+push constant 7
+sub
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 2
+add
+push this 1
+push constant 7
+sub
+call Screen.drawLine 4
+pop temp 0
+push constant 0
+return
+function Fly.erase 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push constant 5
+call Screen.drawCircle 3
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 10
+add
+push this 1
+push constant 4
+sub
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 10
+sub
+push this 1
+push constant 4
+sub
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 10
+add
+push this 1
+push constant 4
+add
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 10
+sub
+push this 1
+push constant 4
+add
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 10
+add
+push this 1
+push constant 7
+sub
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 10
+sub
+push this 1
+push constant 7
+sub
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 10
+add
+push this 1
+push constant 7
+add
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 10
+sub
+push this 1
+push constant 7
+add
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 2
+sub
+push this 1
+push constant 7
+sub
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 2
+add
+push this 1
+push constant 7
+sub
+call Screen.drawLine 4
+pop temp 0
+push pointer 0
+call Fly.dispose 1
+pop temp 0
+push constant 0
+return
+function Fly.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function Fly.x 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Fly.y 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Fly.getX 0
+push argument 0
+pop pointer 0
+push argument 1
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 441
+pop this 0
+label IF_FALSE0
+push argument 1
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 200
+pop this 0
+label IF_FALSE1
+push argument 1
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 100
+pop this 0
+label IF_FALSE2
+push argument 1
+push constant 4
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 220
+pop this 0
+label IF_FALSE3
+push argument 1
+push constant 5
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push constant 160
+pop this 0
+label IF_FALSE4
+push constant 0
+return
+function Fly.getY 0
+push argument 0
+pop pointer 0
+push argument 1
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 200
+pop this 1
+label IF_FALSE0
+push argument 1
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 145
+pop this 1
+label IF_FALSE1
+push argument 1
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 120
+pop this 1
+label IF_FALSE2
+push argument 1
+push constant 4
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 200
+pop this 1
+label IF_FALSE3
+push argument 1
+push constant 5
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push constant 100
+pop this 1
+label IF_FALSE4
+push constant 0
+return

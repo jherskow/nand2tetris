@@ -1,0 +1,25 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/10/Square/Square.jack
+
+/**
+ * The Square class implements a graphic square. A graphic square 
+ * has a location on the screen and a size. It also has methods 
+ * for drawing, erasing, moving on the screen, and changing its size.
+ */
+class try1 {
+
+   function void checkMinus() {
+	
+	//let i=(-(1-(-j-(-1))-p)-(-2-(-1)));
+
+//	let i=(-(1-(-j-(-1))-p)-(-2-(-1)));
+	
+	return;
+   }
+   
+   
+
+
+}

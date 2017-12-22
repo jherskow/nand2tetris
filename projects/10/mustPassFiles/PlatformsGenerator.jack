@@ -1,0 +1,50 @@
+class PlatformsGenerator {
+  
+	field RandomNumbersGenerator numsGenerator;
+	field int seed;
+	field Platformlist platformlist;
+
+	constructor PlatformsGenerator new(Platformlist list) {
+		let platformlist = list;
+		let numsGenerator=RandomNumbersGenerator.new();
+		let seed = 0;
+		return this;
+	}
+	
+	method void setSeed(int enteredSeed) {
+		let seed = enteredSeed;
+		return;
+	}
+	
+ 	method platform generatePlatform() {
+		var int leftCoordinate;
+		var int rightCoordinate;
+		var int rightEdge;
+		var Platform newPlatform;
+
+		let leftCoordinate = numsGenerator.generateRandomNumber(seed,0,230);
+		if ((leftCoordinate+100)>255) {
+			let rightEdge = 255;
+		} 
+		else {
+			let rightEdge = leftCoordinate+100;
+		}
+		
+		if (leftCoordinate<0) {
+			let leftCoordinate=460;
+			let rightEdge=500;
+		}
+		if (rightEdge<0) {
+			let leftCoordinate=10;
+			let rightEdge=80;
+		}
+		
+		let rightCoordinate = numsGenerator.generateRandomNumber(seed,leftCoordinate,rightEdge);
+		if (leftCoordinate>rightCoordinate) {
+			let leftCoordinate=350;
+			let rightCoordinate=400;
+		}
+		let newPlatform = Platform.new(leftCoordinate,rightCoordinate,245,platformlist);
+		return newPlatform;
+	}
+}

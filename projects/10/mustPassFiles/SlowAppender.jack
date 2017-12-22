@@ -1,0 +1,60 @@
+/*
+*
+* Class: SlowAppender.jack
+*
+* This class implements a very simple mechanism that gives fractions arithmetic
+* capability.
+*
+*/
+
+class SlowAppender {
+	
+	// The upper part (numerator)
+	field int _upper;
+	// The lower part (denominator)
+	field int _lower;
+	// True iff the value if 1 or bigger
+	field boolean _circle;
+
+	/*
+	* Constructor. Gets the denominator as parameter
+	*/
+	constructor SlowAppender new(int slices) {
+		let _upper = 0;
+		let _lower = slices;
+		let _circle = false;
+		return this;
+	}
+	
+	/*
+	* Disposes of that object
+	*/ 
+	method void dispose() {
+		do Memory.deAlloc(this);
+		return;
+	}
+	
+	/*
+	* Returns the int value: 1 or 0
+	*/
+	method int getIntValue() {
+		if(_circle) {
+			let _circle = false;
+			return 1;
+		}
+		return 0;
+	}
+	
+	/*
+	* Add to the numerator
+	*/		
+	method void addSlices(int num) {
+		let _upper = _upper + num;
+		if(_upper > _lower) {
+			let _upper = _upper - _lower;
+			let _circle = true;	
+		}
+		return;
+	}
+
+}

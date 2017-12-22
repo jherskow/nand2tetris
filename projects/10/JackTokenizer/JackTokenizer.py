@@ -6,7 +6,6 @@
 # DESCRIPTION:
 ##########################################################################
 import re
-import sym_table as d
 
 
 class JackTokenizer:
@@ -32,28 +31,56 @@ class JackTokenizer:
         self.current_token = ""
         self.tokens = []  # list of all the tokens in the file
         self.counter = 0  # number the current token from all the tokens in the file or the list
-        self.is_in_comment = False
-        self.read_line()
+
+        #remove multi line comments
+        file_string = input_file.read()
+        file_string = self.remove_multi_comments(file_string)
+        self.read_line(file_string)
         print(self.tokens)
 
-    def remove_comments(self, line):
-        """ removes single line comments from a line"""
-        line = self.file.read()
-        line = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", line)
-        # remove all occurance streamed comments (/*COMMENT */) from string
-        line = re.sub(re.compile("//.*?\n"), "\n", line)
-        line = re.sub(re.compile("/\*\*.*?\*/", re.DOTALL), "", line)
-        # line = re.sub(re.compile("/\*.*?/", re.DOTALL), "", line)
-        while "/*" in line or "*/" in line:
-            if self.is_in_comment:
-                if "*/" in line:
-                    line = line.split("*/")[1]
-                else:
-                    line = None
+    def remove_multi_comments(self, string):
+        """ removes ONLY /* */ comments from an entire file string"""
+
+        char_list = list(string)
+        in_comment = False
+        new_string = ""
+
+        i = 0
+        while i< len(char_list):
+            if char_list[i] == "\n":  # keep newliens for line num
+                new_string += char_list[i]
+                i += 1
+                continue
+            elif char_list[i] == "/" and i+1<len(char_list) and char_list[i+1] == "*" :
+                i+=2
+                in_comment = True
+            elif char_list[i] == "*" and i+1<len(char_list) and char_list[i+1] == "/":
+                i+=2
+                in_comment= False
             else:
-                if "/*" in line:
-                    line = line.split("/*")[0]
-        return line
+                if not in_comment:
+                    new_string += char_list[i]
+                i+=1
+
+        return new_string
+
+
+        # line = self.file.read()
+        # line = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", line)
+        # # remove all occurance streamed comments (/*COMMENT */) from string
+        # line = re.sub(re.compile("//.*?\n"), "\n", line)
+        # line = re.sub(re.compile("/\*\*.*?\*/", re.DOTALL), "", line)
+        # # line = re.sub(re.compile("/\*.*?/", re.DOTALL), "", line)
+        # while "/*" in line or "*/" in line:
+        #     if self.is_in_comment:
+        #         if "*/" in line:
+        #             line = line.split("*/")[1]
+        #         else:
+        #             line = None
+        #     else:
+        #         if "/*" in line:
+        #             line = line.split("/*")[0]
+        # return line
 
 
     def get_tokens(self, line):
@@ -212,15 +239,16 @@ class JackTokenizer:
             if self.counter <= sum and self.counter > sum - i:
                 return i
 
-    def read_line(self):
+    def remove_line_comment(self,line):
+        """ removes single line comments from a line"""
+        line = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", line)
 
-        nextLine = self.file.readline()
-        while nextLine:
-            nextLine = self.remove_comments(nextLine)
+    def read_line(self, lines):
+        split_lines = lines.split("\n")
+        for line in split_lines:
+            nextLine = self.remove_line_comment(line)
             tokens = []
             if (nextLine):
-                tokens = self.get_tokens(nextLine)
+                tokens = self.get_tokens(line)
                 self.tokens += tokens
             self.tokens_num.append(len(tokens))
-            nextLine = self.file.readline()
-

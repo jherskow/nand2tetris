@@ -241,7 +241,15 @@ class JackTokenizer:
 
     def remove_line_comment(self,line):
         """ removes single line comments from a line"""
-        line = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", line)
+        line = line.split("//")[0]
+        line = line.strip()
+        line += "\n"
+        return line
+
+    # def remove_line_comment(self, line):
+    #     line = re.sub(re.compile("//.*?\n"), "\n", line)
+    #     line = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", line)
+    #     return line
 
     def read_line(self, lines):
         split_lines = lines.split("\n")

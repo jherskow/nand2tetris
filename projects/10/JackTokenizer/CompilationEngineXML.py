@@ -90,6 +90,7 @@ class CompilationEngineXML:
 
         # possible additional ',' varname  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
+            self.xml_symbol()
             self.advance()
             self.compile_var_name()
 
@@ -162,6 +163,7 @@ class CompilationEngineXML:
 
         # possible additional type varname  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
+            self.xml_symbol()
             self.advance()
             self.compile_type()
             self.compile_var_name()
@@ -247,6 +249,7 @@ class CompilationEngineXML:
 
         # possible [ expression ]
         if self.type() == d.SYMBOL and self.symbol() == "[":
+            self.xml_symbol()
             self.advance()
             self.compile_expression()
             self.compile_symbol_check("]", "expected to match [")
@@ -361,7 +364,10 @@ class CompilationEngineXML:
 
         # else
         if self.type() == d.KEYWORD and self.key_word() == d.K_ELSE:
+            # else
+            self.xml_keyword()
             self.advance()
+
             # '{' statements '}'
             self.compile_symbol_check("{", "expected { in {statements} for else")
             self.compile_statements()
@@ -409,6 +415,8 @@ class CompilationEngineXML:
         self.xml_open(this)
         self.write("\n")
 
+        x = self.token.current_token
+
         first_type = self.type()
 
         if first_type == d.INT_CONST:
@@ -417,8 +425,9 @@ class CompilationEngineXML:
         elif first_type == d.STRING_CONST:
             self.compile_str_const()
 
-        elif first_type == d.KEYWORD and self.key_word() in d.keyword_constant:
-            self.compile_keyword_const()
+        elif first_type == d.KEYWORD:
+            if self.key_word() in d.keyword_constant:
+                self.compile_keyword_const()
 
         elif first_type == d.IDENTIFIER:
             #could be varname, varname[expression], subroutine call ( "(" )
@@ -441,7 +450,7 @@ class CompilationEngineXML:
                     # [
                     self.compile_symbol_check("]","] expected for array index")
 
-                elif self.symbol() == "(":
+                elif self.symbol() in {"(","."}:
                     self.retreat()
                     self.compile_subroutine_call()
 
@@ -571,6 +580,7 @@ class CompilationEngineXML:
 
             #subroutineName
             self.xml_identifier()
+            self.advance()
 
             # (
             self.compile_symbol_check("(","expected ( for function arguments")

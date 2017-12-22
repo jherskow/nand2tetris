@@ -21,7 +21,7 @@ class MainFruit {
 			do Screen.drawRectangle(0,0,511,255);			
 			do Sys.wait(400);	
 			do Screen.clearScreen();
-	*/ /*		do Sys.wait(100);	
+	*/ /* */ /*  */ /* */ /*		do Sys.wait(100);	
 			do Screen.drawRectangle(0,0,511,255);
 			do Sys.wait(400);	
 			do Screen.clearScreen();

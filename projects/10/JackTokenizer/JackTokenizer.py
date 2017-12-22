@@ -34,24 +34,27 @@ class JackTokenizer:
         self.counter = 0  # number the current token from all the tokens in the file or the list
         self.is_in_comment = False
         self.read_line()
+        print(self.tokens)
 
     def remove_comments(self, line):
         """ removes single line comments from a line"""
-
+        line = self.file.read()
         line = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", line)
         # remove all occurance streamed comments (/*COMMENT */) from string
         line = re.sub(re.compile("//.*?\n"), "\n", line)
         line = re.sub(re.compile("/\*\*.*?\*/", re.DOTALL), "", line)
-
-        if self.is_in_comment:
-            if "*/" in line:
-                line = line.split("*/")[1]
+        # line = re.sub(re.compile("/\*.*?/", re.DOTALL), "", line)
+        while "/*" in line or "*/" in line:
+            if self.is_in_comment:
+                if "*/" in line:
+                    line = line.split("*/")[1]
+                else:
+                    line = None
             else:
-                line = None
-        else:
-            if "/*" in line:
-                line = line.split("/*")[0]
+                if "/*" in line:
+                    line = line.split("/*")[0]
         return line
+
 
     def get_tokens(self, line):
         """"""

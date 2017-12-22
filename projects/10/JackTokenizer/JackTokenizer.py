@@ -32,10 +32,8 @@ class JackTokenizer:
         self.current_token = ""
         self.tokens = []  # list of all the tokens in the file
         self.counter = 0  # number the current token from all the tokens in the file or the list
-        # self.line_num = 0 #line number of the current token
         self.is_in_comment = False
         self.read_line()
-        print(self.tokens)
 
     def remove_comments(self, line):
         """ removes single line comments from a line"""
@@ -72,12 +70,6 @@ class JackTokenizer:
                 elif string_word !="":
                     string_word+=l
                 elif l in JackTokenizer.symbols:  # if the word have a symbol
-
-                    # if string_word != "" and new_word != "" and "\"" in new_word:
-                    #     string_word+=" " +new_word
-                    #     tokens.append(string_word)
-                    #     string_word =""
-                    #     new_word=""
                     if  new_word != "": # first append all the words before the symbol
                         tokens.append(new_word)
                         new_word = ""
@@ -229,28 +221,3 @@ class JackTokenizer:
             self.tokens_num.append(len(tokens))
             nextLine = self.file.readline()
 
-    # def make_xml_toks(self, output_file):
-    #     self.counter = 0
-    #     output_file.write("<tokens>")
-    #     while self.has_more_tokens():
-    #         if self.token_type() == d.KEYWORD:
-    #             pass
-    #             # todo make if bugs
-#
-# def main():
-#     s = "let sum = (numerator * other.getDenominator()) +(other.getNumerator() * denominator());"
-#     c = JackTokenizer("test").get_tokens(s)
-#     # print(c)
-#     z = "\"465 j7\""
-#     print(re.fullmatch("\".*?\"", z))
-#     # print(re.match("([a-z]|[A-Z])",z))
-#     # if re.match("[0-9]*",z)!=None and re.match("([a-z]|[A-Z])",z) == None :
-#     #     print(111)
-#     # a = s.split()
-#     # x = s.split("[A-Z][a-z][0-9]")
-#     # print(a)
-#     # print(x)
-#
-#
-# if __name__ == '__main__':
-#     main()

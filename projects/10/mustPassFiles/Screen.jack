@@ -1,0 +1,206 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/12/Screen.jack
+
+/**
+ * Graphic screen library.
+ */
+class Screen {
+
+	static int SCREEN;
+	static boolean color;
+	static Array bitmask;
+
+    /** Initializes the Screen. */
+    function void init() {
+    	let SCREEN = 16384;
+    	let color = true;
+    	do Screen.initBitmaskArray();
+    	return;
+    }
+    
+    function void initBitmaskArray() {
+    	var int i, cur;
+    	let bitmask = Array.new(16);
+    	let cur = 1;
+    	let i = 0;
+    	while(i < 16) {
+    		let bitmask[i] = cur;
+    		let cur = cur + cur;
+    		let i = i + 1;
+    	}
+    	return;
+    }
+
+    /** Erases the whole screen. */
+    function void clearScreen() {
+    	var boolean temp;
+    	let temp = color;
+    	do Screen.setColor(false);
+    	do Screen.drawRectangle(0, 0, 511, 255);
+    	do Screen.setColor(temp);
+    	return;
+    }
+
+    /** Sets the color to be used in further draw commands
+     *  where white = false, black = true. */
+    function void setColor(boolean b) {
+    	let color = b;
+    	return;
+    }
+
+	/** 
+	* Calculates efficiently modulo 2^n of a given number
+	*/
+	function int moduloPower2(int num, int x) {
+		return (num & (x-1));
+	}
+
+    /** Draws the (x, y) pixel. */
+    function void drawPixel(int x, int y) {
+    	var int loc, temp, pixel;
+    	let loc = SCREEN + (y * 32) + (x / 16);
+    	let pixel = Screen.moduloPower2(x, 16);
+    	let temp = Memory.peek(loc);
+    	if (color) {
+			let temp = (temp | bitmask[pixel]);
+    	} else {
+    		let temp = (temp & (~bitmask[pixel]));
+    	}
+    	do Memory.poke(loc, temp);
+    	return;
+    }
+
+    /** Draws a line from pixel (x1, y1) to (x2, y2). */
+    function void drawLine(int x1, int y1, int x2, int y2) {
+    	var int adyMinusbdx, a, b, dx, dy, x, y;
+    	let adyMinusbdx = 0;
+    	let dx = x2 - x1;
+    	let dy = y2 - y1;
+    	let x = Math.min(x1, x2);
+    	let y = Math.min(y1, y2);
+    	if (((dx < 0) & (dy > 0)) | ((dx > 0) & (dy < 0))) {
+    		if (dy < 0) {
+    			do Screen.drawDiagonalLine(x1, y1, dx, dy);
+    		} else {
+    			do Screen.drawDiagonalLine(x2, y2, -dx, -dy);
+    		}
+    		return;
+    	} else {
+    		let dx = Math.abs(dx);
+    		let dy = Math.abs(dy);
+    	}
+
+    	// When dx = 0 or dy = 0, use special functions
+
+    	if (dy = 0) {
+    		do Screen.drawVerticalLineOptimized(x, y, dx);
+    		return;
+    	}
+    	if (dx = 0) {
+    		do Screen.drawHorizontalLine(x, y, dy);
+    		return;
+    	}
+    	while ((~(a > dx)) & (~(b > dy))) {
+    		do Screen.drawPixel(x + a, y + b);
+    		if (adyMinusbdx < 0) {
+    			let a = a + 1;
+    			let adyMinusbdx = adyMinusbdx + dy;
+    		} else {
+    			let b = b + 1;
+    			let adyMinusbdx = adyMinusbdx - dx;
+    		}
+    	}
+    	return;
+    }
+    
+    function void drawDiagonalLine(int x, int y, int dx, int dy) {
+       	var int adyMinusbdx, a, b;
+    	let adyMinusbdx = 0;
+    	let a = 0;
+    	let b = 0;
+    	while ((~(a > dx)) & (~(b < dy))) {
+    		do Screen.drawPixel(x + a, y + b);
+    		if (adyMinusbdx < 0) {
+    			let b = b - 1;
+    			let adyMinusbdx = adyMinusbdx + dx;
+    		} else {
+    			let a = a + 1;
+    			let adyMinusbdx = adyMinusbdx + dy;
+    		}
+    	}
+    	return;    
+    }
+    
+    function void drawHorizontalLine(int x, int y, int dy) {
+    	var int i;
+    	let i = 0;
+    	while (~(i > dy)) {
+    		do Screen.drawPixel(x, y + i);
+    		let i = i + 1;
+    	}
+    	return;
+    }
+    
+    /** 
+    * Optimized method to Draw horizontal lines
+    */
+    function void drawVerticalLineOptimized(int x, int y, int dx) {
+    	var int i, bulkedSize, address, bulkedStart;
+    	if (dx < 16) {
+    		do Screen.drawVerticalLine(x, y, dx);
+    		return;
+    	}
+    	let i = 0;   	
+    	let bulkedStart = x - Screen.moduloPower2(x, 16) + 16;
+    	let address = SCREEN + (y * 32) + (bulkedStart / 16);
+    	let bulkedSize = (dx - Screen.moduloPower2(dx, 16)) - 16;
+    	do Screen.drawVerticalLine(x, y, (bulkedStart - x));
+    	while (i < bulkedSize) {
+    		// Draw multiple pixels at a single step
+    		do Memory.poke(address, color);
+			let address = address + 1;
+    		let i = i + 16;
+    	}
+    	do Screen.drawVerticalLine(x + bulkedSize, y, (dx - bulkedSize));
+    	return;
+    }
+    
+    function void drawVerticalLine(int x, int y, int dx) {
+    	var int i;
+    	let i = 0;
+    	while (~(i > dx)) {
+   			do Screen.drawPixel(x + i, y);
+   			let i = i + 1;
+    	}
+    	return;
+    }
+
+
+    /** Draws a filled rectangle where the top left corner
+     *  is (x1, y1) and the bottom right corner is (x2, y2). */
+    function void drawRectangle(int x1, int y1, int x2, int y2) {
+    	var int i, dx, dy;
+    	let dx = Math.abs(x2 - x1);
+    	let dy = Math.abs(y2 - y1);
+    	while (i < dy) {
+    		do Screen.drawVerticalLineOptimized(x1, y1 + i, dx);
+    		let i = i + 1;
+    	}
+    	return;
+    }
+
+    /** Draws a filled circle of radius r around (cx, cy). */
+    function void drawCircle(int cx, int cy, int r) {
+    	var int dy, temp, rsqrt;
+    	let dy = -r;
+    	let rsqrt = r * r;
+    	while (~(dy > r)) {
+    		let temp = Math.sqrt(rsqrt - (dy * dy));
+    		do Screen.drawVerticalLineOptimized(cx - temp, cy + dy, temp * 2);
+    		let dy = dy + 1;
+    	}
+	    return;
+    }
+}

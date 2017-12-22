@@ -1,0 +1,143 @@
+class Ball {
+	
+	field int lives;
+	field int xCoordinate;
+	field int yCoordinate;
+	field int horizontaldirection;
+	field boolean onPlatform;
+	field RapidRollGame rollGame;
+	field boolean gameOver;
+	constructor Ball new(int points,RapidRollGame game) {
+		var Platform platform;
+	        let gameOver=false;
+	        let lives = points;
+		let rollGame = game; 
+	        let xCoordinate = 256;
+	        let yCoordinate = 5;
+		let horizontaldirection = 0;
+		let onPlatform = false;
+		let platform = Platform.new(200,300,245,rollGame.getPlatformsList());
+		do rollGame.addPlatform(platform);
+	        return this;
+	}
+
+	method void drawBall() {
+		do Screen.setColor(true);
+		do Screen.drawRectangle(xCoordinate, yCoordinate, xCoordinate + 5, yCoordinate + 5);
+		return;
+	}
+	
+	method void deleteBallImage() {
+		do Screen.setColor(false);
+		do Screen.drawRectangle(xCoordinate , yCoordinate, xCoordinate + 5, yCoordinate + 5);
+		return;
+	}
+	method void decreaseLife() {
+		var Ball newBall;
+		var int newLives;
+		let newLives = lives-1;
+		do dispose();
+		if (lives>0) {
+			let newBall = Ball.new(newLives,rollGame);
+		}
+		if (lives=0) {
+			do Output.printString("GAME O VE  R!");
+			let gameOver = true;
+			do rollGame.gameOver();
+			
+		}
+		return;
+	}
+
+	method void isOnPlatform() {
+		let onPlatform = rollGame.isOnPlatform(xCoordinate,yCoordinate);	
+		return;
+	}
+	
+	method void move(int direction) {
+		if (~gameOver) {
+			do moveHorizontal(direction);
+			do moveVertical();
+		}
+		return;
+	}
+
+	method void moveLeft() {
+		if (xCoordinate > 1) {
+			do Screen.setColor(false);
+			do Screen.drawRectangle((xCoordinate + 5) - 1, yCoordinate, xCoordinate + 5, yCoordinate + 5);
+			let xCoordinate = xCoordinate - 2;
+			do Screen.setColor(true);
+			do Screen.drawRectangle(xCoordinate, yCoordinate, xCoordinate + 1, yCoordinate + 5);
+			do isOnPlatform();	
+		}
+		return;
+	}
+
+	method void moveRight() {
+		if (xCoordinate+5 < 510) {
+			do Screen.setColor(false);
+			do Screen.drawRectangle(xCoordinate, yCoordinate, xCoordinate + 1, yCoordinate + 5);
+			let xCoordinate = xCoordinate + 2;
+			do Screen.setColor(true);
+			do Screen.drawRectangle((xCoordinate + 5) - 1, yCoordinate, xCoordinate + 5, yCoordinate + 5);
+			do isOnPlatform();
+		}
+		return;
+	}
+
+	method void moveUp() {
+		if (yCoordinate > 1) {
+			do Screen.setColor(false);
+			do Screen.drawRectangle(xCoordinate, (yCoordinate + 5) - 1, xCoordinate + 5, yCoordinate + 5);
+			let yCoordinate = yCoordinate - 1; 
+			do Screen.setColor(true);
+			do Screen.drawRectangle(xCoordinate, yCoordinate, xCoordinate + 5, yCoordinate + 1);
+        	}
+		else {
+			do decreaseLife();		
+		}
+        	return;
+	}
+
+	method void moveDown() {
+		if ((yCoordinate + 5) < 253) {
+			do Screen.setColor(false);
+			do Screen.drawRectangle(xCoordinate, yCoordinate, xCoordinate + 5, yCoordinate + 1);
+			let yCoordinate = yCoordinate + 2;
+			do Screen.setColor(true);
+			do Screen.drawRectangle(xCoordinate, (yCoordinate + 5) - 1, xCoordinate + 5, yCoordinate + 5);
+		}
+		else {
+			do decreaseLife();		
+		}
+		return;
+	}
+
+	method void moveHorizontal(int direction) {
+		if (direction=1) { //left
+			do moveLeft();
+		}
+		if (direction=2) { //Right
+			do moveRight();
+		}
+		return;
+	}
+
+	method void moveVertical() {
+		if (onPlatform) {
+			do moveUp();
+		}	
+		else {
+			do moveDown();
+		}
+		return;
+	}
+
+	method void dispose() {
+		do deleteBallImage();
+		do Memory.deAlloc(this);
+		return;
+	}
+	
+}

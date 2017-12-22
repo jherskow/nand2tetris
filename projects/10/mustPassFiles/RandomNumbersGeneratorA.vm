@@ -1,0 +1,55 @@
+function RandomNumbersGenerator.new 0
+push constant 1
+call Memory.alloc 1
+pop pointer 0
+push constant 0
+pop this 0
+push pointer 0
+return
+function RandomNumbersGenerator.generateRandomNumber 4
+push argument 0
+pop pointer 0
+push argument 1
+pop this 0
+push argument 3
+pop local 1
+push constant 83
+pop local 0
+push constant 91
+pop local 2
+push local 0
+push this 0
+call Math.multiply 2
+pop local 3
+push local 3
+push local 2
+add
+pop local 3
+push pointer 0
+push local 3
+push local 1
+call RandomNumbersGenerator.modulo 3
+pop local 3
+push local 3
+push argument 2
+add
+pop local 3
+push local 3
+pop this 0
+push local 3
+return
+function RandomNumbersGenerator.modulo 2
+push argument 0
+pop pointer 0
+push argument 1
+push argument 2
+call Math.divide 2
+pop local 0
+push argument 1
+push local 0
+push argument 2
+call Math.multiply 2
+sub
+pop local 1
+push local 1
+return

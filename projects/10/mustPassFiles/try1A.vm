@@ -1,0 +1,3 @@
+function try1.checkMinus 0
+push constant 0
+return

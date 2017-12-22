@@ -1,0 +1,102 @@
+class Fruit {
+	field char _letter;
+	field int _a,_b,_c,_radius, _innerRadius, x, _factor, _offset;
+	field boolean _isBomb, _direction;
+	
+	//create new fruit
+	constructor Fruit new() {
+		let _direction = Random.isDirection();
+		let _factor = Random.getFactor();
+ 		let _offset = Random.getOffset();
+		let _letter = Random.getChar();
+		let _radius = Random.getRadius();
+		let _isBomb = Random.isBomb();
+		let x = 0;
+		if(_isBomb) {
+			let _innerRadius = _radius - 6;
+		}
+		else {
+			let _innerRadius = _radius - 2;
+		}
+		let _a = -1;
+		let _b = 30;
+		let _c = 7;
+		return this;
+	}
+	
+	//return if bomb
+	method boolean isBomb() {
+		return _isBomb;
+	}
+	
+	//return letter of fruit
+	method char getLetter() {
+		return _letter;
+	}
+
+	//returns true if dropped	
+	method boolean isDropped(int y) {
+		var int deriv;
+		let deriv = Math.multiply(_a, x);
+		do Random.changeSeed(deriv);
+		let deriv = deriv+_b;
+		if((deriv<0)&(y<0)) {
+			return true;
+		}
+		return false;
+	}
+	
+	//draw fruit
+	method boolean draw() {
+		//evaluate y
+		var int y, curr_a, curr_b, original_x;
+		let curr_a = Math.multiply(x,x);
+		let curr_a = Math.multiply(_a,curr_a);
+		let curr_b = Math.multiply(_b,x);
+		let y = curr_a+curr_b+_c;
+		
+		//checks if dropped
+		if(isDropped(y)) {
+			return true;
+		}
+			
+		let y = 256-y;
+		let original_x = x;
+		let x = x+_offset;
+		let x = Math.multiply(x, _factor);
+		//check boundaries and draw
+		if(((x-_radius)>0)&((y-_radius)>0)&((x+_radius)<512)&((y+_radius)<256)) {
+			if(_direction) {
+				let x = 512 - x;
+			}
+			//draw outer circle
+			do Screen.setColor(true);
+			do Screen.drawCircle(x, y, _radius);
+			//draw inner circle
+			do Screen.setColor(false);
+			do Screen.drawCircle(x, y, _innerRadius);
+			//draw letter
+			do Screen.setColor(true);
+			do pixelToRow(x, y);
+			do Output.printChar(_letter);
+		}
+		let x = original_x+1;
+		do Random.changeSeed(x);
+		return false;
+	}
+
+	//find location for letter
+	method void pixelToRow(int x, int y) {
+		var int new_x, new_y;
+		let new_x = Math.divide(x, 8);
+		let new_y = Math.divide(y, 11);
+		do Output.moveCursor(new_y, new_x);
+		return;
+	}
+
+	//dispose fruit	
+	method void dispose() {
+		do Memory.deAlloc(this);
+		return;
+	}
+}

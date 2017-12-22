@@ -1,0 +1,116 @@
+class Fly {
+
+    field int x;
+    field int y;
+	
+    constructor Fly new(int location){
+	if(location = 1){
+	    let x = 141;//getX(location);
+	    let y = 123;//getY(location);
+	}
+	if(location = 2){
+	    let x = 100;//getX(location);
+	    let y = 200;//getY(location);
+	}
+	if(location = 3){
+	    let x = 29;//getX(location);
+	    let y = 34;//getY(location);
+	}
+	if(location = 4){
+	    let x = 350;//getX(location);
+	    let y = 156;//getY(location);
+	}
+	if(location = 5){
+	    let x = 230;//getX(location);
+	    let y = 67;//getY(location);
+	}
+	do draw();
+	return this;
+    }
+
+    method void draw() {
+       	do Screen.setColor(true);
+       	do Screen.drawCircle(x, y, 5);			// the body of the fly ("stomach")
+	do Screen.drawLine(x, y, x + 10, y - 4);	// up-right wind 
+	do Screen.drawLine(x, y, x - 10, y - 4);	// up-left wind
+	do Screen.drawLine(x, y, x + 10, y + 4);	// down-right wind 
+	do Screen.drawLine(x, y, x - 10, y + 4);	// down-left wind
+	do Screen.drawLine(x, y, x + 10, y - 7);	// emphasize up-right wind 
+	do Screen.drawLine(x, y, x - 10, y - 7);	// emphasize up-left wind
+	do Screen.drawLine(x, y, x + 10, y + 7);	// emphasize down-right wind 
+	do Screen.drawLine(x, y, x - 10, y + 7);	// emphasize down-left wind
+	do Screen.drawLine(x, y, x-2, y-7);		// left eye
+	do Screen.drawLine(x, y, x+2, y-7);		// right eye
+       	return;
+    }
+
+    method void erase(){
+	do Screen.setColor(false);
+	do Screen.drawCircle(x, y, 5);			// remove the body of the fly ("stomach")
+	do Screen.drawLine(x, y, x + 10, y - 4);	// remove the up-right wind 
+	do Screen.drawLine(x, y, x - 10, y - 4);	// remove the up-left wind
+	do Screen.drawLine(x, y, x + 10, y + 4);	// remove the down-right wind 
+	do Screen.drawLine(x, y, x - 10, y + 4);	// remove the down-left wind
+	do Screen.drawLine(x, y, x + 10, y - 7);	// remove the emphasize up-right wind 
+	do Screen.drawLine(x, y, x - 10, y - 7);	// remove the emphasize up-left wind
+	do Screen.drawLine(x, y, x + 10, y + 7);	// remove the emphasize down-right wind 
+	do Screen.drawLine(x, y, x - 10, y + 7);	// remove the emphasize down-left wind
+	do Screen.drawLine(x, y, x-2, y-7);		// remove the left eye
+	do Screen.drawLine(x, y, x+2, y-7);		// remove the right eye
+	do dispose();
+	return;
+    }
+
+    /** Deallocates the object's memory. */
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method int x(){
+	return x;
+    }
+
+    method int y(){
+	return y;
+    }
+
+    method int getX(int loc){
+	if(loc = 1){
+	    let x= 441;
+	}
+	if(loc = 2){
+	    let x= 200;
+	}
+	if(loc = 3){
+	    let x= 100;
+	}
+	if(loc = 4){
+	    let x= 220;
+	}
+	if(loc = 5){
+	    let x= 160;
+	}
+	return 0;
+    }
+	
+    method int getY(int loc){
+	if(loc = 1){
+	    let y= 200;
+	}
+	if(loc = 2){
+	    let y= 145;
+	}
+	if(loc = 3){
+	    let y= 120;
+	}
+	if(loc = 4){
+	    let y= 200;
+	}
+	if(loc = 5){
+	    let y= 100;
+	}
+	return 0;
+    }
+}
+

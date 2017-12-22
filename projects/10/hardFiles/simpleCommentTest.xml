@@ -1,0 +1,42 @@
+<class>
+    <keyword> class </keyword>
+    <identifier> simpleCommentTest </identifier>
+    <symbol> { </symbol>
+    <subroutineDec>
+        <keyword> function </keyword>
+        <keyword> void </keyword>
+        <identifier> main </identifier>
+        <symbol> ( </symbol>
+        <parameterList>
+        </parameterList>
+        <symbol> ) </symbol>
+        <subroutineBody>
+            <symbol> { </symbol>
+            <varDec>
+                <keyword> var </keyword>
+                <identifier> String </identifier>
+                <identifier> a </identifier>
+                <symbol> ; </symbol>
+            </varDec>
+            <statements>
+                <letStatement>
+                    <keyword> let </keyword>
+                    <identifier> a </identifier>
+                    <symbol> = </symbol>
+                    <expression>
+                        <term>
+                            <stringConstant> test to // test </stringConstant>
+                        </term>
+                    </expression>
+                    <symbol> ; </symbol>
+                </letStatement>
+                <returnStatement>
+                    <keyword> return </keyword>
+                    <symbol> ; </symbol>
+                </returnStatement>
+            </statements>
+            <symbol> } </symbol>
+        </subroutineBody>
+    </subroutineDec>
+    <symbol> } </symbol>
+</class>

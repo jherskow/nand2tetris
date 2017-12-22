@@ -7,7 +7,7 @@ import CompilationEngineXML
 import CompilationEngineVM
 
 
-XML_EXTENSION = "OUR.xml"
+XML_EXTENSION = "A.xml"
 
 class JackAnalyzer:
     """

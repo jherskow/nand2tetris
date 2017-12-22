@@ -1,0 +1,316 @@
+<class>
+  <keyword> class </keyword>
+  <identifier> RandomNumbersGenerator </identifier>
+  <symbol> { </symbol>
+<classVarDec>
+  <keyword> field </keyword>
+  <keyword> int </keyword>
+  <identifier> lastCreatedRandNum </identifier>
+  <symbol> ; </symbol>
+</classVarDec>
+<subroutineDec>
+    <keyword> constructor </keyword>
+    <identifier> RandomNumbersGenerator </identifier>
+    <identifier> new </identifier>
+    <symbol> ( </symbol>
+  <parameterList>
+    </parameterList>
+  <symbol> ) </symbol>
+  <subroutineBody>
+  <symbol> { </symbol>  
+  <statements>
+    <letStatement>
+        <keyword> let </keyword>
+          <identifier> lastCreatedRandNum </identifier>
+          <symbol> = </symbol>      
+        <expression>
+              <term>
+                        <integerConstant> 0 </integerConstant>
+                      </term>
+              </expression>
+        <symbol> ; </symbol>
+        </letStatement>
+    <returnStatement>
+          <keyword> return </keyword>      
+        <expression>
+              <term>
+                        <keyword> this </keyword>
+                      </term>
+              </expression>
+        <symbol> ; </symbol>
+        </returnStatement>
+    </statements>
+  <symbol> } </symbol>
+  </subroutineBody>
+  </subroutineDec>
+<subroutineDec>
+    <keyword> method </keyword>
+    <keyword> int </keyword>
+    <identifier> generateRandomNumber </identifier>
+    <symbol> ( </symbol>    
+  <parameterList>
+        <keyword> int </keyword>
+        <identifier> seed </identifier>
+        <symbol> , </symbol>
+        <keyword> int </keyword>
+        <identifier> from </identifier>
+        <symbol> , </symbol>
+        <keyword> int </keyword>
+        <identifier> to </identifier>
+      </parameterList>
+  <symbol> ) </symbol>
+  <subroutineBody>
+  <symbol> { </symbol>  
+  <varDec>
+      <keyword> var </keyword>
+      <keyword> int </keyword>
+      <identifier> multiplier </identifier>
+      <symbol> ; </symbol>
+    </varDec>
+  <varDec>
+      <keyword> var </keyword>
+      <keyword> int </keyword>
+      <identifier> modulus </identifier>
+      <symbol> ; </symbol>
+    </varDec>
+  <varDec>
+      <keyword> var </keyword>
+      <keyword> int </keyword>
+      <identifier> increment </identifier>
+      <symbol> ; </symbol>
+    </varDec>
+  <varDec>
+      <keyword> var </keyword>
+      <keyword> int </keyword>
+      <identifier> createdRandNum </identifier>
+      <symbol> ; </symbol>
+    </varDec>
+  <statements>
+    <letStatement>
+        <keyword> let </keyword>
+          <identifier> lastCreatedRandNum </identifier>
+          <symbol> = </symbol>      
+        <expression>
+              <term>
+                        <identifier> seed </identifier>
+                      </term>
+              </expression>
+        <symbol> ; </symbol>
+        </letStatement>
+    <letStatement>
+        <keyword> let </keyword>
+          <identifier> modulus </identifier>
+          <symbol> = </symbol>      
+        <expression>
+              <term>
+                        <identifier> to </identifier>
+                      </term>
+              </expression>
+        <symbol> ; </symbol>
+        </letStatement>
+    <letStatement>
+        <keyword> let </keyword>
+          <identifier> multiplier </identifier>
+          <symbol> = </symbol>      
+        <expression>
+              <term>
+                        <integerConstant> 83 </integerConstant>
+                      </term>
+              </expression>
+        <symbol> ; </symbol>
+        </letStatement>
+    <letStatement>
+        <keyword> let </keyword>
+          <identifier> increment </identifier>
+          <symbol> = </symbol>      
+        <expression>
+              <term>
+                        <integerConstant> 91 </integerConstant>
+                      </term>
+              </expression>
+        <symbol> ; </symbol>
+        </letStatement>
+    <letStatement>
+        <keyword> let </keyword>
+          <identifier> createdRandNum </identifier>
+          <symbol> = </symbol>      
+        <expression>
+              <term>
+                      <symbol> ( </symbol>
+                      <expression>
+                                <term>
+                                              <identifier> multiplier </identifier>
+                                            </term>
+                                <symbol> * </symbol>            
+                                <term>
+                                              <identifier> lastCreatedRandNum </identifier>
+                                            </term>
+                                </expression>
+                      <symbol> ) </symbol>
+                      </term>
+              </expression>
+        <symbol> ; </symbol>
+        </letStatement>
+    <letStatement>
+        <keyword> let </keyword>
+          <identifier> createdRandNum </identifier>
+          <symbol> = </symbol>      
+        <expression>
+              <term>
+                        <identifier> createdRandNum </identifier>
+                      </term>
+              <symbol> + </symbol>        
+              <term>
+                        <identifier> increment </identifier>
+                      </term>
+              </expression>
+        <symbol> ; </symbol>
+        </letStatement>
+    <letStatement>
+        <keyword> let </keyword>
+          <identifier> createdRandNum </identifier>
+          <symbol> = </symbol>      
+        <expression>
+              <term>
+                        <identifier> modulo </identifier>
+                        <symbol> ( </symbol>
+                      <expressionList>          
+                      <expression>
+                                <term>
+                                                <identifier> createdRandNum </identifier>
+                                            </term>
+                                </expression>
+                      <symbol> , </symbol>          
+                      <expression>
+                                <term>
+                                                <identifier> modulus </identifier>
+                                            </term>
+                                </expression>
+                      </expressionList>
+                      <symbol> ) </symbol>
+                      </term>
+              </expression>
+        <symbol> ; </symbol>
+        </letStatement>
+    <letStatement>
+        <keyword> let </keyword>
+          <identifier> createdRandNum </identifier>
+          <symbol> = </symbol>      
+        <expression>
+              <term>
+                        <identifier> createdRandNum </identifier>
+                      </term>
+              <symbol> + </symbol>        
+              <term>
+                        <identifier> from </identifier>
+                      </term>
+              </expression>
+        <symbol> ; </symbol>
+        </letStatement>
+    <letStatement>
+        <keyword> let </keyword>
+          <identifier> lastCreatedRandNum </identifier>
+          <symbol> = </symbol>      
+        <expression>
+              <term>
+                        <identifier> createdRandNum </identifier>
+                      </term>
+              </expression>
+        <symbol> ; </symbol>
+        </letStatement>
+    <returnStatement>
+          <keyword> return </keyword>      
+        <expression>
+              <term>
+                        <identifier> createdRandNum </identifier>
+                      </term>
+              </expression>
+        <symbol> ; </symbol>
+        </returnStatement>
+    </statements>
+  <symbol> } </symbol>
+  </subroutineBody>
+  </subroutineDec>
+<subroutineDec>
+    <keyword> method </keyword>
+    <keyword> int </keyword>
+    <identifier> modulo </identifier>
+    <symbol> ( </symbol>    
+  <parameterList>
+        <keyword> int </keyword>
+        <identifier> num </identifier>
+        <symbol> , </symbol>
+        <keyword> int </keyword>
+        <identifier> modulus </identifier>
+      </parameterList>
+  <symbol> ) </symbol>
+  <subroutineBody>
+  <symbol> { </symbol>  
+  <varDec>
+      <keyword> var </keyword>
+      <keyword> int </keyword>
+      <identifier> div </identifier>
+      <symbol> ; </symbol>
+    </varDec>
+  <varDec>
+      <keyword> var </keyword>
+      <keyword> int </keyword>
+      <identifier> modulo </identifier>
+      <symbol> ; </symbol>
+    </varDec>
+  <statements>
+    <letStatement>
+        <keyword> let </keyword>
+          <identifier> div </identifier>
+          <symbol> = </symbol>      
+        <expression>
+              <term>
+                        <identifier> num </identifier>
+                      </term>
+              <symbol> / </symbol>        
+              <term>
+                        <identifier> modulus </identifier>
+                      </term>
+              </expression>
+        <symbol> ; </symbol>
+        </letStatement>
+    <letStatement>
+        <keyword> let </keyword>
+          <identifier> modulo </identifier>
+          <symbol> = </symbol>      
+        <expression>
+              <term>
+                        <identifier> num </identifier>
+                      </term>
+              <symbol> - </symbol>        
+              <term>
+                      <symbol> ( </symbol>
+                      <expression>
+                                <term>
+                                              <identifier> div </identifier>
+                                            </term>
+                                <symbol> * </symbol>            
+                                <term>
+                                              <identifier> modulus </identifier>
+                                            </term>
+                                </expression>
+                      <symbol> ) </symbol>
+                      </term>
+              </expression>
+        <symbol> ; </symbol>
+        </letStatement>
+    <returnStatement>
+          <keyword> return </keyword>      
+        <expression>
+              <term>
+                        <identifier> modulo </identifier>
+                      </term>
+              </expression>
+        <symbol> ; </symbol>
+        </returnStatement>
+    </statements>
+  <symbol> } </symbol>
+  </subroutineBody>
+  </subroutineDec>
+  <symbol> } </symbol>
+</class>

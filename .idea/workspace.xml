@@ -2,8 +2,163 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eacdd40-89ba-40e8-a58d-4fd62e45556a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/FrogGame.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/FrogGame.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/FrogGameA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/FrogGameA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/GameControl.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/GameControl.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/GameControlA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/GameControlA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/Surface.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/Surface.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/SurfaceA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/SurfaceA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/in3.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/in3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/in3A.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/in3A.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/simpleCommentTest.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/simpleCommentTest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/simpleCommentTestA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/simpleCommentTestA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/try2.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/try2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/try2A.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/try2A.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/vmHardTester.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/hardFiles/xmlHardTester.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/#vmtester.sh#" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Array.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Array.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/ArrayA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/ArrayA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Ball.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Ball.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/BallA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/BallA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Cannon.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Cannon.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/CannonA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/CannonA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/CaveShooterBall.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/CaveShooterBall.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/CaveShooterBallA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/CaveShooterBallA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/CaveShooterMain.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/CaveShooterMain.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/CaveShooterMainA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/CaveShooterMainA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Fly.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Fly.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/FlyA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/FlyA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Frog.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Frog.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/FrogA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/FrogA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Fruit.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Fruit.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/FruitA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/FruitA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Keyboard.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Keyboard.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/KeyboardA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/KeyboardA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Log.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Log.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/LogA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/LogA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Main.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Main.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/MainA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/MainA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/MainB.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/MainFruit.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/MainFruit.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/MainFruitA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/MainFruitA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Math.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Math.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/MathA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/MathA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Memory.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Memory.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/MemoryA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/MemoryA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Platform.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Platform.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Platform.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/PlatformA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/PlatformA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/PlatformsGenerator.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/PlatformsGenerator.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/PlatformsGeneratorA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/PlatformsGeneratorA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/PlatformsList.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/PlatformsList.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/PlatformsListA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/PlatformsListA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Problem.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Problem.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/ProblemA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/ProblemA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Random.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Random.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/RandomA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/RandomA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/RandomNumbersGenerator.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/RandomNumbersGenerator.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/RandomNumbersGeneratorA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/RandomNumbersGeneratorA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/RapidRollGame.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/RapidRollGame.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/RapidRollGameA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/RapidRollGameA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Screen.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Screen.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/ScreenA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/ScreenA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/SlowAppender.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/SlowAppender.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/SlowAppenderA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/SlowAppenderA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Square.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Square.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/SquareA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/SquareA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/SquareGame.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/SquareGame.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/SquareGameA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/SquareGameA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Sys.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Sys.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/SysA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/SysA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Utils.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/Utils.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/UtilsA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/UtilsA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/YGameMain.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/YGameMain.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/YGameMainA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/YGameMainA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/YMain.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/YMain.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/YMainA.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/YMainA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/try1.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/try1.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/try1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/try1A.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/try1A.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/vmTester.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/10/mustPassFiles/xmlTester.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/10/JackTokenizer/CompilationEngineXML.py" afterPath="$PROJECT_DIR$/projects/10/JackTokenizer/CompilationEngineXML.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/10/JackTokenizer/JackAnalyzer.py" afterPath="$PROJECT_DIR$/projects/10/JackTokenizer/JackAnalyzer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/10/JackTokenizer/JackTokenizer.py" afterPath="$PROJECT_DIR$/projects/10/JackTokenizer/JackTokenizer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/10/JackTokenizer/sym_table.py" afterPath="$PROJECT_DIR$/projects/10/JackTokenizer/sym_table.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,9 +183,11 @@
     <SUITE FILE_PATH="coverage/nand2tetris$BasicTest__ex_7_.coverage" NAME="BasicTest (ex 7) Coverage Results" MODIFIED="1512893642494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$Assembler.coverage" NAME="Assembler Coverage Results" MODIFIED="1512480283144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/06/the assembler" />
     <SUITE FILE_PATH="coverage/nand2tetris$I_SimpleFunction.coverage" NAME="I SimpleFunction Coverage Results" MODIFIED="1512986518466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
-    <SUITE FILE_PATH="coverage/nand2tetris$JackAnalyzer.coverage" NAME="JackAnalyzer Coverage Results" MODIFIED="1513936769919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/10/JackTokenizer" />
+    <SUITE FILE_PATH="coverage/nand2tetris$JackAnalyzer.coverage" NAME="JackAnalyzer Coverage Results" MODIFIED="1513943987714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/10/JackTokenizer" />
     <SUITE FILE_PATH="coverage/nand2tetris$II_NestedCall.coverage" NAME="II NestedCall Coverage Results" MODIFIED="1512986754783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$must_pass_files.coverage" NAME="must pass files Coverage Results" MODIFIED="1513944572071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/10/JackTokenizer" />
     <SUITE FILE_PATH="coverage/nand2tetris$CodeWriter.coverage" NAME="CodeWriter Coverage Results" MODIFIED="1512480293079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$single_file.coverage" NAME="single file Coverage Results" MODIFIED="1513945582777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/10/JackTokenizer" />
     <SUITE FILE_PATH="coverage/nand2tetris$PointerTest__ex_7_.coverage" NAME="PointerTest (ex 7) Coverage Results" MODIFIED="1512893425007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$II_StaticsTest.coverage" NAME="II StaticsTest Coverage Results" MODIFIED="1512988662902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand$Assembler.coverage" NAME="Assembler Coverage Results" MODIFIED="1511279515754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/06/the assembler" />
@@ -41,11 +198,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CompilationEngineXML.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CompilationEngineXML.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/CompilationEngineXML.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16830">
-              <caret line="765" column="32" lean-forward="false" selection-start-line="765" selection-start-column="32" selection-end-line="765" selection-end-column="32" />
+            <state relative-caret-position="11890">
+              <caret line="560" column="0" lean-forward="false" selection-start-line="560" selection-start-column="0" selection-end-line="560" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -54,8 +211,8 @@
       <file leaf-file-name="JackAnalyzer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/JackAnalyzer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+            <state relative-caret-position="381">
+              <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -63,26 +220,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Parser.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/Parser.py">
+      <file leaf-file-name="JackTokenizer.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/JackTokenizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="691">
-              <caret line="140" column="0" lean-forward="true" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+            <state relative-caret-position="475">
+              <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+              <folding>
+                <element signature="e#323#332#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="re.py" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/lib/python3.5/re.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="223" column="0" lean-forward="false" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JackTokenizer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/JackTokenizer.py">
+      <file leaf-file-name="sre_compile.py" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/lib/python3.5/sre_compile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="150" column="0" lean-forward="false" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
-              <folding>
-                <element signature="e#323#332#0" expanded="true" />
-                <marker date="1513936953028" expanded="true" signature="377:1287" ph="..." />
-                <marker date="1513936953028" expanded="true" signature="1169:1287" ph="..." />
-              </folding>
+            <state relative-caret-position="167">
+              <caret line="533" column="0" lean-forward="false" selection-start-line="533" selection-start-column="0" selection-end-line="533" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,8 +255,8 @@
       <file leaf-file-name="sym_table.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/sym_table.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="105" column="20" lean-forward="false" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
+            <state relative-caret-position="218">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -108,13 +273,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>write_l</find>
-      <find>return_</find>
-      <find>MA=</find>
-      <find>M=M+1</find>
-      <find>&quot;)</find>
-      <find>A=A-1</find>
-      <find>A=M\nM=D</find>
       <find>\\\\</find>
       <find>push_label</find>
       <find>sys</find>
@@ -138,6 +296,13 @@
       <find>emp</find>
       <find>,&quot;</find>
       <find>letS</find>
+      <find>classVarDec</find>
+      <find>parameterL</find>
+      <find>term&quot;</find>
+      <find>[</find>
+      <find>&quot;term</find>
+      <find>invali</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>type</replace>
@@ -176,10 +341,10 @@
         <option value="$PROJECT_DIR$/projects/10/JackTokenizer/README" />
         <option value="$PROJECT_DIR$/projects/10/JackTokenizer/CompilationEngineVM.py" />
         <option value="$PROJECT_DIR$/projects/10/JackTokenizer/symbol_table.py" />
-        <option value="$PROJECT_DIR$/projects/10/JackTokenizer/sym_table.py" />
-        <option value="$PROJECT_DIR$/projects/10/JackTokenizer/JackTokenizer.py" />
-        <option value="$PROJECT_DIR$/projects/10/JackTokenizer/JackAnalyzer.py" />
         <option value="$PROJECT_DIR$/projects/10/JackTokenizer/CompilationEngineXML.py" />
+        <option value="$PROJECT_DIR$/projects/10/JackTokenizer/sym_table.py" />
+        <option value="$PROJECT_DIR$/projects/10/JackTokenizer/JackAnalyzer.py" />
+        <option value="$PROJECT_DIR$/projects/10/JackTokenizer/JackTokenizer.py" />
       </list>
     </option>
   </component>
@@ -235,7 +400,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -259,12 +423,13 @@
               <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
               <item name="projects" type="462c0819:PsiDirectoryNode" />
               <item name="10" type="462c0819:PsiDirectoryNode" />
-              <item name="JackTokenizer" type="462c0819:PsiDirectoryNode" />
+              <item name="hardFiles" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -294,7 +459,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/JackTokenizer/CompilationEngineXML.py</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/JackTokenizer/JackTokenizer.py</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
@@ -403,25 +567,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.JackAnalyzer">
-    <configuration name="JackAnalyzer" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projects/10/JackTokenizer" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="nand2tetris" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/10/JackTokenizer/JackAnalyzer.py" />
-      <option name="PARAMETERS" value="$PROJECT_DIR$/projects/10/ExpressionLessSquare" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
+  <component name="RunManager" selected="Python.single file">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -440,9 +586,68 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="hardFiles" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projects/10/JackTokenizer" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="nand2tetris" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/10/JackTokenizer/JackAnalyzer.py" />
+      <option name="PARAMETERS" value="$PROJECT_DIR$/projects/10/hardFiles" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="must pass files" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projects/10/JackTokenizer" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="nand2tetris" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/10/JackTokenizer/JackAnalyzer.py" />
+      <option name="PARAMETERS" value="$PROJECT_DIR$/projects/10/mustPassFiles" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="single file" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projects/10/JackTokenizer" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="nand2tetris" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/10/JackTokenizer/JackAnalyzer.py" />
+      <option name="PARAMETERS" value="$PROJECT_DIR$/projects/10/mustPassFiles/MainFruit.jack" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Python.must pass files" />
+      <item index="1" class="java.lang.String" itemvalue="Python.single file" />
+      <item index="2" class="java.lang.String" itemvalue="Python.hardFiles" />
+    </list>
     <recent_temporary>
       <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.JackAnalyzer" />
+        <item index="0" class="java.lang.String" itemvalue="Python.hardFiles" />
       </list>
     </recent_temporary>
   </component>
@@ -649,7 +854,21 @@
       <option name="project" value="LOCAL" />
       <updated>1513936814649</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="fixed back xmlcopiler">
+      <created>1513937017593</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1513937017593</updated>
+    </task>
+    <task id="LOCAL-00029" summary="more xml fixes">
+      <created>1513940429131</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1513940429131</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TodoView">
@@ -663,15 +882,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="0" width="960" height="1048" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26855895" sideWeight="0.4961915" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26855895" sideWeight="0.4961915" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23177366" sideWeight="0.50873363" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23177366" sideWeight="0.51310045" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32861805" sideWeight="0.49563318" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.49563318" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23177366" sideWeight="0.49126637" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23177366" sideWeight="0.48689955" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26855895" sideWeight="0.5038085" order="2" side_tool="true" content_ui="tabs" />
@@ -730,8 +948,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed up assuming ; implies jump" />
-    <MESSAGE value="nice and neat &#10; assuming ; implies jump" />
     <MESSAGE value="fixed adressing mistake" />
     <MESSAGE value="fixed structure" />
     <MESSAGE value="More work" />
@@ -754,10 +970,30 @@
     <MESSAGE value="josh work" />
     <MESSAGE value="Push that managaes to do the first main well enough&#10;&#10;&#10;- Aya - Linenum for debugging&#10;- Josh  - XML format for debugging and prettiness&#10;&#10;- Then fimish it" />
     <MESSAGE value="pushed small fixes to compiler" />
-    <option name="LAST_COMMIT_MESSAGE" value="pushed small fixes to compiler" />
+    <MESSAGE value="fixed back xmlcopiler" />
+    <MESSAGE value="more xml fixes" />
+    <MESSAGE value="added" />
+    <option name="LAST_COMMIT_MESSAGE" value="added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/projects/10/JackTokenizer/JackAnalyzer.py</url>
+          <line>42</line>
+          <option name="timeStamp" value="126" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/projects/10/JackTokenizer/CompilationEngineXML.py</url>
+          <line>527</line>
+          <option name="timeStamp" value="127" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/projects/10/JackTokenizer/JackTokenizer.py</url>
+          <line>214</line>
+          <option name="timeStamp" value="128" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -765,31 +1001,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="107" />
+      <option name="time" value="129" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/JackTokenizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3146">
-          <caret line="143" column="11" lean-forward="true" selection-start-line="143" selection-start-column="11" selection-end-line="143" selection-end-column="11" />
-          <folding>
-            <element signature="e#323#332#0" expanded="true" />
-            <marker date="1513936953028" expanded="true" signature="377:1287" ph="..." />
-            <marker date="1513936953028" expanded="true" signature="1169:1287" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/CompilationEngineXML.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/JackAnalyzer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -806,8 +1022,6 @@
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="e#323#332#0" expanded="true" />
-            <marker date="1513936953028" expanded="true" signature="377:1287" ph="..." />
-            <marker date="1513936953028" expanded="true" signature="1169:1287" ph="..." />
           </folding>
         </state>
       </provider>
@@ -857,8 +1071,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="74" />
           <folding>
             <element signature="e#323#332#0" expanded="true" />
-            <marker date="1513936953028" expanded="true" signature="377:1287" ph="..." />
-            <marker date="1513936953028" expanded="true" signature="1169:1287" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1062,34 +1274,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python3.5/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="310" column="0" lean-forward="false" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/JackTokenizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="150" column="0" lean-forward="false" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
-          <folding>
-            <element signature="e#323#332#0" expanded="true" />
-            <marker date="1513936953028" expanded="true" signature="377:1287" ph="..." />
-            <marker date="1513936953028" expanded="true" signature="1169:1287" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/sym_table.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="105" column="20" lean-forward="false" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///tmp/.pycharm-jherskow/system/python_stubs/-1247971764/lxml/etree/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -1100,27 +1284,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/Parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="691">
+        <state relative-caret-position="3014">
           <caret line="140" column="0" lean-forward="true" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.5/sre_compile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="533" column="0" lean-forward="false" selection-start-line="533" selection-start-column="0" selection-end-line="533" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.5/re.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="223" column="0" lean-forward="false" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.5/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="310" column="0" lean-forward="false" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/sym_table.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/CompilationEngineXML.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11890">
+          <caret line="560" column="0" lean-forward="false" selection-start-line="560" selection-start-column="0" selection-end-line="560" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/JackAnalyzer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+        <state relative-caret-position="381">
+          <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/CompilationEngineXML.py">
+    <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/JackTokenizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16830">
-          <caret line="765" column="32" lean-forward="false" selection-start-line="765" selection-start-column="32" selection-end-line="765" selection-end-column="32" />
-          <folding />
+        <state relative-caret-position="475">
+          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="e#323#332#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

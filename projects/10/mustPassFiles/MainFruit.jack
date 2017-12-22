@@ -1,0 +1,301 @@
+class MainFruit {
+
+	static Array fruits;
+	static int arrayLength, bombsTaken, fruitsDropped, fruitsTaken, points, newFruitCounter, seed;
+	static String exitReason;
+	
+	static int MAX_ARRAY_SIZE, MAX_BOMBS_TAKEN, MAX_FRUITS_DROPPED;
+	
+	//has the game ended?
+	/* function boolean isContinue() {
+		//user exit
+		if(Keyboard.keyPressed()=49) {
+			let exitReason = "You chose to exit the game.";	 
+			return false;
+		}
+		if (bombsTaken=MAX_BOMBS_TAKEN) {
+			do Screen.drawRectangle(0,0,511,255);		
+			do Sys.wait(400);	
+			do Screen.clearScreen();
+			do Sys.wait(100);	
+			do Screen.drawRectangle(0,0,511,255);			
+			do Sys.wait(400);	
+			do Screen.clearScreen();
+	*/ /*		do Sys.wait(100);	
+			do Screen.drawRectangle(0,0,511,255);
+			do Sys.wait(400);	
+			do Screen.clearScreen();
+			let exitReason = "You lost. You took a bomb.";	 
+			return false;
+		}
+		if (fruitsDropped=MAX_FRUITS_DROPPED) {
+			let exitReason = "You lost. Too many fruits dropped.";	 
+			return false;
+		}
+		if((points>32000)|(points<0)) {
+			let exitReason = "You Won the Game!";	 
+			return false;
+		}
+		return true;
+	}
+*/
+
+/*	//welcome screen
+	function void welcomeScreen() {
+		var String output;
+		var int line, col, readKey;
+		let col = 0;
+		let line = 5;
+		do Screen.clearScreen();
+		do Output.moveCursor(line,15);
+		let output = "Welcome to Fruit Ninja";
+		do Output.printString(output);
+		do output.dispose();
+		let line = line + 1;
+		let line = line + 1;
+		do Output.moveCursor(line,col);
+		let output = "Rules:";
+		do Output.printString(output);
+		do output.dispose();
+		let line = line + 1;
+		do Output.moveCursor(line,col);
+		let output = "1) Take only the fruit, by typing letters written inside them.";
+		do Output.printString(output);
+		do output.dispose();
+	*/ /*	let line = line + 1;
+		do Output.moveCursor(line,col);
+		let output = "2) Do not take bombs, which have a thicker shell.";
+		do Output.printString(output);
+		do output.dispose();
+		let line = line + 1;
+		do Output.moveCursor(line,col);
+		let output = "3) The game is over if you let 3 fruit drop or take a bomb.";
+		do Output.printString(output);
+		do output.dispose();
+		let line = line + 1;
+		do Output.moveCursor(line,col);
+		let output = "4) To exit at any time, press the '1' key.";
+		do Output.printString(output);
+*/
+/*
+		do output.dispose();
+		let line = line + 1;
+		let line = line + 1;
+		do Output.moveCursor(line,12);
+		let output = "To continue, press any key: ";
+		do Output.printString(output);
+		do output.dispose();
+		let readKey = 0;
+		let seed = 0;
+		while (readKey=0) {
+			let readKey = Keyboard.keyPressed();
+			let seed = seed+1;			
+		}
+		let seed = seed+readKey;
+		do Random.init(seed);
+		do Screen.clearScreen();
+		return;
+
+	}
+*/
+/*	
+	//initialize game
+	function void init() {
+		//initialize
+		do Main.welcomeScreen();
+		do Screen.clearScreen();
+		let MAX_ARRAY_SIZE = 10;
+		let MAX_BOMBS_TAKEN = 1;
+		let MAX_FRUITS_DROPPED = 3;
+		let arrayLength = 0;
+		let bombsTaken = 0;
+		let fruitsDropped = 0;
+		let fruitsTaken = 0;
+		let points = 0;
+		let newFruitCounter = 0;
+		let fruits = Array.new(MAX_ARRAY_SIZE);
+		return;
+	}
+*/	/*
+	//add new fruit to game
+	function void addFruit() {
+		var Fruit newFruit, tempFruit;
+		var int i;
+		let newFruit = Fruit.new();
+		//check it doesn't yet exist
+		let i = 0;
+		
+		while(i<arrayLength) {
+			let tempFruit = fruits[i];
+			if(newFruit.getLetter()=tempFruit.getLetter()) {
+				//dispose
+				do newFruit.dispose();
+				return;
+			}
+			let i = i+1;
+		}
+		//add fruit to array
+		let fruits[arrayLength] = newFruit;
+		let arrayLength = arrayLength+1;
+		return;
+	}
+*/
+/*	
+	//remove fruit
+	function void removeFruit(int i) {
+		//dispose
+		var Fruit tempFruit;
+		let tempFruit = fruits[i];
+		do tempFruit.dispose();
+		let tempFruit = fruits[arrayLength-1];
+		let fruits[i] = tempFruit;
+		let arrayLength = arrayLength-1;
+		return;
+	}
+*/	
+	//get user input
+	function void readInput() {
+		var Fruit tempFruit;
+		var char curr_key, that_letter;
+		var int i;
+		let curr_key = Keyboard.keyPressed();
+		do Random.changeSeed(curr_key);
+		let i = 0;
+		while(i<arrayLength) {
+			let tempFruit = fruits[i];
+			let that_letter = tempFruit.getLetter();
+			if(that_letter=curr_key) {
+				if(tempFruit.isBomb()) {
+					let bombsTaken = bombsTaken+1;
+					let points = points-300;
+				}
+				else {
+					let fruitsTaken = fruitsTaken + 1;
+					let points = points+(tempFruit.getLetter()-32);
+				}
+				do Main.removeFruit(i);
+				return;
+				
+			}
+			let i = i+1;
+		}
+		return;
+	}
+
+	//draw current game situation
+	function void drawScreen() {
+		var Fruit tempFruit;
+		var int i;
+		var boolean dropped;
+		var String mess;
+		do Screen.clearScreen();
+		//draw statistics
+		do Output.moveCursor(1, 1);
+		let mess = "Points: ";
+		do Output.printString(mess);
+		do mess.dispose();
+		do Output.printInt(points);
+		let mess = " |  Bombs taken: ";
+		do Output.printString(mess);
+		do mess.dispose();
+		do Output.printInt(bombsTaken);
+		let mess = " |  Fruits dropped: ";
+		do Output.printString(mess);
+		do mess.dispose();
+		do Output.printInt(fruitsDropped);
+		//draw fruits
+		let i = 0;
+		while(i<arrayLength) {
+			let tempFruit = fruits[i];
+			let dropped = tempFruit.draw();
+			if(dropped) {
+				if(~(tempFruit.isBomb())) {
+					let fruitsDropped = fruitsDropped + 1;
+				}
+				do Main.removeFruit(i);
+			}
+			let i = i+1;
+		}
+		
+		
+		return;
+	}
+
+
+	//in case game is over
+	function boolean gameOver() {
+		var String output;
+		var char playAgain;
+		let playAgain = 0;
+		do Screen.clearScreen();
+		do Output.moveCursor(7,12);
+		let output = "GAME OVER";
+		do Output.printString(output);
+		do output.dispose();
+		do Output.moveCursor(8,12);
+		do Output.printString(exitReason);
+		do Output.moveCursor(9,12);
+		let output = "You had ";
+		do Output.printString(output);
+		do output.dispose();
+		do Output.printInt(points);
+		let output = " points and caught ";
+		do Output.printString(output);
+		do output.dispose();
+		do Output.printInt(fruitsTaken);
+		let output = " fruits.";
+		do Output.printString(output);
+		do output.dispose();
+		do Output.moveCursor(10,12);
+		let output = "Would you like to play again? Y/N";
+		do Output.printString(output);
+		do output.dispose();
+		while(true){		
+			let playAgain = Keyboard.keyPressed();
+			if(playAgain=89) {
+				do Sys.wait(200);
+				return true;
+			}
+			if(playAgain=78) {				
+				return false;
+			}
+		}
+		return true;
+	}
+		
+	//main method
+	function void main() {
+		var boolean playAgain;
+		var int wait;
+		var String output;
+		let playAgain = true;
+		let wait = 150;
+		while(playAgain) {
+			do Main.init();
+			while(Main.isContinue()){
+				if((arrayLength<MAX_ARRAY_SIZE)&(Random.mod(newFruitCounter, 4)=0)) {
+					do Main.addFruit();
+				}
+				do Main.readInput();
+				do Main.drawScreen();
+				do Sys.wait(wait);
+				if(wait>100) {
+					let wait = 150-Math.divide(points, 130);
+				}
+				let newFruitCounter = newFruitCounter + 1;
+			}
+			do Main.drawScreen();
+			let playAgain = Main.gameOver();
+			do exitReason.dispose();
+			while(arrayLength>0) {
+				do Main.removeFruit(arrayLength-1);
+			}
+		}
+		do Screen.clearScreen();
+		do Output.moveCursor(7,26);
+		let output = "GOODBYE!";
+		do Output.printString(output);
+		do output.dispose();
+		return;
+	}
+}

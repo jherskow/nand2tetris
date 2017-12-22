@@ -1,0 +1,230 @@
+function RapidRollGame.new 0
+push constant 6
+call Memory.alloc 1
+pop pointer 0
+call PlatformsList.new 0
+pop this 5
+push this 5
+call PlatformsGenerator.new 1
+pop this 3
+call RandomNumbersGenerator.new 0
+pop this 4
+push constant 5
+push pointer 0
+call Ball.new 2
+pop this 0
+push constant 0
+pop this 2
+push pointer 0
+return
+function RapidRollGame.run 6
+push argument 0
+pop pointer 0
+push constant 0
+pop local 1
+push constant 0
+pop local 2
+label WHILE_EXP0
+push local 3
+not
+not
+if-goto WHILE_END0
+push this 0
+call Ball.isOnPlatform 1
+pop temp 0
+push this 0
+push local 4
+call Ball.move 2
+pop temp 0
+push local 1
+push constant 1
+add
+pop local 1
+label WHILE_EXP1
+push local 0
+push constant 0
+eq
+not
+if-goto WHILE_END1
+push local 1
+push constant 1
+add
+pop local 1
+push this 5
+call PlatformsList.moveUp 1
+pop temp 0
+push pointer 0
+push local 1
+push local 5
+call RapidRollGame.makePlatform 3
+pop temp 0
+push constant 0
+pop local 4
+call Keyboard.keyPressed 0
+pop local 0
+push this 0
+call Ball.isOnPlatform 1
+pop temp 0
+push this 0
+push local 4
+call Ball.move 2
+pop temp 0
+goto WHILE_EXP1
+label WHILE_END1
+push pointer 0
+push local 1
+push local 5
+call RapidRollGame.makePlatform 3
+pop temp 0
+push local 2
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 4
+push local 1
+push constant 10
+call RandomNumbersGenerator.modulo 3
+pop local 5
+push this 3
+push local 5
+call PlatformsGenerator.setSeed 2
+pop temp 0
+push constant 0
+not
+pop local 2
+label IF_FALSE0
+push local 1
+pop local 5
+push pointer 0
+push local 1
+push local 5
+call RapidRollGame.makePlatform 3
+pop temp 0
+push local 0
+push constant 130
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 1
+pop local 4
+push this 0
+push local 4
+call Ball.move 2
+pop temp 0
+label IF_FALSE1
+push local 0
+push constant 132
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 2
+pop local 4
+push this 0
+push local 4
+call Ball.move 2
+pop temp 0
+label IF_FALSE2
+label WHILE_EXP2
+push local 0
+push constant 0
+eq
+not
+not
+if-goto WHILE_END2
+push local 1
+push constant 1
+add
+pop local 1
+push pointer 0
+push local 1
+push local 5
+call RapidRollGame.makePlatform 3
+pop temp 0
+push this 5
+call PlatformsList.moveUp 1
+pop temp 0
+call Keyboard.keyPressed 0
+pop local 0
+push this 0
+call Ball.isOnPlatform 1
+pop temp 0
+push this 0
+push local 4
+call Ball.move 2
+pop temp 0
+goto WHILE_EXP2
+label WHILE_END2
+push pointer 0
+push local 1
+push local 5
+call RapidRollGame.makePlatform 3
+pop temp 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function RapidRollGame.makePlatform 2
+push argument 0
+pop pointer 0
+push this 4
+push argument 2
+push constant 10
+push constant 240
+call RandomNumbersGenerator.generateRandomNumber 4
+pop local 0
+push this 4
+push argument 1
+push constant 100
+call RandomNumbersGenerator.modulo 3
+pop local 1
+push local 1
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 3
+push local 0
+call PlatformsGenerator.setSeed 2
+pop temp 0
+push pointer 0
+push this 3
+call PlatformsGenerator.generatePlatform 1
+call RapidRollGame.addPlatform 2
+pop temp 0
+label IF_FALSE0
+push constant 0
+return
+function RapidRollGame.gameOver 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+pop this 2
+push constant 0
+return
+function RapidRollGame.addPlatform 0
+push argument 0
+pop pointer 0
+push this 5
+push argument 1
+call PlatformsList.add 2
+pop temp 0
+push constant 0
+return
+function RapidRollGame.getPlatformsList 0
+push argument 0
+pop pointer 0
+push this 5
+return
+function RapidRollGame.isOnPlatform 0
+push argument 0
+pop pointer 0
+push this 5
+push argument 1
+push argument 2
+call PlatformsList.isOnPlatform 3
+return

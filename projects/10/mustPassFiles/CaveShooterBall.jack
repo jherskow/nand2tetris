@@ -1,0 +1,190 @@
+/*
+*
+* Class: Ball.jack
+*
+* This class represents the ball shoot by the players
+*
+*/
+
+class CaveShooterBall {
+
+	// Current X position
+	field int _curX;
+	// Current Y position
+	field int _curY;
+	// Current X movement vector
+	field Rational _dirX;
+	// Current Y movement vector
+	field Rational _dirY;
+	// Gravity effect holder
+	field SlowAppender _gravity;
+	// Wind effect holder
+	field SlowAppender _wind;
+	field boolean _windDirection;
+	field int _windPower;
+	// Direction: Right to left (true) or left to right (false)
+	field boolean _attackDirection;
+	// Handle the fractions of the ball's speed
+	field SlowAppender _dirXFractionAppender;
+	field SlowAppender _dirYFractionAppender;
+	field int _dirXFraction;
+	field int _dirYFraction;
+	
+	/*
+	* Constructor. Get the start position and the speed
+	*/
+	constructor CaveShooterBall new(int startX, int startY, int dirX, int dirY, int windPower) {
+		let _curX = startX;
+		let _curY = startY;
+		let _gravity = SlowAppender.new(10);
+		let _dirX = Math.divide(dirX, 10);
+		let _dirY = Math.divide(dirY, 10);
+		let _dirXFraction = Utils.modulo(Math.abs(dirX), 10);
+		let _dirYFraction = Utils.modulo(dirY, 10);
+		let _dirXFractionAppender = SlowAppender.new(10);
+		let _dirYFractionAppender = SlowAppender.new(10);	
+		let _wind = SlowAppender.new(50);
+		let _windPower = Math.abs(windPower);
+		let _attackDirection = (dirX > 0);
+		let _windDirection = (windPower > 0);
+		if(~_attackDirection) {
+			let _windDirection = ~_windDirection;
+		}	
+		return this;
+	}
+		
+	/*
+	* Dispose of this object
+	*/
+	method void dispose() {
+		do _gravity.dispose();
+		do Memory.deAlloc(this);
+		return;
+	}
+
+	/*
+	* Draw the ball
+	*/	
+	method void draw() {
+		if(isDrawBall()) {
+			do Screen.drawCircle(_curX, _curY, 1);
+		}
+		return;
+	}
+	
+	/*
+	* Getter for the X position
+	*/
+	method int getX() {
+		return _curX;
+	}
+
+	/*
+	* Getter for the Y position
+	*/	
+	method int getY() {
+		return _curY;
+	}
+		
+	/*
+	* Return true iff the ball is within the screen borders
+	*/	
+	method boolean isDrawBall() {
+		return ((~isReachedEdge()) & (_curY > (Surface.getUpperDivider() + 1)));
+	}
+
+	/*
+	* Return true iff the ball coordinates are safe for drawing the ball explosion
+	*/		
+	method boolean isDrawExplosion() {
+		return (~((_curX < 5) | (_curX > 507) | (_curY < (Surface.getUpperDivider() + 1))));
+	}
+
+	/*
+	* Move the ball
+	*/
+	method void move() {
+		let _curX = _curX + _dirX;
+		if (_attackDirection) {
+			let _curX = _curX + _dirXFractionAppender.getIntValue();
+		} else {
+			let _curX = _curX - _dirXFractionAppender.getIntValue();
+		}
+		let _curY = _curY - _dirY;
+		let _curY = _curY - _dirYFractionAppender.getIntValue();
+		do _dirXFractionAppender.addSlices(_dirXFraction);
+		do _dirYFractionAppender.addSlices(_dirYFraction);		
+		return;
+	}
+
+	/*
+	* Affect the ball movement by the gravity
+	*/	
+	method void affectByGravity() {
+		let _dirY = _dirY - _gravity.getIntValue();
+		do _gravity.addSlices(1);
+		return;
+	}
+	
+	/*
+	* Affect the ball movement by the wind
+	*/
+	method void affectByWind() {
+		if(_windDirection) {
+			let _curX = _curX + _wind.getIntValue();
+		}
+		else {
+			let _curX = _curX - _wind.getIntValue();
+		}
+		do _wind.addSlices(_windPower);
+		return;
+	}
+	
+	/*
+	* Return true iff the ball reached any of the edges: lower, right, or left.
+	*/
+	method boolean isReachedEdge() {
+		return ((_curX < 1) | (_curX > 510) | (_curY > (Surface.getLowerDivider())));
+	}
+
+	/*
+	* If the ball is inside the screen, draw an explosion in the ball location
+	*/	
+	method void drawExplosion() {
+		var int i;
+		if(~(isDrawExplosion())) {
+			// If the ball is outside the screen - return
+			return;
+		}
+		if(_curY > Surface.getLowerDivider()) {
+			let _curY = Surface.getLowerDivider();
+		}
+		let i = 0;
+		while(i < 5) {
+			do Screen.drawCircle(_curX, _curY, i);
+			do Sys.wait(30);
+			let i = i + 1;
+		}
+		let i = 0;
+		do Sys.wait(50);
+		do Screen.setColor(false);
+		while(i < 5) {
+			do Screen.drawCircle(_curX, _curY, i);
+			do Sys.wait(20);
+			let i = i + 1;
+		}
+		do Screen.setColor(true);
+		return;
+	}
+	
+	/*
+	* Erases the ball
+	*/
+	method void clear() {
+		do Screen.setColor(false);
+		do draw();
+		do Screen.setColor(true);
+		return;
+	}
+
+}

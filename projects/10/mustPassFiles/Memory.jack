@@ -1,0 +1,78 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/12/Memory.jack
+
+/**
+ * Memory operations library.
+ */ 
+class Memory {
+
+	static int freeListBase;
+
+	static Array memory;
+	
+	static int HEAP_BASE;
+	static int HEAP_MAX;
+	static int END_OF_LIST;
+
+    /** Initializes memory parameters. */
+    function void init() {
+    	let memory = 0;
+    	let HEAP_BASE = 2048;
+    	let HEAP_MAX = 16383;
+    	let END_OF_LIST = -1;
+    	let freeListBase = HEAP_BASE;
+    	let memory[freeListBase] = (HEAP_MAX - HEAP_BASE);
+    	let memory[freeListBase + 1] = END_OF_LIST;
+    	return;
+    }
+
+    /** Returns the value of the main memory at this address. */
+    function int peek(int address) {
+    	return memory[address];
+    }
+
+    /** Sets the value of the main memory at this address
+     *  to the given value. */
+    function void poke(int address, int value) {
+    	let memory[address] = value;
+    	return;
+    }
+
+    /** finds and allocates from the heap a memory block of the 
+     *  specified size and returns a reference to its base address. */
+    function int alloc(int size) {
+    	var int i, currentNode, prevNode;
+    	var int returnAddress, temp;
+    	let returnAddress = -1;
+    	let prevNode = freeListBase;
+    	let currentNode = freeListBase;
+        while (~(currentNode = END_OF_LIST) & ~(memory[currentNode] > size)) {
+            // Iterates over the list until suitable memory block is found
+            let prevNode = currentNode;
+            let currentNode = memory[currentNode + 1];
+        }
+        if (~(currentNode = END_OF_LIST)) {	// Free block found
+			if (memory[currentNode] < (size + 3)) {
+				let memory[prevNode + 1] = memory[currentNode + 1];	
+				let memory[currentNode] = size + 1;	// Mark the length for deAlloc
+				let returnAddress = currentNode + 1;			
+			} else {
+				let memory[currentNode] = memory[currentNode] - size - 1;
+				let returnAddress = currentNode + memory[currentNode];
+				let memory[returnAddress - 1] = (size + 1);
+			}
+        } 
+    	return returnAddress;
+
+    }
+
+    /** De-allocates the given object and frees its space. */
+    function void deAlloc(int object) {
+        let memory[object] = memory[(object - 1)];
+    	let memory[(object + 1)] = memory[(freeListBase + 1)];
+    	let memory[(freeListBase + 1)] = object;
+    	return;
+    }    
+}

@@ -1,0 +1,115 @@
+class RapidRollGame {
+
+	field Ball myBall;
+	field int scores;
+	field boolean gameOver;
+	field PlatformsGenerator platsGenerator;
+	field RandomNumbersGenerator numsGenerator;
+	field PlatformsList platformsList; 
+	
+	//ctor:
+	constructor RapidRollGame new() {
+		let platformsList = PlatformsList.new();		
+		let platsGenerator = PlatformsGenerator.new(platformsList);
+		let numsGenerator = RandomNumbersGenerator.new();
+		let myBall = Ball.new(5,this); 
+		let gameOver = false;
+		return this;
+	}
+
+	method void run() {
+
+		var char key;
+		var int clockCycle;
+		var boolean seedTaken;
+		var boolean gameOver;
+		var int direction;
+		var int randomSeed;
+		
+		let clockCycle = 0;
+		let seedTaken = false;
+		// 0=none,1=left,2=right
+		while (~gameOver) {
+			do myBall.isOnPlatform();		
+			do myBall.move(direction);
+			let clockCycle = clockCycle+1;
+            		while (key = 0) {
+		      		let clockCycle = clockCycle+1;
+      				do platformsList.moveUp();
+            			do makePlatform(clockCycle, randomSeed);
+				let direction=0;
+				let key = Keyboard.keyPressed();
+				do myBall.isOnPlatform();
+				do myBall.move(direction);
+			}
+			do makePlatform(clockCycle, randomSeed);
+			//take the seed now, after the first pressing on keyboard:
+			// create a random number by taking the seed as the first time of pressing on the keyboard 
+	    		// waits for a key to be pressed.
+			if (~seedTaken) {			
+				let randomSeed=numsGenerator.modulo(clockCycle,10);
+				do platsGenerator.setSeed(randomSeed);
+				let seedTaken = true;
+			}
+			let randomSeed=clockCycle;
+			do makePlatform(clockCycle, randomSeed);
+			
+			if (key = 130) {
+				let direction=1;
+				do myBall.move(direction);			
+			}
+			if (key = 132) {
+				let direction=2;
+				do myBall.move(direction);
+			}
+
+			// waits for the key to be released.
+			while (~(key = 0)) {
+				let clockCycle = clockCycle+1;
+				do makePlatform(clockCycle, randomSeed);
+				do platformsList.moveUp();
+				let key = Keyboard.keyPressed();
+				//change direct continuesly, without discard the keyboard
+				do myBall.isOnPlatform();		
+				do myBall.move(direction);
+			}
+			do makePlatform(clockCycle, randomSeed);
+			
+		}
+		return;
+	}
+	
+	method void makePlatform(int clockCycle,int randomSeed) {
+		var int platformGenereateTime;
+		var int toGenerate;
+		let platformGenereateTime = numsGenerator.generateRandomNumber(randomSeed,10,240);
+		let toGenerate = numsGenerator.modulo(clockCycle,100);
+		if (toGenerate=0) {
+			do platsGenerator.setSeed(platformGenereateTime);
+			do addPlatform(platsGenerator.generatePlatform());
+		}
+		return;
+	}
+	
+	method void gameOver() {
+		let gameOver=true;
+		return;
+	}
+	
+	method void addPlatform(Platform platform) {
+		do platformsList.add(platform);
+		return;
+	}
+	
+	method PlatformsList getPlatformsList() {
+		return platformsList;
+	}
+
+	method boolean isOnPlatform(int xCoordinate,int yCoordinate) {
+		return platformsList.isOnPlatform(xCoordinate,yCoordinate); 
+	}
+	
+	
+
+
+}

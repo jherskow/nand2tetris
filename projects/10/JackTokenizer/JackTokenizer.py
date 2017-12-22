@@ -62,26 +62,30 @@ class JackTokenizer:
         string_word = ""
         for word in temp:
             new_word = ""
-            if "\"" in word and string_word=="":
-                string_word+=word
-                continue
             for l in word:
-                if l in JackTokenizer.symbols:  # if the word have a symbol
-                    if string_word != "" and new_word != "" and "\"" in new_word:
-                        string_word+=" " +new_word
-                        tokens.append(string_word)
-                        string_word =""
-                        new_word=""
-                    if string_word != "" and new_word != "" and "\"" not in new_word:
-                        string_word+=" " +new_word
-                        new_word=""
-                    elif  new_word != "": # first append all the words before the symbol
+                if "\"" == l and string_word=="":
+                    string_word+=l
+                elif "\"" == l and string_word!="":
+                    string_word +=l
+                    tokens.append(string_word)
+                    string_word= ""
+                elif string_word !="":
+                    string_word+=l
+                elif l in JackTokenizer.symbols:  # if the word have a symbol
+
+                    # if string_word != "" and new_word != "" and "\"" in new_word:
+                    #     string_word+=" " +new_word
+                    #     tokens.append(string_word)
+                    #     string_word =""
+                    #     new_word=""
+                    if  new_word != "": # first append all the words before the symbol
                         tokens.append(new_word)
                         new_word = ""
                     tokens.append(l)
                 else:
                     new_word += l
-
+            if string_word != "" and new_word != "" and "\"" not in new_word:
+                string_word+=" " +new_word
             if new_word != "":
                 tokens.append(new_word)
 

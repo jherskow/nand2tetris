@@ -38,9 +38,12 @@ class JackAnalyzer:
         self.output_file.close()
 
 def parse_dir(dir_path):
+    count = 0 # todo debug remove
     for f in os.listdir(dir_path):
         if f.endswith(".jack"):
             parse_file(dir_path + "/" + f)
+            count += 1
+            print("passed"+str(count)+"files\n")
 
 def parse_file(abs_path):
     analyzer = JackAnalyzer(abs_path)

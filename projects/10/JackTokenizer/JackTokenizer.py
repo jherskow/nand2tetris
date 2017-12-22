@@ -36,7 +36,7 @@ class JackTokenizer:
         file_string = input_file.read()
         file_string = self.remove_multi_comments(file_string)
         self.read_line(file_string)
-        print(self.tokens)
+        # print(self.tokens)
 
     def remove_multi_comments(self, string):
         """ removes ONLY /* */ comments from an entire file string"""
@@ -243,7 +243,6 @@ class JackTokenizer:
         """ removes single line comments from a line"""
         line = line.split("//")[0]
         line = line.strip()
-        line += "\n"
         return line
 
     # def remove_line_comment(self, line):
@@ -257,6 +256,6 @@ class JackTokenizer:
             nextLine = self.remove_line_comment(line)
             tokens = []
             if (nextLine):
-                tokens = self.get_tokens(line)
+                tokens = self.get_tokens(nextLine)
                 self.tokens += tokens
             self.tokens_num.append(len(tokens))

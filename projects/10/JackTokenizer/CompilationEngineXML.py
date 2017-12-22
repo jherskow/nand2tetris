@@ -330,7 +330,7 @@ class CompilationEngineXML:
         self.advance()
 
         # expression?
-        if self.type() != d.SYMBOL:
+        if not (self.type() == d.SYMBOL and self.symbol() == ";") :
             self.compile_expression()
 
         # ';'

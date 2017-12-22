@@ -1,516 +1,516 @@
 <class>
-  <keyword> class </keyword>
-  <identifier> PlatformsList </identifier>
-  <symbol> { </symbol>
+<keyword>class</keyword>
+<identifier>PlatformsList</identifier>
+<symbol>{</symbol>
 <classVarDec>
-  <keyword> field </keyword>
-  <identifier> Platform </identifier>
-  <identifier> first </identifier>
-  <symbol> ; </symbol>
+<keyword>field</keyword>
+<identifier>Platform</identifier>
+<identifier>first</identifier>
+<symbol>;</symbol>
 </classVarDec>
 <classVarDec>
-  <keyword> field </keyword>
-  <identifier> Platform </identifier>
-  <identifier> last </identifier>
-  <symbol> ; </symbol>
+<keyword>field</keyword>
+<identifier>Platform</identifier>
+<identifier>last</identifier>
+<symbol>;</symbol>
 </classVarDec>
 <subroutineDec>
-    <keyword> constructor </keyword>
-    <identifier> PlatformsList </identifier>
-    <identifier> new </identifier>
-    <symbol> ( </symbol>
-  <parameterList>
-    </parameterList>
-  <symbol> ) </symbol>
-  <subroutineBody>
-  <symbol> { </symbol>  
-  <statements>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> first </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <keyword> null </keyword>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> last </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <keyword> null </keyword>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <returnStatement>
-          <keyword> return </keyword>      
-        <expression>
-              <term>
-                        <keyword> this </keyword>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </returnStatement>
-    </statements>
-  <symbol> } </symbol>
-  </subroutineBody>
-  </subroutineDec>
+<keyword>constructor</keyword>
+<identifier>PlatformsList</identifier>
+<identifier>new</identifier>
+<symbol>(</symbol>
+<parameterList>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<statements>
+<letStatement>
+<keyword>let</keyword>
+<identifier>first</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<keyword>null</keyword>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>last</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<keyword>null</keyword>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<returnStatement>
+<keyword>return</keyword>
+<expression>
+<term>
+<keyword>this</keyword>
+</term>
+</expression>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
 <subroutineDec>
-    <keyword> method </keyword>
-    <keyword> void </keyword>
-    <identifier> moveUp </identifier>
-    <symbol> ( </symbol>
-  <parameterList>
-    </parameterList>
-  <symbol> ) </symbol>
-  <subroutineBody>
-  <symbol> { </symbol>  
-  <varDec>
-      <keyword> var </keyword>
-      <identifier> Platform </identifier>
-      <identifier> pointer </identifier>
-      <symbol> ; </symbol>
-    </varDec>
-  <statements>
-    <ifStatement>
-          <keyword> if </keyword>
-          <symbol> ( </symbol>      
-        <expression>
-              <term>
-                        <identifier> first </identifier>
-                      </term>
-              <symbol> = </symbol>        
-              <term>
-                        <keyword> null </keyword>
-                      </term>
-              </expression>
-        <symbol> ) </symbol>
-          <symbol> { </symbol>      
-        <statements>
-              <returnStatement>
-                        <keyword> return </keyword>
-                        <symbol> ; </symbol>
-                      </returnStatement>
-              </statements>
-        <symbol> } </symbol>
-        </ifStatement>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> pointer </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <identifier> first </identifier>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <whileStatement>
-          <keyword> while </keyword>
-          <symbol> ( </symbol>      
-        <expression>
-              <term>
-                        <identifier> pointer </identifier>
-                        <symbol> . </symbol>
-                        <identifier> hasNext </identifier>
-                        <symbol> ( </symbol>
-                      <expressionList>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        <symbol> ) </symbol>
-          <symbol> { </symbol>      
-        <statements>
-              <doStatement>
-                        <keyword> do </keyword>
-                        <identifier> pointer </identifier>
-                        <symbol> . </symbol>
-                        <identifier> moveUp </identifier>
-                        <symbol> ( </symbol>
-                      <expressionList>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                        <symbol> ; </symbol>
-                      </doStatement>
-              <letStatement>
-                      <keyword> let </keyword>
-                        <identifier> pointer </identifier>
-                        <symbol> = </symbol>          
-                      <expression>
-                                <term>
-                                              <identifier> pointer </identifier>
-                                              <symbol> . </symbol>
-                                              <identifier> getNext </identifier>
-                                              <symbol> ( </symbol>
-                                            <expressionList>
-                                            </expressionList>
-                                            <symbol> ) </symbol>
-                                            </term>
-                                </expression>
-                      <symbol> ; </symbol>
-                      </letStatement>
-              </statements>
-        <symbol> } </symbol>
-        </whileStatement>
-    <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
-        </returnStatement>
-    </statements>
-  <symbol> } </symbol>
-  </subroutineBody>
-  </subroutineDec>
+<keyword>method</keyword>
+<keyword>void</keyword>
+<identifier>moveUp</identifier>
+<symbol>(</symbol>
+<parameterList>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<varDec>
+<keyword>var</keyword>
+<identifier>Platform</identifier>
+<identifier>pointer</identifier>
+<symbol>;</symbol>
+</varDec>
+<statements>
+<ifStatement>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>first</identifier>
+</term>
+<symbol>=</symbol>
+<term>
+<keyword>null</keyword>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</ifStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>pointer</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>first</identifier>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<whileStatement>
+<keyword>while</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>pointer</identifier>
+<symbol>.</symbol>
+<identifier>hasNext</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<doStatement>
+<keyword>do</keyword>
+<identifier>pointer</identifier>
+<symbol>.</symbol>
+<identifier>moveUp</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>pointer</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>pointer</identifier>
+<symbol>.</symbol>
+<identifier>getNext</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+</statements>
+<symbol>}</symbol>
+</whileStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
 <subroutineDec>
-    <keyword> method </keyword>
-    <keyword> void </keyword>
-    <identifier> add </identifier>
-    <symbol> ( </symbol>    
-  <parameterList>
-        <identifier> Platform </identifier>
-        <identifier> newPlatform </identifier>
-      </parameterList>
-  <symbol> ) </symbol>
-  <subroutineBody>
-  <symbol> { </symbol>  
-  <statements>
-    <ifStatement>
-          <keyword> if </keyword>
-          <symbol> ( </symbol>      
-        <expression>
-              <term>
-                        <identifier> first </identifier>
-                      </term>
-              <symbol> = </symbol>        
-              <term>
-                        <keyword> null </keyword>
-                      </term>
-              </expression>
-        <symbol> ) </symbol>
-          <symbol> { </symbol>      
-        <statements>
-              <letStatement>
-                      <keyword> let </keyword>
-                        <identifier> first </identifier>
-                        <symbol> = </symbol>          
-                      <expression>
-                                <term>
-                                              <identifier> newPlatform </identifier>
-                                            </term>
-                                </expression>
-                      <symbol> ; </symbol>
-                      </letStatement>
-              <letStatement>
-                      <keyword> let </keyword>
-                        <identifier> last </identifier>
-                        <symbol> = </symbol>          
-                      <expression>
-                                <term>
-                                              <identifier> newPlatform </identifier>
-                                            </term>
-                                </expression>
-                      <symbol> ; </symbol>
-                      </letStatement>
-              <returnStatement>
-                        <keyword> return </keyword>
-                        <symbol> ; </symbol>
-                      </returnStatement>
-              </statements>
-        <symbol> } </symbol>
-        </ifStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> last </identifier>
-          <symbol> . </symbol>
-          <identifier> setNext </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <identifier> newPlatform </identifier>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> last </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <identifier> newPlatform </identifier>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
-        </returnStatement>
-    </statements>
-  <symbol> } </symbol>
-  </subroutineBody>
-  </subroutineDec>
+<keyword>method</keyword>
+<keyword>void</keyword>
+<identifier>add</identifier>
+<symbol>(</symbol>
+<parameterList>
+<identifier>Platform</identifier>
+<identifier>newPlatform</identifier>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<statements>
+<ifStatement>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>first</identifier>
+</term>
+<symbol>=</symbol>
+<term>
+<keyword>null</keyword>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<letStatement>
+<keyword>let</keyword>
+<identifier>first</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>newPlatform</identifier>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>last</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>newPlatform</identifier>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</ifStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>last</identifier>
+<symbol>.</symbol>
+<identifier>setNext</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>newPlatform</identifier>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>last</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>newPlatform</identifier>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
 <subroutineDec>
-    <keyword> method </keyword>
-    <keyword> void </keyword>
-    <identifier> removePlatform </identifier>
-    <symbol> ( </symbol>
-  <parameterList>
-    </parameterList>
-  <symbol> ) </symbol>
-  <subroutineBody>
-  <symbol> { </symbol>  
-  <statements>
-    <ifStatement>
-          <keyword> if </keyword>
-          <symbol> ( </symbol>      
-        <expression>
-              <term>
-                        <identifier> first </identifier>
-                      </term>
-              <symbol> = </symbol>        
-              <term>
-                        <keyword> null </keyword>
-                      </term>
-              </expression>
-        <symbol> ) </symbol>
-          <symbol> { </symbol>      
-        <statements>
-              <returnStatement>
-                        <keyword> return </keyword>
-                        <symbol> ; </symbol>
-                      </returnStatement>
-              </statements>
-        <symbol> } </symbol>
-        </ifStatement>
-    <ifStatement>
-          <keyword> if </keyword>
-          <symbol> ( </symbol>      
-        <expression>
-              <term>
-                        <identifier> first </identifier>
-                        <symbol> . </symbol>
-                        <identifier> hasNext </identifier>
-                        <symbol> ( </symbol>
-                      <expressionList>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        <symbol> ) </symbol>
-          <symbol> { </symbol>      
-        <statements>
-              <letStatement>
-                      <keyword> let </keyword>
-                        <identifier> first </identifier>
-                        <symbol> = </symbol>          
-                      <expression>
-                                <term>
-                                              <identifier> first </identifier>
-                                              <symbol> . </symbol>
-                                              <identifier> getNext </identifier>
-                                              <symbol> ( </symbol>
-                                            <expressionList>
-                                            </expressionList>
-                                            <symbol> ) </symbol>
-                                            </term>
-                                </expression>
-                      <symbol> ; </symbol>
-                      </letStatement>
-              <returnStatement>
-                        <keyword> return </keyword>
-                        <symbol> ; </symbol>
-                      </returnStatement>
-              </statements>
-        <symbol> } </symbol>
-        </ifStatement>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> first </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <keyword> null </keyword>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> last </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <keyword> null </keyword>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
-        </returnStatement>
-    </statements>
-  <symbol> } </symbol>
-  </subroutineBody>
-  </subroutineDec>
+<keyword>method</keyword>
+<keyword>void</keyword>
+<identifier>removePlatform</identifier>
+<symbol>(</symbol>
+<parameterList>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<statements>
+<ifStatement>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>first</identifier>
+</term>
+<symbol>=</symbol>
+<term>
+<keyword>null</keyword>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</ifStatement>
+<ifStatement>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>first</identifier>
+<symbol>.</symbol>
+<identifier>hasNext</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<letStatement>
+<keyword>let</keyword>
+<identifier>first</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>first</identifier>
+<symbol>.</symbol>
+<identifier>getNext</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</ifStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>first</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<keyword>null</keyword>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>last</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<keyword>null</keyword>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
 <subroutineDec>
-    <keyword> method </keyword>
-    <keyword> boolean </keyword>
-    <identifier> isOnPlatform </identifier>
-    <symbol> ( </symbol>    
-  <parameterList>
-        <keyword> int </keyword>
-        <identifier> xCoordinate </identifier>
-        <symbol> , </symbol>
-        <keyword> int </keyword>
-        <identifier> yCoordinate </identifier>
-      </parameterList>
-  <symbol> ) </symbol>
-  <subroutineBody>
-  <symbol> { </symbol>  
-  <varDec>
-      <keyword> var </keyword>
-      <identifier> Platform </identifier>
-      <identifier> pointer </identifier>
-      <symbol> ; </symbol>
-    </varDec>
-  <statements>
-    <ifStatement>
-          <keyword> if </keyword>
-          <symbol> ( </symbol>      
-        <expression>
-              <term>
-                        <identifier> first </identifier>
-                      </term>
-              <symbol> = </symbol>        
-              <term>
-                        <keyword> null </keyword>
-                      </term>
-              </expression>
-        <symbol> ) </symbol>
-          <symbol> { </symbol>      
-        <statements>
-              <returnStatement>
-                        <keyword> return </keyword>          
-                      <expression>
-                                <term>
-                                              <keyword> false </keyword>
-                                            </term>
-                                </expression>
-                      <symbol> ; </symbol>
-                      </returnStatement>
-              </statements>
-        <symbol> } </symbol>
-        </ifStatement>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> pointer </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <identifier> first </identifier>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <whileStatement>
-          <keyword> while </keyword>
-          <symbol> ( </symbol>      
-        <expression>
-              <term>
-                        <identifier> pointer </identifier>
-                        <symbol> . </symbol>
-                        <identifier> hasNext </identifier>
-                        <symbol> ( </symbol>
-                      <expressionList>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        <symbol> ) </symbol>
-          <symbol> { </symbol>      
-        <statements>
-              <ifStatement>
-                        <keyword> if </keyword>
-                        <symbol> ( </symbol>          
-                      <expression>
-                                <term>
-                                              <identifier> pointer </identifier>
-                                              <symbol> . </symbol>
-                                              <identifier> isOnPlatform </identifier>
-                                              <symbol> ( </symbol>
-                                            <expressionList>              
-                                            <expression>
-                                                          <term>
-                                                                              <identifier> xCoordinate </identifier>
-                                                                          </term>
-                                                          </expression>
-                                            <symbol> , </symbol>              
-                                            <expression>
-                                                          <term>
-                                                                              <identifier> yCoordinate </identifier>
-                                                                          </term>
-                                                          </expression>
-                                            </expressionList>
-                                            <symbol> ) </symbol>
-                                            </term>
-                                </expression>
-                      <symbol> ) </symbol>
-                        <symbol> { </symbol>          
-                      <statements>
-                                <returnStatement>
-                                              <keyword> return </keyword>              
-                                            <expression>
-                                                          <term>
-                                                                            <keyword> true </keyword>
-                                                                          </term>
-                                                          </expression>
-                                            <symbol> ; </symbol>
-                                            </returnStatement>
-                                </statements>
-                      <symbol> } </symbol>
-                      </ifStatement>
-              <letStatement>
-                      <keyword> let </keyword>
-                        <identifier> pointer </identifier>
-                        <symbol> = </symbol>          
-                      <expression>
-                                <term>
-                                              <identifier> pointer </identifier>
-                                              <symbol> . </symbol>
-                                              <identifier> getNext </identifier>
-                                              <symbol> ( </symbol>
-                                            <expressionList>
-                                            </expressionList>
-                                            <symbol> ) </symbol>
-                                            </term>
-                                </expression>
-                      <symbol> ; </symbol>
-                      </letStatement>
-              </statements>
-        <symbol> } </symbol>
-        </whileStatement>
-    <returnStatement>
-          <keyword> return </keyword>      
-        <expression>
-              <term>
-                        <keyword> false </keyword>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </returnStatement>
-    </statements>
-  <symbol> } </symbol>
-  </subroutineBody>
-  </subroutineDec>
-  <symbol> } </symbol>
+<keyword>method</keyword>
+<keyword>boolean</keyword>
+<identifier>isOnPlatform</identifier>
+<symbol>(</symbol>
+<parameterList>
+<keyword>int</keyword>
+<identifier>xCoordinate</identifier>
+<symbol>,</symbol>
+<keyword>int</keyword>
+<identifier>yCoordinate</identifier>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<varDec>
+<keyword>var</keyword>
+<identifier>Platform</identifier>
+<identifier>pointer</identifier>
+<symbol>;</symbol>
+</varDec>
+<statements>
+<ifStatement>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>first</identifier>
+</term>
+<symbol>=</symbol>
+<term>
+<keyword>null</keyword>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<returnStatement>
+<keyword>return</keyword>
+<expression>
+<term>
+<keyword>false</keyword>
+</term>
+</expression>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</ifStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>pointer</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>first</identifier>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<whileStatement>
+<keyword>while</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>pointer</identifier>
+<symbol>.</symbol>
+<identifier>hasNext</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<ifStatement>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>pointer</identifier>
+<symbol>.</symbol>
+<identifier>isOnPlatform</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<returnStatement>
+<keyword>return</keyword>
+<expression>
+<term>
+<keyword>true</keyword>
+</term>
+</expression>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</ifStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>pointer</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>pointer</identifier>
+<symbol>.</symbol>
+<identifier>getNext</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+</statements>
+<symbol>}</symbol>
+</whileStatement>
+<returnStatement>
+<keyword>return</keyword>
+<expression>
+<term>
+<keyword>false</keyword>
+</term>
+</expression>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
+<symbol>}</symbol>
 </class>

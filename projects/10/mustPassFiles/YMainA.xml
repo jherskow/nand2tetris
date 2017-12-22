@@ -1,899 +1,899 @@
 <class>
-  <keyword> class </keyword>
-  <identifier> YMain </identifier>
-  <symbol> { </symbol>
+<keyword>class</keyword>
+<identifier>YMain</identifier>
+<symbol>{</symbol>
 <subroutineDec>
-    <keyword> function </keyword>
-    <keyword> void </keyword>
-    <identifier> main </identifier>
-    <symbol> ( </symbol>
-  <parameterList>
-    </parameterList>
-  <symbol> ) </symbol>
-  <subroutineBody>
-  <symbol> { </symbol>  
-  <varDec>
-      <keyword> var </keyword>
-      <identifier> String </identifier>
-      <identifier> s </identifier>
-      <symbol> ; </symbol>
-    </varDec>
-  <varDec>
-      <keyword> var </keyword>
-      <identifier> String </identifier>
-      <identifier> i </identifier>
-      <symbol> ; </symbol>
-    </varDec>
-  <statements>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> s </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <identifier> String </identifier>
-                        <symbol> . </symbol>
-                        <identifier> new </identifier>
-                        <symbol> ( </symbol>
-                      <expressionList>          
-                      <expression>
-                                <term>
-                                                <integerConstant> 0 </integerConstant>
-                                            </term>
-                                </expression>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> s </identifier>
-          <symbol> . </symbol>
-          <identifier> dispose </identifier>
-          <symbol> ( </symbol>
-        <expressionList>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> s </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <identifier> String </identifier>
-                        <symbol> . </symbol>
-                        <identifier> new </identifier>
-                        <symbol> ( </symbol>
-                      <expressionList>          
-                      <expression>
-                                <term>
-                                                <integerConstant> 6 </integerConstant>
-                                            </term>
-                                </expression>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> s </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <identifier> s </identifier>
-                        <symbol> . </symbol>
-                        <identifier> appendChar </identifier>
-                        <symbol> ( </symbol>
-                      <expressionList>          
-                      <expression>
-                                <term>
-                                                <integerConstant> 97 </integerConstant>
-                                            </term>
-                                </expression>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> s </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <identifier> s </identifier>
-                        <symbol> . </symbol>
-                        <identifier> appendChar </identifier>
-                        <symbol> ( </symbol>
-                      <expressionList>          
-                      <expression>
-                                <term>
-                                                <integerConstant> 98 </integerConstant>
-                                            </term>
-                                </expression>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> s </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <identifier> s </identifier>
-                        <symbol> . </symbol>
-                        <identifier> appendChar </identifier>
-                        <symbol> ( </symbol>
-                      <expressionList>          
-                      <expression>
-                                <term>
-                                                <integerConstant> 99 </integerConstant>
-                                            </term>
-                                </expression>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> s </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <identifier> s </identifier>
-                        <symbol> . </symbol>
-                        <identifier> appendChar </identifier>
-                        <symbol> ( </symbol>
-                      <expressionList>          
-                      <expression>
-                                <term>
-                                                <integerConstant> 100 </integerConstant>
-                                            </term>
-                                </expression>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> s </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <identifier> s </identifier>
-                        <symbol> . </symbol>
-                        <identifier> appendChar </identifier>
-                        <symbol> ( </symbol>
-                      <expressionList>          
-                      <expression>
-                                <term>
-                                                <integerConstant> 101 </integerConstant>
-                                            </term>
-                                </expression>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <stringConstant> new,appendChar:  </stringConstant>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <identifier> s </identifier>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> println </identifier>
-          <symbol> ( </symbol>
-        <expressionList>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> i </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <identifier> String </identifier>
-                        <symbol> . </symbol>
-                        <identifier> new </identifier>
-                        <symbol> ( </symbol>
-                      <expressionList>          
-                      <expression>
-                                <term>
-                                                <integerConstant> 6 </integerConstant>
-                                            </term>
-                                </expression>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> i </identifier>
-          <symbol> . </symbol>
-          <identifier> setInt </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <integerConstant> 12345 </integerConstant>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <stringConstant> setInt:  </stringConstant>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <identifier> i </identifier>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> println </identifier>
-          <symbol> ( </symbol>
-        <expressionList>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> i </identifier>
-          <symbol> . </symbol>
-          <identifier> setInt </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                      <symbol> - </symbol>          
-                      <term>
-                                    <integerConstant> 32767 </integerConstant>
-                                </term>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <stringConstant> setInt:  </stringConstant>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <identifier> i </identifier>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> println </identifier>
-          <symbol> ( </symbol>
-        <expressionList>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <stringConstant> length:  </stringConstant>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printInt </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <identifier> s </identifier>
-                          <symbol> . </symbol>
-                          <identifier> length </identifier>
-                          <symbol> ( </symbol>
-                      <expressionList>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> println </identifier>
-          <symbol> ( </symbol>
-        <expressionList>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <stringConstant> charAt[2]:  </stringConstant>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printInt </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <identifier> s </identifier>
-                          <symbol> . </symbol>
-                          <identifier> charAt </identifier>
-                          <symbol> ( </symbol>
-                      <expressionList>          
-                      <expression>
-                                <term>
-                                                  <integerConstant> 2 </integerConstant>
-                                            </term>
-                                </expression>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> println </identifier>
-          <symbol> ( </symbol>
-        <expressionList>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> s </identifier>
-          <symbol> . </symbol>
-          <identifier> setCharAt </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <integerConstant> 2 </integerConstant>
-                      </term>
-              </expression>
-        <symbol> , </symbol>      
-        <expression>
-              <term>
-                          <integerConstant> 45 </integerConstant>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <stringConstant> setCharAt(2,'-'):  </stringConstant>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <identifier> s </identifier>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> println </identifier>
-          <symbol> ( </symbol>
-        <expressionList>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> s </identifier>
-          <symbol> . </symbol>
-          <identifier> eraseLastChar </identifier>
-          <symbol> ( </symbol>
-        <expressionList>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <stringConstant> eraseLastChar:  </stringConstant>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <identifier> s </identifier>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> println </identifier>
-          <symbol> ( </symbol>
-        <expressionList>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> s </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <stringConstant> 456 </stringConstant>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <stringConstant> intValue:  </stringConstant>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printInt </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <identifier> s </identifier>
-                          <symbol> . </symbol>
-                          <identifier> intValue </identifier>
-                          <symbol> ( </symbol>
-                      <expressionList>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> println </identifier>
-          <symbol> ( </symbol>
-        <expressionList>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <letStatement>
-        <keyword> let </keyword>
-          <identifier> s </identifier>
-          <symbol> = </symbol>      
-        <expression>
-              <term>
-                        <stringConstant> -32123 </stringConstant>
-                      </term>
-              </expression>
-        <symbol> ; </symbol>
-        </letStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <stringConstant> intValue:  </stringConstant>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printInt </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <identifier> s </identifier>
-                          <symbol> . </symbol>
-                          <identifier> intValue </identifier>
-                          <symbol> ( </symbol>
-                      <expressionList>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> println </identifier>
-          <symbol> ( </symbol>
-        <expressionList>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <stringConstant> backSpace:  </stringConstant>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printInt </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <identifier> String </identifier>
-                          <symbol> . </symbol>
-                          <identifier> backSpace </identifier>
-                          <symbol> ( </symbol>
-                      <expressionList>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> println </identifier>
-          <symbol> ( </symbol>
-        <expressionList>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <stringConstant> doubleQuote:  </stringConstant>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printInt </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <identifier> String </identifier>
-                          <symbol> . </symbol>
-                          <identifier> doubleQuote </identifier>
-                          <symbol> ( </symbol>
-                      <expressionList>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> println </identifier>
-          <symbol> ( </symbol>
-        <expressionList>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printString </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <stringConstant> newLine:  </stringConstant>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> printInt </identifier>
-          <symbol> ( </symbol>
-        <expressionList>      
-        <expression>
-              <term>
-                          <identifier> String </identifier>
-                          <symbol> . </symbol>
-                          <identifier> newLine </identifier>
-                          <symbol> ( </symbol>
-                      <expressionList>
-                      </expressionList>
-                      <symbol> ) </symbol>
-                      </term>
-              </expression>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> Output </identifier>
-          <symbol> . </symbol>
-          <identifier> println </identifier>
-          <symbol> ( </symbol>
-        <expressionList>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> i </identifier>
-          <symbol> . </symbol>
-          <identifier> dispose </identifier>
-          <symbol> ( </symbol>
-        <expressionList>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <doStatement>
-          <keyword> do </keyword>
-          <identifier> s </identifier>
-          <symbol> . </symbol>
-          <identifier> dispose </identifier>
-          <symbol> ( </symbol>
-        <expressionList>
-        </expressionList>
-        <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-    <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
-        </returnStatement>
-    </statements>
-  <symbol> } </symbol>
-  </subroutineBody>
-  </subroutineDec>
-  <symbol> } </symbol>
+<keyword>function</keyword>
+<keyword>void</keyword>
+<identifier>main</identifier>
+<symbol>(</symbol>
+<parameterList>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<varDec>
+<keyword>var</keyword>
+<identifier>String</identifier>
+<identifier>s</identifier>
+<symbol>;</symbol>
+</varDec>
+<varDec>
+<keyword>var</keyword>
+<identifier>String</identifier>
+<identifier>i</identifier>
+<symbol>;</symbol>
+</varDec>
+<statements>
+<letStatement>
+<keyword>let</keyword>
+<identifier>s</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>String</identifier>
+<symbol>.</symbol>
+<identifier>new</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<integerConstant>0</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>s</identifier>
+<symbol>.</symbol>
+<identifier>dispose</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>s</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>String</identifier>
+<symbol>.</symbol>
+<identifier>new</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<integerConstant>6</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>s</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>s</identifier>
+<symbol>.</symbol>
+<identifier>appendChar</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<integerConstant>97</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>s</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>s</identifier>
+<symbol>.</symbol>
+<identifier>appendChar</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<integerConstant>98</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>s</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>s</identifier>
+<symbol>.</symbol>
+<identifier>appendChar</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<integerConstant>99</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>s</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>s</identifier>
+<symbol>.</symbol>
+<identifier>appendChar</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<integerConstant>100</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>s</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>s</identifier>
+<symbol>.</symbol>
+<identifier>appendChar</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<integerConstant>101</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<stringConstant>new,appendChar:</stringConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>s</identifier>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>println</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>i</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>String</identifier>
+<symbol>.</symbol>
+<identifier>new</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<integerConstant>6</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>i</identifier>
+<symbol>.</symbol>
+<identifier>setInt</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<integerConstant>12345</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<stringConstant>setInt:</stringConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>i</identifier>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>println</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>i</identifier>
+<symbol>.</symbol>
+<identifier>setInt</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<symbol>-</symbol>
+<term>
+<integerConstant>32767</integerConstant>
+</term>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<stringConstant>setInt:</stringConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>i</identifier>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>println</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<stringConstant>length:</stringConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printInt</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>s</identifier>
+<symbol>.</symbol>
+<identifier>length</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>println</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<stringConstant>charAt[2]:</stringConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printInt</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>s</identifier>
+<symbol>.</symbol>
+<identifier>charAt</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<integerConstant>2</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>println</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>s</identifier>
+<symbol>.</symbol>
+<identifier>setCharAt</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<integerConstant>2</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<integerConstant>45</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<stringConstant>setCharAt(2,'-'):</stringConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>s</identifier>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>println</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>s</identifier>
+<symbol>.</symbol>
+<identifier>eraseLastChar</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<stringConstant>eraseLastChar:</stringConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>s</identifier>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>println</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>s</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<stringConstant>456</stringConstant>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<stringConstant>intValue:</stringConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printInt</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>s</identifier>
+<symbol>.</symbol>
+<identifier>intValue</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>println</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>s</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<stringConstant>-32123</stringConstant>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<stringConstant>intValue:</stringConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printInt</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>s</identifier>
+<symbol>.</symbol>
+<identifier>intValue</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>println</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<stringConstant>backSpace:</stringConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printInt</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>String</identifier>
+<symbol>.</symbol>
+<identifier>backSpace</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>println</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<stringConstant>doubleQuote:</stringConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printInt</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>String</identifier>
+<symbol>.</symbol>
+<identifier>doubleQuote</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>println</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<stringConstant>newLine:</stringConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printInt</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>String</identifier>
+<symbol>.</symbol>
+<identifier>newLine</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>println</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>i</identifier>
+<symbol>.</symbol>
+<identifier>dispose</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>s</identifier>
+<symbol>.</symbol>
+<identifier>dispose</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
+<symbol>}</symbol>
 </class>

@@ -44,8 +44,8 @@
       <file leaf-file-name="CompilationEngineXML.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/CompilationEngineXML.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2396">
-              <caret line="633" column="24" lean-forward="false" selection-start-line="633" selection-start-column="24" selection-end-line="633" selection-end-column="24" />
+            <state relative-caret-position="376">
+              <caret line="759" column="1" lean-forward="false" selection-start-line="759" selection-start-column="1" selection-end-line="759" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -522,7 +522,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513873621892</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="pushed small fixes to compiler">
+      <created>1513936808078</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1513936808078</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView">
@@ -626,7 +633,8 @@
     <MESSAGE value="josh work 2204" />
     <MESSAGE value="josh work" />
     <MESSAGE value="Push that managaes to do the first main well enough&#10;&#10;&#10;- Aya - Linenum for debugging&#10;- Josh  - XML format for debugging and prettiness&#10;&#10;- Then fimish it" />
-    <option name="LAST_COMMIT_MESSAGE" value="Push that managaes to do the first main well enough&#10;&#10;&#10;- Aya - Linenum for debugging&#10;- Josh  - XML format for debugging and prettiness&#10;&#10;- Then fimish it" />
+    <MESSAGE value="pushed small fixes to compiler" />
+    <option name="LAST_COMMIT_MESSAGE" value="pushed small fixes to compiler" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -982,8 +990,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/CompilationEngineXML.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2396">
-          <caret line="633" column="24" lean-forward="false" selection-start-line="633" selection-start-column="24" selection-end-line="633" selection-end-column="24" />
+        <state relative-caret-position="376">
+          <caret line="759" column="1" lean-forward="false" selection-start-line="759" selection-start-column="1" selection-end-line="759" selection-end-column="1" />
           <folding />
         </state>
       </provider>

@@ -32,7 +32,7 @@ class JackTokenizer:
         self.tokens = []  # list of all the tokens in the file
         self.counter = 0  # number the current token from all the tokens in the file or the list
 
-        #remove multi line comments
+        # remove multi line comments
         file_string = input_file.read()
         file_string = self.remove_multi_comments(file_string)
         self.read_line(file_string)
@@ -44,23 +44,35 @@ class JackTokenizer:
         char_list = list(string)
         in_comment = False
         new_string = ""
-
+        string_word = False
         i = 0
-        while i< len(char_list):
-            if char_list[i] == "\n":  # keep newliens for line num
+        while i < len(char_list):
+            if in_comment==False and char_list[i] == "\"" and string_word==False:
                 new_string += char_list[i]
-                i += 1
-                continue
-            elif char_list[i] == "/" and i+1<len(char_list) and char_list[i+1] == "*" :
-                i+=2
-                in_comment = True
-            elif char_list[i] == "*" and i+1<len(char_list) and char_list[i+1] == "/":
-                i+=2
-                in_comment= False
-            else:
-                if not in_comment:
-                    new_string += char_list[i]
+                string_word = True
                 i+=1
+                continue
+            elif string_word==True :
+                new_string += char_list[i]
+                if char_list[i] == "\"":
+                    string_word=False
+                i+=1
+                continue
+            elif string_word == False:
+                if char_list[i] == "\n":  # keep newliens for line num
+                    new_string += char_list[i]
+                    i += 1
+                    continue
+                elif char_list[i] == "/" and i + 1 < len(char_list) and char_list[i + 1] == "*":
+                    i += 2
+                    in_comment = True
+                elif char_list[i] == "*" and i + 1 < len(char_list) and char_list[i + 1] == "/":
+                    i += 2
+                    in_comment = False
+                else:
+                    if not in_comment:
+                        new_string += char_list[i]
+                        i += 1
 
         return new_string
 
@@ -82,7 +94,6 @@ class JackTokenizer:
         #             line = line.split("/*")[0]
         # return line
 
-
     def get_tokens(self, line):
         """"""
         temp = line.split()  # split by space
@@ -91,23 +102,23 @@ class JackTokenizer:
         for word in temp:
             new_word = ""
             for l in word:
-                if "\"" == l and string_word=="":
-                    string_word+=l
-                elif "\"" == l and string_word!="":
-                    string_word +=l
+                if "\"" == l and string_word == "":
+                    string_word += l
+                elif "\"" == l and string_word != "":
+                    string_word += l
                     tokens.append(string_word)
-                    string_word= ""
-                elif string_word !="":
-                    string_word+=l
+                    string_word = ""
+                elif string_word != "":
+                    string_word += l
                 elif l in JackTokenizer.symbols:  # if the word have a symbol
-                    if  new_word != "": # first append all the words before the symbol
+                    if new_word != "":  # first append all the words before the symbol
                         tokens.append(new_word)
                         new_word = ""
                     tokens.append(l)
                 else:
                     new_word += l
             if string_word != "" and new_word != "" and "\"" not in new_word:
-                string_word+=" " +new_word
+                string_word += " " + new_word
             if new_word != "":
                 tokens.append(new_word)
 
@@ -239,11 +250,29 @@ class JackTokenizer:
             if self.counter <= sum and self.counter > sum - i:
                 return i
 
-    def remove_line_comment(self,line):
+    def remove_line_comment(self, line):
         """ removes single line comments from a line"""
-        line = line.split("//")[0]
-        line = line.strip()
-        return line
+        is_string = False
+        in_comment = False
+        new_line=""
+        i=0
+        while i<len(line):
+            if is_string==False and line[i] =="/" and line[i+1]=="/":
+                i+=2
+                in_comment=True
+                continue
+            elif "\""==line[i] and in_comment==False:
+                new_line+=line[i]
+                is_string=True
+                i+=1
+            else:
+                new_line+= line[i]
+                i+=1
+
+
+        # line = line.split("//")[0]
+        # line = line.strip()
+        return new_line
 
     # def remove_line_comment(self, line):
     #     line = re.sub(re.compile("//.*?\n"), "\n", line)

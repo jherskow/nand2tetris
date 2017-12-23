@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# Makefile for a script (e.g. Python) VMtranslator project
+# Makefile for a script (e.g. Python) JackAnalyzer project
 #
 # Students:
 # Aya Jbara, ID 209048156, aya.jbara@mail.huji.ac.il 

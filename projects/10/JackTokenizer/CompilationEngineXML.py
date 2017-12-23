@@ -142,8 +142,9 @@ class CompilationEngineXML:
 
     def compile_parameter_list(self):
         """
-        Compiles a (possibly empty) parameter list,
-        not including the enclosing ‘‘ () ’’.
+        compiles a (possibly empty) parameter list,
+        not including the enclosing ()
+        :return:
         """
         this = "parameterList"
         self.xml_open(this)
@@ -205,7 +206,7 @@ class CompilationEngineXML:
     def compile_statements(self):
         """
         Compiles a sequence of statements,
-        not including the enclosing ‘‘{}’’.
+        not including the enclosing {}.
         """
         this = "statements"
         self.xml_open(this)
@@ -406,7 +407,7 @@ class CompilationEngineXML:
          an array entry,
          and a subroutine call.
         A single look- ahead token,
-        which may be one of ‘‘[’’, ‘‘(’’, or ‘‘.’’
+        which may be one of [, (, or .
         suffices to distinguish between the three possibilities.
         Any other token is not part of this term
         and should not be advanced over.
@@ -705,7 +706,7 @@ class CompilationEngineXML:
         """
         writes <string> to output file
         """
-        self.write("</" + string + ">\n") #TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        self.write("</" + string + ">\n")
 
     def xml_keyword(self):
         """

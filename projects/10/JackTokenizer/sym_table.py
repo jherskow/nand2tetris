@@ -113,10 +113,10 @@ keyword_switch = \
  'VOID': 'void',
  'WHILE': 'while'}
 
-# todo when does " appear
+
 
 symbol_switch = \
-{'&': '&amp;', #todo make necessary adjustments " < > /
+{'&': '&amp;',
  '(': '(',
  ')': ')',
  '*': '*',

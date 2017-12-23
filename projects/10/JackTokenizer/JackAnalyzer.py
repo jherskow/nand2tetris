@@ -4,10 +4,8 @@ import os
 
 import JackTokenizer
 import CompilationEngineXML
-import CompilationEngineVM
 
-
-XML_EXTENSION = "A.xml"
+XML_EXTENSION = ".xml"
 
 class JackAnalyzer:
     """
@@ -38,7 +36,7 @@ class JackAnalyzer:
         self.output_file.close()
 
 def parse_dir(dir_path):
-    count = 0 # todo debug remove
+    count = 0
     for f in os.listdir(dir_path):
         if f.endswith(".jack"):
             parse_file(dir_path + "/" + f)

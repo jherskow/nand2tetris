@@ -44,21 +44,21 @@ class JackTokenizer:
         char_list = list(string)
         in_comment = False
         new_string = ""
-        string_word = False
+        in_string = False
         i = 0
         while i < len(char_list):
-            if in_comment==False and char_list[i] == "\"" and string_word==False:
+            if in_comment==False and char_list[i] == "\"" and in_string==False:
                 new_string += char_list[i]
-                string_word = True
+                in_string = True
                 i+=1
                 continue
-            elif string_word==True :
+            elif in_string==True :
                 new_string += char_list[i]
                 if char_list[i] == "\"":
-                    string_word=False
+                    in_string=False
                 i+=1
                 continue
-            if string_word == False:
+            if in_string == False:
                 if char_list[i] == "\n":  # keep newliens for line num
                     new_string += char_list[i]
                     i += 1
@@ -75,24 +75,6 @@ class JackTokenizer:
                     i += 1
 
         return new_string
-
-
-        # line = self.file.read()
-        # line = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", line)
-        # # remove all occurance streamed comments (/*COMMENT */) from string
-        # line = re.sub(re.compile("//.*?\n"), "\n", line)
-        # line = re.sub(re.compile("/\*\*.*?\*/", re.DOTALL), "", line)
-        # # line = re.sub(re.compile("/\*.*?/", re.DOTALL), "", line)
-        # while "/*" in line or "*/" in line:
-        #     if self.is_in_comment:
-        #         if "*/" in line:
-        #             line = line.split("*/")[1]
-        #         else:
-        #             line = None
-        #     else:
-        #         if "/*" in line:
-        #             line = line.split("/*")[0]
-        # return line
 
     def get_tokens(self, line):
         """"""
@@ -171,7 +153,6 @@ class JackTokenizer:
         return bool(self.current_token in JackTokenizer.symbols)
 
     def str_const_type(self):
-        # todo fix and debug
         """return true if the current token type is str const """
         return bool(re.fullmatch("\".*?\"", self.current_token))  # "...."
 
@@ -267,16 +248,8 @@ class JackTokenizer:
             else:
                 new_line+= line[i]
                 i+=1
-
-
-        # line = line.split("//")[0]
-        # line = line.strip()
         return new_line
 
-    # def remove_line_comment(self, line):
-    #     line = re.sub(re.compile("//.*?\n"), "\n", line)
-    #     line = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", line)
-    #     return line
 
     def read_line(self, lines):
         split_lines = lines.split("\n")

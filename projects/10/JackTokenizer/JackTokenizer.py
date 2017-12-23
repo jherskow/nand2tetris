@@ -47,32 +47,32 @@ class JackTokenizer:
         string_word = False
         i = 0
         while i < len(char_list):
-            # if in_comment==False and char_list[i] == "\"" and string_word==False:
-            #     new_string += char_list[i]
-            #     string_word = True
-            #     i+=1
-            #     continue
-            # elif string_word==True :
-            #     new_string += char_list[i]
-            #     if char_list[i] == "\"":
-            #         string_word=False
-            #     i+=1
-            #     continue
-
-            if char_list[i] == "\n":  # keep newliens for line num
+            if in_comment==False and char_list[i] == "\"" and string_word==False:
                 new_string += char_list[i]
-                i += 1
+                string_word = True
+                i+=1
                 continue
-            elif char_list[i] == "/" and i + 1 < len(char_list) and char_list[i + 1] == "*":
-                i += 2
-                in_comment = True
-            elif char_list[i] == "*" and i + 1 < len(char_list) and char_list[i + 1] == "/":
-                i += 2
-                in_comment = False
-            else:
-                if not in_comment:
+            elif string_word==True :
+                new_string += char_list[i]
+                if char_list[i] == "\"":
+                    string_word=False
+                i+=1
+                continue
+            if string_word == False:
+                if char_list[i] == "\n":  # keep newliens for line num
                     new_string += char_list[i]
-                i += 1
+                    i += 1
+                    continue
+                elif char_list[i] == "/" and i + 1 < len(char_list) and char_list[i + 1] == "*":
+                    i += 2
+                    in_comment = True
+                elif char_list[i] == "*" and i + 1 < len(char_list) and char_list[i + 1] == "/":
+                    i += 2
+                    in_comment = False
+                else:
+                    if not in_comment:
+                        new_string += char_list[i]
+                    i += 1
 
         return new_string
 

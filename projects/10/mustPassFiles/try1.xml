@@ -1,25 +1,25 @@
 <class>
-    <keyword> class </keyword>
-    <identifier> try1 </identifier>
-    <symbol> { </symbol>
-    <subroutineDec>
-        <keyword> function </keyword>
-        <keyword> void </keyword>
-        <identifier> checkMinus </identifier>
-        <symbol> ( </symbol>
-        <parameterList>
-        </parameterList>
-        <symbol> ) </symbol>
-        <subroutineBody>
-            <symbol> { </symbol>
-            <statements>
-                <returnStatement>
-                    <keyword> return </keyword>
-                    <symbol> ; </symbol>
-                </returnStatement>
-            </statements>
-            <symbol> } </symbol>
-        </subroutineBody>
-    </subroutineDec>
-    <symbol> } </symbol>
+<keyword>class</keyword>
+<identifier>try1</identifier>
+<symbol>{</symbol>
+<subroutineDec>
+<keyword>function</keyword>
+<keyword>void</keyword>
+<identifier>checkMinus</identifier>
+<symbol>(</symbol>
+<parameterList>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<statements>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
+<symbol>}</symbol>
 </class>

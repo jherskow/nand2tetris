@@ -7,6 +7,7 @@ import CompilationEngineXML
 
 XML_EXTENSION = ".xml"
 
+
 class JackAnalyzer:
     """
     The analyzer program operates on a given source,
@@ -16,15 +17,15 @@ class JackAnalyzer:
     For each source Xxx.jack file,
     the analyzer goes through the following logic:
 
-    1. Create a JackTokenizer from the Xxx.jack input file.
+    1. Create a VMWriter from the Xxx.jack input file.
     2. Create an output file called Xxx.xml and prepare it for writing.
-    3. Use the CompilationEngine to compile the input JackTokenizer
+    3. Use the CompilationEngine to compile the input VMWriter
        into the output file.
 
     """
 
-    def __init__(self,input_file):
-        self.input_file = open(input_file,"r")
+    def __init__(self, input_file):
+        self.input_file = open(input_file, "r")
         self.output_file = open(input_file.split(".jack")[0] + XML_EXTENSION, 'w')
         self.tokenizer = None
 
@@ -35,12 +36,12 @@ class JackAnalyzer:
         self.input_file.close()
         self.output_file.close()
 
+
 def parse_dir(dir_path):
-    count = 0
     for f in os.listdir(dir_path):
         if f.endswith(".jack"):
             parse_file(dir_path + "/" + f)
-            count += 1
+
 
 def parse_file(abs_path):
     analyzer = JackAnalyzer(abs_path)
@@ -49,13 +50,13 @@ def parse_file(abs_path):
 
 def main():
     if len(sys.argv) != 2:
-        print("USAGE: JackTokenizer ~directory/file")
+        print("USAGE: VMWriter ~directory/file")
         return exit(1)
 
     abs_path = str(os.path.abspath(sys.argv[1]))
 
     if os.path.isfile(abs_path):
-       parse_file(abs_path)
+        parse_file(abs_path)
 
     if os.path.isdir(abs_path):
         parse_dir(abs_path)

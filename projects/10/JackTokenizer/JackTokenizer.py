@@ -1,5 +1,5 @@
 ##########################################################################
-# FILE : JackTokenizer.py
+# FILE : VMWriter.py
 # WRITER : Josuha Herskowitz , jherskow , 321658379
 # WRITER : Aya Jbara , ayaj , 209048156
 # EXERCISE : nand2tetris ex10 2017-2018
@@ -47,16 +47,16 @@ class JackTokenizer:
         in_string = False
         i = 0
         while i < len(char_list):
-            if in_comment==False and char_list[i] == "\"" and in_string==False:
+            if in_comment == False and char_list[i] == "\"" and in_string == False:
                 new_string += char_list[i]
                 in_string = True
-                i+=1
+                i += 1
                 continue
-            elif in_string==True :
+            elif in_string == True:
                 new_string += char_list[i]
                 if char_list[i] == "\"":
-                    in_string=False
-                i+=1
+                    in_string = False
+                i += 1
                 continue
             if in_string == False:
                 if char_list[i] == "\n":  # keep newliens for line num
@@ -235,21 +235,20 @@ class JackTokenizer:
         """ removes single line comments from a line"""
         is_string = False
         in_comment = False
-        new_line=""
-        i=0
-        while i<len(line):
-            if is_string==False and line[i] =="/" and line[i+1]=="/":
-                i+=2
+        new_line = ""
+        i = 0
+        while i < len(line):
+            if is_string == False and line[i] == "/" and line[i + 1] == "/":
+                i += 2
                 break
-            elif "\""==line[i] and in_comment==False:
-                new_line+=line[i]
-                is_string=True
-                i+=1
+            elif "\"" == line[i] and in_comment == False:
+                new_line += line[i]
+                is_string = True
+                i += 1
             else:
-                new_line+= line[i]
-                i+=1
+                new_line += line[i]
+                i += 1
         return new_line
-
 
     def read_line(self, lines):
         split_lines = lines.split("\n")

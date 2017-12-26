@@ -34,107 +34,103 @@ K_FALSE = "FALSE"
 K_NULL = "NULL"
 K_THIS = "THIS"
 
-class_var_dec={K_FIELD, K_STATIC}
-subroutine_dec={K_CONSTRUCTOR, K_FUNCTION, K_METHOD}
-type={K_INT, K_CHAR, K_BOOLEAN}
-statement_end={";","}"}
-statement_types={K_LET, K_IF, K_WHILE, K_DO, K_RETURN}
-op={'+','-','*','/','&','|','<','>','='}
-unary_op={'-','~'}
-keyword_constant={'TRUE','FALSE','NULL','THIS'}
-static_field={'STATIC','FIELD'}
-func = {'CONSTRUCTOR','FUNCTION','METHOD'}
+class_var_dec = {K_FIELD, K_STATIC}
+subroutine_dec = {K_CONSTRUCTOR, K_FUNCTION, K_METHOD}
+type = {K_INT, K_CHAR, K_BOOLEAN}
+statement_end = {";", "}"}
+statement_types = {K_LET, K_IF, K_WHILE, K_DO, K_RETURN}
+op = {'+', '-', '*', '/', '&', '|', '<', '>', '='}
+unary_op = {'-', '~'}
+keyword_constant = {'TRUE', 'FALSE', 'NULL', 'THIS'}
+static_field = {'STATIC', 'FIELD'}
+func = {'CONSTRUCTOR', 'FUNCTION', 'METHOD'}
 keyWords = \
-{'boolean': 'BOOLEAN',
- 'char': 'CHAR',
- 'class': 'CLASS',
- 'constructor': 'CONSTRUCTOR',
- 'do': 'DO',
- 'else': 'ELSE',
- 'false': 'FALSE',
- 'field': 'FIELD',
- 'function': 'FUNCTION',
- 'if': 'IF',
- 'int': 'INT',
- 'let': 'LET',
- 'method': 'METHOD',
- 'null': 'NULL',
- 'return': 'RETURN',
- 'static': 'STATIC',
- 'this': 'THIS',
- 'true': 'TRUE',
- 'var': 'VAR',
- 'void': 'VOID',
- 'while': 'WHILE'}
-
+    {'boolean': 'BOOLEAN',
+     'char': 'CHAR',
+     'class': 'CLASS',
+     'constructor': 'CONSTRUCTOR',
+     'do': 'DO',
+     'else': 'ELSE',
+     'false': 'FALSE',
+     'field': 'FIELD',
+     'function': 'FUNCTION',
+     'if': 'IF',
+     'int': 'INT',
+     'let': 'LET',
+     'method': 'METHOD',
+     'null': 'NULL',
+     'return': 'RETURN',
+     'static': 'STATIC',
+     'this': 'THIS',
+     'true': 'TRUE',
+     'var': 'VAR',
+     'void': 'VOID',
+     'while': 'WHILE'}
 
 symbols = \
-{'&',
- '(',
- ')',
- '*',
- '+',
- ',',
- '-',
- '.',
- '/',
- ';',
- '<',
- '=',
- '>',
- '[',
- ']',
- '{',
- '|',
- '}',
- '~'}
-
+    {'&',
+     '(',
+     ')',
+     '*',
+     '+',
+     ',',
+     '-',
+     '.',
+     '/',
+     ';',
+     '<',
+     '=',
+     '>',
+     '[',
+     ']',
+     '{',
+     '|',
+     '}',
+     '~'}
 
 keyword_switch = \
-{'BOOLEAN': 'boolean',
- 'CHAR': 'char',
- 'CLASS': 'class',
- 'CONSTRUCTOR': 'constructor',
- 'DO': 'do',
- 'ELSE': 'else',
- 'FALSE': 'false',
- 'FIELD': 'field',
- 'FUNCTION': 'function',
- 'IF': 'if',
- 'INT': 'int',
- 'LET': 'let',
- 'METHOD': 'method',
- 'NULL': 'null',
- 'RETURN': 'return',
- 'STATIC': 'static',
- 'THIS': 'this',
- 'TRUE': 'true',
- 'VAR': 'var',
- 'VOID': 'void',
- 'WHILE': 'while'}
-
-
+    {'BOOLEAN': 'boolean',
+     'CHAR': 'char',
+     'CLASS': 'class',
+     'CONSTRUCTOR': 'constructor',
+     'DO': 'do',
+     'ELSE': 'else',
+     'FALSE': 'false',
+     'FIELD': 'field',
+     'FUNCTION': 'function',
+     'IF': 'if',
+     'INT': 'int',
+     'LET': 'let',
+     'METHOD': 'method',
+     'NULL': 'null',
+     'RETURN': 'return',
+     'STATIC': 'static',
+     'THIS': 'this',
+     'TRUE': 'true',
+     'VAR': 'var',
+     'VOID': 'void',
+     'WHILE': 'while'}
 
 symbol_switch = \
-{'&': '&amp;',
- '(': '(',
- ')': ')',
- '*': '*',
- '+': '+',
- ',': ',',
- '-': '-',
- '.': '.',
- '/': '/',
- '\"': '',
- ';': ';',
- '<': '&lt;',
- '=': '=',
- '>': '&gt;',
- '[': '[',
- ']': ']',
- '{': '{',
- '|': '|',
- '}': '}',
- '~': '~'}
+    {'&': '&amp;',
+     '(': '(',
+     ')': ')',
+     '*': '*',
+     '+': '+',
+     ',': ',',
+     '-': '-',
+     '.': '.',
+     '/': '/',
+     '\"': '',
+     ';': ';',
+     '<': '&lt;',
+     '=': '=',
+     '>': '&gt;',
+     '[': '[',
+     ']': ']',
+     '{': '{',
+     '|': '|',
+     '}': '}',
+     '~': '~'}
 
-quote_switch =  {'\"': '&quot;'}
+quote_switch = {'\"': '&quot;'}

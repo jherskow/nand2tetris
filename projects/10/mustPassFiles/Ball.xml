@@ -1,1604 +1,1604 @@
 <class>
-    <keyword> class </keyword>
-    <identifier> Ball </identifier>
-    <symbol> { </symbol>
-    <classVarDec>
-        <keyword> field </keyword>
-        <keyword> int </keyword>
-        <identifier> lives </identifier>
-        <symbol> ; </symbol>
-    </classVarDec>
-    <classVarDec>
-        <keyword> field </keyword>
-        <keyword> int </keyword>
-        <identifier> xCoordinate </identifier>
-        <symbol> ; </symbol>
-    </classVarDec>
-    <classVarDec>
-        <keyword> field </keyword>
-        <keyword> int </keyword>
-        <identifier> yCoordinate </identifier>
-        <symbol> ; </symbol>
-    </classVarDec>
-    <classVarDec>
-        <keyword> field </keyword>
-        <keyword> int </keyword>
-        <identifier> horizontaldirection </identifier>
-        <symbol> ; </symbol>
-    </classVarDec>
-    <classVarDec>
-        <keyword> field </keyword>
-        <keyword> boolean </keyword>
-        <identifier> onPlatform </identifier>
-        <symbol> ; </symbol>
-    </classVarDec>
-    <classVarDec>
-        <keyword> field </keyword>
-        <identifier> RapidRollGame </identifier>
-        <identifier> rollGame </identifier>
-        <symbol> ; </symbol>
-    </classVarDec>
-    <classVarDec>
-        <keyword> field </keyword>
-        <keyword> boolean </keyword>
-        <identifier> gameOver </identifier>
-        <symbol> ; </symbol>
-    </classVarDec>
-    <subroutineDec>
-        <keyword> constructor </keyword>
-        <identifier> Ball </identifier>
-        <identifier> new </identifier>
-        <symbol> ( </symbol>
-        <parameterList>
-            <keyword> int </keyword>
-            <identifier> points </identifier>
-            <symbol> , </symbol>
-            <identifier> RapidRollGame </identifier>
-            <identifier> game </identifier>
-        </parameterList>
-        <symbol> ) </symbol>
-        <subroutineBody>
-            <symbol> { </symbol>
-            <varDec>
-                <keyword> var </keyword>
-                <identifier> Platform </identifier>
-                <identifier> platform </identifier>
-                <symbol> ; </symbol>
-            </varDec>
-            <statements>
-                <letStatement>
-                    <keyword> let </keyword>
-                    <identifier> gameOver </identifier>
-                    <symbol> = </symbol>
-                    <expression>
-                        <term>
-                            <keyword> false </keyword>
-                        </term>
-                    </expression>
-                    <symbol> ; </symbol>
-                </letStatement>
-                <letStatement>
-                    <keyword> let </keyword>
-                    <identifier> lives </identifier>
-                    <symbol> = </symbol>
-                    <expression>
-                        <term>
-                            <identifier> points </identifier>
-                        </term>
-                    </expression>
-                    <symbol> ; </symbol>
-                </letStatement>
-                <letStatement>
-                    <keyword> let </keyword>
-                    <identifier> rollGame </identifier>
-                    <symbol> = </symbol>
-                    <expression>
-                        <term>
-                            <identifier> game </identifier>
-                        </term>
-                    </expression>
-                    <symbol> ; </symbol>
-                </letStatement>
-                <letStatement>
-                    <keyword> let </keyword>
-                    <identifier> xCoordinate </identifier>
-                    <symbol> = </symbol>
-                    <expression>
-                        <term>
-                            <integerConstant> 256 </integerConstant>
-                        </term>
-                    </expression>
-                    <symbol> ; </symbol>
-                </letStatement>
-                <letStatement>
-                    <keyword> let </keyword>
-                    <identifier> yCoordinate </identifier>
-                    <symbol> = </symbol>
-                    <expression>
-                        <term>
-                            <integerConstant> 5 </integerConstant>
-                        </term>
-                    </expression>
-                    <symbol> ; </symbol>
-                </letStatement>
-                <letStatement>
-                    <keyword> let </keyword>
-                    <identifier> horizontaldirection </identifier>
-                    <symbol> = </symbol>
-                    <expression>
-                        <term>
-                            <integerConstant> 0 </integerConstant>
-                        </term>
-                    </expression>
-                    <symbol> ; </symbol>
-                </letStatement>
-                <letStatement>
-                    <keyword> let </keyword>
-                    <identifier> onPlatform </identifier>
-                    <symbol> = </symbol>
-                    <expression>
-                        <term>
-                            <keyword> false </keyword>
-                        </term>
-                    </expression>
-                    <symbol> ; </symbol>
-                </letStatement>
-                <letStatement>
-                    <keyword> let </keyword>
-                    <identifier> platform </identifier>
-                    <symbol> = </symbol>
-                    <expression>
-                        <term>
-                            <identifier> Platform </identifier>
-                            <symbol> . </symbol>
-                            <identifier> new </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <integerConstant> 200 </integerConstant>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <integerConstant> 300 </integerConstant>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <integerConstant> 245 </integerConstant>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> rollGame </identifier>
-                                        <symbol> . </symbol>
-                                        <identifier> getPlatformsList </identifier>
-                                        <symbol> ( </symbol>
-                                        <expressionList>
-                                        </expressionList>
-                                        <symbol> ) </symbol>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                        </term>
-                    </expression>
-                    <symbol> ; </symbol>
-                </letStatement>
-                <doStatement>
-                    <keyword> do </keyword>
-                    <identifier> rollGame </identifier>
-                    <symbol> . </symbol>
-                    <identifier> addPlatform </identifier>
-                    <symbol> ( </symbol>
-                    <expressionList>
-                        <expression>
-                            <term>
-                                <identifier> platform </identifier>
-                            </term>
-                        </expression>
-                    </expressionList>
-                    <symbol> ) </symbol>
-                    <symbol> ; </symbol>
-                </doStatement>
-                <returnStatement>
-                    <keyword> return </keyword>
-                    <expression>
-                        <term>
-                            <keyword> this </keyword>
-                        </term>
-                    </expression>
-                    <symbol> ; </symbol>
-                </returnStatement>
-            </statements>
-            <symbol> } </symbol>
-        </subroutineBody>
-    </subroutineDec>
-    <subroutineDec>
-        <keyword> method </keyword>
-        <keyword> void </keyword>
-        <identifier> drawBall </identifier>
-        <symbol> ( </symbol>
-        <parameterList>
-        </parameterList>
-        <symbol> ) </symbol>
-        <subroutineBody>
-            <symbol> { </symbol>
-            <statements>
-                <doStatement>
-                    <keyword> do </keyword>
-                    <identifier> Screen </identifier>
-                    <symbol> . </symbol>
-                    <identifier> setColor </identifier>
-                    <symbol> ( </symbol>
-                    <expressionList>
-                        <expression>
-                            <term>
-                                <keyword> true </keyword>
-                            </term>
-                        </expression>
-                    </expressionList>
-                    <symbol> ) </symbol>
-                    <symbol> ; </symbol>
-                </doStatement>
-                <doStatement>
-                    <keyword> do </keyword>
-                    <identifier> Screen </identifier>
-                    <symbol> . </symbol>
-                    <identifier> drawRectangle </identifier>
-                    <symbol> ( </symbol>
-                    <expressionList>
-                        <expression>
-                            <term>
-                                <identifier> xCoordinate </identifier>
-                            </term>
-                        </expression>
-                        <symbol> , </symbol>
-                        <expression>
-                            <term>
-                                <identifier> yCoordinate </identifier>
-                            </term>
-                        </expression>
-                        <symbol> , </symbol>
-                        <expression>
-                            <term>
-                                <identifier> xCoordinate </identifier>
-                            </term>
-                            <symbol> + </symbol>
-                            <term>
-                                <integerConstant> 5 </integerConstant>
-                            </term>
-                        </expression>
-                        <symbol> , </symbol>
-                        <expression>
-                            <term>
-                                <identifier> yCoordinate </identifier>
-                            </term>
-                            <symbol> + </symbol>
-                            <term>
-                                <integerConstant> 5 </integerConstant>
-                            </term>
-                        </expression>
-                    </expressionList>
-                    <symbol> ) </symbol>
-                    <symbol> ; </symbol>
-                </doStatement>
-                <returnStatement>
-                    <keyword> return </keyword>
-                    <symbol> ; </symbol>
-                </returnStatement>
-            </statements>
-            <symbol> } </symbol>
-        </subroutineBody>
-    </subroutineDec>
-    <subroutineDec>
-        <keyword> method </keyword>
-        <keyword> void </keyword>
-        <identifier> deleteBallImage </identifier>
-        <symbol> ( </symbol>
-        <parameterList>
-        </parameterList>
-        <symbol> ) </symbol>
-        <subroutineBody>
-            <symbol> { </symbol>
-            <statements>
-                <doStatement>
-                    <keyword> do </keyword>
-                    <identifier> Screen </identifier>
-                    <symbol> . </symbol>
-                    <identifier> setColor </identifier>
-                    <symbol> ( </symbol>
-                    <expressionList>
-                        <expression>
-                            <term>
-                                <keyword> false </keyword>
-                            </term>
-                        </expression>
-                    </expressionList>
-                    <symbol> ) </symbol>
-                    <symbol> ; </symbol>
-                </doStatement>
-                <doStatement>
-                    <keyword> do </keyword>
-                    <identifier> Screen </identifier>
-                    <symbol> . </symbol>
-                    <identifier> drawRectangle </identifier>
-                    <symbol> ( </symbol>
-                    <expressionList>
-                        <expression>
-                            <term>
-                                <identifier> xCoordinate </identifier>
-                            </term>
-                        </expression>
-                        <symbol> , </symbol>
-                        <expression>
-                            <term>
-                                <identifier> yCoordinate </identifier>
-                            </term>
-                        </expression>
-                        <symbol> , </symbol>
-                        <expression>
-                            <term>
-                                <identifier> xCoordinate </identifier>
-                            </term>
-                            <symbol> + </symbol>
-                            <term>
-                                <integerConstant> 5 </integerConstant>
-                            </term>
-                        </expression>
-                        <symbol> , </symbol>
-                        <expression>
-                            <term>
-                                <identifier> yCoordinate </identifier>
-                            </term>
-                            <symbol> + </symbol>
-                            <term>
-                                <integerConstant> 5 </integerConstant>
-                            </term>
-                        </expression>
-                    </expressionList>
-                    <symbol> ) </symbol>
-                    <symbol> ; </symbol>
-                </doStatement>
-                <returnStatement>
-                    <keyword> return </keyword>
-                    <symbol> ; </symbol>
-                </returnStatement>
-            </statements>
-            <symbol> } </symbol>
-        </subroutineBody>
-    </subroutineDec>
-    <subroutineDec>
-        <keyword> method </keyword>
-        <keyword> void </keyword>
-        <identifier> decreaseLife </identifier>
-        <symbol> ( </symbol>
-        <parameterList>
-        </parameterList>
-        <symbol> ) </symbol>
-        <subroutineBody>
-            <symbol> { </symbol>
-            <varDec>
-                <keyword> var </keyword>
-                <identifier> Ball </identifier>
-                <identifier> newBall </identifier>
-                <symbol> ; </symbol>
-            </varDec>
-            <varDec>
-                <keyword> var </keyword>
-                <keyword> int </keyword>
-                <identifier> newLives </identifier>
-                <symbol> ; </symbol>
-            </varDec>
-            <statements>
-                <letStatement>
-                    <keyword> let </keyword>
-                    <identifier> newLives </identifier>
-                    <symbol> = </symbol>
-                    <expression>
-                        <term>
-                            <identifier> lives </identifier>
-                        </term>
-                        <symbol> - </symbol>
-                        <term>
-                            <integerConstant> 1 </integerConstant>
-                        </term>
-                    </expression>
-                    <symbol> ; </symbol>
-                </letStatement>
-                <doStatement>
-                    <keyword> do </keyword>
-                    <identifier> dispose </identifier>
-                    <symbol> ( </symbol>
-                    <expressionList>
-                    </expressionList>
-                    <symbol> ) </symbol>
-                    <symbol> ; </symbol>
-                </doStatement>
-                <ifStatement>
-                    <keyword> if </keyword>
-                    <symbol> ( </symbol>
-                    <expression>
-                        <term>
-                            <identifier> lives </identifier>
-                        </term>
-                        <symbol> &gt; </symbol>
-                        <term>
-                            <integerConstant> 0 </integerConstant>
-                        </term>
-                    </expression>
-                    <symbol> ) </symbol>
-                    <symbol> { </symbol>
-                    <statements>
-                        <letStatement>
-                            <keyword> let </keyword>
-                            <identifier> newBall </identifier>
-                            <symbol> = </symbol>
-                            <expression>
-                                <term>
-                                    <identifier> Ball </identifier>
-                                    <symbol> . </symbol>
-                                    <identifier> new </identifier>
-                                    <symbol> ( </symbol>
-                                    <expressionList>
-                                        <expression>
-                                            <term>
-                                                <identifier> newLives </identifier>
-                                            </term>
-                                        </expression>
-                                        <symbol> , </symbol>
-                                        <expression>
-                                            <term>
-                                                <identifier> rollGame </identifier>
-                                            </term>
-                                        </expression>
-                                    </expressionList>
-                                    <symbol> ) </symbol>
-                                </term>
-                            </expression>
-                            <symbol> ; </symbol>
-                        </letStatement>
-                    </statements>
-                    <symbol> } </symbol>
-                </ifStatement>
-                <ifStatement>
-                    <keyword> if </keyword>
-                    <symbol> ( </symbol>
-                    <expression>
-                        <term>
-                            <identifier> lives </identifier>
-                        </term>
-                        <symbol> = </symbol>
-                        <term>
-                            <integerConstant> 0 </integerConstant>
-                        </term>
-                    </expression>
-                    <symbol> ) </symbol>
-                    <symbol> { </symbol>
-                    <statements>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Output </identifier>
-                            <symbol> . </symbol>
-                            <identifier> printString </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <stringConstant> GAME O VE  R! </stringConstant>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                        <letStatement>
-                            <keyword> let </keyword>
-                            <identifier> gameOver </identifier>
-                            <symbol> = </symbol>
-                            <expression>
-                                <term>
-                                    <keyword> true </keyword>
-                                </term>
-                            </expression>
-                            <symbol> ; </symbol>
-                        </letStatement>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> rollGame </identifier>
-                            <symbol> . </symbol>
-                            <identifier> gameOver </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                    </statements>
-                    <symbol> } </symbol>
-                </ifStatement>
-                <returnStatement>
-                    <keyword> return </keyword>
-                    <symbol> ; </symbol>
-                </returnStatement>
-            </statements>
-            <symbol> } </symbol>
-        </subroutineBody>
-    </subroutineDec>
-    <subroutineDec>
-        <keyword> method </keyword>
-        <keyword> void </keyword>
-        <identifier> isOnPlatform </identifier>
-        <symbol> ( </symbol>
-        <parameterList>
-        </parameterList>
-        <symbol> ) </symbol>
-        <subroutineBody>
-            <symbol> { </symbol>
-            <statements>
-                <letStatement>
-                    <keyword> let </keyword>
-                    <identifier> onPlatform </identifier>
-                    <symbol> = </symbol>
-                    <expression>
-                        <term>
-                            <identifier> rollGame </identifier>
-                            <symbol> . </symbol>
-                            <identifier> isOnPlatform </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <identifier> xCoordinate </identifier>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> yCoordinate </identifier>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                        </term>
-                    </expression>
-                    <symbol> ; </symbol>
-                </letStatement>
-                <returnStatement>
-                    <keyword> return </keyword>
-                    <symbol> ; </symbol>
-                </returnStatement>
-            </statements>
-            <symbol> } </symbol>
-        </subroutineBody>
-    </subroutineDec>
-    <subroutineDec>
-        <keyword> method </keyword>
-        <keyword> void </keyword>
-        <identifier> move </identifier>
-        <symbol> ( </symbol>
-        <parameterList>
-            <keyword> int </keyword>
-            <identifier> direction </identifier>
-        </parameterList>
-        <symbol> ) </symbol>
-        <subroutineBody>
-            <symbol> { </symbol>
-            <statements>
-                <ifStatement>
-                    <keyword> if </keyword>
-                    <symbol> ( </symbol>
-                    <expression>
-                        <term>
-                            <symbol> ~ </symbol>
-                            <term>
-                                <identifier> gameOver </identifier>
-                            </term>
-                        </term>
-                    </expression>
-                    <symbol> ) </symbol>
-                    <symbol> { </symbol>
-                    <statements>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> moveHorizontal </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <identifier> direction </identifier>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> moveVertical </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                    </statements>
-                    <symbol> } </symbol>
-                </ifStatement>
-                <returnStatement>
-                    <keyword> return </keyword>
-                    <symbol> ; </symbol>
-                </returnStatement>
-            </statements>
-            <symbol> } </symbol>
-        </subroutineBody>
-    </subroutineDec>
-    <subroutineDec>
-        <keyword> method </keyword>
-        <keyword> void </keyword>
-        <identifier> moveLeft </identifier>
-        <symbol> ( </symbol>
-        <parameterList>
-        </parameterList>
-        <symbol> ) </symbol>
-        <subroutineBody>
-            <symbol> { </symbol>
-            <statements>
-                <ifStatement>
-                    <keyword> if </keyword>
-                    <symbol> ( </symbol>
-                    <expression>
-                        <term>
-                            <identifier> xCoordinate </identifier>
-                        </term>
-                        <symbol> &gt; </symbol>
-                        <term>
-                            <integerConstant> 1 </integerConstant>
-                        </term>
-                    </expression>
-                    <symbol> ) </symbol>
-                    <symbol> { </symbol>
-                    <statements>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Screen </identifier>
-                            <symbol> . </symbol>
-                            <identifier> setColor </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <keyword> false </keyword>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Screen </identifier>
-                            <symbol> . </symbol>
-                            <identifier> drawRectangle </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <symbol> ( </symbol>
-                                        <expression>
-                                            <term>
-                                                <identifier> xCoordinate </identifier>
-                                            </term>
-                                            <symbol> + </symbol>
-                                            <term>
-                                                <integerConstant> 5 </integerConstant>
-                                            </term>
-                                        </expression>
-                                        <symbol> ) </symbol>
-                                    </term>
-                                    <symbol> - </symbol>
-                                    <term>
-                                        <integerConstant> 1 </integerConstant>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> yCoordinate </identifier>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> xCoordinate </identifier>
-                                    </term>
-                                    <symbol> + </symbol>
-                                    <term>
-                                        <integerConstant> 5 </integerConstant>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> yCoordinate </identifier>
-                                    </term>
-                                    <symbol> + </symbol>
-                                    <term>
-                                        <integerConstant> 5 </integerConstant>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                        <letStatement>
-                            <keyword> let </keyword>
-                            <identifier> xCoordinate </identifier>
-                            <symbol> = </symbol>
-                            <expression>
-                                <term>
-                                    <identifier> xCoordinate </identifier>
-                                </term>
-                                <symbol> - </symbol>
-                                <term>
-                                    <integerConstant> 2 </integerConstant>
-                                </term>
-                            </expression>
-                            <symbol> ; </symbol>
-                        </letStatement>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Screen </identifier>
-                            <symbol> . </symbol>
-                            <identifier> setColor </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <keyword> true </keyword>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Screen </identifier>
-                            <symbol> . </symbol>
-                            <identifier> drawRectangle </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <identifier> xCoordinate </identifier>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> yCoordinate </identifier>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> xCoordinate </identifier>
-                                    </term>
-                                    <symbol> + </symbol>
-                                    <term>
-                                        <integerConstant> 1 </integerConstant>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> yCoordinate </identifier>
-                                    </term>
-                                    <symbol> + </symbol>
-                                    <term>
-                                        <integerConstant> 5 </integerConstant>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> isOnPlatform </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                    </statements>
-                    <symbol> } </symbol>
-                </ifStatement>
-                <returnStatement>
-                    <keyword> return </keyword>
-                    <symbol> ; </symbol>
-                </returnStatement>
-            </statements>
-            <symbol> } </symbol>
-        </subroutineBody>
-    </subroutineDec>
-    <subroutineDec>
-        <keyword> method </keyword>
-        <keyword> void </keyword>
-        <identifier> moveRight </identifier>
-        <symbol> ( </symbol>
-        <parameterList>
-        </parameterList>
-        <symbol> ) </symbol>
-        <subroutineBody>
-            <symbol> { </symbol>
-            <statements>
-                <ifStatement>
-                    <keyword> if </keyword>
-                    <symbol> ( </symbol>
-                    <expression>
-                        <term>
-                            <identifier> xCoordinate </identifier>
-                        </term>
-                        <symbol> + </symbol>
-                        <term>
-                            <integerConstant> 5 </integerConstant>
-                        </term>
-                        <symbol> &lt; </symbol>
-                        <term>
-                            <integerConstant> 510 </integerConstant>
-                        </term>
-                    </expression>
-                    <symbol> ) </symbol>
-                    <symbol> { </symbol>
-                    <statements>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Screen </identifier>
-                            <symbol> . </symbol>
-                            <identifier> setColor </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <keyword> false </keyword>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Screen </identifier>
-                            <symbol> . </symbol>
-                            <identifier> drawRectangle </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <identifier> xCoordinate </identifier>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> yCoordinate </identifier>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> xCoordinate </identifier>
-                                    </term>
-                                    <symbol> + </symbol>
-                                    <term>
-                                        <integerConstant> 1 </integerConstant>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> yCoordinate </identifier>
-                                    </term>
-                                    <symbol> + </symbol>
-                                    <term>
-                                        <integerConstant> 5 </integerConstant>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                        <letStatement>
-                            <keyword> let </keyword>
-                            <identifier> xCoordinate </identifier>
-                            <symbol> = </symbol>
-                            <expression>
-                                <term>
-                                    <identifier> xCoordinate </identifier>
-                                </term>
-                                <symbol> + </symbol>
-                                <term>
-                                    <integerConstant> 2 </integerConstant>
-                                </term>
-                            </expression>
-                            <symbol> ; </symbol>
-                        </letStatement>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Screen </identifier>
-                            <symbol> . </symbol>
-                            <identifier> setColor </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <keyword> true </keyword>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Screen </identifier>
-                            <symbol> . </symbol>
-                            <identifier> drawRectangle </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <symbol> ( </symbol>
-                                        <expression>
-                                            <term>
-                                                <identifier> xCoordinate </identifier>
-                                            </term>
-                                            <symbol> + </symbol>
-                                            <term>
-                                                <integerConstant> 5 </integerConstant>
-                                            </term>
-                                        </expression>
-                                        <symbol> ) </symbol>
-                                    </term>
-                                    <symbol> - </symbol>
-                                    <term>
-                                        <integerConstant> 1 </integerConstant>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> yCoordinate </identifier>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> xCoordinate </identifier>
-                                    </term>
-                                    <symbol> + </symbol>
-                                    <term>
-                                        <integerConstant> 5 </integerConstant>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> yCoordinate </identifier>
-                                    </term>
-                                    <symbol> + </symbol>
-                                    <term>
-                                        <integerConstant> 5 </integerConstant>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> isOnPlatform </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                    </statements>
-                    <symbol> } </symbol>
-                </ifStatement>
-                <returnStatement>
-                    <keyword> return </keyword>
-                    <symbol> ; </symbol>
-                </returnStatement>
-            </statements>
-            <symbol> } </symbol>
-        </subroutineBody>
-    </subroutineDec>
-    <subroutineDec>
-        <keyword> method </keyword>
-        <keyword> void </keyword>
-        <identifier> moveUp </identifier>
-        <symbol> ( </symbol>
-        <parameterList>
-        </parameterList>
-        <symbol> ) </symbol>
-        <subroutineBody>
-            <symbol> { </symbol>
-            <statements>
-                <ifStatement>
-                    <keyword> if </keyword>
-                    <symbol> ( </symbol>
-                    <expression>
-                        <term>
-                            <identifier> yCoordinate </identifier>
-                        </term>
-                        <symbol> &gt; </symbol>
-                        <term>
-                            <integerConstant> 1 </integerConstant>
-                        </term>
-                    </expression>
-                    <symbol> ) </symbol>
-                    <symbol> { </symbol>
-                    <statements>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Screen </identifier>
-                            <symbol> . </symbol>
-                            <identifier> setColor </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <keyword> false </keyword>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Screen </identifier>
-                            <symbol> . </symbol>
-                            <identifier> drawRectangle </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <identifier> xCoordinate </identifier>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <symbol> ( </symbol>
-                                        <expression>
-                                            <term>
-                                                <identifier> yCoordinate </identifier>
-                                            </term>
-                                            <symbol> + </symbol>
-                                            <term>
-                                                <integerConstant> 5 </integerConstant>
-                                            </term>
-                                        </expression>
-                                        <symbol> ) </symbol>
-                                    </term>
-                                    <symbol> - </symbol>
-                                    <term>
-                                        <integerConstant> 1 </integerConstant>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> xCoordinate </identifier>
-                                    </term>
-                                    <symbol> + </symbol>
-                                    <term>
-                                        <integerConstant> 5 </integerConstant>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> yCoordinate </identifier>
-                                    </term>
-                                    <symbol> + </symbol>
-                                    <term>
-                                        <integerConstant> 5 </integerConstant>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                        <letStatement>
-                            <keyword> let </keyword>
-                            <identifier> yCoordinate </identifier>
-                            <symbol> = </symbol>
-                            <expression>
-                                <term>
-                                    <identifier> yCoordinate </identifier>
-                                </term>
-                                <symbol> - </symbol>
-                                <term>
-                                    <integerConstant> 1 </integerConstant>
-                                </term>
-                            </expression>
-                            <symbol> ; </symbol>
-                        </letStatement>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Screen </identifier>
-                            <symbol> . </symbol>
-                            <identifier> setColor </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <keyword> true </keyword>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Screen </identifier>
-                            <symbol> . </symbol>
-                            <identifier> drawRectangle </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <identifier> xCoordinate </identifier>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> yCoordinate </identifier>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> xCoordinate </identifier>
-                                    </term>
-                                    <symbol> + </symbol>
-                                    <term>
-                                        <integerConstant> 5 </integerConstant>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> yCoordinate </identifier>
-                                    </term>
-                                    <symbol> + </symbol>
-                                    <term>
-                                        <integerConstant> 1 </integerConstant>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                    </statements>
-                    <symbol> } </symbol>
-                    <keyword> else </keyword>
-                    <symbol> { </symbol>
-                    <statements>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> decreaseLife </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                    </statements>
-                    <symbol> } </symbol>
-                </ifStatement>
-                <returnStatement>
-                    <keyword> return </keyword>
-                    <symbol> ; </symbol>
-                </returnStatement>
-            </statements>
-            <symbol> } </symbol>
-        </subroutineBody>
-    </subroutineDec>
-    <subroutineDec>
-        <keyword> method </keyword>
-        <keyword> void </keyword>
-        <identifier> moveDown </identifier>
-        <symbol> ( </symbol>
-        <parameterList>
-        </parameterList>
-        <symbol> ) </symbol>
-        <subroutineBody>
-            <symbol> { </symbol>
-            <statements>
-                <ifStatement>
-                    <keyword> if </keyword>
-                    <symbol> ( </symbol>
-                    <expression>
-                        <term>
-                            <symbol> ( </symbol>
-                            <expression>
-                                <term>
-                                    <identifier> yCoordinate </identifier>
-                                </term>
-                                <symbol> + </symbol>
-                                <term>
-                                    <integerConstant> 5 </integerConstant>
-                                </term>
-                            </expression>
-                            <symbol> ) </symbol>
-                        </term>
-                        <symbol> &lt; </symbol>
-                        <term>
-                            <integerConstant> 253 </integerConstant>
-                        </term>
-                    </expression>
-                    <symbol> ) </symbol>
-                    <symbol> { </symbol>
-                    <statements>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Screen </identifier>
-                            <symbol> . </symbol>
-                            <identifier> setColor </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <keyword> false </keyword>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Screen </identifier>
-                            <symbol> . </symbol>
-                            <identifier> drawRectangle </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <identifier> xCoordinate </identifier>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> yCoordinate </identifier>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> xCoordinate </identifier>
-                                    </term>
-                                    <symbol> + </symbol>
-                                    <term>
-                                        <integerConstant> 5 </integerConstant>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> yCoordinate </identifier>
-                                    </term>
-                                    <symbol> + </symbol>
-                                    <term>
-                                        <integerConstant> 1 </integerConstant>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                        <letStatement>
-                            <keyword> let </keyword>
-                            <identifier> yCoordinate </identifier>
-                            <symbol> = </symbol>
-                            <expression>
-                                <term>
-                                    <identifier> yCoordinate </identifier>
-                                </term>
-                                <symbol> + </symbol>
-                                <term>
-                                    <integerConstant> 2 </integerConstant>
-                                </term>
-                            </expression>
-                            <symbol> ; </symbol>
-                        </letStatement>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Screen </identifier>
-                            <symbol> . </symbol>
-                            <identifier> setColor </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <keyword> true </keyword>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> Screen </identifier>
-                            <symbol> . </symbol>
-                            <identifier> drawRectangle </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                                <expression>
-                                    <term>
-                                        <identifier> xCoordinate </identifier>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <symbol> ( </symbol>
-                                        <expression>
-                                            <term>
-                                                <identifier> yCoordinate </identifier>
-                                            </term>
-                                            <symbol> + </symbol>
-                                            <term>
-                                                <integerConstant> 5 </integerConstant>
-                                            </term>
-                                        </expression>
-                                        <symbol> ) </symbol>
-                                    </term>
-                                    <symbol> - </symbol>
-                                    <term>
-                                        <integerConstant> 1 </integerConstant>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> xCoordinate </identifier>
-                                    </term>
-                                    <symbol> + </symbol>
-                                    <term>
-                                        <integerConstant> 5 </integerConstant>
-                                    </term>
-                                </expression>
-                                <symbol> , </symbol>
-                                <expression>
-                                    <term>
-                                        <identifier> yCoordinate </identifier>
-                                    </term>
-                                    <symbol> + </symbol>
-                                    <term>
-                                        <integerConstant> 5 </integerConstant>
-                                    </term>
-                                </expression>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                    </statements>
-                    <symbol> } </symbol>
-                    <keyword> else </keyword>
-                    <symbol> { </symbol>
-                    <statements>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> decreaseLife </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                    </statements>
-                    <symbol> } </symbol>
-                </ifStatement>
-                <returnStatement>
-                    <keyword> return </keyword>
-                    <symbol> ; </symbol>
-                </returnStatement>
-            </statements>
-            <symbol> } </symbol>
-        </subroutineBody>
-    </subroutineDec>
-    <subroutineDec>
-        <keyword> method </keyword>
-        <keyword> void </keyword>
-        <identifier> moveHorizontal </identifier>
-        <symbol> ( </symbol>
-        <parameterList>
-            <keyword> int </keyword>
-            <identifier> direction </identifier>
-        </parameterList>
-        <symbol> ) </symbol>
-        <subroutineBody>
-            <symbol> { </symbol>
-            <statements>
-                <ifStatement>
-                    <keyword> if </keyword>
-                    <symbol> ( </symbol>
-                    <expression>
-                        <term>
-                            <identifier> direction </identifier>
-                        </term>
-                        <symbol> = </symbol>
-                        <term>
-                            <integerConstant> 1 </integerConstant>
-                        </term>
-                    </expression>
-                    <symbol> ) </symbol>
-                    <symbol> { </symbol>
-                    <statements>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> moveLeft </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                    </statements>
-                    <symbol> } </symbol>
-                </ifStatement>
-                <ifStatement>
-                    <keyword> if </keyword>
-                    <symbol> ( </symbol>
-                    <expression>
-                        <term>
-                            <identifier> direction </identifier>
-                        </term>
-                        <symbol> = </symbol>
-                        <term>
-                            <integerConstant> 2 </integerConstant>
-                        </term>
-                    </expression>
-                    <symbol> ) </symbol>
-                    <symbol> { </symbol>
-                    <statements>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> moveRight </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                    </statements>
-                    <symbol> } </symbol>
-                </ifStatement>
-                <returnStatement>
-                    <keyword> return </keyword>
-                    <symbol> ; </symbol>
-                </returnStatement>
-            </statements>
-            <symbol> } </symbol>
-        </subroutineBody>
-    </subroutineDec>
-    <subroutineDec>
-        <keyword> method </keyword>
-        <keyword> void </keyword>
-        <identifier> moveVertical </identifier>
-        <symbol> ( </symbol>
-        <parameterList>
-        </parameterList>
-        <symbol> ) </symbol>
-        <subroutineBody>
-            <symbol> { </symbol>
-            <statements>
-                <ifStatement>
-                    <keyword> if </keyword>
-                    <symbol> ( </symbol>
-                    <expression>
-                        <term>
-                            <identifier> onPlatform </identifier>
-                        </term>
-                    </expression>
-                    <symbol> ) </symbol>
-                    <symbol> { </symbol>
-                    <statements>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> moveUp </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                    </statements>
-                    <symbol> } </symbol>
-                    <keyword> else </keyword>
-                    <symbol> { </symbol>
-                    <statements>
-                        <doStatement>
-                            <keyword> do </keyword>
-                            <identifier> moveDown </identifier>
-                            <symbol> ( </symbol>
-                            <expressionList>
-                            </expressionList>
-                            <symbol> ) </symbol>
-                            <symbol> ; </symbol>
-                        </doStatement>
-                    </statements>
-                    <symbol> } </symbol>
-                </ifStatement>
-                <returnStatement>
-                    <keyword> return </keyword>
-                    <symbol> ; </symbol>
-                </returnStatement>
-            </statements>
-            <symbol> } </symbol>
-        </subroutineBody>
-    </subroutineDec>
-    <subroutineDec>
-        <keyword> method </keyword>
-        <keyword> void </keyword>
-        <identifier> dispose </identifier>
-        <symbol> ( </symbol>
-        <parameterList>
-        </parameterList>
-        <symbol> ) </symbol>
-        <subroutineBody>
-            <symbol> { </symbol>
-            <statements>
-                <doStatement>
-                    <keyword> do </keyword>
-                    <identifier> deleteBallImage </identifier>
-                    <symbol> ( </symbol>
-                    <expressionList>
-                    </expressionList>
-                    <symbol> ) </symbol>
-                    <symbol> ; </symbol>
-                </doStatement>
-                <doStatement>
-                    <keyword> do </keyword>
-                    <identifier> Memory </identifier>
-                    <symbol> . </symbol>
-                    <identifier> deAlloc </identifier>
-                    <symbol> ( </symbol>
-                    <expressionList>
-                        <expression>
-                            <term>
-                                <keyword> this </keyword>
-                            </term>
-                        </expression>
-                    </expressionList>
-                    <symbol> ) </symbol>
-                    <symbol> ; </symbol>
-                </doStatement>
-                <returnStatement>
-                    <keyword> return </keyword>
-                    <symbol> ; </symbol>
-                </returnStatement>
-            </statements>
-            <symbol> } </symbol>
-        </subroutineBody>
-    </subroutineDec>
-    <symbol> } </symbol>
+<keyword>class</keyword>
+<identifier>Ball</identifier>
+<symbol>{</symbol>
+<classVarDec>
+<keyword>field</keyword>
+<keyword>int</keyword>
+<identifier>lives</identifier>
+<symbol>;</symbol>
+</classVarDec>
+<classVarDec>
+<keyword>field</keyword>
+<keyword>int</keyword>
+<identifier>xCoordinate</identifier>
+<symbol>;</symbol>
+</classVarDec>
+<classVarDec>
+<keyword>field</keyword>
+<keyword>int</keyword>
+<identifier>yCoordinate</identifier>
+<symbol>;</symbol>
+</classVarDec>
+<classVarDec>
+<keyword>field</keyword>
+<keyword>int</keyword>
+<identifier>horizontaldirection</identifier>
+<symbol>;</symbol>
+</classVarDec>
+<classVarDec>
+<keyword>field</keyword>
+<keyword>boolean</keyword>
+<identifier>onPlatform</identifier>
+<symbol>;</symbol>
+</classVarDec>
+<classVarDec>
+<keyword>field</keyword>
+<identifier>RapidRollGame</identifier>
+<identifier>rollGame</identifier>
+<symbol>;</symbol>
+</classVarDec>
+<classVarDec>
+<keyword>field</keyword>
+<keyword>boolean</keyword>
+<identifier>gameOver</identifier>
+<symbol>;</symbol>
+</classVarDec>
+<subroutineDec>
+<keyword>constructor</keyword>
+<identifier>Ball</identifier>
+<identifier>new</identifier>
+<symbol>(</symbol>
+<parameterList>
+<keyword>int</keyword>
+<identifier>points</identifier>
+<symbol>,</symbol>
+<identifier>RapidRollGame</identifier>
+<identifier>game</identifier>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<varDec>
+<keyword>var</keyword>
+<identifier>Platform</identifier>
+<identifier>platform</identifier>
+<symbol>;</symbol>
+</varDec>
+<statements>
+<letStatement>
+<keyword>let</keyword>
+<identifier>gameOver</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<keyword>false</keyword>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>lives</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>points</identifier>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>rollGame</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>game</identifier>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>xCoordinate</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<integerConstant>256</integerConstant>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>yCoordinate</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>horizontaldirection</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<integerConstant>0</integerConstant>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>onPlatform</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<keyword>false</keyword>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>platform</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>Platform</identifier>
+<symbol>.</symbol>
+<identifier>new</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<integerConstant>200</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<integerConstant>300</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<integerConstant>245</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>rollGame</identifier>
+<symbol>.</symbol>
+<identifier>getPlatformsList</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>rollGame</identifier>
+<symbol>.</symbol>
+<identifier>addPlatform</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>platform</identifier>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<returnStatement>
+<keyword>return</keyword>
+<expression>
+<term>
+<keyword>this</keyword>
+</term>
+</expression>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
+<subroutineDec>
+<keyword>method</keyword>
+<keyword>void</keyword>
+<identifier>drawBall</identifier>
+<symbol>(</symbol>
+<parameterList>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<statements>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>setColor</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<keyword>true</keyword>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>drawRectangle</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
+<subroutineDec>
+<keyword>method</keyword>
+<keyword>void</keyword>
+<identifier>deleteBallImage</identifier>
+<symbol>(</symbol>
+<parameterList>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<statements>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>setColor</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<keyword>false</keyword>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>drawRectangle</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
+<subroutineDec>
+<keyword>method</keyword>
+<keyword>void</keyword>
+<identifier>decreaseLife</identifier>
+<symbol>(</symbol>
+<parameterList>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<varDec>
+<keyword>var</keyword>
+<identifier>Ball</identifier>
+<identifier>newBall</identifier>
+<symbol>;</symbol>
+</varDec>
+<varDec>
+<keyword>var</keyword>
+<keyword>int</keyword>
+<identifier>newLives</identifier>
+<symbol>;</symbol>
+</varDec>
+<statements>
+<letStatement>
+<keyword>let</keyword>
+<identifier>newLives</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>lives</identifier>
+</term>
+<symbol>-</symbol>
+<term>
+<integerConstant>1</integerConstant>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>dispose</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<ifStatement>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>lives</identifier>
+</term>
+<symbol>&gt;</symbol>
+<term>
+<integerConstant>0</integerConstant>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<letStatement>
+<keyword>let</keyword>
+<identifier>newBall</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>Ball</identifier>
+<symbol>.</symbol>
+<identifier>new</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>newLives</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>rollGame</identifier>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+</statements>
+<symbol>}</symbol>
+</ifStatement>
+<ifStatement>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>lives</identifier>
+</term>
+<symbol>=</symbol>
+<term>
+<integerConstant>0</integerConstant>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<stringConstant>GAMEOVER!</stringConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>gameOver</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<keyword>true</keyword>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>rollGame</identifier>
+<symbol>.</symbol>
+<identifier>gameOver</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+</statements>
+<symbol>}</symbol>
+</ifStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
+<subroutineDec>
+<keyword>method</keyword>
+<keyword>void</keyword>
+<identifier>isOnPlatform</identifier>
+<symbol>(</symbol>
+<parameterList>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<statements>
+<letStatement>
+<keyword>let</keyword>
+<identifier>onPlatform</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>rollGame</identifier>
+<symbol>.</symbol>
+<identifier>isOnPlatform</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
+<subroutineDec>
+<keyword>method</keyword>
+<keyword>void</keyword>
+<identifier>move</identifier>
+<symbol>(</symbol>
+<parameterList>
+<keyword>int</keyword>
+<identifier>direction</identifier>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<statements>
+<ifStatement>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<symbol>~</symbol>
+<term>
+<identifier>gameOver</identifier>
+</term>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<doStatement>
+<keyword>do</keyword>
+<identifier>moveHorizontal</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>direction</identifier>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>moveVertical</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+</statements>
+<symbol>}</symbol>
+</ifStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
+<subroutineDec>
+<keyword>method</keyword>
+<keyword>void</keyword>
+<identifier>moveLeft</identifier>
+<symbol>(</symbol>
+<parameterList>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<statements>
+<ifStatement>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+<symbol>&gt;</symbol>
+<term>
+<integerConstant>1</integerConstant>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>setColor</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<keyword>false</keyword>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>drawRectangle</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+<symbol>)</symbol>
+</term>
+<symbol>-</symbol>
+<term>
+<integerConstant>1</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>xCoordinate</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+<symbol>-</symbol>
+<term>
+<integerConstant>2</integerConstant>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>setColor</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<keyword>true</keyword>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>drawRectangle</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>1</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>isOnPlatform</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+</statements>
+<symbol>}</symbol>
+</ifStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
+<subroutineDec>
+<keyword>method</keyword>
+<keyword>void</keyword>
+<identifier>moveRight</identifier>
+<symbol>(</symbol>
+<parameterList>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<statements>
+<ifStatement>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+<symbol>&lt;</symbol>
+<term>
+<integerConstant>510</integerConstant>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>setColor</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<keyword>false</keyword>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>drawRectangle</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>1</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>xCoordinate</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>2</integerConstant>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>setColor</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<keyword>true</keyword>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>drawRectangle</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+<symbol>)</symbol>
+</term>
+<symbol>-</symbol>
+<term>
+<integerConstant>1</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>isOnPlatform</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+</statements>
+<symbol>}</symbol>
+</ifStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
+<subroutineDec>
+<keyword>method</keyword>
+<keyword>void</keyword>
+<identifier>moveUp</identifier>
+<symbol>(</symbol>
+<parameterList>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<statements>
+<ifStatement>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+<symbol>&gt;</symbol>
+<term>
+<integerConstant>1</integerConstant>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>setColor</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<keyword>false</keyword>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>drawRectangle</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+<symbol>)</symbol>
+</term>
+<symbol>-</symbol>
+<term>
+<integerConstant>1</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>yCoordinate</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+<symbol>-</symbol>
+<term>
+<integerConstant>1</integerConstant>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>setColor</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<keyword>true</keyword>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>drawRectangle</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>1</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+</statements>
+<symbol>}</symbol>
+<keyword>else</keyword>
+<symbol>{</symbol>
+<statements>
+<doStatement>
+<keyword>do</keyword>
+<identifier>decreaseLife</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+</statements>
+<symbol>}</symbol>
+</ifStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
+<subroutineDec>
+<keyword>method</keyword>
+<keyword>void</keyword>
+<identifier>moveDown</identifier>
+<symbol>(</symbol>
+<parameterList>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<statements>
+<ifStatement>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+<symbol>)</symbol>
+</term>
+<symbol>&lt;</symbol>
+<term>
+<integerConstant>253</integerConstant>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>setColor</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<keyword>false</keyword>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>drawRectangle</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>1</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<letStatement>
+<keyword>let</keyword>
+<identifier>yCoordinate</identifier>
+<symbol>=</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>2</integerConstant>
+</term>
+</expression>
+<symbol>;</symbol>
+</letStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>setColor</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<keyword>true</keyword>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Screen</identifier>
+<symbol>.</symbol>
+<identifier>drawRectangle</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+<symbol>)</symbol>
+</term>
+<symbol>-</symbol>
+<term>
+<integerConstant>1</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>xCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+<symbol>,</symbol>
+<expression>
+<term>
+<identifier>yCoordinate</identifier>
+</term>
+<symbol>+</symbol>
+<term>
+<integerConstant>5</integerConstant>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+</statements>
+<symbol>}</symbol>
+<keyword>else</keyword>
+<symbol>{</symbol>
+<statements>
+<doStatement>
+<keyword>do</keyword>
+<identifier>decreaseLife</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+</statements>
+<symbol>}</symbol>
+</ifStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
+<subroutineDec>
+<keyword>method</keyword>
+<keyword>void</keyword>
+<identifier>moveHorizontal</identifier>
+<symbol>(</symbol>
+<parameterList>
+<keyword>int</keyword>
+<identifier>direction</identifier>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<statements>
+<ifStatement>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>direction</identifier>
+</term>
+<symbol>=</symbol>
+<term>
+<integerConstant>1</integerConstant>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<doStatement>
+<keyword>do</keyword>
+<identifier>moveLeft</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+</statements>
+<symbol>}</symbol>
+</ifStatement>
+<ifStatement>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>direction</identifier>
+</term>
+<symbol>=</symbol>
+<term>
+<integerConstant>2</integerConstant>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<doStatement>
+<keyword>do</keyword>
+<identifier>moveRight</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+</statements>
+<symbol>}</symbol>
+</ifStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
+<subroutineDec>
+<keyword>method</keyword>
+<keyword>void</keyword>
+<identifier>moveVertical</identifier>
+<symbol>(</symbol>
+<parameterList>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<statements>
+<ifStatement>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<expression>
+<term>
+<identifier>onPlatform</identifier>
+</term>
+</expression>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<statements>
+<doStatement>
+<keyword>do</keyword>
+<identifier>moveUp</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+</statements>
+<symbol>}</symbol>
+<keyword>else</keyword>
+<symbol>{</symbol>
+<statements>
+<doStatement>
+<keyword>do</keyword>
+<identifier>moveDown</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+</statements>
+<symbol>}</symbol>
+</ifStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
+<subroutineDec>
+<keyword>method</keyword>
+<keyword>void</keyword>
+<identifier>dispose</identifier>
+<symbol>(</symbol>
+<parameterList>
+</parameterList>
+<symbol>)</symbol>
+<subroutineBody>
+<symbol>{</symbol>
+<statements>
+<doStatement>
+<keyword>do</keyword>
+<identifier>deleteBallImage</identifier>
+<symbol>(</symbol>
+<expressionList>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<doStatement>
+<keyword>do</keyword>
+<identifier>Memory</identifier>
+<symbol>.</symbol>
+<identifier>deAlloc</identifier>
+<symbol>(</symbol>
+<expressionList>
+<expression>
+<term>
+<keyword>this</keyword>
+</term>
+</expression>
+</expressionList>
+<symbol>)</symbol>
+<symbol>;</symbol>
+</doStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol>;</symbol>
+</returnStatement>
+</statements>
+<symbol>}</symbol>
+</subroutineBody>
+</subroutineDec>
+<symbol>}</symbol>
 </class>

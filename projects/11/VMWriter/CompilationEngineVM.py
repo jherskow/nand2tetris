@@ -39,6 +39,7 @@ class CompilationEngineVM:
         """
 
 
+
     def compile_class_var_dec(self):
         """
         Compiles a static declaration or a field declaration.
@@ -48,6 +49,7 @@ class CompilationEngineVM:
         """
         Compiles a complete method, function, or constructor.
         """
+
 
     def compile_parameter_list(self):
         """

@@ -29,16 +29,16 @@ class SymbolTable:
         self.field_counter = 0
         self.argument_counter = 0
         self.var_counter = 0
+        self.class_identifiers = {}
+        self.subroutine_identifiers = {}
+
 
     def start_subroutine(self):
         """
         Starts a new subroutine scope (i.e., resets the subroutine’s symbol table).
         """
-        self.static_counter = 0
-        self.field_counter = 0
         self.argument_counter = 0
         self.var_counter = 0
-        self.class_identifiers = {}
         self.subroutine_identifiers = {}
 
     def define(self, name, type, kind):

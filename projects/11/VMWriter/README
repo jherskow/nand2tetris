@@ -1,0 +1,21 @@
+ayaj,jherskow
+===============================================================================
+Aya Jbara, ID 209048156, aya.jbara@mail.huji.ac.il
+Joshua Herskowitz, ID 321658379, jherskow@cs.huji.ac.il
+===============================================================================
+Project 10 - JackAnalyzer
+
+
+Submitted Files
+---------------
+README - This file.
+Makefile - A script that give permisssions to the JackAnalyzer program to get invoke from terminal.
+JackAnalyzer.py - The analyzer program operates on a given source.
+JackTokenizer.py - Removes all comments and white space from the input stream and breaks it into Jack-
+                    language tokens,as specified by the Jack grammar.
+CompilationEngineXML.py - Effects the actual compilation output.
+sym_table.py - have all magic numbers and symbols.
+
+
+Remarks
+-------

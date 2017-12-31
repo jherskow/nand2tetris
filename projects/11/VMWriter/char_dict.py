@@ -1,5 +1,5 @@
 ##########################################################################
-# FILE : sym_table.py
+# FILE : char_dict.py
 # WRITER : Josuha Herskowitz , jherskow , 321658379
 # WRITER : Aya Jbara , ayaj , 209048156
 # EXERCISE : nand2tetris ex10 2017-2018

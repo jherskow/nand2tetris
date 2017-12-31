@@ -54,6 +54,7 @@ class CompilationEngineXML:
 
         # todo == VM ==
 
+
         # class
         self.advance()
 
@@ -316,14 +317,10 @@ class CompilationEngineXML:
         """
         Compiles a do statement.
         """
-        this = "doStatement"
-        self.xml_open(this)
-        self.write("\n")
-
+        # todo == should be ok
         # 'do' subroutineCall ';'
 
         # do
-        self.xml_keyword()
         self.advance()
 
         # subroutineCall
@@ -332,15 +329,10 @@ class CompilationEngineXML:
         # ;
         self.compile_symbol_check(";", "expected ; after subroutine call")
 
-        self.xml_close(this)
-
     def compile_while(self):
         """
         Compiles a while statement.
         """
-        this = "whileStatement"
-        self.xml_open(this)
-        self.write("\n")
 
         # 'while' '(' expression ')' '{' statements '}'
 
@@ -425,7 +417,7 @@ class CompilationEngineXML:
         """
         Compiles a expression.
         """
-        # todo == what does htis do?
+        # todo == what does this do?
         # todo ==     ? probbly leave the final value on the stack ?
         this = "expression"
         self.xml_open(this)
@@ -617,13 +609,21 @@ class CompilationEngineXML:
         # class.func(list)
         # var.func(list)
 
+
+        # TODO == todo subroutine call
+
+        # look forward
         self.advance()
+        # todo - if no "." - foo() - we want to call foo in curerent class
+        # todo - if foo is method - we must also send 'this'
+
         if self.type() == d.SYMBOL and self.symbol() == "(":
             # subroutineName '(' expressionList ')'
             self.retreat()
 
+
+
             # subroutineName
-            self.xml_identifier()
             self.advance()
 
             # (
@@ -634,7 +634,7 @@ class CompilationEngineXML:
 
             # )
             self.compile_symbol_check(")", "expected ) for function arguments")
-
+        # todo - if no "." - then this is class.foo or object.foo
         elif self.type() == d.SYMBOL and self.symbol() == ".":
             # (className |varName) '.' subroutineName '(' expressionList ')'
             self.retreat()

@@ -277,6 +277,7 @@ class CompilationEngineXML:
         Compiles a sequence of statements,
         not including the enclosing {}.
         """
+        #todooooooooooooooooooooooooooooooooooooo
         # todo == does this need anything?
         # statement*  0 or more times
 
@@ -367,7 +368,6 @@ class CompilationEngineXML:
         self.compile_statements()
         self.compile_symbol_check("}", "expected } in {statements} for while")
 
-        self.xml_close(this)
 
     def compile_return(self):
         """
@@ -746,6 +746,8 @@ class CompilationEngineXML:
     def write_function(self, name, n_locals):
         method_name = self.class_name + "." + name
         self.vm_writer.write_function(method_name, n_locals)
+
+
 
     # todo VM HELPER FUNCTIONS=========================
 

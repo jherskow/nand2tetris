@@ -5,7 +5,7 @@
 # EXERCISE : nand2tetris ex10 2017-2018
 # DESCRIPTION:
 ##########################################################################
-import sym_table as d
+import char_dict as d
 import SymbolTable
 import VMWriter
 
@@ -37,6 +37,7 @@ class CompilationEngineXML:
         self.token = tokenizer
         self.vm_writer = VMWriter.VMWriter(output_file)
         self.symbol_table = None
+        self.class_name = ""
 
         # get first token
         self.advance()
@@ -51,7 +52,6 @@ class CompilationEngineXML:
         Compiles a complete class.
         """
 
-
         # todo == VM ==
 
 
@@ -62,10 +62,10 @@ class CompilationEngineXML:
 
         if self.type() != d.IDENTIFIER:
             raise CompilerError(self, "Class must begin with class name")
-
+        self.class_name = self.identifier()
         # todo == VM ==  create a new symbol_table  ( make helper function )
 
-        self.symbol_table = self.make_symbol_table()   # todo == VM ==  class name?
+        self.symbol_table = self.make_symbol_table()  # todo == VM ==  class name?
 
         self.advance()
 
@@ -73,12 +73,10 @@ class CompilationEngineXML:
 
         self.compile_class_body()
 
-
     def compile_class_var_dec(self):
         """
         Compiles a static declaration or a field declaration.
         """
-
 
         # ( 'static' | 'field' ) type varName ( ',' varName)* ';'
 
@@ -87,7 +85,7 @@ class CompilationEngineXML:
         # #    todo ===   static/field (counter) -> symbol table with name as key
 
         # static | field  (this is the kind)
-        kind = self.key_word()
+        kind = self.get_kind()
 
         self.advance()
 
@@ -97,12 +95,13 @@ class CompilationEngineXML:
         self.advance()
 
         # single varname
-        name = self.identifier()   # todo == VM == ....
+        name = self.identifier()  # todo == VM == ....
         self.advance()
 
         # todo get , kind and and type
         # todo and declare in sym table
         self.declare_variable(name, type, kind)
+        self.write_push(name)
 
         # possible additional ',' varname  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
@@ -110,21 +109,22 @@ class CompilationEngineXML:
             self.advance()
 
             # another varname
-            name = self.identifier()   # todo == VM == ....
+            name = self.identifier()  # todo == VM == ....
             self.advance()
 
             # declare under same kind and type
             self.declare_variable(name, type, kind)
 
+            # push kind index
+            self.write_push(name)
+
         # ;
         self.compile_symbol_check(";", "expected closing \";\" for declaration")
-
 
     def compile_subroutine(self):
         """
         Compiles a complete method, function, or constructor.
         """
-
 
         # ( 'constructor' | 'function' | 'method' )
         # ( 'void' | type) subroutineName '(' parameterList ')'
@@ -134,13 +134,14 @@ class CompilationEngineXML:
         # todo ==  if constrctor - specific stuff
         # todo ==  if method must push base adress first - then other arg
         # todo  == if functions - just push args and then call
-        self.xml_keyword()
+        # locals number
+        n_args = 0
+        subroutine_type = self.key_word()
         self.advance()
 
         # 'void' | type
         # todo  ==  this goes to symbol table info about this func/method
         if self.type() == d.KEYWORD and self.key_word() == d.K_VOID:
-            self.xml_keyword()
             self.advance()
         else:
             self.compile_type()
@@ -149,17 +150,26 @@ class CompilationEngineXML:
         # subroutineName
         # todo needs to be changed to class.subroutineName
         # todo === dow we need to ude the name? ??
+        name = self.identifier()
         self.advance()
 
         # (
         self.compile_symbol_check("(", "expected opening \"(\" for parameterList ")
 
         # parameterList 
-        #todo == thi is the argument variables for the subroutine symbol table
-        self.compile_parameter_list() # todo using declare_variable()
+        # todo == thi is the argument variables for the subroutine symbol table
+        if subroutine_type == "method":
+            # method (this,....)
+            self.declare_variable("this", self.class_name, SymbolTable.ARG_KIND)
+            # push this ARG_index
+            self.write_push("this")
+            n_args += 1
+        n_args += self.compile_parameter_list()  # todo using declare_variable()
 
         # )
         self.compile_symbol_check(")", "expected closing \")\" for parameterList  ")
+
+        self.write_function(name, n_args)
 
         # subroutineBody
         self.compile_subroutine_body()
@@ -170,42 +180,51 @@ class CompilationEngineXML:
         not including the enclosing ()
         :return:
         """
-
+        n_locals = 0
         # ( (type varName) ( ',' type varName)*)?
 
         # if empty - ?
         if self.type() == d.SYMBOL and self.symbol() == ")":
-            return
+            return n_locals
 
         # otherwise first (type varname) must exist
 
         # single type varName
         # type
-        type = self.key_word() # todo OR IDENTIFIER
+        type = self.key_word()  # todo OR IDENTIFIER
         self.advance()
 
-        #var name
+        # var name
         name = self.identifier()
         self.advance()
 
-        #declare
-        self.declare_variable(name,type, SymbolTable.ARG_KIND) # todo check ARG is correct
+        # declare
+        self.declare_variable(name, type, SymbolTable.ARG_KIND)  # todo check ARG is correct
+
+        # push kind index
+        self.write_push(name)
+        n_locals += 1
 
         # possible additional type varname  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
             self.advance()
 
             # type
-            type = self.key_word() # todo OR IDENTIFIER
+            type = self.key_word()  # todo OR IDENTIFIER
             self.advance()
 
-            #var name
+            # var name
             name = self.identifier()
             self.advance()
 
-            #declare
-            self.declare_variable(name,type, SymbolTable.ARG_KIND) # todo check ARG is correct
+            # declare
+            self.declare_variable(name, type, SymbolTable.ARG_KIND)  # todo check ARG is correct
 
+            # push kind index
+            self.write_push(name)
+            n_locals += 1
+
+        return n_locals
 
     def compile_var_dec(self):
         """
@@ -222,16 +241,16 @@ class CompilationEngineXML:
         # single type varName
 
         # type
-        type = self.key_word() # todo OR IDENTIFIER
+        type = self.key_word()  # todo OR IDENTIFIER
         self.advance()
 
-        #var name
+        # var name
         name = self.identifier()
         self.advance()
 
-        #declare
-        self.declare_variable(name, type, SymbolTable.VAR_KIND) # todo check ARG is correct
-
+        # declare
+        self.declare_variable(name, type, SymbolTable.VAR_KIND)  # todo check ARG is correct
+        self.write_push(name)
 
         # possible additional "," varname  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
@@ -239,16 +258,16 @@ class CompilationEngineXML:
             self.advance()
 
             # type
-            type = self.key_word() # todo OR IDENTIFIER or just token?// token
+            type = self.key_word()  # todo OR IDENTIFIER or just token?// token
             self.advance()
-    
-            #var name
+
+            # var name
             name = self.identifier()
             self.advance()
-    
-            #declare
-            self.declare_variable(name, type, SymbolTable.VAR_KIND) # todo check ARG is correct
 
+            # declare
+            self.declare_variable(name, type, SymbolTable.VAR_KIND)  # todo check ARG is correct
+            self.write_push(name)
 
         # ';'
         self.compile_symbol_check(";", "expected ; at end of variable declaration")
@@ -263,7 +282,6 @@ class CompilationEngineXML:
 
         while self.type() == d.KEYWORD and self.key_word() in d.statement_types:
             statement_type = self.key_word()
-
 
             if statement_type == d.K_LET:
                 self.compile_let()
@@ -280,7 +298,6 @@ class CompilationEngineXML:
         """
         Compiles a let statement.
         """
-
 
         # 'let' varName ( '[' expression ']' )? '=' expression ';'
 
@@ -305,7 +322,6 @@ class CompilationEngineXML:
         # expression
         # todo ====   then do all the stuff on the right
         self.compile_expression()
-
 
         # todo ====  finally, pop the value at top of stack (the result of the right)
         # todo ====  to VM location for name OR name[expression]
@@ -419,9 +435,6 @@ class CompilationEngineXML:
         """
         # todo == what does this do?
         # todo ==     ? probbly leave the final value on the stack ?
-        this = "expression"
-        self.xml_open(this)
-        self.write("\n")
 
         # term (op term)*
 
@@ -432,8 +445,6 @@ class CompilationEngineXML:
         while self.type() == d.SYMBOL and self.symbol() in d.op:
             self.compile_op()
             self.compile_term()
-
-        self.xml_close(this)
 
     def compile_term(self):
         """
@@ -451,9 +462,6 @@ class CompilationEngineXML:
         Any other token is not part of this term
         and should not be advanced over.
         """
-        this = "term"
-        self.xml_open(this)
-        self.write("\n")
 
         first_type = self.type()
 
@@ -525,8 +533,6 @@ class CompilationEngineXML:
         else:
             raise CompilerError(self, "invalid term")
 
-        self.xml_close(this)
-
     def compile_expression_list(self):
         """
         Compiles a (possibly empty) comma-separated list of expressions.
@@ -597,7 +603,6 @@ class CompilationEngineXML:
     def compile_symbol_check(self, symbol, message):
         if self.type() != d.SYMBOL or self.symbol() != symbol:
             raise CompilerError(self, message)
-        self.xml_symbol()
         self.advance()
 
     def compile_subroutine_call(self):
@@ -620,8 +625,6 @@ class CompilationEngineXML:
         if self.type() == d.SYMBOL and self.symbol() == "(":
             # subroutineName '(' expressionList ')'
             self.retreat()
-
-
 
             # subroutineName
             self.advance()
@@ -673,9 +676,6 @@ class CompilationEngineXML:
         """
         :return:
         """
-        this = "subroutineBody"
-        self.xml_open(this)
-        self.write("\n")
         # '{' varDec* statements '}'
 
         # '{'
@@ -690,8 +690,6 @@ class CompilationEngineXML:
 
         # '}'
         self.compile_symbol_check("}", "Expected } to close method body")
-
-        self.xml_close(this)
 
     def compile_op(self):
         """
@@ -719,12 +717,35 @@ class CompilationEngineXML:
     # todo VM HELPER FUNCTIONS=========================
     def make_symbol_table(self):
         """make a new sybol table"""
-        # todo make
+        self.symbol_table = SymbolTable.SymbolTable()
 
     def declare_variable(self, name, type, kind):
         """make a new sybol table"""
-        # todo make == MUST DO ALL: class/subroutine
+        self.symbol_table.define(name, type, kind)
 
+    def get_kind(self):
+        """ returns kind of the identifier (VAR, ARD, FIELD, STATIC)"""
+        kind = self.key_word()
+        if kind == "var":
+            return SymbolTable.VAR_KIND
+        elif kind == "static":
+            return SymbolTable.STATIC_KIND
+        elif kind == "field":
+            return SymbolTable.STATIC_KIND
+        else:
+            return SymbolTable.ARG_KIND
+
+    def write_push(self, name):
+        self.vm_writer.write_push(self.symbol_table.kind_of(name),
+                                  self.symbol_table.index_od(name))
+
+    def write_pop(self, name):
+        self.vm_writer.write_pop(self.symbol_table.kind_of(name),
+                                 self.symbol_table.index_od(name))
+
+    def write_function(self, name, n_locals):
+        method_name = self.class_name + "." + name
+        self.vm_writer.write_function(method_name, n_locals)
 
     # todo VM HELPER FUNCTIONS=========================
 

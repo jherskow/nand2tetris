@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eacdd40-89ba-40e8-a58d-4fd62e45556a" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/11/VMWriter/sym_table.py" afterPath="$PROJECT_DIR$/projects/11/VMWriter/char_dict.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/nand2tetris.iml" afterPath="$PROJECT_DIR$/.idea/nand2tetris.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/06/the assembler/symbol_table.py" afterPath="$PROJECT_DIR$/projects/06/the assembler/symbol_table.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/10/JackTokenizer/sym_table.py" afterPath="$PROJECT_DIR$/projects/10/JackTokenizer/sym_table.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" afterPath="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/VMWriter/VMWriter.py" afterPath="$PROJECT_DIR$/projects/11/VMWriter/VMWriter.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,8 +47,8 @@
       <file leaf-file-name="CompilationEngineVM.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="54" column="23" lean-forward="false" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
+            <state relative-caret-position="498">
+              <caret line="716" column="0" lean-forward="false" selection-start-line="716" selection-start-column="0" selection-end-line="716" selection-end-column="0" />
               <folding>
                 <element signature="e#330#351#0" expanded="true" />
               </folding>
@@ -60,10 +56,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="char_dict.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/char_dict.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="43" column="20" lean-forward="true" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VMWriter.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/VMWriter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="21" column="58" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="SymbolTable.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/SymbolTable.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
+            <state relative-caret-position="449">
               <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
             </state>
@@ -73,8 +89,8 @@
       <file leaf-file-name="CodeWriter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1664">
-              <caret line="239" column="26" lean-forward="false" selection-start-line="239" selection-start-column="26" selection-end-line="239" selection-end-column="26" />
+            <state relative-caret-position="311">
+              <caret line="174" column="69" lean-forward="true" selection-start-line="174" selection-start-column="69" selection-end-line="174" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -91,10 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>5</find>
-      <find>do</find>
-      <find>identifier</find>
-      <find>(\w)</find>
       <find>(&quot;</find>
       <find>synt</find>
       <find>loo</find>
@@ -121,6 +133,10 @@
       <find>print</find>
       <find>for r</find>
       <find>expres</find>
+      <find>constant</find>
+      <find>string</find>
+      <find>cons</find>
+      <find>keyword_co</find>
     </findStrings>
     <replaceStrings>
       <replace>type</replace>
@@ -164,6 +180,7 @@
         <option value="$PROJECT_DIR$/projects/10/JackTokenizer/JackAnalyzer.py" />
         <option value="$PROJECT_DIR$/projects/10/JackTokenizer/CompilationEngineXML.py" />
         <option value="$PROJECT_DIR$/projects/11/VMWriter/SymbolTable.py" />
+        <option value="$PROJECT_DIR$/projects/11/VMWriter/VMWriter.py" />
         <option value="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" />
       </list>
     </option>
@@ -174,8 +191,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="960" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="501" />
     <option name="width" value="960" />
     <option name="height" value="1048" />
   </component>
@@ -220,7 +237,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -233,6 +249,19 @@
               <item name="nand2tetris" type="b2602c69:ProjectViewProjectNode" />
               <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
               <item name="projects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nand2tetris" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
+              <item name="projects" type="462c0819:PsiDirectoryNode" />
+              <item name="08" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nand2tetris" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
+              <item name="projects" type="462c0819:PsiDirectoryNode" />
+              <item name="08" type="462c0819:PsiDirectoryNode" />
+              <item name="Full Thingy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="nand2tetris" type="b2602c69:ProjectViewProjectNode" />
@@ -251,6 +280,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -279,59 +309,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/misc.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/nand2tetris.iml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/ArrayTest/Main.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/ExpressionLessSquare/Main.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/ExpressionLessSquare/Square.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/ExpressionLessSquare/SquareGame.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/JackTokenizer/CompilationEngineVM.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/JackTokenizer/CompilationEngineXML.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/JackTokenizer/JackAnalyzer.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/JackTokenizer/JackTokenizer.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/JackTokenizer/Makefile</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/JackTokenizer/README</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/JackTokenizer/sym_table.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/Square/Main.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/Square/Square.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/Square/SquareGame.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/hardFiles/SurfaceA.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/hardFiles/in3.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/hardFiles/in3A.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/hardFiles/simpleCommentTest.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/hardFiles/simpleCommentTestA.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/hardFiles/try2A.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Array.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Ball.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Cannon.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/CaveShooterBall.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/CaveShooterMain.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Fly.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Frog.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Fruit.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Keyboard.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Log.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Main.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/MainFruit.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Math.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Memory.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Platform.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/PlatformsGenerator.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/PlatformsList.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Problem.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Random.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/RandomNumbersGenerator.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/RapidRollGame.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Screen.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/SlowAppender.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Square.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/SquareGame.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Sys.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/Utils.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/YGameMain.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/YMain.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/10/mustPassFiles/try1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -339,16 +317,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineXML.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/JackAnalyzer</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/JackAnalyzer.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/JackTokenizer.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/Makefile</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/README</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/SymbolTable.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/VMWriter.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/sym_table.py</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -805,7 +773,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513951852685</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="work on ex11">
+      <created>1514741767737</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1514741767737</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView">
@@ -818,18 +793,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="0" width="960" height="1048" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1048" extended-state="6" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33901918" sideWeight="0.4961915" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23177366" sideWeight="0.51310045" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.49563318" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23177366" sideWeight="0.48689955" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33951965" sideWeight="0.4961915" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32752994" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26855895" sideWeight="0.5038085" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39825898" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969433" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -838,6 +812,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32752994" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -885,7 +860,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="much work" />
     <MESSAGE value="more error fix work" />
     <MESSAGE value="logic fixes in label equalities" />
     <MESSAGE value="more work" />
@@ -910,7 +884,8 @@
     <MESSAGE value="Working on single line comments" />
     <MESSAGE value="Working on MustpassTest" />
     <MESSAGE value="work on ex11" />
-    <option name="LAST_COMMIT_MESSAGE" value="work on ex11" />
+    <MESSAGE value="nice work on ex11" />
+    <option name="LAST_COMMIT_MESSAGE" value="nice work on ex11" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -927,8 +902,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py</url>
-          <line>331</line>
-          <option name="timeStamp" value="141" />
+          <line>561</line>
+          <option name="timeStamp" value="144" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py</url>
+          <line>112</line>
+          <option name="timeStamp" value="145" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -938,7 +918,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="142" />
+      <option name="time" value="146" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -947,21 +927,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/sym_table.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="946">
-          <caret line="43" column="47" lean-forward="false" selection-start-line="43" selection-start-column="47" selection-end-line="43" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/CompilationEngineVM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2772">
-          <caret line="126" column="0" lean-forward="true" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projects/10/JackTokenizer/README">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -980,9 +945,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -990,7 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="74" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1211,9 +1172,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="823">
           <caret line="49" column="26" lean-forward="false" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#10#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1221,7 +1179,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="823">
           <caret line="241" column="0" lean-forward="false" selection-start-line="241" selection-start-column="0" selection-end-line="241" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1237,7 +1194,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1245,30 +1201,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8">
           <caret line="95" column="16" lean-forward="true" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/SymbolTable.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1664">
-          <caret line="239" column="26" lean-forward="false" selection-start-line="239" selection-start-column="26" selection-end-line="239" selection-end-column="26" />
+        <state relative-caret-position="311">
+          <caret line="174" column="69" lean-forward="true" selection-start-line="174" selection-start-column="69" selection-end-line="174" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/SymbolTable.py">
+    <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/VMWriter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="333">
+          <caret line="21" column="58" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/char_dict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="43" column="20" lean-forward="true" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="54" column="23" lean-forward="false" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
+        <state relative-caret-position="498">
+          <caret line="716" column="0" lean-forward="false" selection-start-line="716" selection-start-column="0" selection-end-line="716" selection-end-column="0" />
           <folding>
             <element signature="e#330#351#0" expanded="true" />
           </folding>

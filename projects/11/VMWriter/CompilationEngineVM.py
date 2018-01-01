@@ -52,25 +52,19 @@ class CompilationEngineXML:
         Compiles a complete class.
         """
 
-        # todo == VM ==
-
-
         # class
         self.advance()
 
         # name
-
         if self.type() != d.IDENTIFIER:
             raise CompilerError(self, "Class must begin with class name")
         self.class_name = self.identifier()
-        # todo == VM ==  create a new symbol_table  ( make helper function )
-
-        self.symbol_table = self.make_symbol_table()  # todo == VM ==  class name?
-
+        # make a new symbol table for the new class
+        self.symbol_table = SymbolTable.SymbolTable()
         self.advance()
 
+        # {
         self.compile_symbol_check("{", "Class must begin with {")
-
         self.compile_class_body()
 
     def compile_class_var_dec(self):
@@ -80,35 +74,33 @@ class CompilationEngineXML:
 
         # ( 'static' | 'field' ) type varName ( ',' varName)* ';'
 
-        # static | field
-        # todo == VM ==  declare class variable (make entry in symbol table with this info)
-        # #    todo ===   static/field (counter) -> symbol table with name as key
+        # declare field 'this'
+        self.declare_variable("this", self.class_name, SymbolTable.FIELD_KIND)
+
 
         # static | field  (this is the kind)
         kind = self.get_kind()
-
         self.advance()
 
-        # type
-        # todo == VM == ....
+        # type  - int/double/ClassName
         type = self.identifier()
         self.advance()
 
-        # single varname
-        name = self.identifier()  # todo == VM == ....
+        # name - single varname
+        name = self.identifier()
         self.advance()
 
-        # todo get , kind and and type
-        # todo and declare in sym table
+        # declare in sym table by kind, name,  and and type
         self.declare_variable(name, type, kind)
 
         # possible additional ',' varname  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
+
             # skip the ','
             self.advance()
 
             # another varname
-            name = self.identifier()  # todo == VM == ....
+            name = self.identifier()
             self.advance()
 
             # declare under same kind and type
@@ -128,44 +120,44 @@ class CompilationEngineXML:
         # subroutineBody
 
         # 'constructor' | 'function' | 'method'
-        # todo ==  if constrctor - specific stuff
-        # todo ==  if method must push base adress first - then other arg
-        # todo  == if functions - just push args and then call
-        # locals number
-        n_args = 0
         subroutine_type = self.key_word()
+
+
+        # cases:     'constructor' | 'function' | 'method'
+        if subroutine_type== d.K_CONSTRUCTOR:
+            #  call Memory.alloc (# fields) // stack now has pointer for memory
+            self.vm_writer.write("call Memory.alloc "+ str(self.symbol_table.num_fields())+ ")\n")
+            # t  pop pointer 0           // make object's 'this' field equal this pointer
+            self.vm_writer.write("pop pointer 0\n") # todo check correct location!!!! - (we want the 'this' field to contain the value returned by malloc)
+        elif subroutine_type == d.K_METHOD:
+            # declare this as the first method, and make i
+            self.declare_variable("this", self.class_name, SymbolTable.ARG_KIND)
         self.advance()
 
-        # 'void' | type
-        # todo  ==  this goes to symbol table info about this func/method
-        if self.type() == d.KEYWORD and self.key_word() == d.K_VOID:
-            self.advance()
-        else:
-            self.compile_type()
-        # todo === dow we need to determine the type of return val ??
+        # 'void' | type # todo do we care?
+        self.advance()
+
 
         # subroutineName
-        # todo needs to be changed to class.subroutineName
-        # todo === dow we need to ude the name? ??
-        name = self.identifier()
+        # save name as (classname.subroutinename), to be used later wehn writing the call
+        name = self.class_name +"." +self.identifier()
         self.advance()
+
+
 
         # (
         self.compile_symbol_check("(", "expected opening \"(\" for parameterList ")
 
-        # parameterList 
-        # todo == thi is the argument variables for the subroutine symbol table
-        if subroutine_type == "method":
-            # method (this,....)
-            self.declare_variable("this", self.class_name, SymbolTable.ARG_KIND)
-            n_args += 1
-        n_args += self.compile_parameter_list()  # todo using declare_variable()
+        # parameterList
+        self.compile_parameter_list()
 
         # )
         self.compile_symbol_check(")", "expected closing \")\" for parameterList  ")
 
+
+
         # subroutineBody
-        self.compile_subroutine_body()
+        self.compile_subroutine_body(name)
 
     def compile_parameter_list(self):
         """
@@ -455,15 +447,17 @@ class CompilationEngineXML:
 
         first_type = self.type()
 
+        # 52
         if first_type == d.INT_CONST:
             self.compile_int_const()
 
+        # "hello"
         elif first_type == d.STRING_CONST:
             self.compile_str_const()
 
+        # todo -- use correct values and push accordingly
         elif first_type == d.KEYWORD:
-            if self.key_word() in d.keyword_constant:
-                self.compile_keyword_const()
+            self.compile_keyword_const()
 
         elif first_type == d.IDENTIFIER:
             # could be varname, varname[expression], subroutine call ( "(" )
@@ -568,7 +562,7 @@ class CompilationEngineXML:
             self.compile_subroutine()
 
         # ensure next token is }
-        self.compile_symbol_check("}", "Class must contain only variable declarations and then subroutine declarations")
+        self.compile_symbol_check("}", "} expected at end of Class.")
 
     def compile_type(self):
         """
@@ -662,9 +656,9 @@ class CompilationEngineXML:
         self.xml_identifier()
         self.advance()
 
-    def compile_subroutine_body(self):
+    def compile_subroutine_body(self, name):
         """
-        :return:
+        Complies a subroutine body
         """
         # '{' varDec* statements '}'
 
@@ -672,8 +666,13 @@ class CompilationEngineXML:
         self.compile_symbol_check("{", "Expected { to open method body")
 
         #  varDec*
+        num_locals = 0
         while self.type() == d.KEYWORD and self.key_word() == d.K_VAR:
             self.compile_var_dec()
+            num_locals += 1
+
+        # write the function declaration
+        self.write_function(name, num_locals)
 
         # statements
         self.compile_statements()
@@ -689,15 +688,35 @@ class CompilationEngineXML:
         self.advance()
 
     def compile_int_const(self):
-        self.vm_writer.write_push("",self.int_val())
+        self.vm_writer.write_push("constant",self.int_val())
         self.advance()
 
     def compile_str_const(self):
-        self.vm_writer.write_push("",self.string_val())
+        # complicated way to do this todo check
+        length = len(self.string_val())
+        self.write("push constant " + str(length) + "\n")
+        self.write("call String.new 1\n")
+        for char in self.string_val():
+            self.write("push constant " + str(ord(char)) + "\n") #todo see if correct
+            self.write("call String.appendChar 1\n")
         self.advance()
 
     def compile_keyword_const(self):
-        self.xml_keyword()
+        keyword = self.key_word()
+        if keyword not in d.keyword_constant:
+            raise CompilerError(self,"bad keyword constant")
+        # true - need (-1) so -  push 1 and call neg
+        if keyword == "TRUE":
+            self.write("push constant 1\n")
+            self.write("neg\n")
+        # false / null -   push constant 0
+        elif keyword in { "FALSE", "NULL" }:
+            self.write("push constant 0\n")
+        elif keyword == "THIS":
+            # todo ?????
+
+        # todo this ?????
+
         self.advance()
 
     # todo VM HELPER FUNCTIONS=========================
@@ -721,6 +740,10 @@ class CompilationEngineXML:
         else:
             return SymbolTable.ARG_KIND
 
+
+
+
+    # todo VM HELPER FUNCTIONS=========================
     def write_push(self, name):
         self.vm_writer.write_push(self.symbol_table.kind_of(name),
                                   self.symbol_table.index_of(name))
@@ -736,69 +759,15 @@ class CompilationEngineXML:
     def write_return(self):
         self.vm_writer.write_return()
 
-
-    # todo VM HELPER FUNCTIONS=========================
-
+    def write(self, string): #
+        """
+        writes a string to output file
+        """
+        self.vm_writer.write(string)
 
     # HELPER FUNCTIONS __________________________
 
 
-
-
-    def write(self, string):
-        """
-        writes a string to output file
-        """
-        self.output_file.write(string)
-
-    def write_string_constant(self, string):
-        """
-        writes a string litral to xml
-        """
-        lst = list(string)
-        new_str = ""
-        for char in lst:
-            if char in d.symbol_switch:
-                new_str += d.symbol_switch[char]
-            else:
-                new_str += char
-        self.write(new_str)
-
-    def xml_open(self, string):
-        """
-        writes <string> to output file
-        """
-        self.write("<" + string + ">")
-
-    def xml_close(self, string):
-        """
-        writes <string> to output file
-        """
-        self.write("</" + string + ">\n")
-
-    def xml_keyword(self):
-        """
-        writes a keyword to output file
-        """
-        self.xml_open("keyword")
-        self.write(d.keyword_switch[self.key_word()])
-        self.xml_close("keyword")
-
-    def xml_identifier(self):
-        """
-        writes a identifier to output file
-        """
-        self.xml_open("identifier")
-        self.write(self.identifier())
-        self.xml_close("identifier")
-
-    def xml_symbol(self):
-        """
-        writes a symbol to output file
-        """
-        self.xml_open("symbol")
-        self.write(d.symbol_switch[self.symbol()])
-        self.xml_close("symbol")
 
     def advance(self):
         self.token.advance()

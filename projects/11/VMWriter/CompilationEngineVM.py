@@ -101,7 +101,6 @@ class CompilationEngineXML:
         # todo get , kind and and type
         # todo and declare in sym table
         self.declare_variable(name, type, kind)
-        self.write_push(name)
 
         # possible additional ',' varname  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
@@ -115,8 +114,6 @@ class CompilationEngineXML:
             # declare under same kind and type
             self.declare_variable(name, type, kind)
 
-            # push kind index
-            self.write_push(name)
 
         # ;
         self.compile_symbol_check(";", "expected closing \";\" for declaration")
@@ -161,15 +158,11 @@ class CompilationEngineXML:
         if subroutine_type == "method":
             # method (this,....)
             self.declare_variable("this", self.class_name, SymbolTable.ARG_KIND)
-            # push this ARG_index
-            self.write_push("this")
             n_args += 1
         n_args += self.compile_parameter_list()  # todo using declare_variable()
 
         # )
         self.compile_symbol_check(")", "expected closing \")\" for parameterList  ")
-
-        self.write_function(name, n_args)
 
         # subroutineBody
         self.compile_subroutine_body()
@@ -373,9 +366,6 @@ class CompilationEngineXML:
         """
         Compiles a return statement.
         """
-        this = "returnStatement"
-        self.xml_open(this)
-        self.write("\n")
 
         # 'return' expression? ';'
 
@@ -389,8 +379,8 @@ class CompilationEngineXML:
 
         # ';'
         self.compile_symbol_check(";", "expected ; for return")
+        self.write_return()
 
-        self.xml_close(this)
 
     def compile_if(self):
         """
@@ -699,15 +689,11 @@ class CompilationEngineXML:
         self.advance()
 
     def compile_int_const(self):
-        self.xml_open("integerConstant")
-        self.write(str(self.int_val()))
-        self.xml_close("integerConstant")
+        self.vm_writer.write_push("",self.int_val())
         self.advance()
 
     def compile_str_const(self):
-        self.xml_open("stringConstant")
-        self.write_string_constant(self.string_val())
-        self.xml_close("stringConstant")
+        self.vm_writer.write_push("",self.string_val())
         self.advance()
 
     def compile_keyword_const(self):
@@ -737,7 +723,7 @@ class CompilationEngineXML:
 
     def write_push(self, name):
         self.vm_writer.write_push(self.symbol_table.kind_of(name),
-                                  self.symbol_table.index_od(name))
+                                  self.symbol_table.index_of(name))
 
     def write_pop(self, name):
         self.vm_writer.write_pop(self.symbol_table.kind_of(name),
@@ -747,6 +733,8 @@ class CompilationEngineXML:
         method_name = self.class_name + "." + name
         self.vm_writer.write_function(method_name, n_locals)
 
+    def write_return(self):
+        self.vm_writer.write_return()
 
 
     # todo VM HELPER FUNCTIONS=========================

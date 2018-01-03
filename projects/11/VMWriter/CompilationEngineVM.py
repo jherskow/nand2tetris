@@ -10,7 +10,7 @@ import SymbolTable
 import VMWriter
 
 
-class CompilationEngineXML:
+class CompilationEngineVM:
     """
     Effects the actual compilation output.
     Gets its input from a VMWriter
@@ -46,6 +46,8 @@ class CompilationEngineXML:
             raise CompilerError(self, "File must begin with \"class\"")
 
         self.compile_class()
+        self.if_count = 0
+        self.loop_count = 0
 
     def compile_class(self):
         """
@@ -77,7 +79,6 @@ class CompilationEngineXML:
         # declare field 'this'
         self.declare_variable("this", self.class_name, SymbolTable.FIELD_KIND)
 
-
         # static | field  (this is the kind)
         kind = self.get_kind()
         self.advance()
@@ -95,7 +96,6 @@ class CompilationEngineXML:
 
         # possible additional ',' varname  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
-
             # skip the ','
             self.advance()
 
@@ -105,7 +105,6 @@ class CompilationEngineXML:
 
             # declare under same kind and type
             self.declare_variable(name, type, kind)
-
 
         # ;
         self.compile_symbol_check(";", "expected closing \";\" for declaration")
@@ -122,13 +121,13 @@ class CompilationEngineXML:
         # 'constructor' | 'function' | 'method'
         subroutine_type = self.key_word()
 
-
         # cases:     'constructor' | 'function' | 'method'
-        if subroutine_type== d.K_CONSTRUCTOR:
+        if subroutine_type == d.K_CONSTRUCTOR:
             #  call Memory.alloc (# fields) // stack now has pointer for memory
-            self.vm_writer.write("call Memory.alloc "+ str(self.symbol_table.num_fields())+ ")\n")
+            self.vm_writer.write("call Memory.alloc " + str(self.symbol_table.num_fields()) + ")\n")
             # t  pop pointer 0           // make object's 'this' field equal this pointer
-            self.vm_writer.write("pop pointer 0\n") # todo check correct location!!!! - (we want the 'this' field to contain the value returned by malloc)
+            self.vm_writer.write(
+                "pop pointer 0\n")  # todo check correct location!!!! - (we want the 'this' field to contain the value returned by malloc)
         elif subroutine_type == d.K_METHOD:
             # declare this as the first method, and make i
             self.declare_variable("this", self.class_name, SymbolTable.ARG_KIND)
@@ -137,13 +136,11 @@ class CompilationEngineXML:
         # 'void' | type # todo do we care?
         self.advance()
 
-
         # subroutineName
         # save name as (classname.subroutinename), to be used later wehn writing the call
-        name = self.class_name +"." +self.identifier()
+        name = self.class_name + "." + self.identifier()
+
         self.advance()
-
-
 
         # (
         self.compile_symbol_check("(", "expected opening \"(\" for parameterList ")
@@ -154,10 +151,10 @@ class CompilationEngineXML:
         # )
         self.compile_symbol_check(")", "expected closing \")\" for parameterList  ")
 
-
-
         # subroutineBody
         self.compile_subroutine_body(name)
+
+        self.symbol_table.start_subroutine()
 
     def compile_parameter_list(self):
         """
@@ -226,7 +223,7 @@ class CompilationEngineXML:
         # single type varName
 
         # type
-        type = self.key_word()  # todo OR IDENTIFIER
+        type = self.identifier()  # todo OR IDENTIFIER
         self.advance()
 
         # var name
@@ -262,7 +259,6 @@ class CompilationEngineXML:
         Compiles a sequence of statements,
         not including the enclosing {}.
         """
-        #todooooooooooooooooooooooooooooooooooooo
         # todo == does this need anything?
         # statement*  0 or more times
 
@@ -293,24 +289,40 @@ class CompilationEngineXML:
         # ==todo ====  save name (and index, if there is)
         # ==todo ====  compute where var[expression] is so we can pop to it
         # varname
-        name = self.identifier()
+        var_name = self.identifier()
         self.advance()
 
         # possible [ expression ] for array index
         if self.type() == d.SYMBOL and self.symbol() == "[":
+            self.write_push(var_name)
             self.advance()
             self.compile_expression()
+
+            #(varname+exp)
+            self.write_arithmetic("add")
+            self.write("pop pointer 1\n")
             self.compile_symbol_check("]", "expected to match [")
+            #=
+            self.compile_symbol_check("=", "expected in assignment")
+            #expression
+            self.compile_expression()
+            #   *(varname+exp)= exp
+            self.write("pop that 0\n")
 
-        # =
-        self.compile_symbol_check("=", "expected in assignment")
+        else:
+            self.write_push(var_name)
+            self.write("pop pointer 0\n")
+            # =
+            self.compile_symbol_check("=", "expected in assignment")
 
-        # expression
-        # todo ====   then do all the stuff on the right
-        self.compile_expression()
+            # expression
+            #   then do all the stuff on the right
+            self.compile_expression()
 
-        # todo ====  finally, pop the value at top of stack (the result of the right)
-        # todo ====  to VM location for name OR name[expression]
+            # todo ====  finally, pop the value at top of stack (the result of the right)
+            # todo ====  to VM location for name OR name[expression]
+            self.write_pop(var_name)
+
 
         # ;
         self.compile_symbol_check(";", "expected ; at end of assignment")
@@ -340,7 +352,7 @@ class CompilationEngineXML:
 
 
         # while
-        self.xml_keyword()
+        self.write_label("LOOP" + str(self.loop_count))
         self.advance()
 
         # '(' expression ')
@@ -348,11 +360,17 @@ class CompilationEngineXML:
         self.compile_expression()
         self.compile_symbol_check(")", "expected ) in (expression) for while")
 
+        self.write_arithmetic("not")
+        self.write_if("L" + str(self.if_count))
+
         # '{' statements '}'
         self.compile_symbol_check("{", "expected { in {statements} for while")
         self.compile_statements()
         self.compile_symbol_check("}", "expected } in {statements} for while")
-
+        self.write_goto("LOOP" + str(self.loop_count))
+        self.write_label("L" + str(self.if_count))
+        self.if_count+=1
+        self.loop_count+=1
 
     def compile_return(self):
         """
@@ -362,7 +380,6 @@ class CompilationEngineXML:
         # 'return' expression? ';'
 
         # return
-        self.xml_keyword()
         self.advance()
 
         # expression?
@@ -373,43 +390,43 @@ class CompilationEngineXML:
         self.compile_symbol_check(";", "expected ; for return")
         self.write_return()
 
-
     def compile_if(self):
         """
         Compiles a if statement,
         possibly with a trailing else clause.
         """
-        this = "ifStatement"
-        self.xml_open(this)
-        self.write("\n")
 
         # 'if' '(' expression ')' '{' statements '}' ( 'else' '{' statements '}' )?
 
-        self.xml_keyword()
         self.advance()
 
         # '(' expression ')'
         self.compile_symbol_check("(", "expected ( in (expression) for if")
         self.compile_expression()
         self.compile_symbol_check(")", "expected ) in (expression) for if")
-
+        self.write_arithmetic("not")
+        self.write_if("L" + str(self.if_count))
+        self.if_count+=1
         # '{' statements '}'
         self.compile_symbol_check("{", "expected { in {statements} for if")
         self.compile_statements()
         self.compile_symbol_check("}", "expected } in {statements} for if")
-
         # else
+
         if self.type() == d.KEYWORD and self.key_word() == d.K_ELSE:
+            self.write_goto("L" + str(self.if_count))
             # else
-            self.xml_keyword()
+            self.write_label("L" + str(self.if_count - 1))
             self.advance()
 
             # '{' statements '}'
             self.compile_symbol_check("{", "expected { in {statements} for else")
             self.compile_statements()
             self.compile_symbol_check("}", "expected } in {statements} for else")
-
-        self.xml_close(this)
+            self.write_label("L" + str(self.if_count))
+        else:
+            self.write_label("L" + str(self.if_count - 1))
+        self.if_count+=1
 
     def compile_expression(self):
         """
@@ -425,8 +442,11 @@ class CompilationEngineXML:
 
         # (op term)*  0 or more times
         while self.type() == d.SYMBOL and self.symbol() in d.op:
-            self.compile_op()
+            op = self.compile_op()
             self.compile_term()
+            self.write(op)
+
+
 
     def compile_term(self):
         """
@@ -455,7 +475,7 @@ class CompilationEngineXML:
         elif first_type == d.STRING_CONST:
             self.compile_str_const()
 
-        # todo -- use correct values and push accordingly
+        #true/false/this/null
         elif first_type == d.KEYWORD:
             self.compile_keyword_const()
 
@@ -477,6 +497,10 @@ class CompilationEngineXML:
                     #  expression
                     self.compile_expression()
 
+                    #(varname+exp)
+                    self.write_arithmetic("add")
+                    self.write("pop pointer 1\n")
+
                     # [
                     self.compile_symbol_check("]", "] expected for array index")
 
@@ -486,19 +510,18 @@ class CompilationEngineXML:
 
                 else:
                     self.retreat()
-                    self.xml_identifier()
+                    self.write_push(self.identifier())
                     self.advance()
 
             else:
                 self.retreat()
-                self.xml_identifier()
+                self.write_push(self.identifier())
                 self.advance()
 
         elif first_type == d.SYMBOL and self.symbol() == "(":
             # (expression)
 
             # (
-            self.xml_symbol()
             self.advance()
 
             # expression
@@ -509,10 +532,9 @@ class CompilationEngineXML:
 
         elif first_type == d.SYMBOL and self.symbol() in d.unary_op:
             # unOp term
-            self.xml_symbol()
             self.advance()
-
             self.compile_term()
+            self.write_arithmetic("not")
 
         else:
             raise CompilerError(self, "invalid term")
@@ -521,28 +543,25 @@ class CompilationEngineXML:
         """
         Compiles a (possibly empty) comma-separated list of expressions.
         """
-        this = "expressionList"
-        self.xml_open(this)
-        self.write("\n")
+        args_num = 0
 
         # (expression ( ',' expression)* )?
         # nothing, an expression, or many
 
         # empty
         if self.type() == d.SYMBOL and self.symbol() == ")":
-            self.xml_close(this)
-            return
+            return args_num
 
         # one expression
         self.compile_expression()
 
         # possible additional expressions  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
-            self.xml_symbol()
             self.advance()
             self.compile_expression()
+            args_num += 1
 
-        self.xml_close(this)
+        return args_num
 
     # sub compiler functions __________________________
 
@@ -564,24 +583,25 @@ class CompilationEngineXML:
         # ensure next token is }
         self.compile_symbol_check("}", "} expected at end of Class.")
 
-    def compile_type(self):
-        """
-        Compiles a type
-        :return:
-        """
-        if self.type() == d.KEYWORD and self.key_word() in d.type:
-            self.xml_keyword()
-        elif self.type() == d.IDENTIFIER:
-            self.xml_identifier()
-        else:
-            raise CompilerError(self, "type expected")
-        self.advance()
+    # def compile_type(self):
+    #     """
+    #     Compiles a type
+    #     :return:
+    #     """
+    #     if self.type() == d.KEYWORD and self.key_word() in d.type:
+    #         self.xml_keyword()
+    #     elif self.type() == d.IDENTIFIER:
+    #         self.xml_identifier()
+    #     else:
+    #         raise CompilerError(self, "type expected")
+    #     self.advance()
 
     def compile_var_name(self):
         """
         write a variable name
         """
-        #
+        # push name index
+        self.write_push(self.identifier())
         self.advance()
 
     def compile_symbol_check(self, symbol, message):
@@ -605,56 +625,65 @@ class CompilationEngineXML:
         self.advance()
         # todo - if no "." - foo() - we want to call foo in curerent class
         # todo - if foo is method - we must also send 'this'
+        args_num = 0
 
         if self.type() == d.SYMBOL and self.symbol() == "(":
+            args_num=1
             # subroutineName '(' expressionList ')'
             self.retreat()
 
             # subroutineName
+            subroutine_name = self.class_name + "." + self.identifier()
             self.advance()
 
             # (
             self.compile_symbol_check("(", "expected ( for function arguments")
 
+            #push this
+            self.write_push("this")
             # expressionList
-            self.compile_expression_list()
+            args_num += self.compile_expression_list()
 
             # )
             self.compile_symbol_check(")", "expected ) for function arguments")
+            #call subroutine_name args_num
+            self.write_call(subroutine_name,args_num)
+
+
         # todo - if no "." - then this is class.foo or object.foo
         elif self.type() == d.SYMBOL and self.symbol() == ".":
             # (className |varName) '.' subroutineName '(' expressionList ')'
             self.retreat()
 
             # (className |varName)
-            self.xml_identifier()
+            class_name = self.identifier()
             self.advance()
 
             # '.'
             self.compile_symbol_check(".", "expected . for class.method")
 
             # subroutineName
-            self.xml_identifier()
+            subroutine_name = class_name + "." + self.identifier()
             self.advance()
 
             # '('
             self.compile_symbol_check("(", "expected ( for function arguments")
 
             # expressionList
-            self.compile_expression_list()
+            args_num += self.compile_expression_list()
 
             # )
             self.compile_symbol_check(")", "expected ) for function arguments")
-
+            self.write_call(subroutine_name,args_num)
         else:
             raise CompilerError(self, "Expected func(list) or class.func(list)")
 
-    def compile_subroutine_name(self):
-        """
-        Complies a subroutine name
-        """
-        self.xml_identifier()
-        self.advance()
+    # def compile_subroutine_name(self):
+    #     """
+    #     Complies a subroutine name
+    #     """
+    #     self.xml_identifier()
+    #     self.advance()
 
     def compile_subroutine_body(self, name):
         """
@@ -680,15 +709,17 @@ class CompilationEngineXML:
         # '}'
         self.compile_symbol_check("}", "Expected } to close method body")
 
+    #todo
     def compile_op(self):
         """
         compiles an operator
         """
-        self.xml_symbol()
+        op = d.op[self.symbol()]
         self.advance()
+        return op
 
     def compile_int_const(self):
-        self.vm_writer.write_push("constant",self.int_val())
+        self.vm_writer.write_push("constant", self.int_val())
         self.advance()
 
     def compile_str_const(self):
@@ -697,26 +728,23 @@ class CompilationEngineXML:
         self.write("push constant " + str(length) + "\n")
         self.write("call String.new 1\n")
         for char in self.string_val():
-            self.write("push constant " + str(ord(char)) + "\n") #todo see if correct
+            self.write("push constant " + str(ord(char)) + "\n")  # todo see if correct
             self.write("call String.appendChar 1\n")
         self.advance()
 
     def compile_keyword_const(self):
         keyword = self.key_word()
         if keyword not in d.keyword_constant:
-            raise CompilerError(self,"bad keyword constant")
+            raise CompilerError(self, "bad keyword constant")
         # true - need (-1) so -  push 1 and call neg
         if keyword == "TRUE":
             self.write("push constant 1\n")
             self.write("neg\n")
         # false / null -   push constant 0
-        elif keyword in { "FALSE", "NULL" }:
+        elif keyword in {"FALSE", "NULL"}:
             self.write("push constant 0\n")
         elif keyword == "THIS":
-            # todo ?????
-
-        # todo this ?????
-
+            self.write("push pointer 0\n")
         self.advance()
 
     # todo VM HELPER FUNCTIONS=========================
@@ -740,9 +768,6 @@ class CompilationEngineXML:
         else:
             return SymbolTable.ARG_KIND
 
-
-
-
     # todo VM HELPER FUNCTIONS=========================
     def write_push(self, name):
         self.vm_writer.write_push(self.symbol_table.kind_of(name),
@@ -750,7 +775,7 @@ class CompilationEngineXML:
 
     def write_pop(self, name):
         self.vm_writer.write_pop(self.symbol_table.kind_of(name),
-                                 self.symbol_table.index_od(name))
+                                 self.symbol_table.index_of(name))
 
     def write_function(self, name, n_locals):
         method_name = self.class_name + "." + name
@@ -759,11 +784,27 @@ class CompilationEngineXML:
     def write_return(self):
         self.vm_writer.write_return()
 
-    def write(self, string): #
+    def write_call(self, name, index):
+        self.vm_writer.write_call(name, index)
+
+    def write(self, string):  #
         """
         writes a string to output file
         """
         self.vm_writer.write(string)
+
+    def write_arithmetic(self,command):
+        """Writes a VM arithmetic command."""
+        self.vm_writer.write_arithmetic(command)
+
+    def write_if(self,label):
+        self.vm_writer.write_if(label)
+
+    def write_goto(self, label):
+        self.vm_writer.write_goto(label)
+
+    def write_label(self, label):
+        self.vm_writer.write_label(label)
 
     # HELPER FUNCTIONS __________________________
 

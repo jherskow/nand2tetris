@@ -39,7 +39,8 @@ subroutine_dec = {K_CONSTRUCTOR, K_FUNCTION, K_METHOD}
 type = {K_INT, K_CHAR, K_BOOLEAN}
 statement_end = {";", "}"}
 statement_types = {K_LET, K_IF, K_WHILE, K_DO, K_RETURN}
-op = {'+', '-', '*', '/', '&', '|', '<', '>', '='}
+op = {'+': "add", '-': "sub", '*': "call Math.multiply 2", '/': "call Math.divide 2",
+      '&': "and", '|': "or", '<': "gt", '>': "lt", '=': "eq"}
 unary_op = {'-', '~'}
 keyword_constant = {'TRUE', 'FALSE', 'NULL', 'THIS'}
 static_field = {'STATIC', 'FIELD'}

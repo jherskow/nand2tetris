@@ -32,7 +32,6 @@ class SymbolTable:
         self.class_identifiers = {}
         self.subroutine_identifiers = {}
 
-
     def start_subroutine(self):
         """
         Starts a new subroutine scope (i.e., resets the subroutine’s symbol table).
@@ -59,6 +58,7 @@ class SymbolTable:
         elif kind == FIELD_KIND:
             self.field_counter += 1
             self.class_identifiers[name] = [type, kind, self.field_counter]
+
 
     def var_count(self, kind):
         """

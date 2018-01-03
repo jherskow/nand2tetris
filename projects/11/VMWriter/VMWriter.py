@@ -53,7 +53,7 @@ class VMWriter:
         """Writes a VM return command."""
         self.output_file.write("return" + "\n")
 
-    def write(self,string):
+    def write(self, string):
         """Writes a string directly. NO NEWLINE!"""
         self.output_file.write(string)
 

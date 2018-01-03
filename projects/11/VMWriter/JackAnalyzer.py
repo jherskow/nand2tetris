@@ -3,10 +3,10 @@ import sys
 import os
 
 import JackTokenizer
-import CompilationEngineXML
+import CompilationEngineVM
 
-XML_EXTENSION = ".xml"
-
+# XML_EXTENSION = ".xml"
+VM_EXTENSION = ".vm"
 
 class JackAnalyzer:
     """
@@ -26,12 +26,12 @@ class JackAnalyzer:
 
     def __init__(self, input_file):
         self.input_file = open(input_file, "r")
-        self.output_file = open(input_file.split(".jack")[0] + XML_EXTENSION, 'w')
+        self.output_file = open(input_file.split(".jack")[0] + VM_EXTENSION,"w")
         self.tokenizer = None
 
     def compile_xml(self):
         self.tokenizer = JackTokenizer.JackTokenizer(self.input_file)
-        CompilationEngineXML.CompilationEngineXML(self.tokenizer, self.output_file)
+        CompilationEngineVM.CompilationEngineVM(self.tokenizer, self.output_file)
 
         self.input_file.close()
         self.output_file.close()

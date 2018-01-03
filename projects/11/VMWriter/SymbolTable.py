@@ -12,7 +12,6 @@ ARG_KIND = "ARG"
 FIELD_KIND = "FIELD"
 STATIC_KIND = "STATIC"
 
-
 class SymbolTable:
     """
     Provides a symbol table abstraction. The symbol table associates the

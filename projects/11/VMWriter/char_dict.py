@@ -33,6 +33,9 @@ K_TRUE = "TRUE"
 K_FALSE = "FALSE"
 K_NULL = "NULL"
 K_THIS = "THIS"
+ARG_KIND = "ARG"
+
+vm_types = {ARG_KIND: "argument", K_STATIC: "static", K_VAR: "local", K_FIELD: "this"}
 
 class_var_dec = {K_FIELD, K_STATIC}
 subroutine_dec = {K_CONSTRUCTOR, K_FUNCTION, K_METHOD}

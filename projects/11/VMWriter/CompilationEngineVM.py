@@ -771,7 +771,7 @@ class CompilationEngineVM:
 
     # todo VM HELPER FUNCTIONS=========================
     def write_push(self, name):
-        self.vm_writer.write_push(self.symbol_table.kind_of(name),
+        self.vm_writer.write_push(d.vm_types[self.symbol_table.kind_of(name)],
                                   self.symbol_table.index_of(name))
 
     def write_pop(self, name):

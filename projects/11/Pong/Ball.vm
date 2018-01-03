@@ -1,0 +1,523 @@
+call Memory.alloc 6)
+pop pointer 0
+push ARG 16
+push ARG 17
+push ARG 18
+push ARG 19
+push ARG 20
+push ARG 21
+function Ball.Ball.new 0
+push ARG 1
+pop pointer 0
+push ARG 16
+push ARG 1
+push ARG 2
+pop pointer 0
+push ARG 17
+push ARG 2
+push ARG 11
+pop pointer 0
+push ARG 18
+push ARG 11
+push ARG 12
+pop pointer 0
+push ARG 19
+push constant 6
+sub
+push ARG 12
+push ARG 13
+pop pointer 0
+push ARG 20
+push ARG 13
+push ARG 14
+pop pointer 0
+push ARG 21
+push constant 6
+sub
+push ARG 14
+push ARG 15
+pop pointer 0
+push constant 0
+push ARG 15
+push FIELD 6
+call Ball.show 1
+push pointer 0
+return
+function Ball.Ball.dispose 0
+push pointer 0
+call Memory.deAlloc 0
+return
+function Ball.Ball.show 0
+push constant 1
+neg
+call Screen.setColor 0
+push FIELD 6
+call Ball.draw 1
+return
+function Ball.Ball.hide 0
+push constant 0
+call Screen.setColor 0
+push FIELD 6
+call Ball.draw 1
+return
+function Ball.Ball.draw 0
+push None -1
+push None -1
+push None -1
+push constant 5
+add
+push None -1
+push constant 5
+add
+call Screen.drawRectangle 3
+return
+function Ball.Ball.getLeft 0
+push None -1
+return
+function Ball.Ball.getRight 0
+push None -1
+push constant 5
+add
+return
+push ARG 2
+push ARG 3
+push VAR 1
+push VAR 2
+push VAR 3
+function Ball.Ball.setDestination 1
+push None -1
+pop pointer 0
+push ARG 2
+push None -1
+sub
+push None -1
+push None -1
+pop pointer 0
+push ARG 3
+push None -1
+sub
+push None -1
+push VAR 1
+pop pointer 0
+push None -1
+call Math.abs 0
+push VAR 1
+push VAR 2
+pop pointer 0
+push None -1
+call Math.abs 0
+push VAR 2
+push None -1
+pop pointer 0
+push VAR 1
+push VAR 2
+gt
+push None -1
+push None -1
+not
+if-goto L0
+push VAR 3
+pop pointer 0
+push VAR 1
+push VAR 3
+push VAR 1
+pop pointer 0
+push VAR 2
+push VAR 1
+push VAR 2
+pop pointer 0
+push VAR 3
+push VAR 2
+push None -1
+pop pointer 0
+push None -1
+push ARG 3
+gt
+push None -1
+push None -1
+pop pointer 0
+push None -1
+push ARG 2
+gt
+push None -1
+goto L1
+label L0
+push None -1
+pop pointer 0
+push None -1
+push ARG 2
+gt
+push None -1
+push None -1
+pop pointer 0
+push None -1
+push ARG 3
+gt
+push None -1
+label L1
+push None -1
+pop pointer 0
+push constant 2
+push VAR 2
+call Math.multiply 2
+push VAR 1
+sub
+push None -1
+push None -1
+pop pointer 0
+push constant 2
+push VAR 2
+call Math.multiply 2
+push None -1
+push None -1
+pop pointer 0
+push constant 2
+push VAR 2
+push VAR 1
+sub
+call Math.multiply 2
+push None -1
+return
+function Ball.Ball.move 0
+push FIELD 6
+call Ball.hide 1
+push None -1
+push constant 0
+gt
+not
+if-goto L2
+push None -1
+pop pointer 0
+push None -1
+push None -1
+add
+push None -1
+goto L3
+label L2
+push None -1
+pop pointer 0
+push None -1
+push None -1
+add
+push None -1
+push None -1
+not
+if-goto L3
+push None -1
+not
+if-goto L4
+push None -1
+pop pointer 0
+push None -1
+push constant 4
+add
+push None -1
+goto L5
+label L4
+push None -1
+pop pointer 0
+push None -1
+push constant 4
+add
+push None -1
+label L5
+goto L6
+label L5
+push None -1
+not
+if-goto L6
+push None -1
+pop pointer 0
+push None -1
+push constant 4
+sub
+push None -1
+goto L7
+label L6
+push None -1
+pop pointer 0
+push None -1
+push constant 4
+sub
+push None -1
+label L7
+label L8
+label L9
+push None -1
+not
+if-goto L10
+push None -1
+not
+if-goto L11
+push None -1
+pop pointer 0
+push None -1
+push constant 4
+add
+push None -1
+goto L12
+label L11
+push None -1
+pop pointer 0
+push None -1
+push constant 4
+add
+push None -1
+label L12
+goto L13
+label L12
+push None -1
+not
+if-goto L13
+push None -1
+pop pointer 0
+push None -1
+push constant 4
+sub
+push None -1
+goto L14
+label L13
+push None -1
+pop pointer 0
+push None -1
+push constant 4
+sub
+push None -1
+label L14
+label L15
+push None -1
+push None -1
+lt
+not
+not
+if-goto L16
+push None -1
+pop pointer 0
+push constant 1
+push None -1
+push None -1
+pop pointer 0
+push None -1
+push None -1
+label L16
+push None -1
+push None -1
+gt
+not
+not
+if-goto L18
+push None -1
+pop pointer 0
+push constant 2
+push None -1
+push None -1
+pop pointer 0
+push None -1
+push None -1
+label L18
+push None -1
+push None -1
+lt
+not
+not
+if-goto L20
+push None -1
+pop pointer 0
+push constant 3
+push None -1
+push None -1
+pop pointer 0
+push None -1
+push None -1
+label L20
+push None -1
+push None -1
+gt
+not
+not
+if-goto L22
+push None -1
+pop pointer 0
+push constant 4
+push None -1
+push None -1
+pop pointer 0
+push None -1
+push None -1
+label L22
+push FIELD 6
+call Ball.show 1
+push None -1
+return
+push ARG 2
+push VAR 1
+push VAR 2
+push VAR 3
+push VAR 4
+push VAR 5
+function Ball.Ball.bounce 1
+push VAR 3
+pop pointer 0
+push None -1
+push constant 10
+call Math.divide 2
+push VAR 3
+push VAR 4
+pop pointer 0
+push None -1
+push constant 10
+call Math.divide 2
+push VAR 4
+push ARG 2
+push constant 0
+eq
+not
+if-goto L24
+push VAR 5
+pop pointer 0
+push constant 10
+push VAR 5
+goto L25
+label L24
+push None -1
+push constant 0
+gt
+not
+push ARG 2
+push constant 1
+eq
+and
+push None -1
+push constant 0
+gt
+push ARG 2
+push constant 1
+not
+eq
+and
+or
+not
+if-goto L25
+push VAR 5
+pop pointer 0
+push constant 20
+push VAR 5
+goto L26
+label L25
+push VAR 5
+pop pointer 0
+push constant 5
+push VAR 5
+label L26
+label L27
+push None -1
+push constant 1
+eq
+not
+if-goto L28
+push VAR 1
+pop pointer 0
+push constant 506
+push VAR 1
+push VAR 2
+pop pointer 0
+push VAR 4
+push constant 50
+not
+call Math.multiply 2
+push VAR 3
+call Math.divide 2
+push VAR 2
+push VAR 2
+pop pointer 0
+push None -1
+push VAR 2
+push VAR 5
+call Math.multiply 2
+add
+push VAR 2
+goto L29
+label L28
+push None -1
+push constant 2
+eq
+not
+if-goto L29
+push VAR 1
+pop pointer 0
+push constant 0
+push VAR 1
+push VAR 2
+pop pointer 0
+push VAR 4
+push constant 50
+call Math.multiply 2
+push VAR 3
+call Math.divide 2
+push VAR 2
+push VAR 2
+pop pointer 0
+push None -1
+push VAR 2
+push VAR 5
+call Math.multiply 2
+add
+push VAR 2
+goto L30
+label L29
+push None -1
+push constant 3
+eq
+not
+if-goto L30
+push VAR 2
+pop pointer 0
+push constant 250
+push VAR 2
+push VAR 1
+pop pointer 0
+push VAR 3
+push constant 25
+not
+call Math.multiply 2
+push VAR 4
+call Math.divide 2
+push VAR 1
+push VAR 1
+pop pointer 0
+push None -1
+push VAR 1
+push VAR 5
+call Math.multiply 2
+add
+push VAR 1
+goto L31
+label L30
+push VAR 2
+pop pointer 0
+push constant 0
+push VAR 2
+push VAR 1
+pop pointer 0
+push VAR 3
+push constant 25
+call Math.multiply 2
+push VAR 4
+call Math.divide 2
+push VAR 1
+push VAR 1
+pop pointer 0
+push None -1
+push VAR 1
+push VAR 5
+call Math.multiply 2
+add
+push VAR 1
+label L31
+label L32
+label L33
+push FIELD 6
+push VAR 1
+push VAR 2
+call Ball.setDestination 2
+return

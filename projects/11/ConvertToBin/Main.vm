@@ -1,0 +1,17 @@
+push VAR 1
+function Main.Main.main 1
+push constant 8001
+push constant 16
+push constant 1
+not
+call Main.fillMemory 2
+push VAR 1
+pop pointer 0
+push constant 8000
+call Memory.peek 0
+push VAR 1
+push VAR 1
+call Main.convert 0
+return
+push ARG 1
+push VAR 1

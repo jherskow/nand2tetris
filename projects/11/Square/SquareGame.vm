@@ -1,0 +1,162 @@
+call Memory.alloc 2)
+pop pointer 0
+function SquareGame.SquareGame.new 0
+push ARG 1
+pop pointer 0
+push constant 0
+push constant 0
+push constant 30
+call Square.new 2
+push ARG 1
+push ARG 2
+pop pointer 0
+push constant 0
+push ARG 2
+push pointer 0
+return
+function SquareGame.SquareGame.dispose 0
+call square.dispose 0
+push pointer 0
+call Memory.deAlloc 0
+return
+function SquareGame.SquareGame.moveSquare 0
+push None -1
+push constant 1
+eq
+not
+if-goto L0
+call square.moveUp 0
+label L0
+push None -1
+push constant 2
+eq
+not
+if-goto L2
+call square.moveDown 0
+label L2
+push None -1
+push constant 3
+eq
+not
+if-goto L4
+call square.moveLeft 0
+label L4
+push None -1
+push constant 4
+eq
+not
+if-goto L6
+call square.moveRight 0
+label L6
+push constant 5
+call Sys.wait 0
+return
+push VAR 1
+push VAR 2
+function SquareGame.SquareGame.run 2
+push VAR 2
+pop pointer 0
+push constant 0
+push VAR 2
+label LOOP0
+push VAR 2
+not
+not
+if-goto L8
+label LOOP0
+push VAR 1
+push constant 0
+eq
+not
+if-goto L8
+push VAR 1
+pop pointer 0
+call Keyboard.keyPressed 0
+push VAR 1
+push FIELD 2
+call SquareGame.moveSquare 1
+goto LOOP0
+label L8
+push VAR 1
+push constant 81
+eq
+not
+if-goto L9
+push VAR 2
+pop pointer 0
+push constant 1
+neg
+push VAR 2
+label L9
+push VAR 1
+push constant 90
+eq
+not
+if-goto L11
+call square.decSize 0
+label L11
+push VAR 1
+push constant 88
+eq
+not
+if-goto L13
+call square.incSize 0
+label L13
+push VAR 1
+push constant 131
+eq
+not
+if-goto L15
+push None -1
+pop pointer 0
+push constant 1
+push None -1
+label L15
+push VAR 1
+push constant 133
+eq
+not
+if-goto L17
+push None -1
+pop pointer 0
+push constant 2
+push None -1
+label L17
+push VAR 1
+push constant 130
+eq
+not
+if-goto L19
+push None -1
+pop pointer 0
+push constant 3
+push None -1
+label L19
+push VAR 1
+push constant 132
+eq
+not
+if-goto L21
+push None -1
+pop pointer 0
+push constant 4
+push None -1
+label L21
+label LOOP1
+push VAR 1
+push constant 0
+eq
+not
+not
+if-goto L23
+push VAR 1
+pop pointer 0
+call Keyboard.keyPressed 0
+push VAR 1
+push FIELD 2
+call SquareGame.moveSquare 1
+goto LOOP1
+label L23
+goto LOOP2
+label L24
+return

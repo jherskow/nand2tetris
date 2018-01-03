@@ -38,6 +38,8 @@ class CompilationEngineVM:
         self.vm_writer = VMWriter.VMWriter(output_file)
         self.symbol_table = None
         self.class_name = ""
+        self.if_count = 0
+        self.loop_count = 0
 
         # get first token
         self.advance()
@@ -46,8 +48,7 @@ class CompilationEngineVM:
             raise CompilerError(self, "File must begin with \"class\"")
 
         self.compile_class()
-        self.if_count = 0
-        self.loop_count = 0
+
 
     def compile_class(self):
         """
@@ -124,7 +125,7 @@ class CompilationEngineVM:
         # cases:     'constructor' | 'function' | 'method'
         if subroutine_type == d.K_CONSTRUCTOR:
             #  call Memory.alloc (# fields) // stack now has pointer for memory
-            self.vm_writer.write("call Memory.alloc " + str(self.symbol_table.num_fields()) + ")\n")
+            self.vm_writer.write("call Memory.alloc " + str(self.symbol_table.field_counter) + ")\n")
             # t  pop pointer 0           // make object's 'this' field equal this pointer
             self.vm_writer.write(
                 "pop pointer 0\n")  # todo check correct location!!!! - (we want the 'this' field to contain the value returned by malloc)
@@ -173,7 +174,7 @@ class CompilationEngineVM:
 
         # single type varName
         # type
-        type = self.key_word()  # todo OR IDENTIFIER
+        type = self.identifier()  # todo OR IDENTIFIER
         self.advance()
 
         # var name
@@ -240,8 +241,8 @@ class CompilationEngineVM:
             self.advance()
 
             # type
-            type = self.key_word()  # todo OR IDENTIFIER or just token?// token
-            self.advance()
+            # type = self.key_word()  # todo OR IDENTIFIER or just token?// token
+            # self.advance()
 
             # var name
             name = self.identifier()
@@ -444,7 +445,7 @@ class CompilationEngineVM:
         while self.type() == d.SYMBOL and self.symbol() in d.op:
             op = self.compile_op()
             self.compile_term()
-            self.write(op)
+            self.write(op +"\n")
 
 
 

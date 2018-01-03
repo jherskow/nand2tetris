@@ -32,6 +32,7 @@ class SymbolTable:
         self.class_identifiers = {}
         self.subroutine_identifiers = {}
 
+
     def start_subroutine(self):
         """
         Starts a new subroutine scope (i.e., resets the subroutine’s symbol table).

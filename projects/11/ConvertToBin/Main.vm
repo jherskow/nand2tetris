@@ -1,17 +1,121 @@
-push VAR 1
-function Main.Main.main 1
+push local 1
+function Main.main 1
 push constant 8001
 push constant 16
 push constant 1
 not
 call Main.fillMemory 2
-push VAR 1
+push local 1
 pop pointer 0
 push constant 8000
 call Memory.peek 0
-push VAR 1
-push VAR 1
+push local 1
+push local 1
 call Main.convert 0
 return
-push ARG 1
-push VAR 1
+push argument 1
+push local 1
+push local 2
+push local 3
+function Main.convert 2
+push local 3
+pop pointer 0
+push constant 1
+neg
+push local 3
+label LOOP0
+push local 3
+not
+if-goto L0
+push local 2
+pop pointer 0
+push local 2
+push constant 1
+add
+push local 2
+push local 1
+pop pointer 0
+push local 1
+call Main.nextMask 0
+push local 1
+push local 2
+push constant 16
+lt
+not
+not
+if-goto L0
+push argument 1
+push local 1
+and
+push constant 0
+eq
+not
+not
+if-goto L1
+push constant 8000
+push local 2
+add
+push constant 1
+call Memory.poke 1
+goto L2
+label L1
+push constant 8000
+push local 2
+add
+push constant 0
+call Memory.poke 1
+label L2
+goto L3
+label L2
+push local 3
+pop pointer 0
+push constant 0
+push local 3
+label L3
+goto LOOP0
+label L4
+return
+push argument 1
+function Main.nextMask 0
+push argument 1
+push constant 0
+eq
+not
+if-goto L5
+push constant 1
+return
+goto L6
+label L5
+push argument 1
+push constant 2
+call Math.multiply 2
+return
+label L6
+push argument 1
+push argument 2
+push argument 3
+function Main.fillMemory 0
+label LOOP1
+push argument 2
+push constant 0
+lt
+not
+if-goto L7
+push argument 1
+push argument 3
+call Memory.poke 1
+push argument 2
+pop pointer 0
+push argument 2
+push constant 1
+sub
+push argument 2
+push argument 1
+pop pointer 0
+push argument 1
+push constant 1
+add
+push argument 1
+goto LOOP1
+label L7
+return

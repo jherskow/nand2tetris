@@ -139,10 +139,14 @@ class CompilationEngineVM:
 
         # subroutineName
         # save name as (classname.subroutinename), to be used later wehn writing the call
-        name = self.class_name + "." + self.identifier()
+        name = self.identifier()
 
         self.advance()
-
+        if self.type() == d.SYMBOL and self.symbol() == ".":
+            self.advance()
+            name= name +"."+self.identifier()
+        else:
+            name = self.class_name+"."+name
         # (
         self.compile_symbol_check("(", "expected opening \"(\" for parameterList ")
 
@@ -775,12 +779,11 @@ class CompilationEngineVM:
                                   self.symbol_table.index_of(name))
 
     def write_pop(self, name):
-        self.vm_writer.write_pop(self.symbol_table.kind_of(name),
+        self.vm_writer.write_pop(d.vm_types[self.symbol_table.kind_of(name)],
                                  self.symbol_table.index_of(name))
 
     def write_function(self, name, n_locals):
-        method_name = self.class_name + "." + name
-        self.vm_writer.write_function(method_name, n_locals)
+        self.vm_writer.write_function(name, n_locals)
 
     def write_return(self):
         self.vm_writer.write_return()

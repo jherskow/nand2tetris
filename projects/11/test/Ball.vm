@@ -1,0 +1,31 @@
+function Ball.new 0
+push constant 3
+call Memory.alloc 1
+pop pointer 0
+push pointer 0
+pop this 0
+push this 1
+push argument 0
+pop temp 1
+pop pointer 1
+push temp 1
+pop that 0
+push this 2
+push argument 1
+pop temp 1
+pop pointer 1
+push temp 1
+pop that 0
+push pointer 0
+return
+function Ball.xplusy 1
+push local 0
+push this 1
+push this 2
+add
+pop temp 1
+pop pointer 1
+push temp 1
+pop that 0
+push local 0
+return

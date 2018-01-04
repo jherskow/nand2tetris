@@ -1,0 +1,20 @@
+
+class Ball {
+
+    field int x, y;               // the ball's screen location (in pixels)
+    
+
+    /** Constructs a new ball with the given initial location and wall locations. */
+    constructor Ball new(int Ax, int Ay) {    	
+	    let x = Ax;		
+	    let y = Ay;
+        return this;
+    }
+
+    method Ball xplusy() {    	
+	    var int sum;
+        let sum = x + y;
+        return sum;
+    }
+
+}

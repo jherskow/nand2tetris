@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eacdd40-89ba-40e8-a58d-4fd62e45556a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/11/test/Ball.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/11/test/Ball.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/11/test/Main.jack" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/11/test/Main.vm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/ConvertToBin/Main.vm" afterPath="$PROJECT_DIR$/projects/11/ConvertToBin/Main.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/Pong/Ball.vm" afterPath="$PROJECT_DIR$/projects/11/Pong/Ball.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/Pong/Bat.vm" afterPath="$PROJECT_DIR$/projects/11/Pong/Bat.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/Pong/PongGame.vm" afterPath="$PROJECT_DIR$/projects/11/Pong/PongGame.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" afterPath="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/bin/Virtual Machine Emulator.dat" afterPath="$PROJECT_DIR$/tools/bin/Virtual Machine Emulator.dat" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -296,14 +294,7 @@
               <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
               <item name="projects" type="462c0819:PsiDirectoryNode" />
               <item name="11" type="462c0819:PsiDirectoryNode" />
-              <item name="Pong" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nand2tetris" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
-              <item name="projects" type="462c0819:PsiDirectoryNode" />
-              <item name="11" type="462c0819:PsiDirectoryNode" />
-              <item name="VMWriter" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -760,7 +751,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515094122075</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="push for aya">
+      <created>1515099770193</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1515099770193</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TodoView">
@@ -781,7 +779,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23177366" sideWeight="0.48253274" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34606987" sideWeight="0.4961915" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34606987" sideWeight="0.4961915" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32752994" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />

@@ -29,7 +29,7 @@ class JackCompiler:
         self.output_file = open(input_file.split(".jack")[0] + VM_EXTENSION,"w")
         self.tokenizer = None
 
-    def compile_xml(self):
+    def compile_vm(self):
         self.tokenizer = JackTokenizer.JackTokenizer(self.input_file)
         CompilationEngineVM.CompilationEngineVM(self.tokenizer, self.output_file)
 
@@ -45,7 +45,7 @@ def parse_dir(dir_path):
 
 def parse_file(abs_path):
     analyzer = JackCompiler(abs_path)
-    analyzer.compile_xml()
+    analyzer.compile_vm()
 
 
 def main():

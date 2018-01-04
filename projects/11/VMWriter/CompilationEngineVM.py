@@ -80,9 +80,6 @@ class CompilationEngineVM:
 
         # ( 'static' | 'field' ) type varName ( ',' varName)* ';'
 
-        # declare field 'this'
-        self.declare_variable("this", self.class_name, SymbolTable.FIELD_KIND)
-
         # static | field  (this is the kind)
         kind = self.key_word()
         self.advance()
@@ -364,7 +361,9 @@ class CompilationEngineVM:
 
 
         # while
-        self.write_label("LOOP" + str(self.loop_count))
+        loop_num = str(self.loop_count)
+        self.loop_count +=1
+        self.write_label("whileStart" + loop_num)
         self.advance()
 
         # '(' expression ')
@@ -372,18 +371,23 @@ class CompilationEngineVM:
         self.compile_expression()
         self.compile_symbol_check(")", "expected ) in (expression) for while")
 
+        # if not expresssion - go to end
         self.write_arithmetic("not")
-        self.write_if_goto("L" + str(self.if_count))
-        cur_if = self.if_count
-        self.if_count+=1
+        self.write_if_goto("whileEnd" + loop_num)
+
+        #otherwise, statements
+
+
         # '{' statements '}'
         self.compile_symbol_check("{", "expected { in {statements} for while")
         self.compile_statements()
         self.compile_symbol_check("}", "expected } in {statements} for while")
-        self.write_goto("LOOP" + str(self.loop_count))
-        self.write_label("L" + str(cur_if))
 
-        self.loop_count+=1
+        # go to while, and check again
+        self.write_goto("whileStart" + loop_num)
+
+        # mark end
+        self.write_label("whileEnd" + loop_num)
 
     def compile_return(self):
         """
@@ -421,30 +425,31 @@ class CompilationEngineVM:
         self.compile_expression()
         self.compile_symbol_check(")", "expected ) in (expression) for if")
         self.write_arithmetic("not")
-        self.write_if_goto("L" + str(self.if_count))
-        self.if_count+=1
-        cur_if =self.if_count
+        if_num = self.if_count
+        self.if_count += 1
+        self.write_if_goto("ifElse" + str(if_num))
+
+
+
+
         # '{' statements '}'
         self.compile_symbol_check("{", "expected { in {statements} for if")
         self.compile_statements()
         self.compile_symbol_check("}", "expected } in {statements} for if")
-        # else
+        self.write_goto("ifEnd" + str(if_num))
 
+        self.write_label("ifElse" + str(if_num))
+        # else
         if self.type() == d.KEYWORD and self.key_word() == d.K_ELSE:
-            self.write_goto("L" + str(cur_if))
             # else
-            self.write_label("L" + str(cur_if- 1))
             self.advance()
 
             # '{' statements '}'
             self.compile_symbol_check("{", "expected { in {statements} for else")
-            self.if_count+=1
             self.compile_statements()
             self.compile_symbol_check("}", "expected } in {statements} for else")
-            self.write_label("L" + str(cur_if))
-        else:
-            self.write_label("L" + str(cur_if-1))
-            self.if_count+=1
+
+        self.write_label("ifEnd" + str(if_num))
 
     def compile_expression(self):
         """
@@ -587,9 +592,12 @@ class CompilationEngineVM:
         """
         # we are now at first line in class
 
-        # while next toks match classVarDec, compile class var dec
+        # declare field 'this'
+        self.declare_variable("this", self.class_name, SymbolTable.FIELD_KIND)
+
+        # while next tok matches classVarDec, compile all class var decs
         while self.type() == d.KEYWORD and self.key_word() in d.static_field:
-            #  static or field)
+            #  (static or field)
             self.compile_class_var_dec()
 
         # while next toks match subroutineDec, compile subroutineDec
@@ -598,19 +606,6 @@ class CompilationEngineVM:
 
         # ensure next token is }
         self.compile_symbol_check("}", "} expected at end of Class.")
-
-    # def compile_type(self):
-    #     """
-    #     Compiles a type
-    #     :return:
-    #     """
-    #     if self.type() == d.KEYWORD and self.key_word() in d.type:
-    #         self.xml_keyword()
-    #     elif self.type() == d.IDENTIFIER:
-    #         self.xml_identifier()
-    #     else:
-    #         raise CompilerError(self, "type expected")
-    #     self.advance()
 
     def compile_var_name(self):
         """
@@ -721,7 +716,7 @@ class CompilationEngineVM:
     #     self.xml_identifier()
     #     self.advance()
 
-    def compile_subroutine_body(self, name, isConstructor):
+    def compile_subroutine_body(self, name, is_constructor):
         """
         Complies a subroutine body
         """
@@ -740,7 +735,7 @@ class CompilationEngineVM:
         self.write_function(name, num_locals)
 
         # if constructor, write alloc
-        if isConstructor:
+        if is_constructor:
             prefix = "push constant "+str(self.symbol_table.field_counter)+"\n"
             #  call Memory.alloc (# fields) // stack now has pointer for memory
             prefix += "call Memory.alloc 1\n"

@@ -6,10 +6,12 @@ not
 call Main.fillMemory 3
 pop temp 0
 push local 0
-pop pointer 0
 push constant 8000
 call Memory.peek 1
-pop local 0
+pop temp 1
+pop pointer 1
+push temp 1
+pop that 0
 push local 0
 call Main.convert 1
 pop temp 0
@@ -18,25 +20,31 @@ return
 push argument 0
 function Main.convert 2
 push local 2
-pop pointer 0
 push constant 1
 neg
-pop local 2
+pop temp 1
+pop pointer 1
+push temp 1
+pop that 0
 label whileStart0
 push local 2
 not
 if-goto whileEnd0
 push local 1
-pop pointer 0
 push local 1
 push constant 1
 add
-pop local 1
+pop temp 1
+pop pointer 1
+push temp 1
+pop that 0
 push local 0
-pop pointer 0
 push local 0
 call Main.nextMask 1
-pop local 0
+pop temp 1
+pop pointer 1
+push temp 1
+pop that 0
 push local 1
 push constant 16
 lt
@@ -69,9 +77,11 @@ label ifEnd1
 goto ifEnd0
 label ifElse0
 push local 2
-pop pointer 0
 push constant 0
-pop local 2
+pop temp 1
+pop pointer 1
+push temp 1
+pop that 0
 label ifEnd0
 goto whileStart0
 label whileEnd0
@@ -110,17 +120,21 @@ push argument 2
 call Memory.poke 2
 pop temp 0
 push argument 1
-pop pointer 0
 push argument 1
 push constant 1
 sub
-pop argument 1
+pop temp 1
+pop pointer 1
+push temp 1
+pop that 0
 push argument 0
-pop pointer 0
 push argument 0
 push constant 1
 add
-pop argument 0
+pop temp 1
+pop pointer 1
+push temp 1
+pop that 0
 goto whileStart1
 label whileEnd1
 push constant 0

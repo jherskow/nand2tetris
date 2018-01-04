@@ -7,6 +7,8 @@ push argument 5
 function Ball.new 0
 push constant 16
 call Memory.alloc 1
+pop pointer 0
+push pointer 0
 pop this 0
 push this 1
 pop pointer 0

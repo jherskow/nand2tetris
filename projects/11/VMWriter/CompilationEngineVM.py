@@ -118,6 +118,8 @@ class CompilationEngineVM:
         Compiles a complete method, function, or constructor declaration.
         """
 
+        self.symbol_table.start_subroutine()
+
         # ( 'constructor' | 'function' | 'method' )
         # ( 'void' | type) subroutineName '(' parameterList ')'
         # subroutineBody
@@ -159,8 +161,6 @@ class CompilationEngineVM:
         # subroutineBody
         self.compile_subroutine_body(name, is_constructor)
 
-        self.symbol_table.start_subroutine()
-
     def compile_parameter_list(self):
         """
         compiles a (possibly empty) parameter list,
@@ -190,9 +190,6 @@ class CompilationEngineVM:
         # declare
         self.declare_variable(name, var_type, SymbolTable.ARG_KIND)
 
-        # push kind index
-        self.write_push(name)
-
 
         # possible additional type varname  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
@@ -212,15 +209,13 @@ class CompilationEngineVM:
             # declare
             self.declare_variable(name, var_type, SymbolTable.ARG_KIND)
 
-            # push kind index
-            self.write_push(name)
-
 
     def compile_var_dec(self):
         """
         Compiles a var declaration.
         """
 
+        num_vars = 0
         # 'var' type varName ( ',' varName)* ';'
 
         # var
@@ -241,6 +236,7 @@ class CompilationEngineVM:
 
         # declare
         self.declare_variable(name, var_type, SymbolTable.VAR_KIND)
+        num_vars += 1
 
         # possible additional "," varname  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
@@ -253,9 +249,12 @@ class CompilationEngineVM:
 
             # declare
             self.declare_variable(name, var_type, SymbolTable.VAR_KIND)
+            num_vars += 1
 
         # ';'
         self.compile_symbol_check(";", "expected ; at end of variable declaration")
+
+        return num_vars
 
     def compile_statements(self):
         """
@@ -288,9 +287,6 @@ class CompilationEngineVM:
         # let
         self.advance()
 
-        # ==todo ====  save name (and index, if there is)
-        # ==todo ====  compute where var[expression] is so we can pop to it
-
         # varname
         var_name = self.identifier()
         self.advance()
@@ -300,27 +296,31 @@ class CompilationEngineVM:
             self.write_push(var_name)
             self.advance()
             self.compile_expression()
-
-            #(varname+exp)
-            self.write_arithmetic("add")
-            self.write("pop pointer 1\n")
             self.compile_symbol_check("]", "expected to match [")
             #=
             self.compile_symbol_check("=", "expected in assignment")
             #expression
             self.compile_expression()
 
+            # save value of expression
+            self.write("pop temp 1\n")
 
-            # todo ====  finally, pop the value at top of stack (the result of the right)
-            # todo ====  to VM location for name OR name[expression]
+            # add varname and [] exp
+            self.write("add\n")
 
-            #   *(varname+exp)= exp
+            # make the that segment point to (varname + [] exp) location
+            self.write("pop pointer 1\n")
+
+            # retrive value of expression
+            self.write("push temp 1\n")
+
+            # place value of expression at (varname + [] exp) location
             self.write("pop that 0\n")
 
         # no array index
         else:
             self.write_push(var_name)
-            self.write("pop pointer 0\n")
+
             # =
             self.compile_symbol_check("=", "expected in assignment")
 
@@ -328,7 +328,17 @@ class CompilationEngineVM:
             #   then do all the stuff on the right
             self.compile_expression()
 
-            self.write_pop(var_name)
+            # save value of expression
+            self.write("pop temp 1\n")
+
+            # make the that segment point to varname's location
+            self.write("pop pointer 1\n")
+
+            # retrive value of expression
+            self.write("push temp 1\n")
+
+            # place value of expression at varname's location
+            self.write("pop that 0\n")
 
 
 
@@ -404,7 +414,7 @@ class CompilationEngineVM:
         if self.type() != d.SYMBOL or self.symbol() != ";":
             self.compile_expression()
         # return; - must be void function.
-        if self.type() == d.SYMBOL and self.symbol() == ";":
+        elif self.type() == d.SYMBOL and self.symbol() == ";":
             self.write("push constant 0\n")
 
         # ';'
@@ -519,12 +529,17 @@ class CompilationEngineVM:
                     #  expression
                     self.compile_expression()
 
-                    #(varname+exp)
-                    self.write_arithmetic("add")
-                    self.write("pop pointer 1\n")
-
                     # [
                     self.compile_symbol_check("]", "] expected for array index")
+
+                    #push *(varname+exp)
+                    self.write_arithmetic("add")
+                    # make that point to (varname+exp)
+                    self.write("pop pointer 1\n")
+                    # push that[0] to stack
+                    self.write("push that 0\n")
+
+
 
                 elif self.symbol() in {"(", "."}:
                     self.retreat()
@@ -577,6 +592,7 @@ class CompilationEngineVM:
         # one expression
         self.compile_expression()
         args_num += 1
+
         # possible additional expressions  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
             self.advance()
@@ -729,8 +745,8 @@ class CompilationEngineVM:
         #  varDec*
         num_locals = 0
         while self.type() == d.KEYWORD and self.key_word() == d.K_VAR:
-            self.compile_var_dec()
-            num_locals += 1
+            num_locals += self.compile_var_dec()
+
 
         # write the function declaration
         self.write_function(name, num_locals)
@@ -741,11 +757,16 @@ class CompilationEngineVM:
             #  call Memory.alloc (# fields) // stack now has pointer for memory
             self.write("call Memory.alloc 1\n")
 
-            # todo which correct????
+            # todo check
 
-            # t  pop pointer 0           // make object's 'this' field equal this pointer
-            #  self.write("pop pointer 0\n")
-            self.write_pop("this")
+            #  make object's 'this' (first) field equal this pointer
+
+            #  set this segment to point to adress
+            self.write("pop pointer 0\n")
+            #  put address back on stack
+            self.write("push pointer 0\n")
+            #  let adress[0] contain the adress (adress[0] is field 0 or "this')
+            self.write("pop this 0\n")
 
         # statements
         self.compile_statements()

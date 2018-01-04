@@ -37,7 +37,7 @@ class VMWriter:
         """Writes a VM goto command."""
         self.output_file.write("goto " + label + "\n")
 
-    def write_if(self, label):
+    def write_if_goto(self, label):
         """Writes a VM if-goto command."""
         self.output_file.write("if-goto " + label + "\n")
 

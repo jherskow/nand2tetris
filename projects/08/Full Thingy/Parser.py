@@ -114,7 +114,7 @@ def parse_file_to_write(parser, codeWriter):
         elif type == "C_GOTO":
             codeWriter.write_goto_in_func(parser.arg1())
         elif type == "C_IF":
-            codeWriter.write_if(parser.arg1())
+            codeWriter.write_if_goto(parser.arg1())
         elif type == "C_FUNCTION":
             codeWriter.write_function(parser.arg1(), parser.arg2())
         elif type == "C_RETURN":

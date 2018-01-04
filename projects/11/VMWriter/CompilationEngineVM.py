@@ -11,7 +11,15 @@ import VMWriter
 
 
 # todo - void methods - must return 0, and 0 must be popped and ingnored -page 243
-# todo - labels for loops - pg 241
+                    #todo solution - if do - discard, otherwise keep.
+                    #todo solution           discard, with pop temp 0 ?
+
+
+                    #todo solution - in function:
+                    #todo solution - return var -> push var
+                    #todo solution - return -> push 0
+
+
 # todo - method callning - car.drive()
 # todo - check array retrivaql - car.drive()
 # todo - string genertion - ???
@@ -346,6 +354,9 @@ class CompilationEngineVM:
         # subroutineCall
         self.compile_subroutine_call()
 
+        # ignore return value (which always exists)
+        self.write("pop temp 0\n")  #todo check
+
         # ;
         self.compile_symbol_check(";", "expected ; after subroutine call")
 
@@ -367,7 +378,7 @@ class CompilationEngineVM:
         self.compile_symbol_check(")", "expected ) in (expression) for while")
 
         self.write_arithmetic("not")
-        self.write_if("L" + str(self.if_count))
+        self.write_if_goto("L" + str(self.if_count))
         cur_if = self.if_count
         self.if_count+=1
         # '{' statements '}'
@@ -412,7 +423,7 @@ class CompilationEngineVM:
         self.compile_expression()
         self.compile_symbol_check(")", "expected ) in (expression) for if")
         self.write_arithmetic("not")
-        self.write_if("L" + str(self.if_count))
+        self.write_if_goto("L" + str(self.if_count))
         self.if_count+=1
         cur_if =self.if_count
         # '{' statements '}'
@@ -805,8 +816,8 @@ class CompilationEngineVM:
         """Writes a VM arithmetic command."""
         self.vm_writer.write_arithmetic(command)
 
-    def write_if(self,label):
-        self.vm_writer.write_if(label)
+    def write_if_goto(self, label):
+        self.vm_writer.write_if_goto(label)
 
     def write_goto(self, label):
         self.vm_writer.write_goto(label)

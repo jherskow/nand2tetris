@@ -9,18 +9,6 @@ import char_dict as d
 import SymbolTable
 import VMWriter
 
-
-# todo - void methods - must return 0, and 0 must be popped and ingnored -page 243
-                    #todo solution - if do - discard, otherwise keep.
-                    #todo solution           discard, with pop temp 0 ?
-
-
-                    #todo solution - in function:
-                    #todo solution - return var -> push var
-                    #todo solution - return -> push 0
-
-
-# todo - method callning - car.drive()
 # todo - check array retrivaql - car.drive()
 # todo - string genertion - ???
 
@@ -51,7 +39,8 @@ class CompilationEngineVM:
         self.output_file = output_file
         self.token = tokenizer
         self.vm_writer = VMWriter.VMWriter(output_file)
-        self.symbol_table = None
+        # make a new symbol table for the new class
+        self.symbol_table = SymbolTable.SymbolTable()
         self.class_name = ""
         self.if_count = 0
         self.loop_count = 0
@@ -77,8 +66,7 @@ class CompilationEngineVM:
         if self.type() != d.IDENTIFIER:
             raise CompilerError(self, "Class must begin with class name")
         self.class_name = self.identifier()
-        # make a new symbol table for the new class
-        self.symbol_table = SymbolTable.SymbolTable()
+
         self.advance()
 
         # {
@@ -96,12 +84,14 @@ class CompilationEngineVM:
         self.declare_variable("this", self.class_name, SymbolTable.FIELD_KIND)
 
         # static | field  (this is the kind)
-        a=self.key_word()
         kind = self.key_word()
         self.advance()
 
-        # type  - int/double/ClassName
-        type = self.identifier()
+        # type or class type
+        if self.type() == d.KEYWORD:
+            var_type = self.key_word()
+        else:
+            var_type = self.identifier()
         self.advance()
 
         # name - single varname
@@ -109,7 +99,7 @@ class CompilationEngineVM:
         self.advance()
 
         # declare in sym table by kind, name,  and and type
-        self.declare_variable(name, type, kind)
+        self.declare_variable(name, var_type, kind)
 
         # possible additional ',' varname  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
@@ -121,14 +111,14 @@ class CompilationEngineVM:
             self.advance()
 
             # declare under same kind and type
-            self.declare_variable(name, type, kind)
+            self.declare_variable(name, var_type, kind)
 
         # ;
         self.compile_symbol_check(";", "expected closing \";\" for declaration")
 
     def compile_subroutine(self):
         """
-        Compiles a complete method, function, or constructor.
+        Compiles a complete method, function, or constructor declaration.
         """
 
         # ( 'constructor' | 'function' | 'method' )
@@ -147,11 +137,11 @@ class CompilationEngineVM:
             self.vm_writer.write("pop pointer 0\n")
 
         elif subroutine_type == d.K_METHOD:
-            # declare this as the first method, and make i
+            # declare this as the first var
             self.declare_variable("this", self.class_name, SymbolTable.ARG_KIND)
         self.advance()
 
-        # 'void' | type # todo do we care?
+        # 'void' | type
         self.advance()
 
         # subroutineName
@@ -193,9 +183,11 @@ class CompilationEngineVM:
 
         # otherwise first (type varname) must exist
 
-        # single type varName
-        # type
-        type = self.identifier()
+        # single type or class type
+        if self.type() == d.KEYWORD:
+            var_type = self.key_word()
+        else:
+            var_type = self.identifier()
         self.advance()
 
         # var name
@@ -203,7 +195,7 @@ class CompilationEngineVM:
         self.advance()
 
         # declare
-        self.declare_variable(name, type, SymbolTable.ARG_KIND)  # todo check ARG is correct
+        self.declare_variable(name, var_type, SymbolTable.ARG_KIND)
 
         # push kind index
         self.write_push(name)
@@ -213,8 +205,11 @@ class CompilationEngineVM:
         while self.type() == d.SYMBOL and self.symbol() == ",":
             self.advance()
 
-            # type
-            type = self.key_word()  # todo OR IDENTIFIER
+            # type or class type
+            if self.type() == d.KEYWORD:
+                var_type = self.key_word()
+            else:
+                var_type = self.identifier()
             self.advance()
 
             # var name
@@ -222,7 +217,7 @@ class CompilationEngineVM:
             self.advance()
 
             # declare
-            self.declare_variable(name, type, SymbolTable.ARG_KIND)  # todo check ARG is correct
+            self.declare_variable(name, var_type, SymbolTable.ARG_KIND)
 
             # push kind index
             self.write_push(name)
@@ -240,9 +235,11 @@ class CompilationEngineVM:
             raise CompilerError(self, "expected \"var\" in variable declaration")
         self.advance()
 
-        # single type varName
-        # type
-        type = self.identifier()
+        # type or class type
+        if self.type() == d.KEYWORD:
+            var_type = self.key_word()
+        else:
+            var_type = self.identifier()
         self.advance()
 
         # var name
@@ -250,19 +247,22 @@ class CompilationEngineVM:
         self.advance()
 
         # declare
-        self.declare_variable(name, type, SymbolTable.VAR_KIND)  # todo check ARG is correct
+        self.declare_variable(name, var_type, SymbolTable.VAR_KIND)
 
         # possible additional "," varname  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
             # skip the ","
             self.advance()
 
-            # var name
-            name = self.identifier()
+            # type or class type
+            if self.type() == d.KEYWORD:
+                var_type = self.key_word()
+            else:
+                var_type = self.identifier()
             self.advance()
 
             # declare
-            self.declare_variable(name, type, SymbolTable.VAR_KIND)  # todo check ARG is correct
+            self.declare_variable(name, var_type, SymbolTable.VAR_KIND)
 
         # ';'
         self.compile_symbol_check(";", "expected ; at end of variable declaration")
@@ -272,7 +272,6 @@ class CompilationEngineVM:
         Compiles a sequence of statements,
         not including the enclosing {}.
         """
-        # todo == does this need anything?
         # statement*  0 or more times
 
         while self.type() == d.KEYWORD and self.key_word() in d.statement_types:
@@ -301,6 +300,7 @@ class CompilationEngineVM:
 
         # ==todo ====  save name (and index, if there is)
         # ==todo ====  compute where var[expression] is so we can pop to it
+
         # varname
         var_name = self.identifier()
         self.advance()
@@ -345,7 +345,6 @@ class CompilationEngineVM:
         """
         Compiles a do statement.
         """
-        # todo == should be ok
         # 'do' subroutineCall ';'
 
         # do
@@ -390,7 +389,7 @@ class CompilationEngineVM:
 
         self.loop_count+=1
 
-    def compile_return(self):  # todo - return must either push varname to stack, or push (consant 0) ? if no varname given
+    def compile_return(self):
         """
         Compiles a return statement.
         """
@@ -400,9 +399,12 @@ class CompilationEngineVM:
         # return
         self.advance()
 
-        # expression?
-        if not (self.type() == d.SYMBOL and self.symbol() == ";"):
+        # expression?   - must be non-void function.
+        if not self.type() == d.SYMBOL and self.symbol() == ";":
             self.compile_expression()
+        # return; - must be void function.
+        if self.type() == d.SYMBOL and self.symbol() == ";":
+            self.write("push constant 0\n")
 
         # ';'
         self.compile_symbol_check(";", "expected ; for return")
@@ -452,8 +454,6 @@ class CompilationEngineVM:
         """
         Compiles a expression.
         """
-        # todo == what does this do?
-        # todo ==     ? probbly leave the final value on the stack ?
 
         # term (op term)*
 
@@ -629,8 +629,9 @@ class CompilationEngineVM:
             raise CompilerError(self, message)
         self.advance()
 
-    def compile_subroutine_call(self):
+    def compile_subroutine_call(self):  # todo check
         """
+        Compiles a call to a subroutine
         """
         # subroutineName '(' expressionList ')' | (className |varName) '.' subroutineName '(' expressionList ')'
         # possibilities are
@@ -638,52 +639,68 @@ class CompilationEngineVM:
         # class.func(list)
         # var.func(list)
 
-
-        # TODO == todo subroutine call
-
         # look forward
         self.advance()
-        # todo - if no "." - foo() - we want to call foo in curerent class
-        # todo - if foo is method - we must also send 'this'
+
+
         args_num = 0
 
+        # if no "." =this is just  foo() - we want to call foo in current class
         if self.type() == d.SYMBOL and self.symbol() == "(":
-            args_num=1
             # subroutineName '(' expressionList ')'
             self.retreat()
 
-            # subroutineName
+            # subroutineName = class.foo
             subroutine_name = self.class_name + "." + self.identifier()
             self.advance()
 
             # (
             self.compile_symbol_check("(", "expected ( for function arguments")
 
-            #push this
-            self.write_push("this")
             # expressionList
             args_num += self.compile_expression_list()
 
             # )
             self.compile_symbol_check(")", "expected ) for function arguments")
+
             #call subroutine_name args_num
             self.write_call(subroutine_name,args_num)
 
 
-        # todo - if "." - then this is class.foo or object.foo   todo fix!                                  FIX!!
+        #  if "." - then this is class.foo or object.foo
         elif self.type() == d.SYMBOL and self.symbol() == ".":
             # (className |varName) '.' subroutineName '(' expressionList ')'
             self.retreat()
 
             # (className |varName)
-            class_name = self.identifier()
+            class_or_var_name = self.identifier()
             self.advance()
+
+
 
             # '.'
             self.compile_symbol_check(".", "expected . for class.method")
 
+            type_or_none_if_class = self.symbol_table.type_of(class_or_var_name)
+
             # subroutineName
-            subroutine_name = class_name + "." + self.identifier()
+
+            # object.method
+            if type_or_none_if_class is not None:
+                # the type is in our vars
+
+                # push this
+                self.write_push("this")
+
+                # call type.method with 1 extra arg
+                subroutine_name = type_or_none_if_class + "." + self.identifier()
+                args_num += 1
+
+            # OtherClass.func
+            elif type_or_none_if_class is None:
+                # call OtherClass.func
+                subroutine_name = class_or_var_name + "." + self.identifier()
+
             self.advance()
 
             # '('
@@ -694,6 +711,9 @@ class CompilationEngineVM:
 
             # )
             self.compile_symbol_check(")", "expected ) for function arguments")
+
+
+
             self.write_call(subroutine_name,args_num)
         else:
             raise CompilerError(self, "Expected func(list) or class.func(list)")
@@ -713,7 +733,7 @@ class CompilationEngineVM:
 
         # '{'
         self.compile_symbol_check("{", "Expected { to open method body")
-        a=self.key_word()
+
         #  varDec*
         num_locals = 0
         while self.type() == d.KEYWORD and self.key_word() == d.K_VAR:
@@ -729,7 +749,6 @@ class CompilationEngineVM:
         # '}'
         self.compile_symbol_check("}", "Expected } to close method body")
 
-    #todo
     def compile_op(self):
         """
         compiles an operator
@@ -748,7 +767,7 @@ class CompilationEngineVM:
         self.write("push constant " + str(length) + "\n")
         self.write("call String.new 1\n")
         for char in self.string_val():
-            self.write("push constant " + str(ord(char)) + "\n")  # todo see if correct - unocode conversion
+            self.write("push constant " + str(ord(char)) + "\n")  # todo see if correct - unicode conversion
             self.write("call String.appendChar 2\n")              # todo see if correct - way to create string
         self.advance()
 
@@ -767,14 +786,14 @@ class CompilationEngineVM:
             self.write("push pointer 0\n")
         self.advance()
 
-    # todo VM HELPER FUNCTIONS=========================
+# VM HELPER FUNCTIONS=========================
     def make_symbol_table(self):
-        """make a new sybol table"""
+        """make a new symbol table"""
         self.symbol_table = SymbolTable.SymbolTable()
 
-    def declare_variable(self, name, type, kind):
-        """make a new sybol table"""
-        self.symbol_table.define(name, type, kind)
+    def declare_variable(self, name, var_type, kind):
+        """declare a variable in the symbol table"""
+        self.symbol_table.define(name, var_type, kind)
 
     # def get_kind(self):
     #     """ returns kind of the identifier (VAR, ARD, FIELD, STATIC)"""
@@ -788,7 +807,6 @@ class CompilationEngineVM:
     #     else:
     #         return SymbolTable.ARG_KIND
 
-    # todo VM HELPER FUNCTIONS=========================
     def write_push(self, name):
         self.vm_writer.write_push(d.vm_types[self.symbol_table.kind_of(name)],
                                   self.symbol_table.index_of(name))
@@ -826,8 +844,6 @@ class CompilationEngineVM:
         self.vm_writer.write_label(label)
 
     # HELPER FUNCTIONS __________________________
-
-
 
     def advance(self):
         self.token.advance()

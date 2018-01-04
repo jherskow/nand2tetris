@@ -1,6 +1,3 @@
-push constant 21
-call Memory.alloc 1
-pop pointer 0
 push argument 0
 push argument 1
 push argument 2
@@ -8,6 +5,9 @@ push argument 3
 push argument 4
 push argument 5
 function Ball.new 0
+push constant 21
+call Memory.alloc 1
+pop pointer 0
 push this 1
 pop pointer 0
 push argument 0
@@ -40,26 +40,33 @@ push this 20
 pop pointer 0
 push constant 0
 pop this 20
-push this 19
-call Ball.show 1
+call Ball.show 0
+pop temp 0
 push pointer 0
+push constant 0
 return
 function Ball.dispose 0
 push pointer 0
 call Memory.deAlloc 1
+pop temp 0
+push constant 0
 return
 function Ball.show 0
 push constant 1
 neg
 call Screen.setColor 1
-push this 19
-call Ball.draw 1
+pop temp 0
+call Ball.draw 0
+pop temp 0
+push constant 0
 return
 function Ball.hide 0
 push constant 0
 call Screen.setColor 1
-push this 19
-call Ball.draw 1
+pop temp 0
+call Ball.draw 0
+pop temp 0
+push constant 0
 return
 function Ball.draw 0
 push this 1
@@ -71,14 +78,18 @@ push this 2
 push constant 5
 add
 call Screen.drawRectangle 4
+pop temp 0
+push constant 0
 return
 function Ball.getLeft 0
 push this 1
+push constant 0
 return
 function Ball.getRight 0
 push this 1
 push constant 5
 add
+push constant 0
 return
 push argument 1
 push argument 2
@@ -175,10 +186,11 @@ push local 0
 sub
 call Math.multiply 2
 pop this 9
+push constant 0
 return
 function Ball.move 0
-push this 19
-call Ball.hide 1
+call Ball.hide 0
+pop temp 0
 push this 7
 push constant 0
 gt
@@ -343,9 +355,10 @@ pop pointer 0
 push this 18
 pop this 2
 label L22
-push this 19
-call Ball.show 1
+call Ball.show 0
+pop temp 0
 push this 20
+push constant 0
 return
 push argument 1
 function Ball.bounce 1
@@ -509,8 +522,9 @@ pop local 0
 label L33
 label L31
 label L29
-push this 19
 push local 0
 push local 1
-call Ball.setDestination 3
+call Ball.setDestination 2
+pop temp 0
+push constant 0
 return

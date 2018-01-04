@@ -129,15 +129,14 @@ class CompilationEngineVM:
         subroutine_type = self.key_word()
 
         # cases:     'constructor' | 'function' | 'method'
+        is_constructor = False
         if subroutine_type == d.K_CONSTRUCTOR:
-            #  call Memory.alloc (# fields) // stack now has pointer for memory
-            self.write("push constant "+str(self.symbol_table.field_counter)+"\n")
-            self.vm_writer.write("call Memory.alloc 1\n")
-            # t  pop pointer 0           // make object's 'this' field equal this pointer
-            self.vm_writer.write("pop pointer 0\n")
+
+
+            is_constructor = True
 
         elif subroutine_type == d.K_METHOD:
-            # declare this as the first var
+            # declare this as the first arg
             self.declare_variable("this", self.class_name, SymbolTable.ARG_KIND)
         self.advance()
 
@@ -145,7 +144,7 @@ class CompilationEngineVM:
         self.advance()
 
         # subroutineName
-        # save name as (classname.subroutinename), to be used later wehn writing the call
+        # save name as (classname.subroutinename), to be used later when writing the call
         name = self.identifier()
 
         self.advance()
@@ -164,7 +163,7 @@ class CompilationEngineVM:
         self.compile_symbol_check(")", "expected closing \")\" for parameterList  ")
 
         # subroutineBody
-        self.compile_subroutine_body(name)
+        self.compile_subroutine_body(name, is_constructor)
 
         self.symbol_table.start_subroutine()
 
@@ -254,11 +253,8 @@ class CompilationEngineVM:
             # skip the ","
             self.advance()
 
-            # type or class type
-            if self.type() == d.KEYWORD:
-                var_type = self.key_word()
-            else:
-                var_type = self.identifier()
+            # var name
+            name = self.identifier()
             self.advance()
 
             # declare
@@ -400,7 +396,7 @@ class CompilationEngineVM:
         self.advance()
 
         # expression?   - must be non-void function.
-        if not self.type() == d.SYMBOL and self.symbol() == ";":
+        if self.type() != d.SYMBOL or self.symbol() != ";":
             self.compile_expression()
         # return; - must be void function.
         if self.type() == d.SYMBOL and self.symbol() == ";":
@@ -689,15 +685,15 @@ class CompilationEngineVM:
             if type_or_none_if_class is not None:
                 # the type is in our vars
 
-                # push this
-                self.write_push("this")
+                # push the variable
+                self.write_push(class_or_var_name)
 
                 # call type.method with 1 extra arg
                 subroutine_name = type_or_none_if_class + "." + self.identifier()
                 args_num += 1
 
             # OtherClass.func
-            elif type_or_none_if_class is None:
+            else: # type_or_none_if_class is None
                 # call OtherClass.func
                 subroutine_name = class_or_var_name + "." + self.identifier()
 
@@ -725,7 +721,7 @@ class CompilationEngineVM:
     #     self.xml_identifier()
     #     self.advance()
 
-    def compile_subroutine_body(self, name):
+    def compile_subroutine_body(self, name, isConstructor):
         """
         Complies a subroutine body
         """
@@ -742,6 +738,15 @@ class CompilationEngineVM:
 
         # write the function declaration
         self.write_function(name, num_locals)
+
+        # if constructor, write alloc
+        if isConstructor:
+            prefix = "push constant "+str(self.symbol_table.field_counter)+"\n"
+            #  call Memory.alloc (# fields) // stack now has pointer for memory
+            prefix += "call Memory.alloc 1\n"
+            # t  pop pointer 0           // make object's 'this' field equal this pointer
+            prefix += "pop pointer 0\n"
+            self.write(prefix)
 
         # statements
         self.compile_statements()

@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eacdd40-89ba-40e8-a58d-4fd62e45556a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/nand2tetris.iml" afterPath="$PROJECT_DIR$/.idea/nand2tetris.iml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/11/VMWriter/JackAnalyzer.py" afterPath="$PROJECT_DIR$/projects/11/VMWriter/JackCompiler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/Pong/Ball.vm" afterPath="$PROJECT_DIR$/projects/11/Pong/Ball.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/Pong/Bat.vm" afterPath="$PROJECT_DIR$/projects/11/Pong/Bat.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/Pong/Main.vm" afterPath="$PROJECT_DIR$/projects/11/Pong/Main.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/Pong/PongGame.vm" afterPath="$PROJECT_DIR$/projects/11/Pong/PongGame.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/Seven/Main.vm" afterPath="$PROJECT_DIR$/projects/11/Seven/Main.vm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" afterPath="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/bin/Virtual Machine Emulator.dat" afterPath="$PROJECT_DIR$/tools/bin/Virtual Machine Emulator.dat" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,11 +46,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CompilationEngineVM.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CompilationEngineVM.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="746" column="43" lean-forward="true" selection-start-line="746" selection-start-column="43" selection-end-line="746" selection-end-column="43" />
+            <state relative-caret-position="352">
+              <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
               <folding>
                 <element signature="e#330#351#0" expanded="true" />
               </folding>
@@ -75,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JackAnalyzer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/JackAnalyzer.py">
+      <file leaf-file-name="JackCompiler.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/JackCompiler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state relative-caret-position="493">
+              <caret line="52" column="52" lean-forward="true" selection-start-line="52" selection-start-column="52" selection-end-line="52" selection-end-column="52" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -110,7 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>loo</find>
       <find>varD</find>
       <find>expressionL</find>
       <find>Err</find>
@@ -140,6 +132,7 @@
       <find>keyword_co</find>
       <find>return</find>
       <find>ret</find>
+      <find>pop</find>
     </findStrings>
     <replaceStrings>
       <replace>type</replace>
@@ -185,6 +178,7 @@
         <option value="$PROJECT_DIR$/projects/11/VMWriter/VMWriter.py" />
         <option value="$PROJECT_DIR$/projects/11/VMWriter/JackAnalyzer.py" />
         <option value="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" />
+        <option value="$PROJECT_DIR$/projects/11/VMWriter/JackCompiler.py" />
       </list>
     </option>
   </component>
@@ -194,7 +188,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
+    <option name="x" value="960" />
     <option name="width" value="960" />
     <option name="height" value="1048" />
   </component>
@@ -464,7 +459,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="nand2tetris" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/11/VMWriter/JackAnalyzer.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/11/VMWriter/JackCompiler.py" />
       <option name="PARAMETERS" value="$PROJECT_DIR$/projects/11/Pong" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -482,7 +477,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="nand2tetris" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/11/VMWriter/JackAnalyzer.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/11/VMWriter/JackCompiler.py" />
       <option name="PARAMETERS" value="$PROJECT_DIR$/projects/11/Seven" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -783,7 +778,14 @@
       <option name="project" value="LOCAL" />
       <updated>1514807747552</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="some visual todo-finding">
+      <created>1515079609622</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1515079609622</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TodoView">
@@ -796,8 +798,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1048" extended-state="6" />
-    <editor active="true" />
+    <frame x="960" y="0" width="960" height="1048" extended-state="0" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23177366" sideWeight="0.51310045" order="7" side_tool="true" content_ui="tabs" />
@@ -805,7 +806,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23177366" sideWeight="0.48689955" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18496802" sideWeight="0.4961915" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18449782" sideWeight="0.4961915" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32752994" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -864,8 +865,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="more error fix work" />
-    <MESSAGE value="logic fixes in label equalities" />
     <MESSAGE value="more work" />
     <MESSAGE value="more logic fixes" />
     <MESSAGE value="hard work" />
@@ -889,7 +888,9 @@
     <MESSAGE value="Working on MustpassTest" />
     <MESSAGE value="work on ex11" />
     <MESSAGE value="nice work on ex11" />
-    <option name="LAST_COMMIT_MESSAGE" value="nice work on ex11" />
+    <MESSAGE value="some visual todo-finding" />
+    <MESSAGE value="changed name" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed name" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -906,12 +907,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py</url>
-          <line>582</line>
+          <line>589</line>
           <option name="timeStamp" value="144" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py</url>
-          <line>113</line>
+          <line>120</line>
           <option name="timeStamp" value="145" />
         </line-breakpoint>
       </breakpoints>
@@ -1242,22 +1243,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/JackAnalyzer.py">
+    <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state relative-caret-position="352">
+          <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#330#351#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py">
+    <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/JackCompiler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="746" column="43" lean-forward="true" selection-start-line="746" selection-start-column="43" selection-end-line="746" selection-end-column="43" />
+        <state relative-caret-position="493">
+          <caret line="52" column="52" lean-forward="true" selection-start-line="52" selection-start-column="52" selection-end-line="52" selection-end-column="52" />
           <folding>
-            <element signature="e#330#351#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

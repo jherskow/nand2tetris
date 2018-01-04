@@ -10,6 +10,13 @@ import SymbolTable
 import VMWriter
 
 
+# todo - void methods - must return 0, and 0 must be popped and ingnored -page 243
+# todo - labels for loops - pg 241
+# todo - method callning - car.drive()
+# todo - check array retrivaql - car.drive()
+# todo - string genertion - ???
+
+
 class CompilationEngineVM:
     """
     Effects the actual compilation output.

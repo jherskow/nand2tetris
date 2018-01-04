@@ -8,7 +8,7 @@ import CompilationEngineVM
 # XML_EXTENSION = ".xml"
 VM_EXTENSION = ".vm"
 
-class JackAnalyzer:
+class JackCompiler:
     """
     The analyzer program operates on a given source,
     where source is either a file name of the form Xxx.jack
@@ -44,13 +44,13 @@ def parse_dir(dir_path):
 
 
 def parse_file(abs_path):
-    analyzer = JackAnalyzer(abs_path)
+    analyzer = JackCompiler(abs_path)
     analyzer.compile_xml()
 
 
 def main():
     if len(sys.argv) != 2:
-        print("USAGE: VMWriter ~directory/file")
+        print("USAGE: JackCompiler ~directory/file")
         return exit(1)
 
     abs_path = str(os.path.abspath(sys.argv[1]))

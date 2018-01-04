@@ -1,9 +1,8 @@
-push VAR 1
-function Main.Main.main 1
-push VAR 1
+function Main.main 1
+push local 0
 pop pointer 0
 call SquareGame.new 0
-push VAR 1
+pop local 0
 call game.run 0
 call game.dispose 0
 return

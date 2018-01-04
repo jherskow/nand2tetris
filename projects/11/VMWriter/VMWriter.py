@@ -23,7 +23,7 @@ class VMWriter:
 
     def write_pop(self, segment, index):
         """Writes a VM pop command."""
-        self.output_file.write("push " + str(segment) + " " + str(index) + "\n")
+        self.output_file.write("pop " + str(segment) + " " + str(index) + "\n")
 
     def write_arithmetic(self, command):
         """Writes a VM arithmetic command."""

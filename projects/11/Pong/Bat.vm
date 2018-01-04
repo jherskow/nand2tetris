@@ -1,188 +1,188 @@
-call Memory.alloc 3)
+call Memory.alloc 8
 pop pointer 0
-push ARG 6
-push ARG 7
-push ARG 8
-push ARG 9
-function Bat.Bat.new 0
-push ARG 1
+push argument 1
+push argument 2
+push argument 3
+push argument 4
+function Bat.new 0
+push this 2
 pop pointer 0
-push ARG 6
-push ARG 1
-push ARG 2
+push argument 1
+pop this 2
+push this 3
 pop pointer 0
-push ARG 7
-push ARG 2
-push ARG 3
+push argument 2
+pop this 3
+push this 5
 pop pointer 0
-push ARG 8
-push ARG 3
-push ARG 4
+push argument 3
+pop this 5
+push this 6
 pop pointer 0
-push ARG 9
-push ARG 4
-push ARG 5
+push argument 4
+pop this 6
+push this 8
 pop pointer 0
 push constant 2
-push ARG 5
-push FIELD 3
+pop this 8
+push this 7
 call Bat.show 1
 push pointer 0
 return
-function Bat.Bat.dispose 0
+function Bat.dispose 0
 push pointer 0
 call Memory.deAlloc 0
 return
-function Bat.Bat.show 0
+function Bat.show 0
 push constant 1
 neg
 call Screen.setColor 0
-push FIELD 3
+push this 7
 call Bat.draw 1
 return
-function Bat.Bat.hide 0
+function Bat.hide 0
 push constant 0
 call Screen.setColor 0
-push FIELD 3
+push this 7
 call Bat.draw 1
 return
-function Bat.Bat.draw 0
-push None -1
-push None -1
-push None -1
-push None -1
+function Bat.draw 0
+push this 2
+push this 3
+push this 2
+push this 5
 add
-push None -1
-push None -1
+push this 3
+push this 6
 add
 call Screen.drawRectangle 3
 return
-push ARG 2
-function Bat.Bat.setDirection 0
-push None -1
+push argument 2
+function Bat.setDirection 0
+push this 8
 pop pointer 0
-push ARG 2
-push None -1
+push argument 2
+pop this 8
 return
-function Bat.Bat.getLeft 0
-push None -1
+function Bat.getLeft 0
+push this 2
 return
-function Bat.Bat.getRight 0
-push None -1
-push None -1
+function Bat.getRight 0
+push this 2
+push this 5
 add
 return
-push ARG 2
-function Bat.Bat.setWidth 0
-push FIELD 3
+push argument 2
+function Bat.setWidth 0
+push this 7
 call Bat.hide 1
-push None -1
+push this 5
 pop pointer 0
-push ARG 2
-push None -1
-push FIELD 3
+push argument 2
+pop this 5
+push this 7
 call Bat.show 1
 return
-function Bat.Bat.move 0
-push None -1
+function Bat.move 0
+push this 8
 push constant 1
 eq
 not
 if-goto L0
-push None -1
+push this 2
 pop pointer 0
-push None -1
+push this 2
 push constant 4
 sub
-push None -1
-push None -1
+pop this 2
+push this 2
 push constant 0
 gt
 not
 if-goto L1
-push None -1
+push this 2
 pop pointer 0
 push constant 0
-push None -1
+pop this 2
 label L1
 push constant 0
 call Screen.setColor 0
-push None -1
-push None -1
+push this 2
+push this 5
 add
 push constant 1
 add
-push None -1
-push None -1
-push None -1
+push this 3
+push this 2
+push this 5
 add
 push constant 4
 add
-push None -1
-push None -1
+push this 3
+push this 6
 add
 call Screen.drawRectangle 3
 push constant 1
 neg
 call Screen.setColor 0
-push None -1
-push None -1
-push None -1
+push this 2
+push this 3
+push this 2
 push constant 3
 add
-push None -1
-push None -1
+push this 3
+push this 6
 add
 call Screen.drawRectangle 3
 goto L3
 label L2
-push None -1
+push this 2
 pop pointer 0
-push None -1
+push this 2
 push constant 4
 add
-push None -1
-push None -1
-push None -1
+pop this 2
+push this 2
+push this 5
 add
 push constant 511
 lt
 not
 if-goto L3
-push None -1
+push this 2
 pop pointer 0
 push constant 511
-push None -1
+push this 5
 sub
-push None -1
+pop this 2
 label L3
 push constant 0
 call Screen.setColor 0
-push None -1
+push this 2
 push constant 4
 sub
-push None -1
-push None -1
+push this 3
+push this 2
 push constant 1
 sub
-push None -1
-push None -1
+push this 3
+push this 6
 add
 call Screen.drawRectangle 3
 push constant 1
 neg
 call Screen.setColor 0
-push None -1
-push None -1
+push this 2
+push this 5
 add
 push constant 3
 sub
-push None -1
-push None -1
-push None -1
+push this 3
+push this 2
+push this 5
 add
-push None -1
-push None -1
+push this 3
+push this 6
 add
 call Screen.drawRectangle 3
 label L5

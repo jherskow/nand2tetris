@@ -4,14 +4,14 @@ push constant 8001
 push constant 16
 push constant 1
 not
-call Main.fillMemory 2
+call Main.fillMemory 3
 push local 1
 pop pointer 0
 push constant 8000
-call Memory.peek 0
+call Memory.peek 1
+pop local 1
 push local 1
-push local 1
-call Main.convert 0
+call Main.convert 1
 return
 push argument 1
 push local 1
@@ -22,7 +22,7 @@ push local 3
 pop pointer 0
 push constant 1
 neg
-push local 3
+pop local 3
 label LOOP0
 push local 3
 not
@@ -32,18 +32,18 @@ pop pointer 0
 push local 2
 push constant 1
 add
-push local 2
+pop local 2
 push local 1
 pop pointer 0
 push local 1
-call Main.nextMask 0
-push local 1
+call Main.nextMask 1
+pop local 1
 push local 2
 push constant 16
 lt
 not
 not
-if-goto L0
+if-goto L1
 push argument 1
 push local 1
 and
@@ -51,29 +51,29 @@ push constant 0
 eq
 not
 not
-if-goto L1
+if-goto L2
 push constant 8000
 push local 2
 add
 push constant 1
-call Memory.poke 1
-goto L2
-label L1
+call Memory.poke 2
+goto L3
+label L2
 push constant 8000
 push local 2
 add
 push constant 0
-call Memory.poke 1
-label L2
-goto L3
-label L2
+call Memory.poke 2
+label L3
+goto L2
+label L1
 push local 3
 pop pointer 0
 push constant 0
-push local 3
-label L3
+pop local 3
+label L2
 goto LOOP0
-label L4
+label L0
 return
 push argument 1
 function Main.nextMask 0
@@ -103,19 +103,19 @@ not
 if-goto L7
 push argument 1
 push argument 3
-call Memory.poke 1
+call Memory.poke 2
 push argument 2
 pop pointer 0
 push argument 2
 push constant 1
 sub
-push argument 2
+pop argument 2
 push argument 1
 pop pointer 0
 push argument 1
 push constant 1
 add
-push argument 1
+pop argument 1
 goto LOOP1
 label L7
 return

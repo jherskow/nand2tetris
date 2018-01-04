@@ -1,10 +1,10 @@
-push VAR 1
-function Main.Main.main 1
+push local 1
+function Main.main 1
 call PongGame.newInstance 0
-push VAR 1
+push local 1
 pop pointer 0
 call PongGame.getInstance 0
-push VAR 1
+pop local 1
 call game.run 0
 call game.dispose 0
 return

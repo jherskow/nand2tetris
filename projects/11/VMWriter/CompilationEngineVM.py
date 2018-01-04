@@ -81,7 +81,8 @@ class CompilationEngineVM:
         self.declare_variable("this", self.class_name, SymbolTable.FIELD_KIND)
 
         # static | field  (this is the kind)
-        kind = self.get_kind()
+        a=self.key_word()
+        kind = self.key_word()
         self.advance()
 
         # type  - int/double/ClassName
@@ -125,10 +126,11 @@ class CompilationEngineVM:
         # cases:     'constructor' | 'function' | 'method'
         if subroutine_type == d.K_CONSTRUCTOR:
             #  call Memory.alloc (# fields) // stack now has pointer for memory
-            self.vm_writer.write("call Memory.alloc " + str(self.symbol_table.field_counter) + ")\n")
+            self.write("push constant "+str(self.symbol_table.field_counter)+"\n")
+            self.vm_writer.write("call Memory.alloc 1\n")
             # t  pop pointer 0           // make object's 'this' field equal this pointer
-            self.vm_writer.write(
-                "pop pointer 0\n")  # todo check correct location!!!! - (we want the 'this' field to contain the value returned by malloc)
+            self.vm_writer.write("pop pointer 0\n")
+
         elif subroutine_type == d.K_METHOD:
             # declare this as the first method, and make i
             self.declare_variable("this", self.class_name, SymbolTable.ARG_KIND)
@@ -167,18 +169,18 @@ class CompilationEngineVM:
         not including the enclosing ()
         :return:
         """
-        n_locals = 0
+
         # ( (type varName) ( ',' type varName)*)?
 
         # if empty - ?
         if self.type() == d.SYMBOL and self.symbol() == ")":
-            return n_locals
+            return None
 
         # otherwise first (type varname) must exist
 
         # single type varName
         # type
-        type = self.identifier()  # todo OR IDENTIFIER
+        type = self.identifier()
         self.advance()
 
         # var name
@@ -190,7 +192,7 @@ class CompilationEngineVM:
 
         # push kind index
         self.write_push(name)
-        n_locals += 1
+
 
         # possible additional type varname  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
@@ -209,9 +211,7 @@ class CompilationEngineVM:
 
             # push kind index
             self.write_push(name)
-            n_locals += 1
 
-        return n_locals
 
     def compile_var_dec(self):
         """
@@ -226,9 +226,8 @@ class CompilationEngineVM:
         self.advance()
 
         # single type varName
-
         # type
-        type = self.identifier()  # todo OR IDENTIFIER
+        type = self.identifier()
         self.advance()
 
         # var name
@@ -237,16 +236,11 @@ class CompilationEngineVM:
 
         # declare
         self.declare_variable(name, type, SymbolTable.VAR_KIND)  # todo check ARG is correct
-        self.write_push(name)
 
         # possible additional "," varname  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
             # skip the ","
             self.advance()
-
-            # type
-            # type = self.key_word()  # todo OR IDENTIFIER or just token?// token
-            # self.advance()
 
             # var name
             name = self.identifier()
@@ -254,7 +248,6 @@ class CompilationEngineVM:
 
             # declare
             self.declare_variable(name, type, SymbolTable.VAR_KIND)  # todo check ARG is correct
-            self.write_push(name)
 
         # ';'
         self.compile_symbol_check(";", "expected ; at end of variable declaration")
@@ -329,6 +322,7 @@ class CompilationEngineVM:
             self.write_pop(var_name)
 
 
+
         # ;
         self.compile_symbol_check(";", "expected ; at end of assignment")
 
@@ -367,14 +361,15 @@ class CompilationEngineVM:
 
         self.write_arithmetic("not")
         self.write_if("L" + str(self.if_count))
-
+        cur_if = self.if_count
+        self.if_count+=1
         # '{' statements '}'
         self.compile_symbol_check("{", "expected { in {statements} for while")
         self.compile_statements()
         self.compile_symbol_check("}", "expected } in {statements} for while")
         self.write_goto("LOOP" + str(self.loop_count))
-        self.write_label("L" + str(self.if_count))
-        self.if_count+=1
+        self.write_label("L" + str(cur_if))
+
         self.loop_count+=1
 
     def compile_return(self):
@@ -412,6 +407,7 @@ class CompilationEngineVM:
         self.write_arithmetic("not")
         self.write_if("L" + str(self.if_count))
         self.if_count+=1
+        cur_if =self.if_count
         # '{' statements '}'
         self.compile_symbol_check("{", "expected { in {statements} for if")
         self.compile_statements()
@@ -419,19 +415,20 @@ class CompilationEngineVM:
         # else
 
         if self.type() == d.KEYWORD and self.key_word() == d.K_ELSE:
-            self.write_goto("L" + str(self.if_count))
+            self.write_goto("L" + str(cur_if))
             # else
-            self.write_label("L" + str(self.if_count - 1))
+            self.write_label("L" + str(cur_if- 1))
             self.advance()
 
             # '{' statements '}'
             self.compile_symbol_check("{", "expected { in {statements} for else")
+            self.if_count+=1
             self.compile_statements()
             self.compile_symbol_check("}", "expected } in {statements} for else")
-            self.write_label("L" + str(self.if_count))
+            self.write_label("L" + str(cur_if))
         else:
-            self.write_label("L" + str(self.if_count - 1))
-        self.if_count+=1
+            self.write_label("L" + str(cur_if-1))
+            self.if_count+=1
 
     def compile_expression(self):
         """
@@ -559,7 +556,7 @@ class CompilationEngineVM:
 
         # one expression
         self.compile_expression()
-
+        args_num += 1
         # possible additional expressions  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
             self.advance()
@@ -698,7 +695,7 @@ class CompilationEngineVM:
 
         # '{'
         self.compile_symbol_check("{", "Expected { to open method body")
-
+        a=self.key_word()
         #  varDec*
         num_locals = 0
         while self.type() == d.KEYWORD and self.key_word() == d.K_VAR:
@@ -734,7 +731,7 @@ class CompilationEngineVM:
         self.write("call String.new 1\n")
         for char in self.string_val():
             self.write("push constant " + str(ord(char)) + "\n")  # todo see if correct
-            self.write("call String.appendChar 1\n")
+            self.write("call String.appendChar 2\n")
         self.advance()
 
     def compile_keyword_const(self):
@@ -761,17 +758,17 @@ class CompilationEngineVM:
         """make a new sybol table"""
         self.symbol_table.define(name, type, kind)
 
-    def get_kind(self):
-        """ returns kind of the identifier (VAR, ARD, FIELD, STATIC)"""
-        kind = self.key_word()
-        if kind == "var":
-            return SymbolTable.VAR_KIND
-        elif kind == "static":
-            return SymbolTable.STATIC_KIND
-        elif kind == "field":
-            return SymbolTable.STATIC_KIND
-        else:
-            return SymbolTable.ARG_KIND
+    # def get_kind(self):
+    #     """ returns kind of the identifier (VAR, ARD, FIELD, STATIC)"""
+    #     kind = self.key_word()
+    #     if kind == "var":
+    #         return SymbolTable.VAR_KIND
+    #     elif kind == "static":
+    #         return SymbolTable.STATIC_KIND
+    #     elif kind == "field":
+    #         return SymbolTable.STATIC_KIND
+    #     else:
+    #         return SymbolTable.ARG_KIND
 
     # todo VM HELPER FUNCTIONS=========================
     def write_push(self, name):

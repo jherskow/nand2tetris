@@ -7,10 +7,10 @@
 ##########################################################################
 
 
-VAR_KIND = "VAR"
-ARG_KIND = "ARG"
-FIELD_KIND = "FIELD"
-STATIC_KIND = "STATIC"
+VAR_KIND = 'VAR'
+ARG_KIND = 'ARG'
+FIELD_KIND = 'FIELD'
+STATIC_KIND = 'STATIC'
 
 class SymbolTable:
     """
@@ -47,17 +47,21 @@ class SymbolTable:
         """
 
         if kind == VAR_KIND:
-            self.var_counter += 1
             self.subroutine_identifiers[name] = [type, kind, self.var_counter]
+            self.var_counter += 1
+
         elif kind == ARG_KIND:
-            self.argument_counter += 1
             self.subroutine_identifiers[name] = [type, kind, self.argument_counter]
+            self.argument_counter += 1
+
         elif kind == STATIC_KIND:
-            self.static_counter += 1
             self.class_identifiers[name] = [type, kind, self.static_counter]
+            self.static_counter += 1
+
         elif kind == FIELD_KIND:
-            self.field_counter += 1
             self.class_identifiers[name] = [type, kind, self.field_counter]
+            self.field_counter += 1
+
 
 
     def var_count(self, kind):

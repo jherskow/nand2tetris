@@ -1,396 +1,389 @@
-call Memory.alloc 21
+push constant 21
+call Memory.alloc 1
 pop pointer 0
+push argument 0
 push argument 1
 push argument 2
 push argument 3
 push argument 4
 push argument 5
-push argument 6
 function Ball.new 0
+push this 1
+pop pointer 0
+push argument 0
+pop this 1
 push this 2
 pop pointer 0
 push argument 1
 pop this 2
-push this 3
+push this 15
 pop pointer 0
 push argument 2
-pop this 3
+pop this 15
 push this 16
 pop pointer 0
 push argument 3
+push constant 6
+sub
 pop this 16
 push this 17
 pop pointer 0
 push argument 4
-push constant 6
-sub
 pop this 17
 push this 18
 pop pointer 0
 push argument 5
-pop this 18
-push this 19
-pop pointer 0
-push argument 6
 push constant 6
 sub
-pop this 19
-push this 21
+pop this 18
+push this 20
 pop pointer 0
 push constant 0
-pop this 21
-push this 20
+pop this 20
+push this 19
 call Ball.show 1
 push pointer 0
 return
 function Ball.dispose 0
 push pointer 0
-call Memory.deAlloc 0
+call Memory.deAlloc 1
 return
 function Ball.show 0
 push constant 1
 neg
-call Screen.setColor 0
-push this 20
+call Screen.setColor 1
+push this 19
 call Ball.draw 1
 return
 function Ball.hide 0
 push constant 0
-call Screen.setColor 0
-push this 20
+call Screen.setColor 1
+push this 19
 call Ball.draw 1
 return
 function Ball.draw 0
+push this 1
 push this 2
-push this 3
+push this 1
+push constant 5
+add
 push this 2
 push constant 5
 add
-push this 3
-push constant 5
-add
-call Screen.drawRectangle 3
+call Screen.drawRectangle 4
 return
 function Ball.getLeft 0
-push this 2
+push this 1
 return
 function Ball.getRight 0
-push this 2
+push this 1
 push constant 5
 add
 return
+push argument 1
 push argument 2
-push argument 3
-push local 1
-push local 2
-push local 3
 function Ball.setDestination 1
+push this 4
+pop pointer 0
+push argument 1
+push this 1
+sub
+pop this 4
 push this 5
 pop pointer 0
 push argument 2
 push this 2
 sub
 pop this 5
-push this 6
+push local 0
 pop pointer 0
-push argument 3
-push this 3
-sub
-pop this 6
+push this 4
+call Math.abs 1
+pop local 0
 push local 1
 pop pointer 0
 push this 5
-call Math.abs 0
+call Math.abs 1
 pop local 1
-push local 2
+push this 11
 pop pointer 0
-push this 6
-call Math.abs 0
-pop local 2
-push this 12
-pop pointer 0
+push local 0
 push local 1
-push local 2
 gt
-pop this 12
-push this 12
+pop this 11
+push this 11
 not
 if-goto L0
-push local 3
+push local 2
+pop pointer 0
+push local 0
+pop local 2
+push local 0
 pop pointer 0
 push local 1
-pop local 3
+pop local 0
 push local 1
 pop pointer 0
 push local 2
 pop local 1
-push local 2
-pop pointer 0
-push local 3
-pop local 2
-push this 13
-pop pointer 0
-push this 3
-push argument 3
-gt
-pop this 13
-push this 14
+push this 12
 pop pointer 0
 push this 2
 push argument 2
 gt
-pop this 14
+pop this 12
+push this 13
+pop pointer 0
+push this 1
+push argument 1
+gt
+pop this 13
 goto L1
 label L0
+push this 12
+pop pointer 0
+push this 1
+push argument 1
+gt
+pop this 12
 push this 13
 pop pointer 0
 push this 2
 push argument 2
 gt
 pop this 13
-push this 14
-pop pointer 0
-push this 3
-push argument 3
-gt
-pop this 14
 label L1
+push this 7
+pop pointer 0
+push constant 2
+push local 1
+call Math.multiply 2
+push local 0
+sub
+pop this 7
 push this 8
 pop pointer 0
 push constant 2
-push local 2
-call Math.multiply 2
 push local 1
-sub
+call Math.multiply 2
 pop this 8
 push this 9
 pop pointer 0
 push constant 2
-push local 2
-call Math.multiply 2
-pop this 9
-push this 10
-pop pointer 0
-push constant 2
-push local 2
 push local 1
+push local 0
 sub
 call Math.multiply 2
-pop this 10
+pop this 9
 return
 function Ball.move 0
-push this 20
+push this 19
 call Ball.hide 1
-push this 8
+push this 7
 push constant 0
 gt
 not
 if-goto L2
-push this 8
+push this 7
 pop pointer 0
+push this 7
 push this 8
-push this 9
 add
-pop this 8
+pop this 7
 goto L3
 label L2
-push this 8
+push this 7
 pop pointer 0
-push this 8
-push this 10
+push this 7
+push this 9
 add
-pop this 8
-push this 14
+pop this 7
+push this 13
 not
 if-goto L4
-push this 12
+push this 11
 not
 if-goto L5
+push this 1
+pop pointer 0
+push this 1
+push constant 4
+add
+pop this 1
+goto L6
+label L5
 push this 2
 pop pointer 0
 push this 2
 push constant 4
 add
 pop this 2
-goto L6
-label L5
-push this 3
-pop pointer 0
-push this 3
-push constant 4
-add
-pop this 3
 label L6
 goto L5
 label L4
-push this 12
+push this 11
 not
 if-goto L8
+push this 1
+pop pointer 0
+push this 1
+push constant 4
+sub
+pop this 1
+goto L9
+label L8
 push this 2
 pop pointer 0
 push this 2
 push constant 4
 sub
 pop this 2
-goto L9
-label L8
-push this 3
-pop pointer 0
-push this 3
-push constant 4
-sub
-pop this 3
 label L9
 label L5
 label L3
-push this 13
-not
-if-goto L10
 push this 12
 not
+if-goto L10
+push this 11
+not
 if-goto L11
-push this 3
-pop pointer 0
-push this 3
-push constant 4
-add
-pop this 3
-goto L12
-label L11
 push this 2
 pop pointer 0
 push this 2
 push constant 4
 add
 pop this 2
+goto L12
+label L11
+push this 1
+pop pointer 0
+push this 1
+push constant 4
+add
+pop this 1
 label L12
 goto L11
 label L10
-push this 12
+push this 11
 not
 if-goto L14
-push this 3
-pop pointer 0
-push this 3
-push constant 4
-sub
-pop this 3
-goto L15
-label L14
 push this 2
 pop pointer 0
 push this 2
 push constant 4
 sub
 pop this 2
+goto L15
+label L14
+push this 1
+pop pointer 0
+push this 1
+push constant 4
+sub
+pop this 1
 label L15
 label L11
-push this 2
-push this 16
+push this 1
+push this 15
 lt
 not
 not
 if-goto L16
-push this 21
+push this 20
 pop pointer 0
 push constant 1
-pop this 21
-push this 2
+pop this 20
+push this 1
 pop pointer 0
-push this 16
-pop this 2
+push this 15
+pop this 1
 label L16
-push this 2
-push this 17
+push this 1
+push this 16
 gt
 not
 not
 if-goto L18
-push this 21
+push this 20
 pop pointer 0
 push constant 2
-pop this 21
-push this 2
+pop this 20
+push this 1
 pop pointer 0
-push this 17
-pop this 2
+push this 16
+pop this 1
 label L18
-push this 3
-push this 18
+push this 2
+push this 17
 lt
 not
 not
 if-goto L20
-push this 21
+push this 20
 pop pointer 0
 push constant 3
-pop this 21
-push this 3
+pop this 20
+push this 2
 pop pointer 0
-push this 18
-pop this 3
+push this 17
+pop this 2
 label L20
-push this 3
-push this 19
+push this 2
+push this 18
 gt
 not
 not
 if-goto L22
-push this 21
+push this 20
 pop pointer 0
 push constant 4
-pop this 21
-push this 3
+pop this 20
+push this 2
 pop pointer 0
-push this 19
-pop this 3
+push this 18
+pop this 2
 label L22
-push this 20
+push this 19
 call Ball.show 1
-push this 21
+push this 20
 return
-push argument 2
-push local 1
-push local 2
-push local 3
-push local 4
-push local 5
+push argument 1
 function Ball.bounce 1
+push local 2
+pop pointer 0
+push this 4
+push constant 10
+call Math.divide 2
+pop local 2
 push local 3
 pop pointer 0
 push this 5
 push constant 10
 call Math.divide 2
 pop local 3
-push local 4
-pop pointer 0
-push this 6
-push constant 10
-call Math.divide 2
-pop local 4
-push argument 2
+push argument 1
 push constant 0
 eq
 not
 if-goto L24
-push local 5
+push local 4
 pop pointer 0
 push constant 10
-pop local 5
+pop local 4
 goto L25
 label L24
-push this 5
+push this 4
 push constant 0
 gt
 not
-push argument 2
+push argument 1
 push constant 1
 eq
 and
-push this 5
+push this 4
 push constant 0
 gt
-push argument 2
+push argument 1
 push constant 1
 not
 eq
@@ -398,126 +391,126 @@ and
 or
 not
 if-goto L26
-push local 5
+push local 4
 pop pointer 0
 push constant 20
-pop local 5
+pop local 4
 goto L27
 label L26
-push local 5
+push local 4
 pop pointer 0
 push constant 5
-pop local 5
+pop local 4
 label L27
 label L25
-push this 21
+push this 20
 push constant 1
 eq
 not
 if-goto L28
-push local 1
+push local 0
 pop pointer 0
 push constant 506
-pop local 1
-push local 2
+pop local 0
+push local 1
 pop pointer 0
-push local 4
+push local 3
 push constant 50
 not
 call Math.multiply 2
-push local 3
+push local 2
 call Math.divide 2
-pop local 2
-push local 2
+pop local 1
+push local 1
 pop pointer 0
-push this 3
-push local 2
-push local 5
+push this 2
+push local 1
+push local 4
 call Math.multiply 2
 add
-pop local 2
+pop local 1
 goto L29
 label L28
-push this 21
+push this 20
 push constant 2
 eq
 not
 if-goto L30
-push local 1
+push local 0
 pop pointer 0
 push constant 0
-pop local 1
-push local 2
+pop local 0
+push local 1
 pop pointer 0
-push local 4
+push local 3
 push constant 50
 call Math.multiply 2
-push local 3
+push local 2
 call Math.divide 2
-pop local 2
-push local 2
+pop local 1
+push local 1
 pop pointer 0
-push this 3
-push local 2
-push local 5
+push this 2
+push local 1
+push local 4
 call Math.multiply 2
 add
-pop local 2
+pop local 1
 goto L31
 label L30
-push this 21
+push this 20
 push constant 3
 eq
 not
 if-goto L32
-push local 2
-pop pointer 0
-push constant 250
-pop local 2
 push local 1
 pop pointer 0
-push local 3
+push constant 250
+pop local 1
+push local 0
+pop pointer 0
+push local 2
 push constant 25
 not
 call Math.multiply 2
-push local 4
+push local 3
 call Math.divide 2
-pop local 1
-push local 1
+pop local 0
+push local 0
 pop pointer 0
-push this 2
-push local 1
-push local 5
+push this 1
+push local 0
+push local 4
 call Math.multiply 2
 add
-pop local 1
+pop local 0
 goto L33
 label L32
-push local 2
+push local 1
 pop pointer 0
 push constant 0
-pop local 2
-push local 1
+pop local 1
+push local 0
 pop pointer 0
-push local 3
+push local 2
 push constant 25
 call Math.multiply 2
-push local 4
+push local 3
 call Math.divide 2
-pop local 1
-push local 1
+pop local 0
+push local 0
 pop pointer 0
-push this 2
-push local 1
-push local 5
+push this 1
+push local 0
+push local 4
 call Math.multiply 2
 add
-pop local 1
+pop local 0
 label L33
 label L31
 label L29
-push this 20
+push this 19
+push local 0
 push local 1
-push local 2
-call Ball.setDestination 2
+call Ball.setDestination 3
 return

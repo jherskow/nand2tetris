@@ -1,189 +1,190 @@
-call Memory.alloc 8
+push constant 8
+call Memory.alloc 1
 pop pointer 0
+push argument 0
 push argument 1
 push argument 2
 push argument 3
-push argument 4
 function Bat.new 0
+push this 1
+pop pointer 0
+push argument 0
+pop this 1
 push this 2
 pop pointer 0
 push argument 1
 pop this 2
-push this 3
+push this 4
 pop pointer 0
 push argument 2
-pop this 3
+pop this 4
 push this 5
 pop pointer 0
 push argument 3
 pop this 5
-push this 6
-pop pointer 0
-push argument 4
-pop this 6
-push this 8
+push this 7
 pop pointer 0
 push constant 2
-pop this 8
-push this 7
+pop this 7
+push this 6
 call Bat.show 1
 push pointer 0
 return
 function Bat.dispose 0
 push pointer 0
-call Memory.deAlloc 0
+call Memory.deAlloc 1
 return
 function Bat.show 0
 push constant 1
 neg
-call Screen.setColor 0
-push this 7
+call Screen.setColor 1
+push this 6
 call Bat.draw 1
 return
 function Bat.hide 0
 push constant 0
-call Screen.setColor 0
-push this 7
+call Screen.setColor 1
+push this 6
 call Bat.draw 1
 return
 function Bat.draw 0
+push this 1
 push this 2
-push this 3
+push this 1
+push this 4
+add
 push this 2
 push this 5
 add
-push this 3
-push this 6
-add
-call Screen.drawRectangle 3
+call Screen.drawRectangle 4
 return
-push argument 2
+push argument 1
 function Bat.setDirection 0
-push this 8
+push this 7
 pop pointer 0
-push argument 2
-pop this 8
+push argument 1
+pop this 7
 return
 function Bat.getLeft 0
-push this 2
+push this 1
 return
 function Bat.getRight 0
-push this 2
-push this 5
+push this 1
+push this 4
 add
 return
-push argument 2
+push argument 1
 function Bat.setWidth 0
-push this 7
+push this 6
 call Bat.hide 1
-push this 5
+push this 4
 pop pointer 0
-push argument 2
-pop this 5
-push this 7
+push argument 1
+pop this 4
+push this 6
 call Bat.show 1
 return
 function Bat.move 0
-push this 8
+push this 7
 push constant 1
 eq
 not
 if-goto L0
-push this 2
+push this 1
 pop pointer 0
-push this 2
+push this 1
 push constant 4
 sub
-pop this 2
-push this 2
+pop this 1
+push this 1
 push constant 0
 gt
 not
 if-goto L1
-push this 2
+push this 1
 pop pointer 0
 push constant 0
-pop this 2
+pop this 1
 label L1
 push constant 0
-call Screen.setColor 0
-push this 2
-push this 5
+call Screen.setColor 1
+push this 1
+push this 4
 add
 push constant 1
 add
-push this 3
 push this 2
-push this 5
+push this 1
+push this 4
 add
 push constant 4
 add
-push this 3
-push this 6
+push this 2
+push this 5
 add
-call Screen.drawRectangle 3
+call Screen.drawRectangle 4
 push constant 1
 neg
-call Screen.setColor 0
+call Screen.setColor 1
+push this 1
 push this 2
-push this 3
-push this 2
+push this 1
 push constant 3
 add
-push this 3
-push this 6
-add
-call Screen.drawRectangle 3
-goto L3
-label L2
-push this 2
-pop pointer 0
-push this 2
-push constant 4
-add
-pop this 2
 push this 2
 push this 5
+add
+call Screen.drawRectangle 4
+goto L1
+label L0
+push this 1
+pop pointer 0
+push this 1
+push constant 4
+add
+pop this 1
+push this 1
+push this 4
 add
 push constant 511
 lt
 not
-if-goto L3
-push this 2
+if-goto L4
+push this 1
 pop pointer 0
 push constant 511
-push this 5
+push this 4
 sub
-pop this 2
-label L3
+pop this 1
+label L4
 push constant 0
-call Screen.setColor 0
-push this 2
+call Screen.setColor 1
+push this 1
 push constant 4
 sub
-push this 3
 push this 2
+push this 1
 push constant 1
 sub
-push this 3
-push this 6
-add
-call Screen.drawRectangle 3
-push constant 1
-neg
-call Screen.setColor 0
 push this 2
 push this 5
+add
+call Screen.drawRectangle 4
+push constant 1
+neg
+call Screen.setColor 1
+push this 1
+push this 4
 add
 push constant 3
 sub
-push this 3
+push this 2
+push this 1
+push this 4
+add
 push this 2
 push this 5
 add
-push this 3
-push this 6
-add
-call Screen.drawRectangle 3
-label L5
+call Screen.drawRectangle 4
+label L1
 return

@@ -372,7 +372,7 @@ class CompilationEngineVM:
 
         self.loop_count+=1
 
-    def compile_return(self):
+    def compile_return(self):  # todo - return must either push varname to stack, or push (consant 0) ? if no varname given
         """
         Compiles a return statement.
         """
@@ -652,7 +652,7 @@ class CompilationEngineVM:
             self.write_call(subroutine_name,args_num)
 
 
-        # todo - if no "." - then this is class.foo or object.foo
+        # todo - if "." - then this is class.foo or object.foo   todo fix!                                  FIX!!
         elif self.type() == d.SYMBOL and self.symbol() == ".":
             # (className |varName) '.' subroutineName '(' expressionList ')'
             self.retreat()
@@ -730,8 +730,8 @@ class CompilationEngineVM:
         self.write("push constant " + str(length) + "\n")
         self.write("call String.new 1\n")
         for char in self.string_val():
-            self.write("push constant " + str(ord(char)) + "\n")  # todo see if correct
-            self.write("call String.appendChar 2\n")
+            self.write("push constant " + str(ord(char)) + "\n")  # todo see if correct - unocode conversion
+            self.write("call String.appendChar 2\n")              # todo see if correct - way to create string
         self.advance()
 
     def compile_keyword_const(self):

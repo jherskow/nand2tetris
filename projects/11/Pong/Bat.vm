@@ -5,7 +5,7 @@ push argument 3
 function Bat.new 0
 push constant 6
 call Memory.alloc 1
-pop pointer 0
+pop this 0
 push this 1
 pop pointer 0
 push argument 0

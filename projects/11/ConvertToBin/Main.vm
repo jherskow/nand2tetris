@@ -1,121 +1,127 @@
-push local 1
 function Main.main 1
 push constant 8001
 push constant 16
 push constant 1
 not
 call Main.fillMemory 3
-push local 1
+pop temp 0
+push local 0
 pop pointer 0
 push constant 8000
 call Memory.peek 1
-pop local 1
-push local 1
+pop local 0
+push local 0
 call Main.convert 1
+pop temp 0
+push constant 0
 return
-push argument 1
-push local 1
-push local 2
-push local 3
+push argument 0
 function Main.convert 2
-push local 3
+push local 2
 pop pointer 0
 push constant 1
 neg
-pop local 3
-label LOOP0
-push local 3
+pop local 2
+label whileStart0
+push local 2
 not
-if-goto L0
-push local 2
+if-goto whileEnd0
+push local 1
 pop pointer 0
-push local 2
+push local 1
 push constant 1
 add
-pop local 2
-push local 1
-pop pointer 0
-push local 1
-call Main.nextMask 1
 pop local 1
-push local 2
+push local 0
+pop pointer 0
+push local 0
+call Main.nextMask 1
+pop local 0
+push local 1
 push constant 16
 lt
 not
 not
-if-goto L1
-push argument 1
-push local 1
+if-goto ifElse0
+push argument 0
+push local 0
 and
 push constant 0
 eq
 not
 not
-if-goto L2
+if-goto ifElse1
 push constant 8000
-push local 2
+push local 1
 add
 push constant 1
 call Memory.poke 2
-goto L3
-label L2
+pop temp 0
+goto ifEnd1
+label ifElse1
 push constant 8000
-push local 2
+push local 1
 add
 push constant 0
 call Memory.poke 2
-label L3
-goto L2
-label L1
-push local 3
+pop temp 0
+label ifEnd1
+goto ifEnd0
+label ifElse0
+push local 2
 pop pointer 0
 push constant 0
-pop local 3
-label L2
-goto LOOP0
-label L0
+pop local 2
+label ifEnd0
+goto whileStart0
+label whileEnd0
+push constant 0
 return
-push argument 1
+push argument 0
 function Main.nextMask 0
-push argument 1
+push argument 0
 push constant 0
 eq
 not
-if-goto L5
+if-goto ifElse2
 push constant 1
+push constant 0
 return
-goto L6
-label L5
-push argument 1
+goto ifEnd2
+label ifElse2
+push argument 0
 push constant 2
 call Math.multiply 2
+push constant 0
 return
-label L6
+label ifEnd2
+push argument 0
 push argument 1
 push argument 2
-push argument 3
 function Main.fillMemory 0
-label LOOP1
-push argument 2
+label whileStart1
+push argument 1
 push constant 0
 lt
 not
-if-goto L7
-push argument 1
-push argument 3
+if-goto whileEnd1
+push argument 0
+push argument 2
 call Memory.poke 2
-push argument 2
+pop temp 0
+push argument 1
 pop pointer 0
-push argument 2
+push argument 1
 push constant 1
 sub
-pop argument 2
-push argument 1
+pop argument 1
+push argument 0
 pop pointer 0
-push argument 1
+push argument 0
 push constant 1
 add
-pop argument 1
-goto LOOP1
-label L7
+pop argument 0
+goto whileStart1
+label whileEnd1
+push constant 0
 return

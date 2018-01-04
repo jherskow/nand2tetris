@@ -9,7 +9,7 @@ import char_dict as d
 import SymbolTable
 import VMWriter
 
-# todo - check array retrivaql - car.drive()
+# todo - check array retrival[??]
 # todo - string genertion - ???
 
 
@@ -128,10 +128,7 @@ class CompilationEngineVM:
         # cases:     'constructor' | 'function' | 'method'
         is_constructor = False
         if subroutine_type == d.K_CONSTRUCTOR:
-
-
             is_constructor = True
-
         elif subroutine_type == d.K_METHOD:
             # declare this as the first arg
             self.declare_variable("this", self.class_name, SymbolTable.ARG_KIND)
@@ -312,9 +309,15 @@ class CompilationEngineVM:
             self.compile_symbol_check("=", "expected in assignment")
             #expression
             self.compile_expression()
+
+
+            # todo ====  finally, pop the value at top of stack (the result of the right)
+            # todo ====  to VM location for name OR name[expression]
+
             #   *(varname+exp)= exp
             self.write("pop that 0\n")
 
+        # no array index
         else:
             self.write_push(var_name)
             self.write("pop pointer 0\n")
@@ -325,8 +328,6 @@ class CompilationEngineVM:
             #   then do all the stuff on the right
             self.compile_expression()
 
-            # todo ====  finally, pop the value at top of stack (the result of the right)
-            # todo ====  to VM location for name OR name[expression]
             self.write_pop(var_name)
 
 
@@ -736,12 +737,15 @@ class CompilationEngineVM:
 
         # if constructor, write alloc
         if is_constructor:
-            prefix = "push constant "+str(self.symbol_table.field_counter)+"\n"
+            self.write("push constant "+str(self.symbol_table.field_counter)+"\n")
             #  call Memory.alloc (# fields) // stack now has pointer for memory
-            prefix += "call Memory.alloc 1\n"
+            self.write("call Memory.alloc 1\n")
+
+            # todo which correct????
+
             # t  pop pointer 0           // make object's 'this' field equal this pointer
-            prefix += "pop pointer 0\n"
-            self.write(prefix)
+            #  self.write("pop pointer 0\n")
+            self.write_pop("this")
 
         # statements
         self.compile_statements()

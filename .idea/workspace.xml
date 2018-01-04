@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1eacdd40-89ba-40e8-a58d-4fd62e45556a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/ConvertToBin/Main.vm" afterPath="$PROJECT_DIR$/projects/11/ConvertToBin/Main.vm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/Pong/Ball.vm" afterPath="$PROJECT_DIR$/projects/11/Pong/Ball.vm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/Pong/Bat.vm" afterPath="$PROJECT_DIR$/projects/11/Pong/Bat.vm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/Pong/PongGame.vm" afterPath="$PROJECT_DIR$/projects/11/Pong/PongGame.vm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" afterPath="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/bin/Virtual Machine Emulator.dat" afterPath="$PROJECT_DIR$/tools/bin/Virtual Machine Emulator.dat" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,8 +40,9 @@
     <SUITE FILE_PATH="coverage/nand2tetris$Assembler.coverage" NAME="Assembler Coverage Results" MODIFIED="1512480283144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/06/the assembler" />
     <SUITE FILE_PATH="coverage/nand2tetris$JackAnalyzer.coverage" NAME="seven - JackAnalyzer Coverage Results" MODIFIED="1515076830793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/11/VMWriter" />
     <SUITE FILE_PATH="coverage/nand2tetris$II_NestedCall.coverage" NAME="II NestedCall Coverage Results" MODIFIED="1512986754783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
+    <SUITE FILE_PATH="coverage/nand2tetris$ConvertToBin___JackCompiler.coverage" NAME="ConvertToBin - JackCompiler Coverage Results" MODIFIED="1515093489444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/11/VMWriter" />
     <SUITE FILE_PATH="coverage/nand2tetris$PointerTest__ex_7_.coverage" NAME="PointerTest (ex 7) Coverage Results" MODIFIED="1512893425007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
-    <SUITE FILE_PATH="coverage/nand2tetris$pong___JackAnalyzer_.coverage" NAME="pong - JackAnalyzer  Coverage Results" MODIFIED="1515092666549" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/11/VMWriter" />
+    <SUITE FILE_PATH="coverage/nand2tetris$pong___JackAnalyzer_.coverage" NAME="pong - JackAnalyzer  Coverage Results" MODIFIED="1515093285315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/11/VMWriter" />
     <SUITE FILE_PATH="coverage/nand$Assembler.coverage" NAME="Assembler Coverage Results" MODIFIED="1511279515754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/06/the assembler" />
     <SUITE FILE_PATH="coverage/nand2tetris$Parser_basic_loop.coverage" NAME="BasicLoop.vm Coverage Results" MODIFIED="1512484244616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
   </component>
@@ -51,8 +54,8 @@
       <file leaf-file-name="CompilationEngineVM.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13310">
-              <caret line="605" column="0" lean-forward="true" selection-start-line="605" selection-start-column="0" selection-end-line="605" selection-end-column="0" />
+            <state relative-caret-position="2096">
+              <caret line="131" column="43" lean-forward="true" selection-start-line="131" selection-start-column="43" selection-end-line="131" selection-end-column="43" />
               <folding>
                 <element signature="e#330#351#0" expanded="true" />
               </folding>
@@ -135,7 +138,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>letS</find>
       <find>classVarDec</find>
       <find>parameterL</find>
       <find>term&quot;</find>
@@ -165,6 +167,7 @@
       <find>label</find>
       <find>alloc</find>
       <find>} ex</find>
+      <find>this</find>
     </findStrings>
     <replaceStrings>
       <replace>type</replace>
@@ -331,7 +334,25 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.pong - JackAnalyzer ">
+  <component name="RunManager" selected="Python.ConvertToBin - JackCompiler">
+    <configuration name="ConvertToBin - JackCompiler" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projects/11/VMWriter" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="nand2tetris" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/11/VMWriter/JackCompiler.py" />
+      <option name="PARAMETERS" value="$PROJECT_DIR$/projects/11/ConvertToBin" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -350,7 +371,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="pong - JackAnalyzer " type="PythonConfigurationType" factoryName="Python">
+    <configuration name="pong - JackCompiler" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -368,7 +389,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="seven - JackAnalyzer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="seven - JackCompiler" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -386,33 +407,14 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="seven CompilationEngineVM" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projects/11/VMWriter" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="nand2tetris" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" />
-      <option name="PARAMETERS" value="$PROJECT_DIR$/projects/11/Seven" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Python.pong - JackAnalyzer " />
-      <item index="1" class="java.lang.String" itemvalue="Python.seven CompilationEngineVM" />
-      <item index="2" class="java.lang.String" itemvalue="Python.seven - JackAnalyzer" />
+      <item index="0" class="java.lang.String" itemvalue="Python.pong - JackCompiler" />
+      <item index="1" class="java.lang.String" itemvalue="Python.ConvertToBin - JackCompiler" />
+      <item index="2" class="java.lang.String" itemvalue="Python.seven - JackCompiler" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.seven - JackAnalyzer" />
-        <item index="1" class="java.lang.String" itemvalue="Python.seven CompilationEngineVM" />
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.seven - JackCompiler" />
       </list>
     </recent_temporary>
   </component>
@@ -724,7 +726,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515089984431</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="more work">
+      <created>1515092793227</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1515092793227</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TodoView">
@@ -743,7 +752,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23177366" sideWeight="0.51746726" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.49563318" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23177366" sideWeight="0.48253274" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23177366" sideWeight="0.48253274" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34606987" sideWeight="0.4961915" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -804,7 +813,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="hard work" />
     <MESSAGE value="redo" />
     <MESSAGE value="Push for aya" />
     <MESSAGE value="Passed tESTS :)" />
@@ -829,7 +837,8 @@
     <MESSAGE value="changed name" />
     <MESSAGE value="more fixes and work" />
     <MESSAGE value="more work" />
-    <option name="LAST_COMMIT_MESSAGE" value="more work" />
+    <MESSAGE value="push work" />
+    <option name="LAST_COMMIT_MESSAGE" value="push work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1119,6 +1128,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1176,8 +1186,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13310">
-          <caret line="605" column="0" lean-forward="true" selection-start-line="605" selection-start-column="0" selection-end-line="605" selection-end-column="0" />
+        <state relative-caret-position="2096">
+          <caret line="131" column="43" lean-forward="true" selection-start-line="131" selection-start-column="43" selection-end-line="131" selection-end-column="43" />
           <folding>
             <element signature="e#330#351#0" expanded="true" />
           </folding>

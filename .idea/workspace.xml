@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eacdd40-89ba-40e8-a58d-4fd62e45556a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/nand2tetris.iml" afterPath="$PROJECT_DIR$/.idea/nand2tetris.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" afterPath="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/VMWriter/JackTokenizer.py" afterPath="$PROJECT_DIR$/projects/11/VMWriter/JackTokenizer.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/test/Ball.vm" afterPath="$PROJECT_DIR$/projects/11/test/Ball.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/test/Main.jack" afterPath="$PROJECT_DIR$/projects/11/test/Main.jack" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/test/Main.vm" afterPath="$PROJECT_DIR$/projects/11/test/Main.vm" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,7 +38,7 @@
     <SUITE FILE_PATH="coverage/nand2tetris$II_NestedCall.coverage" NAME="II NestedCall Coverage Results" MODIFIED="1512986754783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$ConvertToBin___JackCompiler.coverage" NAME="ConvertToBin - JackCompiler Coverage Results" MODIFIED="1515097538743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/11/VMWriter" />
     <SUITE FILE_PATH="coverage/nand2tetris$PointerTest__ex_7_.coverage" NAME="PointerTest (ex 7) Coverage Results" MODIFIED="1512893425007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
-    <SUITE FILE_PATH="coverage/nand2tetris$test__JackCompiler.coverage" NAME="test- JackCompiler Coverage Results" MODIFIED="1515160176971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/11/VMWriter" />
+    <SUITE FILE_PATH="coverage/nand2tetris$test__JackCompiler.coverage" NAME="test- JackCompiler Coverage Results" MODIFIED="1515160228784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/11/VMWriter" />
     <SUITE FILE_PATH="coverage/nand2tetris$pong___JackAnalyzer_.coverage" NAME="pong - JackCompiler Coverage Results" MODIFIED="1515095510602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/11/VMWriter" />
     <SUITE FILE_PATH="coverage/nand$Assembler.coverage" NAME="Assembler Coverage Results" MODIFIED="1511279515754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/06/the assembler" />
     <SUITE FILE_PATH="coverage/nand2tetris$Parser_basic_loop.coverage" NAME="BasicLoop.vm Coverage Results" MODIFIED="1512484244616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
@@ -55,8 +51,8 @@
       <file leaf-file-name="CompilationEngineVM.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="786" column="0" lean-forward="false" selection-start-line="786" selection-start-column="0" selection-end-line="786" selection-end-column="0" />
+            <state relative-caret-position="273">
+              <caret line="796" column="27" lean-forward="false" selection-start-line="796" selection-start-column="27" selection-end-line="796" selection-end-column="27" />
               <folding>
                 <element signature="e#330#351#0" expanded="true" />
               </folding>
@@ -225,8 +221,8 @@
         <option value="$PROJECT_DIR$/projects/11/VMWriter/JackCompiler.py" />
         <option value="$PROJECT_DIR$/projects/11/VMWriter/VMWriter.py" />
         <option value="$PROJECT_DIR$/projects/11/VMWriter/JackCompiler" />
-        <option value="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" />
         <option value="$PROJECT_DIR$/projects/11/VMWriter/JackTokenizer.py" />
+        <option value="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" />
       </list>
     </option>
   </component>
@@ -442,13 +438,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1511202792493</updated>
-    </task>
-    <task id="LOCAL-00006" summary="More work">
-      <created>1512420489964</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1512420489964</updated>
     </task>
     <task id="LOCAL-00007" summary="updated todos">
       <created>1512420553296</created>
@@ -786,7 +775,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515159682096</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="fixed string quotes 1549">
+      <created>1515160199883</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1515160199883</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TodoView">
@@ -806,7 +802,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23177366" sideWeight="0.51746726" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.49563318" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23177366" sideWeight="0.48253274" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23177366" sideWeight="0.48253274" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34606987" sideWeight="0.4961915" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -867,7 +863,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Push that managaes to do the first main well enough&#10;&#10;&#10;- Aya - Linenum for debugging&#10;- Josh  - XML format for debugging and prettiness&#10;&#10;- Then fimish it" />
     <MESSAGE value="pushed small fixes to compiler" />
     <MESSAGE value="fixed back xmlcopiler" />
     <MESSAGE value="more xml fixes" />
@@ -892,7 +887,8 @@
     <MESSAGE value="push 2 1518pm" />
     <MESSAGE value="updated test files" />
     <MESSAGE value="test update 1541" />
-    <option name="LAST_COMMIT_MESSAGE" value="test update 1541" />
+    <MESSAGE value="fixed string quotes 1549" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed string quotes 1549" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1237,8 +1233,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="786" column="0" lean-forward="false" selection-start-line="786" selection-start-column="0" selection-end-line="786" selection-end-column="0" />
+        <state relative-caret-position="273">
+          <caret line="796" column="27" lean-forward="false" selection-start-line="796" selection-start-column="27" selection-end-line="796" selection-end-column="27" />
           <folding>
             <element signature="e#330#351#0" expanded="true" />
           </folding>

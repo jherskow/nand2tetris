@@ -793,8 +793,8 @@ class CompilationEngineVM:
             raise CompilerError(self, "bad keyword constant")
         # true - need (-1) so -  push 1 and call neg
         if keyword == "TRUE":
-            self.write("push constant 1\n")
-            self.write("neg\n")
+            self.write("push constant 0\n")
+            self.write("not\n")
         # false / null -   push constant 0
         elif keyword in {"FALSE", "NULL"}:
             self.write("push constant 0\n")

@@ -131,8 +131,8 @@ class CompilationEngineVM:
         if subroutine_type == d.K_CONSTRUCTOR:
             is_constructor = True
         elif subroutine_type == d.K_METHOD:
-            # # declare this as the first arg todo ensure removal ok
-            # self.declare_variable("this", self.class_name, SymbolTable.ARG_KIND)
+            # declare this as the first arg
+            self.declare_variable("this", self.class_name, SymbolTable.ARG_KIND)
         self.advance()
 
         # 'void' | type
@@ -598,8 +598,8 @@ class CompilationEngineVM:
         """
         # we are now at first line in class
 
-        # declare field 'this'
-        self.declare_variable("this", self.class_name, SymbolTable.FIELD_KIND)
+        # # declare field 'this' todo ensure removal ok (this is no longer a field)
+        # self.declare_variable("this", self.class_name, SymbolTable.FIELD_KIND)
 
         # while next tok matches classVarDec, compile all class var decs
         while self.type() == d.KEYWORD and self.key_word() in d.static_field:

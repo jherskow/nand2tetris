@@ -1,18 +1,16 @@
 function Ball.new 0
-push constant 3
+push constant 2
 call Memory.alloc 1
 pop pointer 0
-push pointer 0
-pop this 0
 push argument 0
-pop this 1
+pop this 0
 push argument 1
-pop this 2
+pop this 1
 push pointer 0
 return
 function Ball.xplusy 1
+push this 0
 push this 1
-push this 2
 add
 pop local 0
 push local 0

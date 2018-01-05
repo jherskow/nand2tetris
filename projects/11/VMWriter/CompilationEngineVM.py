@@ -600,9 +600,6 @@ class CompilationEngineVM:
         """
         # we are now at first line in class
 
-        # # declare field 'this' todo ensure removal ok (this is no longer a field)
-        # self.declare_variable("this", self.class_name, SymbolTable.FIELD_KIND)
-
         # while next tok matches classVarDec, compile all class var decs
         while self.type() == d.KEYWORD and self.key_word() in d.static_field:
             #  (static or field)
@@ -640,7 +637,6 @@ class CompilationEngineVM:
 
         # look forward
         self.advance()
-
 
         args_num = 0
 

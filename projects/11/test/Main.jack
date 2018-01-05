@@ -15,6 +15,8 @@ class Main {
 
     do Ball.foo();
 
+    do Ball.boo();
+
     return;
     }
 }

@@ -217,7 +217,8 @@ class JackTokenizer:
         tokenType() is STRING_CONST .
         :return: String
         """
-        return str(self.current_token)
+        a = self.current_token.strip("\"")
+        return a
 
     def go_back(self):
         self.counter -= 2

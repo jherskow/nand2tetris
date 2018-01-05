@@ -12,6 +12,17 @@ import VMWriter
 # todo - check array retrival[??]
 # todo - string genertion - ???
 
+# todo Escaped characters should be converted to ASCII char by char,
+# for example: '\t' should be converted to 92 (ASCII of '\') '
+# and 116 (ASCII of 't'),
+# not to 9 (ASCII of '\t').
+# You can assume the only such characters are
+# '\t', '\n', '\r', '\b'.
+#     that '\t' != "\t" (the first is a single character, the second is two).
+# In ANY case of "\X" where X is a character,
+# handle it as two characters
+# todo (as you would usually handle it).
+
 
 class CompilationEngineVM:
     """
@@ -791,7 +802,9 @@ class CompilationEngineVM:
         length = len(self.string_val())
         self.write("push constant " + str(length) + "\n")
         self.write("call String.new 1\n")
-        for char in self.string_val():
+        string_const = self.string_val()
+        string_const = replace_escaped_chars(string_const)
+        for char in string_const:
             self.write("push constant " + str(ord(char)) + "\n")  # todo see if correct - unicode conversion
             self.write("call String.appendChar 2\n")              # todo see if correct - way to create string
         self.advance()
@@ -897,6 +910,11 @@ class CompilationEngineVM:
     def string_val(self):
         return self.token.string_val()
 
+    def replace_escaped_chars(self,string):
+        replace = {"\t":"\\t","\n":"\\n","\r":"\\r","\b":"\\b"}
+        for escaped in replace.keys():
+            string = string.replace(escaped, replace[escaped])
+        return string
 
 class CompilerError(SyntaxError):
     def __init__(self, engine, message=""):

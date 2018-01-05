@@ -19,11 +19,10 @@ class Ball {
 
     function void foo() {    	
 	    do Output.printString("Stuff Is Working");
-	    do Output.printString("object allocation :) ");
-        do Output.printString("simple string generation :) ");
-        do Output.printString("function :) ");
-        do Output.printString("method :) ");
-        do Output.printString("constructor :) ");
+        return;
+    }
+
+    function void boo() {    	
         return;
     }
 

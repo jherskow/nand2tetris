@@ -803,7 +803,7 @@ class CompilationEngineVM:
         self.write("push constant " + str(length) + "\n")
         self.write("call String.new 1\n")
         string_const = self.string_val()
-        string_const = replace_escaped_chars(string_const)
+        string_const = self.replace_escaped_chars(string_const)
         for char in string_const:
             self.write("push constant " + str(ord(char)) + "\n")  # todo see if correct - unicode conversion
             self.write("call String.appendChar 2\n")              # todo see if correct - way to create string

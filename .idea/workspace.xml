@@ -50,8 +50,8 @@
       <file leaf-file-name="CompilationEngineVM.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3075">
-              <caret line="916" column="21" lean-forward="true" selection-start-line="916" selection-start-column="21" selection-end-line="916" selection-end-column="21" />
+            <state relative-caret-position="435">
+              <caret line="817" column="43" lean-forward="true" selection-start-line="817" selection-start-column="43" selection-end-line="817" selection-end-column="43" />
               <folding>
                 <element signature="e#330#351#0" expanded="true" />
               </folding>
@@ -762,7 +762,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515099788977</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="push for friday work">
+      <created>1515154191469</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1515154191469</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TodoView">
@@ -776,6 +783,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="0" width="960" height="1048" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34606987" sideWeight="0.4961915" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1167,8 +1175,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3075">
-          <caret line="916" column="21" lean-forward="true" selection-start-line="916" selection-start-column="21" selection-end-line="916" selection-end-column="21" />
+        <state relative-caret-position="435">
+          <caret line="817" column="43" lean-forward="true" selection-start-line="817" selection-start-column="43" selection-end-line="817" selection-end-column="43" />
           <folding>
             <element signature="e#330#351#0" expanded="true" />
           </folding>

@@ -7,5 +7,7 @@ push local 0
 call Ball.xplusy 1
 call Output.printInt 1
 pop temp 0
+call Ball.foo 0
+pop temp 0
 push constant 0
 return

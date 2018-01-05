@@ -751,21 +751,10 @@ class CompilationEngineVM:
             self.write("push constant "+str(self.symbol_table.field_counter)+"\n")
             #  call Memory.alloc (# fields) // stack now has pointer for memory
             self.write("call Memory.alloc 1\n")
-            # todo check
-
-            # # make object's 'this' (first) field equal this pointer
-            #
-            # #  set this segment to point to base adress
-            # self.write("pop pointer 0\n")
-            #
-            # #  put address back on stack
-            # self.write("push pointer 0\n")
-            #
-            # #  let adress[0] contain the adress (adress[0] is field 0 or "this')
-            # self.write("pop this 0\n")
 
             #  set this segment to point to base adress
             self.write("pop pointer 0\n")
+
         # elif method, point THIS segment
         elif is_method:
             # push this adress to stack

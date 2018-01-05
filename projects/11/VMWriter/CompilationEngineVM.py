@@ -12,18 +12,6 @@ import VMWriter
 # todo - check array retrival[??]
 # todo - string genertion - ???
 
-# todo Escaped characters should be converted to ASCII char by char,
-# for example: '\t' should be converted to 92 (ASCII of '\') '
-# and 116 (ASCII of 't'),
-# not to 9 (ASCII of '\t').
-# You can assume the only such characters are
-# '\t', '\n', '\r', '\b'.
-#     that '\t' != "\t" (the first is a single character, the second is two).
-# In ANY case of "\X" where X is a character,
-# handle it as two characters
-# todo (as you would usually handle it).
-
-
 class CompilationEngineVM:
     """
     Effects the actual compilation output.
@@ -302,8 +290,9 @@ class CompilationEngineVM:
         var_name = self.identifier()
         self.advance()
 
-        # possible [ expression ] for array index
+        # possible [ expression ] for array index   todo [] fix
         if self.type() == d.SYMBOL and self.symbol() == "[":
+
             self.write_push(var_name)
             self.advance()
             self.compile_expression()
@@ -330,8 +319,6 @@ class CompilationEngineVM:
 
         # no array index
         else:
-            self.write_push(var_name)
-
             # =
             self.compile_symbol_check("=", "expected in assignment")
 
@@ -339,17 +326,8 @@ class CompilationEngineVM:
             #   then do all the stuff on the right
             self.compile_expression()
 
-            # save value of expression
-            self.write("pop temp 1\n")
+            self.write_pop(var_name)
 
-            # make the that segment point to varname's location
-            self.write("pop pointer 1\n")
-
-            # retrive value of expression
-            self.write("push temp 1\n")
-
-            # place value of expression at varname's location
-            self.write("pop that 0\n")
 
 
 
@@ -527,7 +505,7 @@ class CompilationEngineVM:
             self.advance()
             if self.type() == d.SYMBOL:
 
-                if self.symbol() == "[":
+                if self.symbol() == "[":    # todo [] fix
                     # varname[expression]
                     self.retreat()
 
@@ -695,30 +673,34 @@ class CompilationEngineVM:
             class_or_var_name = self.identifier()
             self.advance()
 
-
-
             # '.'
             self.compile_symbol_check(".", "expected . for class.method")
 
-            type_or_none_if_class = self.symbol_table.type_of(class_or_var_name)
-
-            # subroutineName
+            # subroutineName  (method / func name)
+            subroutine_name = self.identifier()
 
             # object.method
-            if type_or_none_if_class is not None:
-                # the type is in our vars
+            if (class_or_var_name in self.symbol_table.subroutine_identifiers)\
+                    or (class_or_var_name in self.symbol_table.class_identifiers):
 
-                # push the variable
-                self.write_push(class_or_var_name)
+                object_name = class_or_var_name
+
+                # the type is in our vars
+                objects_class_name = self.symbol_table.type_of(object_name)
+
+                # push the variable (which is the object's address)
+                self.write_push(object_name)
 
                 # call type.method with 1 extra arg
-                subroutine_name = type_or_none_if_class + "." + self.identifier()
+                subroutine_name = objects_class_name + "." + subroutine_name
                 args_num += 1
 
             # OtherClass.func
             else: # type_or_none_if_class is None
+
                 # call OtherClass.func
-                subroutine_name = class_or_var_name + "." + self.identifier()
+                func_class_name = class_or_var_name
+                subroutine_name = func_class_name + "." + subroutine_name
 
             self.advance()
 
@@ -767,15 +749,16 @@ class CompilationEngineVM:
             self.write("push constant "+str(self.symbol_table.field_counter)+"\n")
             #  call Memory.alloc (# fields) // stack now has pointer for memory
             self.write("call Memory.alloc 1\n")
-
             # todo check
 
             #  make object's 'this' (first) field equal this pointer
 
-            #  set this segment to point to adress
+            #  set this segment to point to base adress
             self.write("pop pointer 0\n")
+
             #  put address back on stack
             self.write("push pointer 0\n")
+
             #  let adress[0] contain the adress (adress[0] is field 0 or "this')
             self.write("pop this 0\n")
 
@@ -798,7 +781,6 @@ class CompilationEngineVM:
         self.advance()
 
     def compile_str_const(self):
-        # complicated way to do this todo check
         length = len(self.string_val())
         self.write("push constant " + str(length) + "\n")
         self.write("call String.new 1\n")
@@ -806,7 +788,7 @@ class CompilationEngineVM:
         string_const = self.replace_escaped_chars(string_const)
         for char in string_const:
             self.write("push constant " + str(ord(char)) + "\n")  # todo see if correct - unicode conversion
-            self.write("call String.appendChar 2\n")              # todo see if correct - way to create string
+            self.write("call String.appendChar 2\n")              # see if correct - way to create string
         self.advance()
 
     def compile_keyword_const(self):

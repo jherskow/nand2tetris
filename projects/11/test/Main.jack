@@ -10,13 +10,11 @@ class Main {
 
     /** Initializes a Pong game and starts running it. */
     function void main() {
-        var Ball ballone, balltwo;
+        var Ball ballone;
 
-        let ballone = Ball.new(1,1);
-        let balltwo = Ball.new(5,5);
+        let ballone = Ball.new(44,55);
 
     do Output.printInt(ballone.xplusy());
-    do Output.printInt(balltwo.xplusy());
     return;
     }
 }

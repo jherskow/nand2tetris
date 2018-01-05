@@ -1,161 +1,190 @@
-push constant 4
-call Memory.alloc 1
-pop pointer 0
 function SquareGame.new 0
-push this 2
+push constant 2
+call Memory.alloc 1
 pop pointer 0
 push constant 0
 push constant 0
 push constant 30
 call Square.new 3
-pop this 2
-push this 4
-pop pointer 0
+pop this 0
 push constant 0
-pop this 4
+pop this 1
 push pointer 0
 return
 function SquareGame.dispose 0
-call square.dispose 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.dispose 1
+pop temp 0
 push pointer 0
 call Memory.deAlloc 1
+pop temp 0
+push constant 0
 return
 function SquareGame.moveSquare 0
-push this 4
+push argument 0
+pop pointer 0
+push this 1
 push constant 1
 eq
 not
-if-goto L0
-call square.moveUp 0
-label L0
-push this 4
+if-goto ifElse0
+push this 0
+call Square.moveUp 1
+pop temp 0
+goto ifEnd0
+label ifElse0
+label ifEnd0
+push this 1
 push constant 2
 eq
 not
-if-goto L2
-call square.moveDown 0
-label L2
-push this 4
+if-goto ifElse1
+push this 0
+call Square.moveDown 1
+pop temp 0
+goto ifEnd1
+label ifElse1
+label ifEnd1
+push this 1
 push constant 3
 eq
 not
-if-goto L4
-call square.moveLeft 0
-label L4
-push this 4
+if-goto ifElse2
+push this 0
+call Square.moveLeft 1
+pop temp 0
+goto ifEnd2
+label ifElse2
+label ifEnd2
+push this 1
 push constant 4
 eq
 not
-if-goto L6
-call square.moveRight 0
-label L6
+if-goto ifElse3
+push this 0
+call Square.moveRight 1
+pop temp 0
+goto ifEnd3
+label ifElse3
+label ifEnd3
 push constant 5
 call Sys.wait 1
+pop temp 0
+push constant 0
 return
 function SquareGame.run 2
-push local 2
+push argument 0
 pop pointer 0
 push constant 0
-pop local 2
-label LOOP0
-push local 2
-not
-not
-if-goto L8
-label LOOP0
+pop local 1
+label whileStart0
 push local 1
+not
+not
+if-goto whileEnd0
+label whileStart1
+push local 0
 push constant 0
 eq
 not
-if-goto L9
-push local 1
-pop pointer 0
+if-goto whileEnd1
 call Keyboard.keyPressed 0
-pop local 1
-push this 3
+pop local 0
+push pointer 0
 call SquareGame.moveSquare 1
-goto LOOP0
-label L9
-push local 1
+pop temp 0
+goto whileStart1
+label whileEnd1
+push local 0
 push constant 81
 eq
 not
-if-goto L10
-push local 2
-pop pointer 0
-push constant 1
-neg
-pop local 2
-label L10
-push local 1
+if-goto ifElse4
+push constant 0
+not
+pop local 1
+goto ifEnd4
+label ifElse4
+label ifEnd4
+push local 0
 push constant 90
 eq
 not
-if-goto L12
-call square.decSize 0
-label L12
-push local 1
+if-goto ifElse5
+push this 0
+call Square.decSize 1
+pop temp 0
+goto ifEnd5
+label ifElse5
+label ifEnd5
+push local 0
 push constant 88
 eq
 not
-if-goto L14
-call square.incSize 0
-label L14
-push local 1
+if-goto ifElse6
+push this 0
+call Square.incSize 1
+pop temp 0
+goto ifEnd6
+label ifElse6
+label ifEnd6
+push local 0
 push constant 131
 eq
 not
-if-goto L16
-push this 4
-pop pointer 0
+if-goto ifElse7
 push constant 1
-pop this 4
-label L16
-push local 1
+pop this 1
+goto ifEnd7
+label ifElse7
+label ifEnd7
+push local 0
 push constant 133
 eq
 not
-if-goto L18
-push this 4
-pop pointer 0
+if-goto ifElse8
 push constant 2
-pop this 4
-label L18
-push local 1
+pop this 1
+goto ifEnd8
+label ifElse8
+label ifEnd8
+push local 0
 push constant 130
 eq
 not
-if-goto L20
-push this 4
-pop pointer 0
+if-goto ifElse9
 push constant 3
-pop this 4
-label L20
-push local 1
+pop this 1
+goto ifEnd9
+label ifElse9
+label ifEnd9
+push local 0
 push constant 132
 eq
 not
-if-goto L22
-push this 4
-pop pointer 0
+if-goto ifElse10
 push constant 4
-pop this 4
-label L22
-label LOOP1
-push local 1
+pop this 1
+goto ifEnd10
+label ifElse10
+label ifEnd10
+label whileStart2
+push local 0
 push constant 0
 eq
 not
 not
-if-goto L24
-push local 1
-pop pointer 0
+if-goto whileEnd2
 call Keyboard.keyPressed 0
-pop local 1
-push this 3
+pop local 0
+push pointer 0
 call SquareGame.moveSquare 1
-goto LOOP1
-label L24
-goto LOOP2
-label L8
+pop temp 0
+goto whileStart2
+label whileEnd2
+goto whileStart0
+label whileEnd0
+push constant 0
 return

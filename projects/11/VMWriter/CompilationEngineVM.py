@@ -660,7 +660,8 @@ class CompilationEngineVM:
             self.compile_symbol_check(")", "expected ) for function arguments")
 
             #call subroutine_name args_num
-            self.write_call(subroutine_name,args_num)
+            self.write("push pointer 0\n")
+            self.write_call(subroutine_name,args_num+1)
 
 
         #  if "." - then this is class.foo or object.foo

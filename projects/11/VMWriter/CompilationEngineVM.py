@@ -128,11 +128,13 @@ class CompilationEngineVM:
 
         # cases:     'constructor' | 'function' | 'method'
         is_constructor = False
+        is_method = False
         if subroutine_type == d.K_CONSTRUCTOR:
             is_constructor = True
         elif subroutine_type == d.K_METHOD:
             # declare this as the first arg
             self.declare_variable("this", self.class_name, SymbolTable.ARG_KIND)
+            is_method = True
         self.advance()
 
         # 'void' | type
@@ -158,7 +160,7 @@ class CompilationEngineVM:
         self.compile_symbol_check(")", "expected closing \")\" for parameterList  ")
 
         # subroutineBody
-        self.compile_subroutine_body(name, is_constructor)
+        self.compile_subroutine_body(name, is_constructor, is_method)
 
     def compile_parameter_list(self):
         """
@@ -726,7 +728,7 @@ class CompilationEngineVM:
     #     self.xml_identifier()
     #     self.advance()
 
-    def compile_subroutine_body(self, name, is_constructor):
+    def compile_subroutine_body(self, name, is_constructor, is_method):
         """
         Complies a subroutine body
         """
@@ -763,6 +765,12 @@ class CompilationEngineVM:
             # self.write("pop this 0\n")
 
             #  set this segment to point to base adress
+            self.write("pop pointer 0\n")
+        # elif method, point THIS segment
+        elif is_method:
+            # push this adress to stack
+            self.write("push argument 0\n")
+            # point THIS segment
             self.write("pop pointer 0\n")
 
         # statements

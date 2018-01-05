@@ -18,7 +18,7 @@ class Ball {
     }
 
     function void foo() {    	
-	    do Output.printString("Stuff Is Working");
+	    do Output.printString("Stuff Is\n Working");
         return;
     }
 

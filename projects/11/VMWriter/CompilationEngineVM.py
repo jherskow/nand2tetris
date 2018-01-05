@@ -560,9 +560,10 @@ class CompilationEngineVM:
 
         elif first_type == d.SYMBOL and self.symbol() in d.unary_op:
             # unOp term
+            unary_op= self.symbol()
             self.advance()
             self.compile_term()
-            self.write_arithmetic("not")
+            self.write_arithmetic(d.unary_op[unary_op])
 
         else:
             raise CompilerError(self, "invalid term")

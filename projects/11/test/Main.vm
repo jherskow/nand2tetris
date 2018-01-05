@@ -1,12 +1,8 @@
 function Main.main 1
-push local 0
 push constant 44
 push constant 55
 call Ball.new 2
-pop temp 1
-pop pointer 1
-push temp 1
-pop that 0
+pop local 0
 push local 0
 call Ball.xplusy 1
 call Output.printInt 1

@@ -131,8 +131,8 @@ class CompilationEngineVM:
         if subroutine_type == d.K_CONSTRUCTOR:
             is_constructor = True
         elif subroutine_type == d.K_METHOD:
-            # declare this as the first arg
-            self.declare_variable("this", self.class_name, SymbolTable.ARG_KIND)
+            # # declare this as the first arg todo ensure removal ok
+            # self.declare_variable("this", self.class_name, SymbolTable.ARG_KIND)
         self.advance()
 
         # 'void' | type
@@ -751,16 +751,19 @@ class CompilationEngineVM:
             self.write("call Memory.alloc 1\n")
             # todo check
 
-            #  make object's 'this' (first) field equal this pointer
+            # # make object's 'this' (first) field equal this pointer
+            #
+            # #  set this segment to point to base adress
+            # self.write("pop pointer 0\n")
+            #
+            # #  put address back on stack
+            # self.write("push pointer 0\n")
+            #
+            # #  let adress[0] contain the adress (adress[0] is field 0 or "this')
+            # self.write("pop this 0\n")
 
             #  set this segment to point to base adress
             self.write("pop pointer 0\n")
-
-            #  put address back on stack
-            self.write("push pointer 0\n")
-
-            #  let adress[0] contain the adress (adress[0] is field 0 or "this')
-            self.write("pop this 0\n")
 
         # statements
         self.compile_statements()

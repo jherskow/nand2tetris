@@ -8,6 +8,7 @@ import CompilationEngineVM
 # XML_EXTENSION = ".xml"
 VM_EXTENSION = ".vm"
 
+
 class JackCompiler:
     """
     The analyzer program operates on a given source,
@@ -26,7 +27,7 @@ class JackCompiler:
 
     def __init__(self, input_file):
         self.input_file = open(input_file, "r")
-        self.output_file = open(input_file.split(".jack")[0] + VM_EXTENSION,"w")
+        self.output_file = open(input_file.split(".jack")[0] + VM_EXTENSION, "w")
         self.tokenizer = None
 
     def compile_vm(self):

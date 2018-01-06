@@ -86,12 +86,14 @@ class JackTokenizer:
             for l in word:
                 if "\"" == l and string_word == "":
                     string_word += l
+                    new_word += l
                 elif "\"" == l and string_word != "":
-                    string_word += l
+                    string_word += " " + new_word + l
                     tokens.append(string_word)
                     string_word = ""
+                    new_word = ""
                 elif string_word != "":
-                    string_word += l
+                    new_word += l
                 elif l in JackTokenizer.symbols:  # if the word have a symbol
                     if new_word != "":  # first append all the words before the symbol
                         tokens.append(new_word)
@@ -99,9 +101,13 @@ class JackTokenizer:
                     tokens.append(l)
                 else:
                     new_word += l
-            if string_word != "" and new_word != "" and "\"" not in new_word:
-                string_word += " " + new_word
-            if new_word != "":
+            if string_word != "" and new_word != "":
+                if "\"" not in new_word:
+                    string_word += " " + new_word
+                else:
+                    string_word = new_word
+
+            elif new_word != "":
                 tokens.append(new_word)
 
         return tokens

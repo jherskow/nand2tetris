@@ -3,18 +3,20 @@ ayaj,jherskow
 Aya Jbara, ID 209048156, aya.jbara@mail.huji.ac.il
 Joshua Herskowitz, ID 321658379, jherskow@cs.huji.ac.il
 ===============================================================================
-Project 10 - JackAnalyzer
+Project 11 - JackCompiler
 
 
 Submitted Files
 ---------------
 README - This file.
-Makefile - A script that give permisssions to the JackAnalyzer program to get invoke from terminal.
+Makefile - A script that give permisssions to the JackCompiler program to get invoke from terminal.
 JackAnalyzer.py - The analyzer program operates on a given source.
 JackTokenizer.py - Removes all comments and white space from the input stream and breaks it into Jack-
                     language tokens,as specified by the Jack grammar.
-CompilationEngineXML.py - Effects the actual compilation output.
+CompilationEngineVM.py - Effects the actual compilation output.
 sym_table.py - have all magic numbers and symbols.
+SymbolTable.py- Provides a symbol table abstraction
+VMWriter.py- Emits VM commands into a file, using the VM command syntax.
 
 
 Remarks

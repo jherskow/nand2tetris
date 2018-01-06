@@ -12,6 +12,7 @@ ARG_KIND = 'ARG'
 FIELD_KIND = 'FIELD'
 STATIC_KIND = 'STATIC'
 
+
 class SymbolTable:
     """
     Provides a symbol table abstraction. The symbol table associates the
@@ -31,10 +32,9 @@ class SymbolTable:
         self.class_identifiers = {}
         self.subroutine_identifiers = {}
 
-
     def start_subroutine(self):
         """
-        Starts a new subroutine scope (i.e., resets the subroutine’s symbol table).
+        Starts a new subroutine scope .
         """
         self.argument_counter = 0
         self.var_counter = 0
@@ -61,8 +61,6 @@ class SymbolTable:
         elif kind == FIELD_KIND:
             self.class_identifiers[name] = [type, kind, self.field_counter]
             self.field_counter += 1
-
-
 
     def var_count(self, kind):
         """

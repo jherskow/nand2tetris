@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eacdd40-89ba-40e8-a58d-4fd62e45556a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/12/MathTest/Main.vm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/12/MathTest/Math.vm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/12/MathTest/MathTest.out" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/12/String.jack" afterPath="$PROJECT_DIR$/projects/12/StringTest/String.jack" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/12/Keyboard.jack" afterPath="$PROJECT_DIR$/projects/12/KeyboardTest/Keyboard.jack" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" afterPath="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/12/MathTest/Math.jack" afterPath="$PROJECT_DIR$/projects/12/MathTest/Math.jack" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,7 +34,7 @@
     <SUITE FILE_PATH="coverage/nand2tetris$CompilationEngineVM.coverage" NAME="seven CompilationEngineVM Coverage Results" MODIFIED="1515076790634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/11/VMWriter" />
     <SUITE FILE_PATH="coverage/nand2tetris$SimpleFunction.coverage" NAME="I SimpleFunction Coverage Results" MODIFIED="1512982928260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$II_FibonacciElement.coverage" NAME="II FibonacciElement Coverage Results" MODIFIED="1512986726987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
-    <SUITE FILE_PATH="coverage/nand2tetris$test__JackCompiler.coverage" NAME="test- JackCompiler Coverage Results" MODIFIED="1515280576261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/11/VMWriter" />
+    <SUITE FILE_PATH="coverage/nand2tetris$test__JackCompiler.coverage" NAME="test- JackCompiler Coverage Results" MODIFIED="1515282203509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/11/VMWriter" />
     <SUITE FILE_PATH="coverage/nand2tetris$StackTest.coverage" NAME="StackTest Coverage Results" MODIFIED="1512892947377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$CodeWriter.coverage" NAME="CodeWriter Coverage Results" MODIFIED="1512480293079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$NestedCall.coverage" NAME="NestedCall Coverage Results" MODIFIED="1512892562467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
@@ -64,11 +59,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="String.jack" pinned="false" current-in-tab="true">
+      <file leaf-file-name="String.jack" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/12/StringTest/String.jack">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
               <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Memory.jack" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/12/Memory.jack">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-201">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Screen.jack" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/12/Screen.jack">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-444">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Output.jack" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/12/Output.jack">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3306">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Keyboard.jack" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projects/12/KeyboardTest/Keyboard.jack">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1782">
+              <caret line="66" column="34" lean-forward="false" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -95,7 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>compile_var</find>
       <find>ident</find>
       <find>return&quot;</find>
       <find>symbol_t</find>
@@ -125,6 +159,7 @@
       <find>int</find>
       <find>Let</find>
       <find>digittochar</find>
+      <find>set</find>
     </findStrings>
     <replaceStrings>
       <replace>type</replace>
@@ -178,6 +213,7 @@
         <option value="$PROJECT_DIR$/projects/12/String.jack" />
         <option value="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" />
         <option value="$PROJECT_DIR$/projects/12/StringTest/String.jack" />
+        <option value="$PROJECT_DIR$/projects/12/Keyboard.jack" />
       </list>
     </option>
   </component>
@@ -259,14 +295,7 @@
               <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
               <item name="projects" type="462c0819:PsiDirectoryNode" />
               <item name="12" type="462c0819:PsiDirectoryNode" />
-              <item name="MathTest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nand2tetris" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nand2tetris" type="462c0819:PsiDirectoryNode" />
-              <item name="projects" type="462c0819:PsiDirectoryNode" />
-              <item name="12" type="462c0819:PsiDirectoryNode" />
-              <item name="StringTest" type="462c0819:PsiDirectoryNode" />
+              <item name="KeyboardTest" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -280,6 +309,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\איה\Desktop\nand2tetris\nand2tetris\projects\08\nand2tetris\projects\12\KeyboardTest" />
       <recent name="C:\Users\איה\Desktop\nand2tetris\nand2tetris\projects\08\nand2tetris\projects\12\StringTest" />
       <recent name="C:\Users\איה\Desktop\nand2tetris\nand2tetris\projects\08\nand2tetris\projects\12\MathTest" />
     </key>
@@ -389,7 +419,7 @@
       <module name="nand2tetris" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/11/VMWriter/JackCompiler.py" />
-      <option name="PARAMETERS" value="C:\Users\איה\Desktop\nand2tetris\nand2tetris\projects\08\nand2tetris\projects\12\StringTest" />
+      <option name="PARAMETERS" value="C:\Users\איה\Desktop\nand2tetris\nand2tetris\projects\08\nand2tetris\projects\12\KeyboardTest" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
@@ -418,13 +448,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1511202792493</updated>
-    </task>
-    <task id="LOCAL-00007" summary="updated todos">
-      <created>1512420553296</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1512420553296</updated>
     </task>
     <task id="LOCAL-00008" summary="much work">
       <created>1512850721922</created>
@@ -762,7 +785,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515275484742</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="project 12">
+      <created>1515280709499</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1515280709499</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TodoView">
@@ -906,41 +936,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/CodeWriter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/08/Full Thingy/Parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/06/the assembler/HackAssembler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4263">
-          <caret line="205" column="0" lean-forward="true" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/06/the assembler/symbol_table.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1659">
-          <caret line="79" column="24" lean-forward="true" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/06/the assembler/HackAssembler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projects/06/the assembler/Assembler.py" />
     <entry file="file://$PROJECT_DIR$/projects/06/the assembler/Assembler.py" />
     <entry file="file://$PROJECT_DIR$/projects/06/the assembler/Assembler.py" />
@@ -1208,6 +1203,43 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/12/Memory.jack">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-201">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/12/Screen.jack">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-444">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/12/Output.jack">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3306">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/12/KeyboardTest/KeyboardTestOutput.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/12/KeyboardTest/Keyboard.jack">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1782">
+          <caret line="66" column="34" lean-forward="false" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
           <folding />
         </state>
       </provider>

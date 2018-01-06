@@ -6,12 +6,22 @@ class Bird {
    field int x, y, size; // screen location of the Bird's centre, and size
 
    /** Constructs a new bird with a given location and size. */
-   constructor Square new(int Ax, int Ay, int Asize) {
+   constructor Bird new(int Ax, int Ay, int Asize) {
       let x = Ax;
       let y = Ay;
       let size = Asize;
       do draw();
       return this;
+   }
+
+   /** getter x */
+   method int getx() {
+      return x;
+   }
+
+      /** getter y */
+   method int gety() {
+      return y;
    }
 
    /** Disposes this bird. */
@@ -39,7 +49,10 @@ class Bird {
    method void jump(int height) {
      do Screen.setColor(false);
      do Screen.drawRectangle(x, y, x + size, y + size);
-     let y = y + height;
+     let y = y - height;
+          if ( y < 5 ){     // new y is off limits
+           let y=y+height;
+     }
      do Screen.setColor(true);
      do Screen.drawRectangle(x, y, x + size, y + size);
       return;
@@ -49,7 +62,10 @@ class Bird {
    method void gravity(int grav) {
      do Screen.setColor(false);
      do Screen.drawRectangle(x, y, x + size, y + size);
-     let y = y - grav;
+     let y = y + grav;
+     if ( y > 250 ){     // new y is off limits
+           let y=y-grav;
+     }
      do Screen.setColor(true);
      do Screen.drawRectangle(x, y, x + size, y + size);
       return;

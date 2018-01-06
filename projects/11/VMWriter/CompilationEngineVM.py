@@ -295,7 +295,9 @@ class CompilationEngineVM:
 
             self.write_push(var_name)
             self.advance()
+
             self.compile_expression()
+
             self.compile_symbol_check("]", "expected to match [")
             # =
             self.compile_symbol_check("=", "expected in assignment")

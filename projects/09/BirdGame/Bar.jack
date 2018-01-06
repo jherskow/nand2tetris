@@ -8,10 +8,31 @@ class Bar {
    /** Constructs a new Bar with a given location and size. */
    constructor Bar new(int Awidth, int AopeningHeight) {
       let width = Awidth;
-      let x = 255 - width;
+      let openingWidth = 60;
+      let x = 500 - width;
       let openingHeight = AopeningHeight;
       do draw();
       return this;
+   }
+
+   /** getter x */
+   method int getx() {
+      return x;
+   }
+
+   /** getter width */
+   method int getwidth() {
+      return width;
+   }
+
+      /** getter top y */
+   method int gettopy() {
+      return openingHeight;
+   }
+
+         /** getter bottom y */
+   method int getboty() {
+      return openingHeight+openingWidth;
    }
 
    /** Disposes this Bar. */
@@ -23,16 +44,16 @@ class Bar {
    /** Draws the Bar on the screen. */
    method void draw() {
       do Screen.setColor(true);
-      do Screen.drawRectangle(x, 0, x + width, openingWidth);
-      do Screen.drawRectangle(x, openingWidth+openingHeight, x + width, 511);
+      do Screen.drawRectangle(x, 0, x + width, openingHeight);
+      do Screen.drawRectangle(x, openingHeight+openingWidth, x + width, 250);
       return;
    }
 
    /** Erases the Bar from the screen. */
    method void erase() {
       do Screen.setColor(false);
-      do Screen.drawRectangle(x, 0, x + width, openingWidth);
-      do Screen.drawRectangle(x, openingWidth+openingHeight, x + width, 511);
+      do Screen.drawRectangle(x, 0, x + width, openingHeight);
+      do Screen.drawRectangle(x, openingHeight+openingWidth, x + width, 250);
       return;
    }
 
@@ -41,7 +62,7 @@ class Bar {
    method int scroll(int num) {
      do erase();
      let x = x - num;
-     if (x <0 | x=0){     // new x is off limits
+     if (x < 0 | x=0){     // new x is off limits
         return 1;
      }
      do draw();

@@ -1,0 +1,58 @@
+
+
+/** Implements a Bird. */
+class Bird {
+
+   field int x, y, size; // screen location of the Bird's centre, and size
+
+   /** Constructs a new bird with a given location and size. */
+   constructor Square new(int Ax, int Ay, int Asize) {
+      let x = Ax;
+      let y = Ay;
+      let size = Asize;
+      do draw();
+      return this;
+   }
+
+   /** Disposes this bird. */
+   method void dispose() {
+      do Memory.deAlloc(this);
+      return;
+   }
+
+   /** Draws the bird on the screen. */
+   method void draw() {
+      do Screen.setColor(true);
+      do Screen.drawRectangle(x, y, x + size, y + size);
+      return;
+   }
+
+   /** Erases the bird from the screen. */
+   method void erase() {
+      do Screen.setColor(false);
+      do Screen.drawRectangle(x, y, x + size, y + size);
+      return;
+   }
+
+
+   /** Moves the bird up by height pixels. */
+   method void jump(int height) {
+     do Screen.setColor(false);
+     do Screen.drawRectangle(x, y, x + size, y + size);
+     let y = y + height;
+     do Screen.setColor(true);
+     do Screen.drawRectangle(x, y, x + size, y + size);
+      return;
+   }
+
+   /** Moves the bird down by grav pixels. */
+   method void gravity(int grav) {
+     do Screen.setColor(false);
+     do Screen.drawRectangle(x, y, x + size, y + size);
+     let y = y - grav;
+     do Screen.setColor(true);
+     do Screen.drawRectangle(x, y, x + size, y + size);
+      return;
+   }
+
+}

@@ -1,0 +1,79 @@
+
+
+/**
+ * Implements the game.
+ */
+
+class BirdGame {
+
+   field Bird bird; // the square of this game
+   field Bar bar; // the bar of this game
+   field int speed, gravity; // the bar of this game
+
+
+   /** Constructs a new Bird Game. */
+   constructor BirdGame new() {
+      // Creates a bird and centers it
+      let bird = Bird.new(127,255,5);
+      let bar = Bar.new(40, 50);
+      let speed = 5;
+      let grav = 10;
+      return this;
+   }
+
+   /** Disposes this game. */
+   method void dispose() {
+      do bird.dispose();
+      do bar.dispose();
+      do Memory.deAlloc(this);
+      return;
+   }
+
+   /** Moves the bars to the left. */
+   method void scroll() {
+      do bar.scroll(); }
+      do Sys.wait(5);  // delays the next movement
+      return;
+   }
+
+   /** Runs the game: handles the user's inputs and moves bird */
+   method void run() {
+      var char key;  // the key currently pressed by the user
+      var boolean exit;
+      var int status;
+      let exit = false;
+      
+      while (~exit) {
+
+         do bird.gravity(grav);
+         do bird.draw();
+         do Bar.draw();
+
+
+         let key = Keyboard.keyPressed();
+         if (key = 32) { do bird.jump(30); }   // spaceBar
+         if (key = 113) { let exit = true; }   // 'q'  key
+
+         do bird.gravity(grav);
+         do bird.draw();
+         do Bar.draw();
+
+         let status = bar.scroll(speed);
+
+         if(status = 1){
+             bar.dispose;
+             let bar = Bar.new(40, 50);
+         }
+
+         do bird.gravity(grav);
+         do bird.draw();
+         do Bar.draw();
+
+
+     } // while
+     return;
+   }
+}
+
+
+

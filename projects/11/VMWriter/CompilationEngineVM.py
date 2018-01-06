@@ -9,7 +9,6 @@ import char_dict as d
 import SymbolTable
 import VMWriter
 
-
 # todo - check array retrival[??]
 # todo - string genertion - ???
 
@@ -52,6 +51,7 @@ class CompilationEngineVM:
             raise CompilerError(self, "File must begin with \"class\"")
 
         self.compile_class()
+
 
     def compile_class(self):
         """
@@ -147,9 +147,9 @@ class CompilationEngineVM:
         self.advance()
         if self.type() == d.SYMBOL and self.symbol() == ".":
             self.advance()
-            name = name + "." + self.identifier()
+            name= name +"."+self.identifier()
         else:
-            name = self.class_name + "." + name
+            name = self.class_name+"."+name
         # (
         self.compile_symbol_check("(", "expected opening \"(\" for parameterList ")
 
@@ -191,6 +191,7 @@ class CompilationEngineVM:
         # declare
         self.declare_variable(name, var_type, SymbolTable.ARG_KIND)
 
+
         # possible additional type varname  's
         while self.type() == d.SYMBOL and self.symbol() == ",":
             self.advance()
@@ -208,6 +209,7 @@ class CompilationEngineVM:
 
             # declare
             self.declare_variable(name, var_type, SymbolTable.ARG_KIND)
+
 
     def compile_var_dec(self):
         """
@@ -295,13 +297,11 @@ class CompilationEngineVM:
 
             self.write_push(var_name)
             self.advance()
-
             self.compile_expression()
-
             self.compile_symbol_check("]", "expected to match [")
-            # =
+            #=
             self.compile_symbol_check("=", "expected in assignment")
-            # expression
+            #expression
             self.compile_expression()
 
             # save value of expression
@@ -330,6 +330,9 @@ class CompilationEngineVM:
 
             self.write_pop(var_name)
 
+
+
+
         # ;
         self.compile_symbol_check(";", "expected ; at end of assignment")
 
@@ -346,7 +349,7 @@ class CompilationEngineVM:
         self.compile_subroutine_call()
 
         # ignore return value (which always exists)
-        self.write("pop temp 0\n")
+        self.write("pop temp 0\n")  #todo check
 
         # ;
         self.compile_symbol_check(";", "expected ; after subroutine call")
@@ -361,7 +364,7 @@ class CompilationEngineVM:
 
         # while
         loop_num = str(self.loop_count)
-        self.loop_count += 1
+        self.loop_count +=1
         self.write_label("whileStart" + loop_num)
         self.advance()
 
@@ -374,7 +377,7 @@ class CompilationEngineVM:
         self.write_arithmetic("not")
         self.write_if_goto("whileEnd" + loop_num)
 
-        # otherwise, statements
+        #otherwise, statements
 
 
         # '{' statements '}'
@@ -428,6 +431,9 @@ class CompilationEngineVM:
         self.if_count += 1
         self.write_if_goto("ifElse" + str(if_num))
 
+
+
+
         # '{' statements '}'
         self.compile_symbol_check("{", "expected { in {statements} for if")
         self.compile_statements()
@@ -461,7 +467,9 @@ class CompilationEngineVM:
         while self.type() == d.SYMBOL and self.symbol() in d.op:
             op = self.compile_op()
             self.compile_term()
-            self.write(op + "\n")
+            self.write(op +"\n")
+
+
 
     def compile_term(self):
         """
@@ -490,7 +498,7 @@ class CompilationEngineVM:
         elif first_type == d.STRING_CONST:
             self.compile_str_const()
 
-        # true/false/this/null
+        #true/false/this/null
         elif first_type == d.KEYWORD:
             self.compile_keyword_const()
 
@@ -499,7 +507,7 @@ class CompilationEngineVM:
             self.advance()
             if self.type() == d.SYMBOL:
 
-                if self.symbol() == "[":  # todo [] fix
+                if self.symbol() == "[":    # todo [] fix
                     # varname[expression]
                     self.retreat()
 
@@ -515,7 +523,7 @@ class CompilationEngineVM:
                     # [
                     self.compile_symbol_check("]", "] expected for array index")
 
-                    # push *(varname+exp)
+                    #push *(varname+exp)
                     self.write_arithmetic("add")
                     # make that point to (varname+exp)
                     self.write("pop pointer 1\n")
@@ -552,7 +560,7 @@ class CompilationEngineVM:
 
         elif first_type == d.SYMBOL and self.symbol() in d.unary_op:
             # unOp term
-            unary_op = self.symbol()
+            unary_op= self.symbol()
             self.advance()
             self.compile_term()
             self.write_arithmetic(d.unary_op[unary_op])
@@ -622,6 +630,11 @@ class CompilationEngineVM:
         """
         Compiles a call to a subroutine
         """
+        # subroutineName '(' expressionList ')' | (className |varName) '.' subroutineName '(' expressionList ')'
+        # possibilities are
+        # func(list)
+        # class.func(list)
+        # var.func(list)
 
         # look forward
         self.advance()
@@ -639,18 +652,19 @@ class CompilationEngineVM:
 
             # (
             self.compile_symbol_check("(", "expected ( for function arguments")
-            self.write("push pointer 0\n")
+
             # expressionList
             args_num += self.compile_expression_list()
 
             # )
             self.compile_symbol_check(")", "expected ) for function arguments")
 
-            # call subroutine_name args_num
-            self.write_call(subroutine_name, args_num + 1)
+            #call subroutine_name args_num
+            self.write("push pointer 0\n")
+            self.write_call(subroutine_name,args_num+1)
 
 
-        # if "." - then this is class.foo or object.foo
+        #  if "." - then this is class.foo or object.foo
         elif self.type() == d.SYMBOL and self.symbol() == ".":
             # (className |varName) '.' subroutineName '(' expressionList ')'
             self.retreat()
@@ -666,7 +680,7 @@ class CompilationEngineVM:
             subroutine_name = self.identifier()
 
             # object.method
-            if (class_or_var_name in self.symbol_table.subroutine_identifiers) \
+            if (class_or_var_name in self.symbol_table.subroutine_identifiers)\
                     or (class_or_var_name in self.symbol_table.class_identifiers):
 
                 object_name = class_or_var_name
@@ -682,7 +696,7 @@ class CompilationEngineVM:
                 args_num += 1
 
             # OtherClass.func
-            else:  # type_or_none_if_class is None
+            else: # type_or_none_if_class is None
 
                 # call OtherClass.func
                 func_class_name = class_or_var_name
@@ -699,10 +713,18 @@ class CompilationEngineVM:
             # )
             self.compile_symbol_check(")", "expected ) for function arguments")
 
-            self.write_call(subroutine_name, args_num)
+
+
+            self.write_call(subroutine_name,args_num)
         else:
             raise CompilerError(self, "Expected func(list) or class.func(list)")
 
+    # def compile_subroutine_name(self):
+    #     """
+    #     Complies a subroutine name
+    #     """
+    #     self.xml_identifier()
+    #     self.advance()
 
     def compile_subroutine_body(self, name, is_constructor, is_method):
         """
@@ -718,12 +740,13 @@ class CompilationEngineVM:
         while self.type() == d.KEYWORD and self.key_word() == d.K_VAR:
             num_locals += self.compile_var_dec()
 
+
         # write the function declaration
         self.write_function(name, num_locals)
 
         # if constructor, write alloc
         if is_constructor:
-            self.write("push constant " + str(self.symbol_table.field_counter) + "\n")
+            self.write("push constant "+str(self.symbol_table.field_counter)+"\n")
             #  call Memory.alloc (# fields) // stack now has pointer for memory
             self.write("call Memory.alloc 1\n")
 
@@ -762,8 +785,8 @@ class CompilationEngineVM:
         string_const = self.string_val()
         string_const = self.replace_escaped_chars(string_const)
         for char in string_const:
-            self.write("push constant " + str(ord(char)) + "\n")
-            self.write("call String.appendChar 2\n")  # see if correct - way to create string
+            self.write("push constant " + str(ord(char)) + "\n")  # todo see if correct - unicode conversion
+            self.write("call String.appendChar 2\n")              # see if correct - way to create string
         self.advance()
 
     def compile_keyword_const(self):
@@ -781,7 +804,7 @@ class CompilationEngineVM:
             self.write("push pointer 0\n")
         self.advance()
 
-    # VM HELPER FUNCTIONS=========================
+# VM HELPER FUNCTIONS=========================
     def make_symbol_table(self):
         """make a new symbol table"""
         self.symbol_table = SymbolTable.SymbolTable()
@@ -789,6 +812,18 @@ class CompilationEngineVM:
     def declare_variable(self, name, var_type, kind):
         """declare a variable in the symbol table"""
         self.symbol_table.define(name, var_type, kind)
+
+    # def get_kind(self):
+    #     """ returns kind of the identifier (VAR, ARD, FIELD, STATIC)"""
+    #     kind = self.key_word()
+    #     if kind == "var":
+    #         return SymbolTable.VAR_KIND
+    #     elif kind == "static":
+    #         return SymbolTable.STATIC_KIND
+    #     elif kind == "field":
+    #         return SymbolTable.STATIC_KIND
+    #     else:
+    #         return SymbolTable.ARG_KIND
 
     def write_push(self, name):
         self.vm_writer.write_push(d.vm_types[self.symbol_table.kind_of(name)],
@@ -813,7 +848,7 @@ class CompilationEngineVM:
         """
         self.vm_writer.write(string)
 
-    def write_arithmetic(self, command):
+    def write_arithmetic(self,command):
         """Writes a VM arithmetic command."""
         self.vm_writer.write_arithmetic(command)
 
@@ -855,12 +890,11 @@ class CompilationEngineVM:
     def string_val(self):
         return self.token.string_val()
 
-    def replace_escaped_chars(self, string):
-        replace = {"\t": "\\t", "\n": "\\n", "\r": "\\r", "\b": "\\b"}
+    def replace_escaped_chars(self,string):
+        replace = {"\t":"\\t","\n":"\\n","\r":"\\r","\b":"\\b"}
         for escaped in replace.keys():
             string = string.replace(escaped, replace[escaped])
         return string
-
 
 class CompilerError(SyntaxError):
     def __init__(self, engine, message=""):

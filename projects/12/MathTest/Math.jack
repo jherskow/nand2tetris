@@ -8,7 +8,7 @@
  * Note: Jack compilers implement multiplication and division using OS method calls.
  */
 class Math {
-    static int twoToThe;
+    static Array twoToThe;
     /** Initializes the library. */
     function void init() {
         let twoToThe = Array.new(16);
@@ -73,6 +73,8 @@ class Math {
         var boolean isXPos,isYPos;
         let isXPos = (x>0);
         let isYPos = (y>0);
+        let x= abs(x);
+        let y =abs(y);
         if(y>x){
             return 0;
         }

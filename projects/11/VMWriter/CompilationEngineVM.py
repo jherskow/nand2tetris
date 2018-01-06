@@ -623,6 +623,7 @@ class CompilationEngineVM:
 
     def compile_symbol_check(self, symbol, message):
         if self.type() != d.SYMBOL or self.symbol() != symbol:
+            a=6
             raise CompilerError(self, message)
         self.advance()
 

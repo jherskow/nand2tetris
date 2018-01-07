@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eacdd40-89ba-40e8-a58d-4fd62e45556a" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/09/BirdGame/Bar.jack" afterPath="$PROJECT_DIR$/projects/09/BirdGame/Bar.jack" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/09/BirdGame/Bird.jack" afterPath="$PROJECT_DIR$/projects/09/BirdGame/Bird.jack" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/09/BirdGame/BirdGame.jack" afterPath="$PROJECT_DIR$/projects/09/BirdGame/BirdGame.jack" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/09/BirdGame/Main.jack" afterPath="$PROJECT_DIR$/projects/09/BirdGame/Main.jack" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" afterPath="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/bin/Virtual Machine Emulator.dat" afterPath="$PROJECT_DIR$/tools/bin/Virtual Machine Emulator.dat" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,7 +31,7 @@
     <SUITE FILE_PATH="coverage/nand2tetris$II_StaticsTest.coverage" NAME="II StaticsTest Coverage Results" MODIFIED="1512988662902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$JackTokenizer.coverage" NAME="JackTokenizer Coverage Results" MODIFIED="1513947281481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/10/JackTokenizer" />
     <SUITE FILE_PATH="coverage/nand2tetris$II_FibonacciElement.coverage" NAME="II FibonacciElement Coverage Results" MODIFIED="1512986726987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
-    <SUITE FILE_PATH="coverage/nand2tetris$BirdGame__JackCompiler_.coverage" NAME="BirdGame- JackCompiler  Coverage Results" MODIFIED="1515253000423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/11/VMWriter" />
+    <SUITE FILE_PATH="coverage/nand2tetris$BirdGame__JackCompiler_.coverage" NAME="BirdGame- JackCompiler  Coverage Results" MODIFIED="1515331494719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/11/VMWriter" />
     <SUITE FILE_PATH="coverage/nand2tetris$CompilationEngineVM.coverage" NAME="seven CompilationEngineVM Coverage Results" MODIFIED="1515076790634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/11/VMWriter" />
     <SUITE FILE_PATH="coverage/nand2tetris$StackTest.coverage" NAME="StackTest Coverage Results" MODIFIED="1512892947377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
     <SUITE FILE_PATH="coverage/nand2tetris$StackTest__ex_7_.coverage" NAME="StackTest (ex 7) Coverage Results" MODIFIED="1512484109490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/08/Full Thingy" />
@@ -52,24 +51,34 @@
     <favorites_list name="nand2tetris" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.51119405">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="BirdGame.jack" pinned="false" current-in-tab="false">
+          <file leaf-file-name="BirdGame.jack" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/projects/09/BirdGame/BirdGame.jack">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1443">
-                  <caret line="91" column="37" lean-forward="true" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="37" />
+                <state relative-caret-position="440">
+                  <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Main.jack" pinned="false" current-in-tab="true">
+          <file leaf-file-name="CompilationEngineVM.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="405">
+                  <caret line="869" column="66" lean-forward="false" selection-start-line="869" selection-start-column="66" selection-end-line="869" selection-end-column="66" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Main.jack" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/projects/09/BirdGame/Main.jack">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <state relative-caret-position="242">
+                  <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -78,22 +87,22 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file leaf-file-name="Bird.jack" pinned="false" current-in-tab="false">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="Bird.jack" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/projects/09/BirdGame/Bird.jack">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="796">
-                  <caret line="67" column="6" lean-forward="true" selection-start-line="67" selection-start-column="6" selection-end-line="67" selection-end-column="6" />
+                <state relative-caret-position="330">
+                  <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Bar.jack" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Bar.jack" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/projects/09/BirdGame/Bar.jack">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="286">
-                  <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+                <state relative-caret-position="205">
+                  <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
                   <folding />
                 </state>
               </provider>
@@ -112,7 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pop</find>
       <find>compile_var</find>
       <find>ident</find>
       <find>return&quot;</find>
@@ -142,6 +150,7 @@
       <find>openingSize</find>
       <find>for if</find>
       <find>( for fun</find>
+      <find>width</find>
     </findStrings>
     <replaceStrings>
       <replace>type</replace>
@@ -193,15 +202,15 @@
         <option value="$PROJECT_DIR$/projects/11/VMWriter/VMWriter.py" />
         <option value="$PROJECT_DIR$/projects/11/VMWriter/JackCompiler" />
         <option value="$PROJECT_DIR$/projects/11/VMWriter/JackTokenizer.py" />
-        <option value="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" />
         <option value="$PROJECT_DIR$/projects/09/Game/Main.jack" />
         <option value="$PROJECT_DIR$/projects/09/Game/BirdGame.jack" />
         <option value="$PROJECT_DIR$/projects/09/Game/Bird.jack" />
         <option value="$PROJECT_DIR$/projects/09/Game/Bar.jack" />
+        <option value="$PROJECT_DIR$/projects/09/BirdGame/Main.jack" />
+        <option value="$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py" />
         <option value="$PROJECT_DIR$/projects/09/BirdGame/Bar.jack" />
         <option value="$PROJECT_DIR$/projects/09/BirdGame/Bird.jack" />
         <option value="$PROJECT_DIR$/projects/09/BirdGame/BirdGame.jack" />
-        <option value="$PROJECT_DIR$/projects/09/BirdGame/Main.jack" />
       </list>
     </option>
   </component>
@@ -212,7 +221,6 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="187" />
     <option name="width" value="960" />
     <option name="height" value="1048" />
   </component>
@@ -302,121 +310,6 @@
       <recent name="$PROJECT_DIR$/projects/06/the assembler" />
       <recent name="$PROJECT_DIR$/projects/06" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/JackCompiler.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/JackTokenizer.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/Makefile</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/README</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/projects/11/VMWriter/SymbolTable.py</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -565,13 +458,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1511202792493</updated>
-    </task>
-    <task id="LOCAL-00009" summary="more error fix work">
-      <created>1512852067830</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1512852067830</updated>
     </task>
     <task id="LOCAL-00010" summary="more work">
       <created>1512854826599</created>
@@ -909,7 +795,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515248493220</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Flappy bird missing a few things&#10;&#10;- string allocation problem&#10;&#10;- collision detections">
+      <created>1515253318762</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1515253318762</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TodoView">
@@ -929,13 +822,13 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23177366" sideWeight="0.51746726" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28726876" sideWeight="0.48253274" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.49563318" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14145811" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28726876" sideWeight="0.48253274" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39825898" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26855895" sideWeight="0.5038085" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39825898" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969433" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -990,7 +883,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed back xmlcopiler" />
     <MESSAGE value="more xml fixes" />
     <MESSAGE value="added" />
     <MESSAGE value="push fixed comment issues" />
@@ -1015,7 +907,8 @@
     <MESSAGE value="test update 1541" />
     <MESSAGE value="fixed string quotes 1549" />
     <MESSAGE value="trying not fix for 1111111" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying not fix for 1111111" />
+    <MESSAGE value="Flappy bird missing a few things&#10;&#10;- string allocation problem&#10;&#10;- collision detections" />
+    <option name="LAST_COMMIT_MESSAGE" value="Flappy bird missing a few things&#10;&#10;- string allocation problem&#10;&#10;- collision detections" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1032,8 +925,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py</url>
-          <line>693</line>
-          <option name="timeStamp" value="164" />
+          <line>617</line>
+          <option name="timeStamp" value="166" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -1043,7 +936,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="165" />
+      <option name="time" value="167" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -1268,7 +1161,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1286,7 +1178,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="693">
           <caret line="120" column="23" lean-forward="false" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1302,7 +1193,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
           <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1320,7 +1210,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1328,15 +1217,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="693" column="0" lean-forward="false" selection-start-line="693" selection-start-column="0" selection-end-line="693" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1344,38 +1224,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-322">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/09/BirdGame/BirdGame.jack">
+    <entry file="file://$PROJECT_DIR$/projects/11/VMWriter/CompilationEngineVM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1443">
-          <caret line="91" column="37" lean-forward="true" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/09/BirdGame/Bird.jack">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="796">
-          <caret line="67" column="6" lean-forward="true" selection-start-line="67" selection-start-column="6" selection-end-line="67" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/09/BirdGame/Bar.jack">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        <state relative-caret-position="405">
+          <caret line="869" column="66" lean-forward="false" selection-start-line="869" selection-start-column="66" selection-end-line="869" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/09/BirdGame/Main.jack">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="242">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/09/BirdGame/Bar.jack">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/09/BirdGame/Bird.jack">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/09/BirdGame/BirdGame.jack">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
           <folding />
         </state>
       </provider>

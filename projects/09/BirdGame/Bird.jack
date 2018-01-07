@@ -14,16 +14,6 @@ class Bird {
       return this;
    }
 
-   /** getter x */
-   method int getx() {
-      return x;
-   }
-
-      /** getter y */
-   method int gety() {
-      return y;
-   }
-
    /** Disposes this bird. */
    method void dispose() {
       do Memory.deAlloc(this);

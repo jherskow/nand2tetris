@@ -8,17 +8,27 @@ class BirdGame {
 
    field Bird bird; // the square of this game
    field Bar bar; // the bar of this game
-   field int speed, grav, score; // numbers
+   field int speed, grav, score, barkind, width, openW; // numbers
+   field string easystr, prestr, poststr; // strings
 
 
    /** Constructs a new Bird Game. */
    constructor BirdGame new() {
       // Creates a bird and centers it
-      let bird = Bird.new(256,128,5);
-      let bar = Bar.new(10, 80);
+
       let speed = 1;
       let grav = 1;
       let score = 0;
+      let barkind = 0;
+      let width = 13;
+      let openW = 60;
+      let easystr = " MODE: Easy";
+      let prestr = " Score: ";
+      let poststr = " Bars passed.";
+
+      let bird = Bird.new(256,128,5);
+      let bar = Bar.new(width, 80, openW);
+
       return this;
    }
 
@@ -28,22 +38,6 @@ class BirdGame {
       do bar.dispose();
       do Memory.deAlloc(this);
       return;
-   }
-
-
-      /** Detects a collison. */
-   method boolean detectCollision() {
-      var int birdX, birdY, barx, topY, barwidth, botY;
-      let birdX = bird.getx();
-      let birdY = bird.gety();
-      let barx = bar.getx();
-      let topY = bar.gettopy();
-      let botY = bar.getboty();
-      let barwidth = bar.getwidth();
-      if ( (barx < birdX) & (birdX < barx + barwidth) & ( (birdY < topY) | (birdY>botY) ) ){
-        return true;
-      }
-      return false;
    }
 
    /** Moves the bars to the left. */
@@ -57,7 +51,7 @@ class BirdGame {
       var char key;  // the key currently pressed by the user
       var boolean exit;
       var int status;
-      var boolean fail;
+      var int fail;
       let exit = false;
       let fail = false;
 
@@ -68,38 +62,62 @@ class BirdGame {
 
 
          let key = Keyboard.keyPressed();
-         if (key = 32) { do bird.jump(5); }   // spaceBar
+         if (key = 32) { do bird.jump(2); }   // spaceBar
          if (key = 113) { let exit = true; }   // 'q'  key
-
-         do bird.draw();
-         do bar.draw();
 
          let status = bar.scroll(speed);
 
          if(status = 1){
+             do bar.erase();
              do bar.dispose();
-             let bar = Bar.new(10, 80);
+
+             if (barkind=0){
+                  let bar = Bar.new(width, 120, openW);
+                  let barkind = 1 ;
+             }
+            else{
+
+               if (barkind=1){
+                  let bar = Bar.new(width, 40, openW);
+                  let barkind = 2 ;
+               }
+
+               else{
+                     if (barkind=2){
+                          let bar = Bar.new(width, 180, openW);
+                          let barkind = 3 ;
+                     }
+
+                     else{
+                         if (barkind=3) {
+                              let bar = Bar.new(width, 80, openW);
+                              let barkind = 0 ;
+                         }
+                     }
+               }
+            }
+
+             let openW = openW-5 ;
+             if (openW < 5) {let openW = 5;}
+
+
              let score = score + 1;
-         }
+             do bar.draw();
+         }// end if - status
 
          do bird.gravity(grav);
+
          do bird.draw();
          do bar.draw();
 
-         //do Output.printString("Score: ");
-         //do Output.printInt(score);
-         //do Output.printString(" bars passed.");
-         //do Output.moveCursor(0,0);
+         do Output.printString(easystr);
+         do Output.println();
+         do Output.printString(prestr);
+         do Output.printInt(score);
+         do Output.printString(poststr);
+         do Output.moveCursor(0,0);
 
-         let fail = detectCollision();
-         if(fail){
-             do Output.printString("You are a terrible person.");
-             do Sys.wait(100);
-             let exit = true;
-         }
-
-
-         do Sys.wait(10);  // delays the next movement
+         do Sys.wait(8);  // delays the next movement
 
      } // while
      return;

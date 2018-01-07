@@ -6,33 +6,12 @@ class Bar {
    field int x, width, openingWidth, openingHeight; // screen location of the Bar's centre, and size
 
    /** Constructs a new Bar with a given location and size. */
-   constructor Bar new(int Awidth, int AopeningHeight) {
+   constructor Bar new(int Awidth, int AopeningHeight, int AopenW) {
       let width = Awidth;
-      let openingWidth = 60;
+      let openingWidth = AopenW;
       let x = 500 - width;
       let openingHeight = AopeningHeight;
-      do draw();
       return this;
-   }
-
-   /** getter x */
-   method int getx() {
-      return x;
-   }
-
-   /** getter width */
-   method int getwidth() {
-      return width;
-   }
-
-      /** getter top y */
-   method int gettopy() {
-      return openingHeight;
-   }
-
-         /** getter bottom y */
-   method int getboty() {
-      return openingHeight+openingWidth;
    }
 
    /** Disposes this Bar. */
@@ -45,7 +24,7 @@ class Bar {
    method void draw() {
       do Screen.setColor(true);
       do Screen.drawRectangle(x, 0, x + width, openingHeight);
-      do Screen.drawRectangle(x, openingHeight+openingWidth, x + width, 250);
+      do Screen.drawRectangle(x, openingHeight+openingWidth, x + width, 255);
       return;
    }
 
@@ -53,7 +32,7 @@ class Bar {
    method void erase() {
       do Screen.setColor(false);
       do Screen.drawRectangle(x, 0, x + width, openingHeight);
-      do Screen.drawRectangle(x, openingHeight+openingWidth, x + width, 250);
+      do Screen.drawRectangle(x, openingHeight+openingWidth, x + width, 255);
       return;
    }
 

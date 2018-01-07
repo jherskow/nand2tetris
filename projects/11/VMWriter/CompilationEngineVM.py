@@ -864,6 +864,13 @@ class CompilationEngineVM:
 
 class CompilerError(SyntaxError):
     def __init__(self, engine, message=""):
+        num = engine.token.counter
+        s = 10
+        max = min([num+s, len(engine.token.tokens)])
+        toklist = [engine.token.tokens[i] for i in range(num-s,max)]
+        words = ""
+        for word in toklist:
+            words += word + " "
         self.msg = "error in file\n" + engine.output_file.name + \
                    "\nerror in line " + str(engine.line_num()) + "\n" + \
-                   message + "\n"
+                   message + "\n" + "line:  " + words

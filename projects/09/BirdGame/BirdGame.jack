@@ -21,7 +21,7 @@ class BirdGame {
       let score = 0;
       let barkind = 0;
       let width = 13;
-      let openW = 60;
+      let openW = 100;
       let easystr = " MODE: Easy";
       let prestr = " Score: ";
       let poststr = " Bars passed.";
@@ -55,6 +55,13 @@ class BirdGame {
       let exit = false;
       let fail = false;
 
+       do Output.printString(" Use the SPACE bar to jump");
+       do Output.moveCursor(0,0);
+       do Sys.wait(3000);
+       do Output.printString(" ----------GO!-----------");
+       do Output.moveCursor(0,0);
+       do Sys.wait(1000);
+
       while (~exit) {
 
          do bird.draw();
@@ -72,25 +79,25 @@ class BirdGame {
              do bar.dispose();
 
              if (barkind=0){
-                  let bar = Bar.new(width, 120, openW);
+                  let bar = Bar.new(width, 45, openW);
                   let barkind = 1 ;
              }
             else{
 
                if (barkind=1){
-                  let bar = Bar.new(width, 40, openW);
+                  let bar = Bar.new(width, 100, openW);
                   let barkind = 2 ;
                }
 
                else{
                      if (barkind=2){
-                          let bar = Bar.new(width, 180, openW);
+                          let bar = Bar.new(width, 75, openW);
                           let barkind = 3 ;
                      }
 
                      else{
                          if (barkind=3) {
-                              let bar = Bar.new(width, 80, openW);
+                              let bar = Bar.new(width, 150, openW);
                               let barkind = 0 ;
                          }
                      }
@@ -98,7 +105,7 @@ class BirdGame {
             }
 
              let openW = openW-5 ;
-             if (openW < 5) {let openW = 5;}
+             if (openW < 12) {let openW = 12;}
 
 
              let score = score + 1;

@@ -426,9 +426,9 @@ pop local 0
 label ifEnd16
 label ifEnd15
 label ifEnd14
+push pointer 0
 push local 0
 push local 1
-push pointer 0
 call Ball.setDestination 3
 pop temp 0
 push constant 0

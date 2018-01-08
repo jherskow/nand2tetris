@@ -17,18 +17,18 @@ class String {
     /** constructs a new empty string with a maximum length of maxLength
      *  and initial length of 0. */
     constructor String new(int maxLength) {
-        if( maxLength=0){
+        if( maxLength = 0){
             let maxLen=1;
         }
         let maxLen =maxLength;
         let newString = Array.new(maxLength);
-        let curLen = 0;
+        let curLen = 1;
         return this;
     }
 
     /** Disposes this string. */
     method void dispose() {
-        do Array.dispose(newString);
+        do newString.dispose();
         return;
     }
 
@@ -44,13 +44,13 @@ class String {
 
     /** Sets the character at the j-th location of this string to c. */
     method void setCharAt(int j, char c) {
+
         let newString[j] =c;
         return;
     }
 
     /** Appends c to this string's end and returns this string. */
     method String appendChar(char c) {
-
         if(curLen<maxLen){
             let newString[curLen] = c;
             let curLen=curLen+1;
@@ -66,7 +66,7 @@ class String {
         return;
     }
 
-    /** Returns the integer value of this string, 
+    /** Returns the integer value of this string,
      *  until a non-digit character is detected. */
     method int intValue() {
         var int v,i,d;

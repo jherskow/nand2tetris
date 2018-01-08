@@ -23,7 +23,7 @@ class Main {
         do Output.printString("new,appendChar: ");
         do Output.printString(s);                // new, appendChar: abcde
         do Output.println();
-    
+
         let i = String.new(6);
         do i.setInt(12345);
         do Output.printString("setInt: ");
@@ -34,47 +34,47 @@ class Main {
         do Output.printString("setInt: ");
         do Output.printString(i);                // setInt: -32767
         do Output.println();
-        
+
         do Output.printString("length: ");
         do Output.printInt(s.length());          // length: 5
         do Output.println();
-        
+
         do Output.printString("charAt[2]: ");
         do Output.printInt(s.charAt(2));         // charAt[2]: 99
         do Output.println();
-        
+
         do s.setCharAt(2, 45);
-        do Output.printString("setCharAt(2,'-'): ");     
+        do Output.printString("setCharAt(2,'-'): ");
         do Output.printString(s);                // setCharAt(2,'-'): ab-de
         do Output.println();
-        
-        do s.eraseLastChar();        
-        do Output.printString("eraseLastChar: ");     
+
+        do s.eraseLastChar();
+        do Output.printString("eraseLastChar: ");
         do Output.printString(s);                // eraseLastChar: ab-d
         do Output.println();
-        
+
         let s = "456";
         do Output.printString("intValue: ");
         do Output.printInt(s.intValue());        // intValue: 456
         do Output.println();
-        
+
         let s = "-32123";
         do Output.printString("intValue: ");
         do Output.printInt(s.intValue());        // intValue: -32123
         do Output.println();
-        
+
         do Output.printString("backSpace: ");
         do Output.printInt(String.backSpace());  // backSpace: 129
         do Output.println();
-        
+
         do Output.printString("doubleQuote: ");
         do Output.printInt(String.doubleQuote());// doubleQuote: 34
         do Output.println();
-        
+
         do Output.printString("newLine: ");
         do Output.printInt(String.newLine());    // newLine: 128
         do Output.println();
-        
+
         do i.dispose();
         do s.dispose();
 

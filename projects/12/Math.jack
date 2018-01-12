@@ -32,12 +32,14 @@ class Math {
     }
 
     function boolean bit(int x, int j){
-        return ~((x & twoToThe[j]) = 0);
+        var boolean bitt;
+        let bitt =~((x & twoToThe[j]) = 0);
+        return bitt;
     }
 
     /** Returns the absolute value of x. */
     function int abs(int x) {
-        if( x < 0 ){
+        if( x > 0 ){
             return x;
         }
         return -x;
@@ -54,10 +56,10 @@ class Math {
         let shiftedX = x;
         let j = 0;
         while(j < 16){
-            if(bit(y,j)=1){
+            if(bit(y,j)){
                 let sum = sum + shiftedX;
             }
-            let shiftedX = shiftedX *2;
+            let shiftedX = shiftedX + shiftedX;
             let j = j + 1;
         }
         return sum;
@@ -78,12 +80,12 @@ class Math {
         if(y>x){
             return 0;
         }
-        let q = divide(x,y*2);
-        if( x-(2*q*y) < y ){
-            let result =  2*q;
+        let q = divide(x,y+y);
+        if( (x -(2*q*y)) < y ){
+            let result =  q+q;
         }
         else{
-            let result =  2*q+1;
+            let result =  (q+q)+1;
         }
 
         if( isXPos = isYPos){
@@ -97,15 +99,15 @@ class Math {
 
     /** Returns the integer part of the square root of x. */
     function int sqrt(int x) {
-        var int y,j,temp1, temp2;
+        var int y,j, temp2;
         let j = 7;
-        while(j>0 |j=0){
-            let temp1 =y+twoToThe[j];
-            let temp2 = temp1 *temp1;
-            if( temp2<x & temp2=x){
-                let y = temp1;
+        let y=0;
+        while(~(j<0)){
+            let temp2 = (y + twoToThe[j]) * (y + twoToThe[j]);
+            if( ~(temp2 > x) & (temp2 > 0) ){
+                let y = y + twoToThe[j];
             }
-            let j = j+1;
+            let j = j-1;
         }
         return y;
     }

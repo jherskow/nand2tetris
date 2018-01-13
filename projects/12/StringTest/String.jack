@@ -18,11 +18,13 @@ class String {
      *  and initial length of 0. */
     constructor String new(int maxLength) {
         if( maxLength = 0){
-            let maxLen=1;
+            let newString = Array.new(1);
+        }
+        else{
+            let newString = Array.new(maxLength);
         }
         let maxLen =maxLength;
-        let newString = Array.new(maxLength);
-        let curLen = 1;
+        let curLen = 0;
         return this;
     }
 
@@ -70,37 +72,47 @@ class String {
      *  until a non-digit character is detected. */
     method int intValue() {
         var int v,i,d;
-        let i=1;
-        while( (i<maxLen) | (i=maxLen)){
+        var boolean neg ;
+        let i=0;
+
+        if (newString[0] = 45){ // _
+            let i=1;
+            let neg = true;
+        }
+
+        while( i<curLen ){
             let d= newString[i] -48;
             let v= v*10+d;
             let i=i+1;
         }
+        if(neg){
+            return -v;
+        }
         return v;
+    }
+
+    method void intHelper(int val){
+        var int q, nVal;
+        let q= val / 10;
+        let nVal = (val - q * 10) +48;
+        if(val < 10){
+            do appendChar(nVal);
+        }else{
+            do intHelper(q);
+            do appendChar(nVal);
+        }
+        return;
     }
 
     /** Sets this string to hold a representation of the given value. */
     method void setInt(int val) {
+        let curLen = 0;
         if(val < 0){
             let val = -val;
             do appendChar(45);
         }
 
         do intHelper(val);
-
-        return;
-    }
-
-     method void intHelper(int val){
-        var int nextNum;
-        let nextNum = val / 10;
-        if(val < 10){
-            do appendChar((val+48));
-        }else{
-            do intHelper(nextNum);
-            do appendChar((val - (nextNum * 10))+48);
-        }
-
         return;
     }
 

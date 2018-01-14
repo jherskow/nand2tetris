@@ -23,12 +23,12 @@ class Sys {
     /** Halts the program execution. */
     function void halt() {
         while(true){}
-            return;
+        return;
     }
 
     /** Waits approximately duration milliseconds and returns.  */
     function void wait(int duration) {
-    var int i, j;
+        var int i, j;
         let i = 0;
         while( i < duration ) {
             let j = 0;
@@ -43,7 +43,7 @@ class Sys {
     /** Displays the given error code in the form "ERR<errorCode>",
      *  and halts the program's execution. */
     function void error(int errorCode) {
-    do Output.printString("ERR");
+        do Output.printString("ERR");
         do Output.printInt(errorCode);
         do halt();
         return;

@@ -45,9 +45,11 @@ class Keyboard {
      * of the pressed key.
      */
     function char readChar() {
-         var char key;
-        while(Keyboard.keyPressed() = 0){}
-        let key = Keyboard.keyPressed();
+        var char key;
+        let key = keyPressed();
+        while(key = 0){
+            let key = keyPressed();
+        }
         while(~(Keyboard.keyPressed() = 0)){}
         do Output.printChar(key);
         return key;
@@ -65,7 +67,7 @@ class Keyboard {
         do Output.printString(message);
 
         let line = String.new(50);
-        let c = Keyboard.readChar();
+        let c = readChar();
         while( ~(c = String.newLine()) ) {
             if( c = String.backSpace() ) {
                 do line.eraseLastChar();
@@ -73,7 +75,7 @@ class Keyboard {
             else {
                 do line.appendChar(c);
             }
-            let c = Keyboard.readChar();
+            let c = readChar();
         }
         return line;
     }   
@@ -87,7 +89,7 @@ class Keyboard {
     function int readInt(String message) {
         var String line;
 
-        let line = Keyboard.readLine(message);
+        let line = readLine(message);
         return line.intValue();
     }
 }

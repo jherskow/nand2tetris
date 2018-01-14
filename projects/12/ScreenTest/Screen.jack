@@ -46,15 +46,15 @@ class Screen {
         var int mask;
 
         let address = (y*32) + (x/16);
-        let mask = Math.twoToThe(x & 15);
+        let mask = Memory.peek(address) ;
 
-        if( cuColor ) {
+        if( curColor ) {
             let screen[address] = screen[address] | mask;
         }
         else {
             let screen[address] = screen[address] & ~mask;
         }
-
+        do Memory.poke(address, mask);
         return;
     }
 
@@ -69,7 +69,7 @@ class Screen {
         }
 
         while(~(y2 < y1)){
-            do drawPixel(x,y1);
+            do drawPixel(x1,y1);
             let y1 = y1 + 1;
         }
 
@@ -80,7 +80,7 @@ class Screen {
      * and bottom right corner is (x2,y2), using the current color. */
     function void drawRectangle(int x1, int y1, int x2, int y2) {
         while( ~(y1 > y2) ) {
-            do drawHLine(x1, x2, y1);
+            do drawLine(x1, x2, y1);
             let y1 = y1 + 1;
         }
         return;
@@ -95,7 +95,7 @@ class Screen {
         let r_squared = r*r;
         while( ~(dy > r) ) {
             let dx = Math.sqrt(r_squared-(dy*dy));
-            do drawHLine( cx-dx, cx+dx, cy+dy );
+            do drawLine( x-dx, x+dx, y+dy );
             let dy = dy + 1;
         }
         return;

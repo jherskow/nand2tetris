@@ -50,8 +50,8 @@ class Memory {
                 }
                 else {
                     let l[1] = l[1]+size+1;
-                    let memory[l[1]] = block[0]  - size-1;
-                    let memory[l[1]+1] = block[1];
+                    do poke(l[1], block[0]  - size-1);
+                    do poke( l[1]+1 ,block[1]);
                     let block[0] = size + 1;
                 }
                 return block+1;

@@ -206,18 +206,21 @@ class Output {
             let i = i + 1;
             let screen = screen + 32;
         }
-        if (cursorX = 63){
+
+        if ( (cursorX = 63) & (cursorY = 22)){
+            let cursorY = 0;
             let cursorX = 0;
-            if (cursorY = 22){
-                let cursorY = 0;
-            }
-            else{
-                let cursorY = cursorY + 1;
-            }
         }
         else{
-            let cursorX = cursorX + 1;
+            if (cursorX = 63){
+                let cursorX = 0;
+                let cursorY = cursorY + 1;
+            }
+            else{
+                let cursorX = cursorX + 1;
+            }
         }
+
         return;
     }
 

@@ -45,7 +45,7 @@ class Memory {
         }
         while(~(block = null)){
             if (block[0] > size){
-                if (block[0] - size < 3){
+                if (block[0] < (3 + size)){
                     let l[1] = block[1];
                 }
                 else {

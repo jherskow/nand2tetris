@@ -94,7 +94,8 @@ class String {
     method void intHelper(int val){
         var int q, nVal;
         let q= val / 10;
-        let nVal = (val - q * 10) +48;
+        let nVal = (val - (q * 10)) +48;
+
         if(val < 10){
             do appendChar(nVal);
         }else{

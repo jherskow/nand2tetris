@@ -1,0 +1,227 @@
+function Memory.init 0
+push constant 0
+pop static 1
+push constant 2048
+pop static 0
+push static 0
+push constant 0
+push constant 2
+pop temp 1
+add
+pop pointer 1
+push temp 1
+pop that 0
+push static 0
+push constant 1
+push constant 2050
+pop temp 1
+add
+pop pointer 1
+push temp 1
+pop that 0
+push static 0
+push constant 2
+push constant 14333
+pop temp 1
+add
+pop pointer 1
+push temp 1
+pop that 0
+push static 0
+push constant 3
+push constant 0
+pop temp 1
+add
+pop pointer 1
+push temp 1
+pop that 0
+push constant 0
+return
+function Memory.peek 0
+push static 1
+push argument 0
+add
+pop pointer 1
+push that 0
+return
+function Memory.poke 0
+push static 1
+push argument 0
+push argument 1
+pop temp 1
+add
+pop pointer 1
+push temp 1
+pop that 0
+push constant 0
+return
+function Memory.alloc 2
+push static 0
+push constant 1
+add
+pop pointer 1
+push that 0
+pop local 0
+push static 0
+pop local 1
+push local 0
+push constant 0
+eq
+not
+if-goto ifElse0
+push constant 1
+neg
+return
+goto ifEnd0
+label ifElse0
+label ifEnd0
+label whileStart0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto whileEnd0
+push local 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push argument 0
+gt
+not
+if-goto ifElse1
+push local 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 3
+push argument 0
+add
+lt
+not
+if-goto ifElse2
+push local 1
+push constant 1
+push local 0
+push constant 1
+add
+pop pointer 1
+push that 0
+pop temp 1
+add
+pop pointer 1
+push temp 1
+pop that 0
+goto ifEnd2
+label ifElse2
+push local 1
+push constant 1
+push local 1
+push constant 1
+add
+pop pointer 1
+push that 0
+push argument 0
+add
+push constant 1
+add
+pop temp 1
+add
+pop pointer 1
+push temp 1
+pop that 0
+push local 1
+push constant 1
+add
+pop pointer 1
+push that 0
+push local 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push argument 0
+sub
+push constant 1
+sub
+push pointer 0
+call Memory.poke 3
+pop temp 0
+push local 1
+push constant 1
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+push local 0
+push constant 1
+add
+pop pointer 1
+push that 0
+push pointer 0
+call Memory.poke 3
+pop temp 0
+push local 0
+push constant 0
+push argument 0
+push constant 1
+add
+pop temp 1
+add
+pop pointer 1
+push temp 1
+pop that 0
+label ifEnd2
+push local 0
+push constant 1
+add
+return
+goto ifEnd1
+label ifElse1
+push local 0
+push constant 1
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 1
+push constant 1
+add
+pop pointer 1
+push that 0
+pop local 1
+label ifEnd1
+goto whileStart0
+label whileEnd0
+push constant 0
+return
+function Memory.deAlloc 1
+push static 0
+push constant 1
+add
+pop pointer 1
+push that 0
+pop local 0
+push static 0
+push constant 1
+push argument 0
+push constant 1
+sub
+pop temp 1
+add
+pop pointer 1
+push temp 1
+pop that 0
+push argument 0
+push constant 0
+push local 0
+pop temp 1
+add
+pop pointer 1
+push temp 1
+pop that 0
+push constant 0
+return

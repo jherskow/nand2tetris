@@ -47,21 +47,21 @@ class Memory {
             if (block[0] > size){
                 if (block[0] < (3 + size)){
                     let l[1] = block[1];
+                    return block+1;
                 }
                 else {
                     let l[1] = l[1]+size+1;
                     do poke(l[1], block[0]  - size-1);
                     do poke( l[1]+1 ,block[1]);
                     let block[0] = size + 1;
+                    return block+1;
                 }
-                return block+1;
             }
             else{
                 let block = block[1];
                 let l = l[1];
             }
         }
-        return 0;
     }
 
     /** De-allocates the given object (cast as an array) by making

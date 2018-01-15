@@ -190,18 +190,16 @@ class Output {
         var int i, screen, mask, scrMask;
         var Array map;
         let screen = 16384+(32*11*cursorY)+(cursorX/2);
-
-        if (~((cursorX & 1) = 1)){
-            let mask = 255;
-            let scrMask = ~255;
-        }
-        else{
-            let mask = ~255;
-            let scrMask = 255;
-        }
-
         let map = getMap(c);
         while (i < 11){
+            if (~((cursorX & 1) = 1)){
+                let mask = 255;
+                let scrMask = ~255;
+            }
+            else{
+                let mask = ~255;
+                let scrMask = 255;
+            }
             do Memory.poke(screen, ((map[i] & mask) | (Memory.peek(screen) &  scrMask)));
             let i = i + 1;
             let screen = screen + 32;

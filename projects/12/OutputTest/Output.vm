@@ -1544,6 +1544,16 @@ push constant 2
 call Math.divide 2
 add
 pop local 1
+push argument 0
+push pointer 0
+call Output.getMap 2
+pop local 4
+label whileStart0
+push local 0
+push constant 11
+lt
+not
+if-goto whileEnd0
 push static 2
 push constant 1
 and
@@ -1565,16 +1575,6 @@ pop local 2
 push constant 255
 pop local 3
 label ifEnd1
-push argument 0
-push pointer 0
-call Output.getMap 2
-pop local 4
-label whileStart0
-push local 0
-push constant 11
-lt
-not
-if-goto whileEnd0
 push local 1
 push local 4
 push local 0

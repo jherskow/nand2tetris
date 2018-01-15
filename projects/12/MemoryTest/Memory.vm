@@ -114,6 +114,10 @@ add
 pop pointer 1
 push temp 1
 pop that 0
+push local 0
+push constant 1
+add
+return
 goto ifEnd2
 label ifElse2
 push local 1
@@ -174,11 +178,11 @@ add
 pop pointer 1
 push temp 1
 pop that 0
-label ifEnd2
 push local 0
 push constant 1
 add
 return
+label ifEnd2
 goto ifEnd1
 label ifElse1
 push local 0
@@ -196,8 +200,6 @@ pop local 1
 label ifEnd1
 goto whileStart0
 label whileEnd0
-push constant 0
-return
 function Memory.deAlloc 1
 push static 0
 push constant 1

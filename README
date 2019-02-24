@@ -1,7 +1,0 @@
-This is josh's nand2tetris README
-
-AND IT WORKS!!!!
-
-
-
-git config alias.lazy '! git add . && git commit -a -m "Laptop Backup @ `date`" && git push origin master'
